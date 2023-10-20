@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@drawable/login_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.HHFoundation"
+        tools:targetApi="31">
+        <activity
+            android:name=".AddVital"
+            android:exported="false" />
+        <activity
+            android:name=".clinicalManagement.activity.TodayAppointment"
+            android:exported="false" />
+        <activity
+            android:name=".followUpPrescription.DailyVitalUpdate"
+            android:exported="false" />
+        <activity
+            android:name=".labReport.activity.UploadReport"
+            android:exported="false" />
+        <activity
+            android:name=".labReport.activity.LabInvestigations"
+            android:exported="false" />
+        <activity
+            android:name=".labReport.activity.ViewLabReport"
+            android:exported="false" />
+        <activity
+            android:name=".medicalHistory.activity.ViewMedicalHis"
+            android:exported="false" />
+        <activity
+            android:name=".profile.Profile"
+            android:exported="false" />
+        <activity
+            android:name=".followUpPrescription.ReferralsFollowUps"
+            android:exported="false" />
+        <activity
+            android:name=".followUpPrescription.Referrals"
+            android:exported="false" />
+        <activity
+            android:name=".followUpPrescription.FollowUpPrescription"
+            android:exported="false" />
+        <activity
+            android:name=".labReport.activity.LabReport"
+            android:exported="false" />
+        <activity
+            android:name=".clinicalManagement.activity.Prescription"
+            android:exported="false" />
+        <activity
+            android:name=".clinicalManagement.activity.PreviousAppointment"
+            android:exported="false" />
+        <activity
+            android:name=".clinicalManagement.activity.NewAppointment"
+            android:exported="false" />
+        <activity
+            android:name=".studenDetails.StudentDetailsTwo"
+            android:exported="false" />
+        <activity
+            android:name=".studenDetails.StudentDetailsOne"
+            android:exported="false" />
+        <activity
+            android:name=".studenDetails.StudentDetails"
+            android:exported="false" />
+        <activity
+            android:name=".medicalHistory.activity.MedicalHIstory"
+            android:exported="false" />
+        <activity
+            android:name=".medicalHistory.activity.AllMedicalHistory"
+            android:exported="false" />
+        <activity
+            android:name=".registration.activity.StudentBonoFileld"
+            android:exported="false" />
+        <activity
+            android:name=".registration.activity.Registration"
+            android:exported="false" />
+        <activity
+            android:name=".dasboard.Dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".login.Login"
+            android:exported="false" />
+        <activity
+            android:name=".splashScreen.SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#f7f7f7"
+        android:layout_marginBottom="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="15dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="School ID: "
+                    android:textSize="12sp"
+                    android:textColor="@color/main_color"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/schoolIdML"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="476"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                     <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="vertical"
+                        >
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="Student ID : "
+                                android:textSize="12sp"
+                                android:textColor="@color/main_color"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/studentIdML"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:text="89"
+                                android:textSize="12sp"
+                                android:textColor="@color/main_color"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/studentNameML"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Shaik Asif Khan"
+                                android:textColor="@color/black"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Gender : "
+                                    android:textSize="12sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold">
+
+                                </androidx.appcompat.widget.AppCompatTextView>
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/genderML"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Male"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold">
+
+                                </androidx.appcompat.widget.AppCompatTextView>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:orientation="horizontal">
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="DOB : "
+                                    android:textSize="12sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold">
+
+                                </androidx.appcompat.widget.AppCompatTextView>
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/dobML"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="01-06-2010"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold">
+
+                                </androidx.appcompat.widget.AppCompatTextView>
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:orientation="horizontal">
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Blood Grp : "
+                                    android:textSize="12sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold">
+
+                                </androidx.appcompat.widget.AppCompatTextView>
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/bloodGML"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="A+"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold">
+
+                                </androidx.appcompat.widget.AppCompatTextView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                             <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/btnCaseML"
+                                android:layout_width="wrap_content"
+                                android:layout_height="25dp"
+                                android:gravity="center"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_gravity="center"
+                                android:background="@drawable/corner"
+                                android:backgroundTint="@color/sky_color"
+                                android:drawableTint="@color/white"
+                                android:padding="5dp"
+                                android:textSize="12sp"
+                                android:text="View Case"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white">
+
+                            </androidx.appcompat.widget.AppCompatButton>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
+

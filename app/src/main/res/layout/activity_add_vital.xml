@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".followUpPrescription.AddVital">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:background="@color/main_color">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBack"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:background="?actionBarItemBackground"
+            android:padding="5dp"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:text="Add Vital"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgBack"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Blood Pressure"
+                        android:textSize="14sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtBloodPressure"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/corner_liner"
+                        android:hint="80 mmhh"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:padding="5dp"
+                        android:textSize="12sp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="P/R"
+                        android:textSize="14sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtPR"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/corner_liner"
+                        android:hint="55 BMP"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:padding="5dp"
+                        android:textSize="12sp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Temperature"
+                        android:textSize="14sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtTepm"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/corner_liner"
+                        android:hint="100 F"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:padding="5dp"
+                        android:textSize="12sp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Saturation (SPO2)"
+                        android:textSize="14sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtSaturation"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/corner_liner"
+                        android:hint="43 %"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:padding="5dp"
+                        android:textSize="12sp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Random Blood Sugar"
+                        android:textSize="14sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtRandomBloodS"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/corner_liner"
+                        android:hint="140 mg/dl"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:padding="5dp"
+                        android:textSize="12sp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Present complains"
+                        android:textSize="14sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtPresentCom"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/corner_liner"
+                        android:hint="Normal Condition"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:padding="5dp"
+                        android:textSize="12sp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sick Date"
+                        android:textSize="14sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvSickDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/corner_liner"
+                        android:drawableEnd="@drawable/baseline_calendar_today_24"
+                        android:hint="08/24/2023"
+                        android:padding="10dp"
+                        android:textSize="12sp">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Take to PHC/Hospital/Locally treated ?"
+                        android:textSize="12sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioNoPHC"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:text="No"
+                            android:textSize="10sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/radioYesPHC"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:text="Yes"
+                            android:textSize="10sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Prescription Image One">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_marginBottom="@dimen/_2sdp"
+                                android:background="@drawable/light_white_10sdp"
+                                android:elevation="1dp"
+                                android:padding="@dimen/_6sdp"
+                                android:text="Choose file"
+                                android:textAlignment="center"
+                                android:textColor="#9F757C7C"
+                                android:textSize="12dp"
+                                app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                                app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:gravity="center"
+                                android:text="No file chosen"
+                                android:textColor="#9F757C7C"
+                                android:textSize="15dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Prescription Image Two">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_marginBottom="@dimen/_2sdp"
+                                android:background="@drawable/light_white_10sdp"
+                                android:elevation="1dp"
+                                android:padding="@dimen/_6sdp"
+                                android:text="Choose file"
+                                android:textAlignment="center"
+                                android:textColor="#9F757C7C"
+                                android:textSize="12dp"
+                                app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                                app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:gravity="center"
+                                android:text="No file chosen"
+                                android:textColor="#9F757C7C"
+                                android:textSize="15dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Prescription Image Three">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_marginBottom="@dimen/_2sdp"
+                                android:background="@drawable/light_white_10sdp"
+                                android:elevation="1dp"
+                                android:padding="@dimen/_6sdp"
+                                android:text="Choose file"
+                                android:textAlignment="center"
+                                android:textColor="#9F757C7C"
+                                android:textSize="12dp"
+                                app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                                app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:gravity="center"
+                                android:text="No file chosen"
+                                android:textColor="#9F757C7C"
+                                android:textSize="15dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Prescription Image Four">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_marginBottom="@dimen/_2sdp"
+                                android:background="@drawable/light_white_10sdp"
+                                android:elevation="1dp"
+                                android:padding="@dimen/_6sdp"
+                                android:text="Choose file"
+                                android:textAlignment="center"
+                                android:textColor="#9F757C7C"
+                                android:textSize="12dp"
+                                app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                                app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:gravity="center"
+                                android:text="No file chosen"
+                                android:textColor="#9F757C7C"
+                                android:textSize="15dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Prescription Image Five">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="@dimen/_80sdp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_marginBottom="@dimen/_2sdp"
+                                android:background="@drawable/light_white_10sdp"
+                                android:elevation="1dp"
+                                android:padding="@dimen/_6sdp"
+                                android:text="Choose file"
+                                android:textAlignment="center"
+                                android:textColor="#9F757C7C"
+                                android:textSize="12dp"
+                                app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                                app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:gravity="center"
+                                android:text="No file chosen"
+                                android:textColor="#9F757C7C"
+                                android:textSize="15dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Remark"
+                        android:textSize="14sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtRemark"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/corner_liner"
+                        android:hint=""
+                        android:inputType="text"
+                        android:lines="1"
+                        android:padding="5dp"
+                        android:textSize="12sp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Medical History Fill Up or Not?"
+                        android:textSize="12sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <RadioGroup
+                        android:id="@+id/radioGroupPHC"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radioNoMH"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:text="No"
+                            android:textSize="10sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/radioYesMH"
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:text="Yes"
+                            android:textSize="10sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+                    </RadioGroup>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Submit"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:backgroundTint="@color/button_color">
+
+                </com.google.android.material.button.MaterialButton>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

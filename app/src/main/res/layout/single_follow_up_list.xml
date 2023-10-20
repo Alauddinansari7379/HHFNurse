@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#f7f7f7"
+        app:cardCornerRadius="10dp"
+        android:layout_margin="10dp"
+        android:layout_marginBottom="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ID No- "
+                                android:textSize="12sp"
+                                android:textColor="@color/button_color"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/idFL"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="150"
+                                android:textSize="12sp"
+                                android:textColor="@color/button_color"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:gravity="end"
+                            android:layout_marginEnd="10dp"
+                            android:orientation="horizontal">
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Date: "
+                                android:textSize="12sp"
+                                android:textColor="@color/gray_text_color"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/dateFL"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="01-10-2023"
+                                android:textSize="12sp"
+                                android:textColor="@color/gray_text_color"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="School Name : "
+                            android:textSize="12sp"
+                            android:textColor="@color/main_color"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/schoolNameFL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lorum Ipsum"
+                            android:textSize="12sp"
+                            android:textColor="@color/main_color"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Doctor Name : "
+                            android:textSize="12sp"
+                            android:textColor="@color/main_color"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/doctorNameFL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mohammad Abdul hai"
+                            android:textSize="12sp"
+                            android:textColor="@color/main_color"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Patient Name : "
+                            android:textSize="12sp"
+                            android:textColor="@color/main_color"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/patientNameFL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Syed Muskan"
+                            android:textSize="12sp"
+                            android:textColor="@color/main_color"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnRequestAppFL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:drawableStart="@drawable/baseline_remove_red_eye_24"
+                            android:layout_marginBottom="2dp"
+                            android:layout_gravity="center"
+                            android:paddingEnd="5dp"
+                            android:paddingStart="5dp"
+                            android:background="@drawable/corner"
+                            android:backgroundTint="@color/button_color"
+                            android:drawableTint="@color/white"
+                            android:textSize="11sp"
+                            android:text="View "
+                            android:textAllCaps="false"
+                            android:textColor="@color/white">
+
+                        </androidx.appcompat.widget.AppCompatButton>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnAavitalFL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="2dp"
+                            android:drawableStart="@drawable/baseline_add_24"
+                            android:layout_marginBottom="2dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/corner"
+                            android:backgroundTint="@color/button_color"
+                            android:drawableTint="@color/white"
+                            android:paddingEnd="5dp"
+                            android:paddingStart="5dp"                                        android:textSize="11sp"
+                            android:text="Add Vitals"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white">
+
+                        </androidx.appcompat.widget.AppCompatButton>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>
+

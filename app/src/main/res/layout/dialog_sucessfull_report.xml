@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="15dp"
+    android:background="@drawable/transplant"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="15dp"
+    app:circularflow_radiusInDP="40">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:backgroundTint="#F9FBFB"
+            android:elevation="5dp"
+            app:cardCornerRadius="15dp"
+
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     android:gravity="end"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="10dp"
+                         android:background="@drawable/baseline_close_24">
+
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/layoutDateFromDilog"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                     android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                         >
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/successfull"
+                            android:padding="5dp"
+                            android:layout_gravity="center"
+                            app:civ_border_color="@color/black"
+                            app:civ_border_width="2dp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/_90sdp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="20dp"
+                         android:gravity="center">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                             android:gravity="center"
+                             android:text="Lab Report File"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                             android:gravity="center"
+                             android:text=" Successfully Uploaded"
+                            android:textColor="@color/button_color"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+</LinearLayout>

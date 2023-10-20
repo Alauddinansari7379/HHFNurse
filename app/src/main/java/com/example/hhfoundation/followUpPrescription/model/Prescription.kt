@@ -1,0 +1,32 @@
+package com.example.hhfoundation.followUpPrescription.model
+
+data class Prescription(
+    val appointment_id: String,
+    val cdate: String,
+    val date: String,
+    val hospital_id: String,
+    val id: String,
+    val img_url1: String,
+    val img_url10: String,
+    val img_url11: String,
+    val img_url12: String,
+    val img_url13: String,
+    val img_url14: String,
+    val img_url15: String,
+    val img_url2: String,
+    val img_url3: String,
+    val img_url4: String,
+    val img_url5: String,
+    val img_url6: String,
+    val img_url7: String,
+    val img_url8: String,
+    val img_url9: String,
+    val p_date: String,
+    val p_depart: String,
+    val p_hissue: String,
+    val p_hosp: String,
+    val p_id: String,
+    val pnote: String,
+    val rnote: String,
+    val status: String
+)

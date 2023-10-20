@@ -1,0 +1,35 @@
+JvmtiExport can_access_local_variables 0
+JvmtiExport can_hotswap_or_post_breakpoint 0
+JvmtiExport can_post_on_exceptions 0
+# 375 ciObject found
+ciMethod java/lang/Object <init> ()V 4097 1 28161753 0 96
+ciMethod java/lang/String length ()I 4097 1 8915814 0 64
+ciMethod java/lang/String charAt (I)C 2473 1 18684873 0 128
+ciMethod java/lang/String equals (Ljava/lang/Object;)Z 10741409 1 1393529 0 384
+ciMethod java/lang/String startsWith (Ljava/lang/String;)Z 2049 1 650373 0 -1
+ciMethod java/lang/String toLowerCase ()Ljava/lang/String; 2049 1 27301 0 -1
+ciMethod java/lang/String coder ()B 2401 1 9650850 0 32
+ciMethod java/lang/String isLatin1 ()Z 2321 1 20411210 0 64
+ciMethod java/lang/String checkIndex (II)V 2177 1 8506 0 96
+ciMethod java/lang/System arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V 2049 1 256 0 -1
+ciMethod java/lang/StringBuffer setLength (I)V 27705 1 6663 0 -1
+ciMethod java/lang/StringBuffer append (Ljava/lang/String;)Ljava/lang/StringBuffer; 96241 1 36423 0 -1
+ciMethod java/lang/StringBuffer toString ()Ljava/lang/String; 81945 1 15368 0 -1
+ciMethod java/util/Objects checkIndex (II)I 2057 1 559411 0 -1
+ciMethod java/lang/StringLatin1 charAt ([BI)C 2473 1 16566222 0 96
+ciMethod java/lang/StringLatin1 equals ([B[B)Z 2121 4409 3807 0 -1
+ciMethod java/util/List size ()I 0 0 1 0 -1
+ciMethod java/util/List add (Ljava/lang/Object;)Z 0 0 1 0 -1
+ciMethod java/util/List get (I)Ljava/lang/Object; 0 0 1 0 -1
+ciMethod java/util/List set (ILjava/lang/Object;)Ljava/lang/Object; 0 0 1 0 -1
+ciMethod java/util/List add (ILjava/lang/Object;)V 0 0 1 0 -1
+ciMethodData java/lang/Object <init> ()V 2 28161753 orig 80 0 2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 data 4 0x0 0x9 0x1 0x0 oops 0 methods 0
+ciMethodData java/lang/String isLatin1 ()Z 2 20411210 orig 80 34 1 0 0 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 data 18 0x30007 0x0 0x58 0x1378881 0x80000006000a0007 0x1d4b08 0x38 0x11a40dd 0xe0003 0x11a5a89 0x18 0x0 0x0 0x0 0x0 0x9 0x1 0x0 oops 0 methods 0
+ciMethodData java/lang/String coder ()B 2 9650850 orig 80 44 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 data 14 0x30007 0x0 0x38 0x934d15 0xa0003 0x9351c3 0x18 0x0 0x0 0x0 0x0 0x9 0x1 0x0 oops 0 methods 0
+ciMethod java/util/ArrayList <init> (I)V 1473 1 8443 0 -1
+ciMethod java/util/ArrayList size ()I 1073 1 134 0 0
+ciMethod java/util/ArrayList elementData (I)Ljava/lang/Object; 2057 1 553448 0 96
+ciMethod java/util/ArrayList get (I)Ljava/lang/Object; 2057 1 495166 0 160
+ciMethod java/util/ArrayList add (Ljava/lang/Object;)Z 2049 1 1497574 0 -1
+ciMethod java/util/ArrayList clear ()V 4097 4137 18321 0 -1
+ciMethodData java/lang/String equals (Ljava/lang/Object;)Z 0 0 orig 80 10 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 data 68 0x20007 0xbffc 0x20 0x69d 0x400080104 0xffffffffffffffff 0x0 0x7f87b903bd00 0xbffc 0x80000000d 0x1 0xb0007 0x4 0x178 0xbffc 0xf0004 0x0 0x0 0x800001808 0xbffd 0x0 0x0 0x140005 0xc000 0x0 0x0 0x0 0x0 0x0 0x180005 0xbfff 0x0 0x0 0x0 0x0 0x0 0x80000006001b0007 0x2 0xb0 0xbffe 0x1f0005 0xbffe 0x0 0x0 0x0 0x0 0x0 0x220007 0x0 0x48 0xbfff 0x2d0002 0xbffc 0x300003 0xbffe 0x28 0x3b0002 0x0 0x7f87bb0ae058 0x7f87bdc080a0 0x7f87a9e66298 0x7f87bdeed510 0x7f87bbfe1af8 0x7f87bf312a00 0x7f87bf312a00 0x7f87bf427d38 0x0 0x0 oops 3 7 java/lang/String

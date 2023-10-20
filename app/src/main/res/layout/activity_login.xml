@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/main_color"
+    tools:context=".login.Login">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+         android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/login_logo"
+         >
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="#7bc6db"
+        android:background="@drawable/corner_login"
+        android:orientation="horizontal">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/main_color"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/user">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtUserName"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:drawablePadding="10dp"
+            android:hint="@string/username"
+             android:textSize="12sp"
+            android:background="@null"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:inputType="textEmailAddress"
+            android:textStyle="bold"
+            android:textColorHint="@color/gray_text_color"
+            android:drawableTint="@color/main_color">
+
+
+        </androidx.appcompat.widget.AppCompatEditText>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="#7bc6db"
+        android:background="@drawable/corner_login"
+        android:orientation="horizontal">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/password">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtPassword"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:drawablePadding="10dp"
+            android:hint="@string/password"
+             android:textSize="12sp"
+            android:background="@null"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:inputType="textPassword"
+            android:textStyle="bold"
+            android:textColorHint="@color/gray_text_color"
+            android:drawableTint="@color/main_color">
+
+
+        </androidx.appcompat.widget.AppCompatEditText>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogIn"
+        android:layout_width="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/corner_login"
+        app:backgroundTint="@color/white"
+        android:textSize="16sp"
+        android:textAllCaps="false"
+        android:textColor="@color/main_color"
+        android:backgroundTint="@color/white"
+        android:text="Login">
+
+    </com.google.android.material.button.MaterialButton>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+          android:layout_height="wrap_content">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+             android:gravity="end"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="Forgot Password?">
+
+        </com.google.android.material.textview.MaterialTextView>
+    </LinearLayout>
+</LinearLayout>
