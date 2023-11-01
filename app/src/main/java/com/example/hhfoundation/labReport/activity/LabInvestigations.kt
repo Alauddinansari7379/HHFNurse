@@ -57,7 +57,8 @@ class LabInvestigations : AppCompatActivity() {
         ApiClient.apiService.adviseLabDetails(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
-        )
+            sessionManager.group.toString(),
+            )
             .enqueue(object : Callback<ModelLabInv> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(

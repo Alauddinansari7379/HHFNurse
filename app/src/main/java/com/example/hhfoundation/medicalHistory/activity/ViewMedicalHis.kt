@@ -5,10 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.myToast
-import com.example.hhfoundation.R
-import com.example.hhfoundation.dasboard.model.ModelDashboard
 import com.example.hhfoundation.databinding.ActivityViewMedicalHisBinding
-import com.example.hhfoundation.medicalHistory.model.ModelViewMedical
+import com.example.hhfoundation.medicalHistory.model.Medicalhistory
+import com.example.hhfoundation.medicalHistory.model.ModelMedLIst
 import com.example.hhfoundation.retrofit.ApiClient
 import com.example.hhfoundation.sharedpreferences.SessionManager
 import retrofit2.Call
@@ -42,13 +41,15 @@ class ViewMedicalHis : AppCompatActivity() {
         ApiClient.apiService.viewMedicalInfo(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
+
             patientId
         ).enqueue(object :
-            Callback<ModelViewMedical> {
+            Callback<ModelMedLIst> {
             @SuppressLint("LogNotTimber")
             override fun onResponse(
-                call: Call<ModelViewMedical>,
-                response: Response<ModelViewMedical>
+                call: Call<ModelMedLIst>,
+                response: Response<ModelMedLIst>
             ) {
                 try {
                     if (response.code() == 500) {
@@ -57,43 +58,69 @@ class ViewMedicalHis : AppCompatActivity() {
                         myToast(this@ViewMedicalHis, "Something went wrong")
                     } else if (response.code() == 200) {
 
-                        binding.tvid.text = response.body()!!.id.toString()
-                        binding.tvname.text = response.body()!!.patient_name.toString()
-                        binding.patientAddress.text = response.body()!!.patient_address.toString()
-                        binding.tvPhone.text = response.body()!!.patient_phone.toString()
-                        binding.tvHospitalId.text = response.body()!!.hospital_id.toString()
-                        binding.date.text = response.body()!!.date.toString()
-                        binding.height1.text = response.body()!!.height1.toString()
-                        binding.weight.text = response.body()!!.weight1.toString()
-                        binding.allergie.text = response.body()!!.allergie.toString()
-                        binding.anemmla.text = response.body()!!.anemoio.toString()
-                        binding.bitotSpot.text = response.body()!!.bitooo.toString()
-                        binding.Rickets.text = response.body()!!.rickss.toString()
-                        binding.Malnutrition.text = response.body()!!.motrsds.toString()
-                        binding.Goitre.text = response.body()!!.goitrdd.toString()
-                        binding.Eczema.text = response.body()!!.episss.toString()
-                        binding.OtitisMedia.text = response.body()!!.ottyss.toString()
-                        binding.heartdisease.text = response.body()!!.heartss.toString()
-                        binding.Respiratory.text = response.body()!!.breathasa.toString()
-                        binding.DentalConditions.text = response.body()!!.dental.toString()
-                        binding.Episodes.text = response.body()!!.episss.toString()
+                        for (r in response.body()!!.medicalhistory) {
+                            binding.AdmissionNumber.text = r.admissionnumber
+                            binding.AadharNumber.text = r.aadharnumber
+                            binding.tvname.text = r.name
+                            binding.FatherName.text = r.f_name
+                            binding.BloodGroup.text = r.bloodgroup
+                            binding.BirthDate.text = r.birthdate
+                            binding.MotherName.text = r.m_name
+                            binding.PursuingClass.text = r.education
+                            binding.tvPhone.text = r.phone
+                            binding.School.text = r.schl
+                            binding.SchoolEmail.text = r.schl_email
+                            binding.SchoolDistrict.text = r.schl_dist
+                            binding.SchoolAddress.text = r.schl_addr
+                            binding.Gender.text = r.sex
+                            binding.allergie.text = r.allergie
+                            binding.anemmla.text = r.anemoio
+                            binding.bitotSpot.text = r.bitooo
+                            binding.Rickets.text = r.rickss
+                            binding.Malnutrition.text = r.motrsds
+                            binding.Goitre.text = r.goitrdd
+                            binding.skinss.text = r.skinss
+                            binding.ottyss.text = r.ottyss
+                            binding.heartdisease.text = r.heartss
+                            binding.Respiratory.text = r.breathasa
+                            binding.DentalConditions.text = r.dental
+                            binding.Episodes.text = r.episss
+                            binding.past.text = r.past
+                            binding.heartin.text = r.heartin
+                            binding.almedcine.text = r.almedcine
+                            binding.ongoing.text = r.ongoing
+                            binding.surgical.text = r.surgical
+                            binding.hypothyroidin.text = r.hypothyroidin
+                            binding.hyperthyroidin.text = r.hyperthyroidin
+                            binding.diabetescx.text = r.diabetescx
+                            binding.visions.text = r.visions
+                            binding.hearrss.text = r.hearrss
+                            binding.nerosdss.text = r.nerosdss
+                            binding.motrsds.text = r.motrsds
+                            binding.cogsa.text = r.cogsa
+                            binding.lagsa.text = r.lagsa
+                            binding.begaasds.text = r.begaasds
+                            binding.learnsds.text = r.learnsds
+                            binding.disorsd.text = r.disorsd
 
-                         AppProgressBar.hideLoaderDialog()
+                        }
+
+                        AppProgressBar.hideLoaderDialog()
                     } else {
-                          AppProgressBar.hideLoaderDialog()
+                        AppProgressBar.hideLoaderDialog()
 
 
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
                     myToast(this@ViewMedicalHis, "Something went wrong")
-                     AppProgressBar.hideLoaderDialog()
+                    AppProgressBar.hideLoaderDialog()
 
                 }
 
             }
 
-            override fun onFailure(call: Call<ModelViewMedical>, t: Throwable) {
+            override fun onFailure(call: Call<ModelMedLIst>, t: Throwable) {
                 myToast(this@ViewMedicalHis, "Something went wrong")
                 AppProgressBar.hideLoaderDialog()
 

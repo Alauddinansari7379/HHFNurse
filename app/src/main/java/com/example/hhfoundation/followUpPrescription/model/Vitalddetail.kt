@@ -1,6 +1,6 @@
 package com.example.hhfoundation.followUpPrescription.model
 
-data class Vitald(
+data class Vitalddetail(
     val ap_id: String,
     val appointment_id: String,
     val bp: String,
@@ -8,9 +8,9 @@ data class Vitald(
     val follow: String,
     val follow_reason: String,
     val freasonnote: String,
-    val hospital_id: String,
     val id: String,
     val medical_condition: String,
+    val patientname: String,
     val pid: String,
     val pr: String,
     val prd: String,
@@ -21,6 +21,5 @@ data class Vitald(
     val status: String,
     val sugar: String,
     val temp: String,
-    val treatment_res: String,
-    val user_id: String
+    val treatment_res: String
 )

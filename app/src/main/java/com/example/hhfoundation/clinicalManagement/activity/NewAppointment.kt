@@ -57,6 +57,11 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
     var studentName = ""
     var fatherName = ""
     var admissionNumber = ""
+    var gendar = ""
+    var age = ""
+    var email = ""
+    var phone = ""
+    var className = ""
     var medicalHistory = ""
     var calssName = ""
     private lateinit var sessionManager: SessionManager
@@ -291,8 +296,9 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
         ApiClient.apiService.addAppointment(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
             appointmentType,
-            studentName,
+            patientId,
             sickDate,
             binding.edtRandomBloodS.text.toString().trim(),
             "",
@@ -308,10 +314,10 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
             binding.edtRemark.text.toString().trim(),
             currentDate,
             studentName,
-            "",
-            "",
-            "",
-            "",
+            email,
+            phone,
+            age,
+            gendar,
             "",
             binding.edtPR.text.toString().trim(),
             binding.edtBloodPressure.text.toString().trim(),
@@ -340,8 +346,8 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
                     } else if (response.body()!!.message == "successful") {
                         myToast(this@NewAppointment, "${response.body()!!.message}")
                         AppProgressBar.hideLoaderDialog()
-                        refresh()
-                    } else {
+                        startActivity(Intent(this@NewAppointment,TodayAppointment::class.java))
+                     } else {
                         myToast(this@NewAppointment, "${response.body()!!.message}")
                         AppProgressBar.hideLoaderDialog()
                     }
@@ -423,8 +429,10 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
 
         ApiClient.apiService.patientList(
             sessionManager.ionId.toString(),
-            sessionManager.idToken.toString()
-        )
+            sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
+
+            )
             .enqueue(object : Callback<ModelPatientList> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
@@ -461,15 +469,24 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
                                         i: Int,
                                         l: Long
                                     ) {
-                                        studentName = patientList!![i].name
-                                        patientId = patientList!![i].patient_id
-                                        fatherName = patientList!![i].f_name
-                                        binding.edtFatherName.setText(fatherName)
-                                        admissionNumber = patientList!![i].admissionnumber
-                                        binding.edtAdminssionNumber.setText(admissionNumber)
+                                        try {
+                                            studentName = patientList!![i].name
+                                            patientId = patientList!![i].id
+                                            fatherName = patientList!![i].f_name
+                                            binding.edtFatherName.setText(fatherName)
+                                            admissionNumber = patientList!![i].admissionnumber
+                                            binding.edtAdminssionNumber.setText(admissionNumber)
+                                            className = patientList!![i].education
+                                            gendar = patientList!![i].sex
+                                            age = patientList!![i].age
+                                            phone = patientList!![i].phone
+                                            email = patientList!![i].email
+                                            binding.edtClass.setText(className)
 
-
-                                        Log.e("PAtientID",patientId)
+                                            Log.e("PAtientID", patientId)
+                                        }catch (e:Exception){
+                                            e.printStackTrace()
+                                        }
 
                                         // calssName = patientList!![i].c
                                         // Toast.makeText(this@RegirstrationTest, "" + id, Toast.LENGTH_SHORT).show()

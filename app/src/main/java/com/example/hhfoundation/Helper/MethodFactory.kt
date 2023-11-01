@@ -39,6 +39,8 @@ fun myToast(activity: Activity, message: String) {
     myToast.view = layout //setting the view of custom toast layout
     myToast.show()
 }
+
+
 fun progrossDilog(context: Context){
 
     var progressDialog: ProgressDialog? =null

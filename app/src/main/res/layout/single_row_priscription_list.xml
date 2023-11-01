@@ -205,7 +205,28 @@
                             android:drawableTint="@color/white"
                             android:paddingEnd="5dp"
                             android:paddingStart="5dp"                                            android:textSize="12sp"
-                            android:text="View Priscription"
+                            android:text="View Prescription"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white">
+
+                        </androidx.appcompat.widget.AppCompatButton>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btnEditPre"
+                            android:layout_width="wrap_content"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginTop="2dp"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:drawableStart="@drawable/baseline_edit_24"
+                            android:layout_marginBottom="2dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/corner"
+                            android:backgroundTint="@color/button_color"
+                            android:drawableTint="@color/white"
+                            android:paddingEnd="5dp"
+                            android:paddingStart="5dp"                                            android:textSize="12sp"
+                            android:text="Edit Prescription"
                             android:textAllCaps="false"
                             android:textColor="@color/white">
 

@@ -66,9 +66,9 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
         reportName = intent.getStringExtra("rname").toString()
         prescriptionId = intent.getStringExtra("prescription_id").toString()
 
-        Log.e("repoaname",reportName)
-        Log.e("id",id)
-        Log.e("patientid",patientid)
+        Log.e("repoaname", reportName)
+        Log.e("id", id)
+        Log.e("patientid", patientid)
         binding.reportName.text = reportName
 
 
@@ -82,7 +82,7 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
 
             btnUpload.setOnClickListener {
                 if (edtDesc.text.toString().isEmpty()) {
-                    edtDesc.error="Enter Description"
+                    edtDesc.error = "Enter Description"
                     edtDesc.requestFocus()
                     return@setOnClickListener
                 }
@@ -182,6 +182,7 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
         ApiClient.apiService.addLabReport(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
             id,
             prescriptionId,
             patientid,
@@ -202,10 +203,32 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
                         myToast(this@UploadReport, "Something went wrong")
                         AppProgressBar.hideLoaderDialog()
 
-                    }  else {
-                        myToast(this@UploadReport, "${response.body()!!.message}")
-                        refresh()
+                    } else {
+                        //myToast(this@UploadReport, "${response.body()!!.message}")
+                        val view = layoutInflater.inflate(R.layout.dialog_sucessfull_report, null)
+                        dialog = Dialog(this@UploadReport)
+                        val btnOkDil = view!!.findViewById<Button>(R.id.btnOkDil)
+                         val imgClose = view!!.findViewById<ImageView>(R.id.imgCloseDilS)
 
+                        dialog = Dialog(this@UploadReport)
+
+
+                        if (view.parent != null) {
+                            (view.parent as ViewGroup).removeView(view) // <- fix
+                        }
+                        dialog!!.setContentView(view)
+                        dialog?.setCancelable(true)
+
+                        dialog?.show()
+
+                        imgClose.setOnClickListener {
+                            dialog?.dismiss()
+                            onBackPressed()
+                        }
+                        btnOkDil.setOnClickListener {
+                            dialog?.dismiss()
+                            onBackPressed()
+                        }
                         AppProgressBar.hideLoaderDialog()
                     }
 
@@ -262,6 +285,7 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
         ApiClient.apiService.addLabReport(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
             id,
             prescriptionId,
             patientid,
@@ -282,7 +306,7 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
 
                         } else {
                             myToast(this@UploadReport, response.body()!!.message)
-                            refresh()
+                            onBackPressed()
 //                    binding.layoutRoot.snackbar(it.message)
 //                    binding.progressBar.progress = 100
                             AppProgressBar.hideLoaderDialog()
@@ -355,7 +379,6 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
     companion object {
         const val REQUEST_CODE_IMAGE = 101
     }
-
 
 
     private fun ContentResolver.getFileName(selectedImageUri: Uri): String {

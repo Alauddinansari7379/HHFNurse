@@ -431,6 +431,7 @@ class Registration : AppCompatActivity(), UploadRequestBody.UploadCallback {
         ApiClient.apiService.registerPatient(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
             binding.edtStudentName.text.toString().trim(),
             "",
             "",
@@ -441,19 +442,19 @@ class Registration : AppCompatActivity(), UploadRequestBody.UploadCallback {
             binding.edtEmail.text.toString().trim(),
             binding.edtCollageAddress.text.toString().trim(),
             binding.edtMobileNumber.text.toString().trim(),
-            "",
+            distric,
             "",
             dOB,
             blood,
             section,
             "",
+            binding.edtFatherName.text.toString().trim(),
             "",
-            "",
-            "",
+            binding.edtMotherName.text.toString().trim(),
             binding.edtAdmissionNumber.text.toString().trim(),
             binding.edtAadhaarNumber.text.toString().trim(),
             distric,
-            "",
+            pursuing,
             MultipartBody.Part.createFormData("img_url", file.name, body)
         ).enqueue(object : Callback<ModelRegister> {
             @SuppressLint("LogNotTimber")

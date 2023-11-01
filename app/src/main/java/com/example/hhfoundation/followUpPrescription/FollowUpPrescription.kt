@@ -10,7 +10,7 @@ import com.example.hhfoundation.R
 import com.example.hhfoundation.databinding.ActivityFollowUpPrescriptionBinding
 import com.example.hhfoundation.followUpPrescription.adapter.AdapterFollowUp
 import com.example.hhfoundation.followUpPrescription.model.ModelFollowUp
-import com.example.hhfoundation.followUpPrescription.model.Prescriptiondetail
+import com.example.hhfoundation.labReport.model.Prescriptiondetail
 import com.example.hhfoundation.retrofit.ApiClient
 
 import com.example.hhfoundation.sharedpreferences.SessionManager
@@ -18,7 +18,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FollowUpPrescription : AppCompatActivity(),AdapterFollowUp.AddVital {
+class FollowUpPrescription : AppCompatActivity() {
     private lateinit var binding: ActivityFollowUpPrescriptionBinding
     private lateinit var mainData: ArrayList<Prescriptiondetail>
     lateinit var sessionManager: SessionManager
@@ -52,7 +52,8 @@ class FollowUpPrescription : AppCompatActivity(),AdapterFollowUp.AddVital {
         ApiClient.apiService.followUpList(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
-        )
+            sessionManager.group.toString(),
+            )
             .enqueue(object : Callback<ModelFollowUp> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
@@ -96,13 +97,11 @@ class FollowUpPrescription : AppCompatActivity(),AdapterFollowUp.AddVital {
 
     private fun setRecyclerViewAdapter(data: ArrayList<Prescriptiondetail>) {
         binding.recyclerView.apply {
-            adapter = AdapterFollowUp(this@FollowUpPrescription, data,this@FollowUpPrescription)
+            adapter = AdapterFollowUp(this@FollowUpPrescription, data)
             AppProgressBar.hideLoaderDialog()
 
         }
     }
 
-    override fun addVital() {
-        TODO("Not yet implemented")
-    }
+
 }

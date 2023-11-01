@@ -21,13 +21,14 @@ import retrofit2.Response
 class StudentDetailsTwo : AppCompatActivity() {
     private lateinit var binding: ActivityStudentDetailsTwoBinding
     lateinit var sessionManager: SessionManager
+
     @SuppressLint("LongLogTag")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStudentDetailsTwoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sessionManager = SessionManager(this@StudentDetailsTwo)
-        Log.e("AdapterPatientList.studentId",AdapterPatientList.studentId)
+        Log.e("AdapterPatientList.studentId", AdapterPatientList.studentId)
         binding.btnOk.setOnClickListener {
             StudentDetailsOne.VisionImpairment = binding.VisionImpairment.text.toString().trim()
             StudentDetailsOne.HearingImpairment = binding.HearingImpairment.text.toString().trim()
@@ -59,6 +60,7 @@ class StudentDetailsTwo : AppCompatActivity() {
         ApiClient.apiService.addPatientMedical(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
             AdapterPatientList.studentId,
             currentDate,
             "",

@@ -3,18 +3,24 @@ package com.example.hhfoundation.clinicalManagement.adapter
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hhfoundation.R
+import com.example.hhfoundation.addPrescription.AddPrescription
 import com.example.hhfoundation.labReport.activity.ViewLabReport
 import com.example.hhfoundation.labReport.model.Prescriptiondetail
+import com.example.hhfoundation.sharedpreferences.SessionManager
+
 
 class AdapterPrescription(val context: Context, val list: List<Prescriptiondetail>) :
     RecyclerView.Adapter<AdapterPrescription.MyViewHolder>() {
+    lateinit var sessionManager: SessionManager
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -26,6 +32,7 @@ class AdapterPrescription(val context: Context, val list: List<Prescriptiondetai
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        sessionManager = SessionManager(context)
 
         //  holder.SrNo.text= "${position+1}"
         //  holder.refrencecode.text= list[position].referenceCode
@@ -40,12 +47,37 @@ class AdapterPrescription(val context: Context, val list: List<Prescriptiondetai
 //            .placeholder(R.drawable.placeholder_n)
 //            .error(R.drawable.error_placeholder)
 //            .into(holder.imageViewPL)
+        if (sessionManager.group == "Doctor") {
+            holder.btnEditPre.visibility = View.VISIBLE
+        }
+
+        holder.btnEditPre.setOnClickListener {
+//            val intent = Intent(context as Activity, AddPrescription::class.java)
+//                .putExtra("date", list[position].date)
+//                .putExtra("patientname", list[position].patientname)
+//                .putExtra("doctorname", list[position].doctorname)
+//                .putExtra("patient", list[position].patient)
+//                .putExtra("id", list[position].id)
+//                .putExtra("birthdate", list[position].birthdate)
+//                .putExtra("doctor", list[position].doctor)
+//                .putExtra("bloodgroup", list[position].bloodgroup)
+//                .putExtra("sex", list[position].sex)
+//                .putExtra("schl", list[position].schl)
+//                .putExtra("schl_addr", list[position].schl_addr)
+//                .putExtra("hospital_id", list[position].hospital_id)
+//                .putExtra("appotype", list[position].appotype)
+//            context.startActivity(intent)
+        }
 
         holder.btnViewPre.setOnClickListener {
-            val intent = Intent(context as Activity, ViewLabReport::class.java)
-                .putExtra("pid", list[position].pid)
-                .putExtra("prescription", "1")
-            context.startActivity(intent)
+//            val intent = Intent(context as Activity, ViewLabReport::class.java)
+//                .putExtra("pid", list[position].pid)
+//                .putExtra("prescription", "1")
+//            context.startActivity(intent)
+
+            val httpIntent = Intent(Intent.ACTION_VIEW)
+            httpIntent.data = Uri.parse("https://schoolhms.thedemostore.in/auth/prespdf?id=${list[position].pid}")
+            context.startActivity(httpIntent)
         }
 
     }
@@ -64,6 +96,8 @@ class AdapterPrescription(val context: Context, val list: List<Prescriptiondetai
         val patientIdPre: TextView = itemView.findViewById(R.id.patirntIdPre)
         val doctorPre: TextView = itemView.findViewById(R.id.doctorPre)
         val btnViewPre: Button = itemView.findViewById(R.id.btnViewPre)
+        val btnEditPre: Button = itemView.findViewById(R.id.btnEditPre)
 
     }
+
 }

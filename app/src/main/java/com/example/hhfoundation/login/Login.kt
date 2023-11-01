@@ -58,8 +58,7 @@ class Login : AppCompatActivity() {
         ApiClient.apiService.login(
             binding.edtUserName.text.toString().trim(),
             binding.edtPassword.text.toString().trim(),
-            "Nurse"
-        ).enqueue(object :
+         ).enqueue(object :
             Callback<ModelLogin> {
             @SuppressLint("LogNotTimber")
             override fun onResponse(
@@ -74,6 +73,7 @@ class Login : AppCompatActivity() {
                     } else if (response.body()!!.message == "successful") {
                         sessionManager.isLogin = true
                         sessionManager.userId = response.body()!!.user_id
+                        sessionManager.group = response.body()!!.group
                         sessionManager.hospitalId = response.body()!!.hospital_id
                         sessionManager.ionId = response.body()!!.ion_id
                         sessionManager.idToken = response.body()!!.idToken

@@ -3,17 +3,12 @@ package com.example.hhfoundation.followUpPrescription
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.core.widget.addTextChangedListener
 import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.myToast
-import com.example.hhfoundation.R
 import com.example.hhfoundation.databinding.ActivityReferralsFollowUpsBinding
-import com.example.hhfoundation.followUpPrescription.adapter.AdapterReferrals
 import com.example.hhfoundation.followUpPrescription.adapter.AdapterReferralsFollow
 import com.example.hhfoundation.followUpPrescription.model.ModelReferralsFollow
-import com.example.hhfoundation.followUpPrescription.model.ModelRefrreals
 import com.example.hhfoundation.followUpPrescription.model.PrescriptionX
-import com.example.hhfoundation.followUpPrescription.model.Prescriptiondetail
 import com.example.hhfoundation.retrofit.ApiClient
 import com.example.hhfoundation.sharedpreferences.SessionManager
 import retrofit2.Call
@@ -54,7 +49,8 @@ class ReferralsFollowUps : AppCompatActivity() {
         ApiClient.apiService.getReferralsFollow(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
-        ).enqueue(object : Callback<ModelReferralsFollow> {
+            sessionManager.group.toString(),
+            ).enqueue(object : Callback<ModelReferralsFollow> {
             @SuppressLint("LogNotTimber")
             override fun onResponse(
                 call: Call<ModelReferralsFollow>,

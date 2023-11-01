@@ -55,6 +55,126 @@
             </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/Doctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center_vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/DoctorIconPS"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:tint="@color/white"
+                    android:src="@drawable/multiple_users" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/DoctorIconPS"
+                    android:layout_marginStart="5dp"
+                     android:text="Doctor"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/DoctorArrowPS"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:tint="@color/gray"
+                    android:src="@drawable/baseline_add_24" />
+
+            </RelativeLayout>
+            <LinearLayout
+                android:id="@+id/LabDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/layoutListOfDoctor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="25dp"
+                            android:backgroundTint="@color/gray"
+                            android:background="@drawable/baseline_person_24">
+
+                        </androidx.appcompat.widget.AppCompatImageView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="5dp"
+                            android:text="List Of Doctor"
+                            android:textColor="@color/gray"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layoutTreatment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="25dp"
+                            android:backgroundTint="@color/gray"
+                            android:background="@drawable/add">
+
+                        </androidx.appcompat.widget.AppCompatImageView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="5dp"
+                            android:text="Treatment History"
+                            android:textColor="@color/gray"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+             <RelativeLayout
                 android:id="@+id/PreventiveScreening"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -101,6 +221,7 @@
                 android:visibility="gone">
 
                 <LinearLayout
+                    android:id="@+id/layoutStudent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -109,7 +230,6 @@
                          android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                          android:layout_marginStart="20dp"
-
                         android:orientation="horizontal"
                         >
                         <androidx.appcompat.widget.AppCompatImageView
@@ -135,91 +255,100 @@
 
                         </androidx.appcompat.widget.AppCompatTextView>
                         <androidx.appcompat.widget.AppCompatImageView
-                             android:layout_width="@dimen/_15sdp"
+                            android:id="@+id/reportArrowStudent"
+                            android:layout_width="@dimen/_15sdp"
                             android:layout_height="@dimen/_15sdp"
                             android:layout_alignParentEnd="true"
                             android:layout_marginEnd="@dimen/_25sdp"
                             android:tint="@color/gray"
                             android:layout_marginTop="5dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/baseline_remove_24" />
+                            android:src="@drawable/baseline_add_24" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/bonafideLayout"
+                    android:id="@+id/StudentLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                     android:orientation="horizontal">
+                    android:visibility="gone"
+                    android:orientation="vertical">
                     <LinearLayout
-                         android:layout_width="match_parent"
+                        android:id="@+id/bonafideLayout"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         android:layout_marginStart="20dp"
-                        >
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="25dp"
-                            android:backgroundTint="@color/gray"
-                            android:background="@drawable/user">
-
-                        </androidx.appcompat.widget.AppCompatImageView>
-
-                        <androidx.appcompat.widget.AppCompatTextView
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:background="?android:attr/selectableItemBackground"
-                             android:padding="5dp"
-                            android:text="Bonafide"
-                            android:textColor="@color/gray"
-                            android:textSize="12sp"
-                            android:textStyle="bold">
+                            android:layout_marginStart="20dp"
+                            >
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="25dp"
+                                android:backgroundTint="@color/gray"
+                                android:background="@drawable/user">
 
-                        </androidx.appcompat.widget.AppCompatTextView>
+                            </androidx.appcompat.widget.AppCompatImageView>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="7dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:padding="5dp"
+                                android:text="Bonafide"
+                                android:textColor="@color/gray"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+                        </LinearLayout>
+
                     </LinearLayout>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:id="@+id/medicalHLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                     android:orientation="horizontal">
                     <LinearLayout
-                         android:layout_width="match_parent"
+                        android:id="@+id/medicalHLayout"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         android:layout_marginStart="20dp"
-                        >
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="25dp"
-                            android:backgroundTint="@color/gray"
-                            android:background="@drawable/user">
-
-                        </androidx.appcompat.widget.AppCompatImageView>
-
-                        <androidx.appcompat.widget.AppCompatTextView
+                        android:gravity="center"
+                        android:orientation="horizontal">
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:background="?android:attr/selectableItemBackground"
-                             android:padding="5dp"
-                            android:text="Medical History"
-                            android:textColor="@color/gray"
-                            android:textSize="12sp"
-                            android:textStyle="bold">
+                            android:layout_marginStart="20dp"
+                            >
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="25dp"
+                                android:backgroundTint="@color/gray"
+                                android:background="@drawable/user">
 
-                        </androidx.appcompat.widget.AppCompatTextView>
+                            </androidx.appcompat.widget.AppCompatImageView>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="7dp"
+                                android:background="?android:attr/selectableItemBackground"
+                                android:padding="5dp"
+                                android:text="Medical History"
+                                android:textColor="@color/gray"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+                        </LinearLayout>
+
                     </LinearLayout>
-
                 </LinearLayout>
+
 
              </LinearLayout>
 
@@ -296,7 +425,43 @@
                             android:layout_height="wrap_content"
                              android:background="?android:attr/selectableItemBackground"
                              android:padding="5dp"
-                            android:text="New Appointment"
+                            android:text="Clinical Evaluation Request"
+                            android:textColor="@color/gray"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/consultationRequestlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                     android:orientation="horizontal">
+                    <LinearLayout
+                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                         android:layout_marginStart="20dp"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="25dp"
+                            android:backgroundTint="@color/gray"
+                            android:background="@drawable/list">
+
+                        </androidx.appcompat.widget.AppCompatImageView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                             android:background="?android:attr/selectableItemBackground"
+                             android:padding="5dp"
+                            android:text="Consultation Request"
                             android:textColor="@color/gray"
                             android:textSize="12sp"
                             android:textStyle="bold">
@@ -438,7 +603,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toEndOf="@id/reportIconRAFU"
                     android:layout_marginStart="5dp"
-                     android:text="Referrals &amp; Follow-Ups"
+                     android:text="IPCMS"
                     android:textColor="@color/white"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -730,6 +895,163 @@
                 </LinearLayout>
 
              </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/LabTest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:gravity="center_vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/reportIconLabT"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="20dp"
+                    android:tint="@color/white"
+                    android:src="@drawable/lab_test" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/reportIconLabT"
+                    android:layout_marginStart="5dp"
+                    android:text="Lab Test"
+                    android:textColor="@color/white"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/reportArrowLabT"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:tint="@color/gray"
+                    android:src="@drawable/baseline_add_24" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/LabTestsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_marginTop="5dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/layoutLabReport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="25dp"
+                            android:backgroundTint="@color/gray"
+                            android:background="@drawable/lab_report">
+
+                        </androidx.appcompat.widget.AppCompatImageView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="5dp"
+                            android:text="Lab Report"
+                            android:textColor="@color/gray"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/layoutAddLabReport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="25dp"
+                            android:backgroundTint="@color/gray"
+                            android:background="@drawable/add">
+
+                        </androidx.appcompat.widget.AppCompatImageView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="5dp"
+                            android:text="Add Lab Report"
+                            android:textColor="@color/gray"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/Templeted"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        >
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="25dp"
+                            android:backgroundTint="@color/gray"
+                            android:background="@drawable/add">
+
+                        </androidx.appcompat.widget.AppCompatImageView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:padding="5dp"
+                            android:text="Template"
+                            android:textColor="@color/gray"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
             <LinearLayout
                 android:id="@+id/tvLoginProifle"
                 android:layout_width="match_parent"

@@ -15,7 +15,10 @@
         android:theme="@style/Theme.HHFoundation"
         tools:targetApi="31">
         <activity
-            android:name=".AddVital"
+            android:name=".addPrescription.AddPrescription"
+            android:exported="false" />
+        <activity
+            android:name=".followUpPrescription.AddVital"
             android:exported="false" />
         <activity
             android:name=".clinicalManagement.activity.TodayAppointment"

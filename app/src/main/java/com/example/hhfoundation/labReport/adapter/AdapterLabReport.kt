@@ -30,7 +30,7 @@ class AdapterLabReport(val context: Context, val list: List<Labreport>) :
         //  holder.SrNo.text= "${position+1}"
         //  holder.refrencecode.text= list[position].referenceCode
         holder.prescriptionIdLAB.text = list[position].prescription_id
-        holder.dateLAB.text = list[position].requested_date
+        holder.dateLAB.text = list[position].created_at.subSequence(0,10)
         holder.patientNameLAB.text = list[position].name
         holder.patientIdLAB.text = list[position].patient_id
         holder.descriptionLAB.text = list[position].description
@@ -45,6 +45,7 @@ class AdapterLabReport(val context: Context, val list: List<Labreport>) :
         holder.btnViewPre.setOnClickListener {
             val intent = Intent(context as Activity, ViewLabReport::class.java)
                 .putExtra("image", list[position].img_url)
+                .putExtra("prescription_id", list[position].prescription_id)
             context.startActivity(intent)
         }
 

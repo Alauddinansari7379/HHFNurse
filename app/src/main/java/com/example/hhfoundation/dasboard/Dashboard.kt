@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -38,13 +39,37 @@ class Dashboard : AppCompatActivity() {
     private lateinit var binding: ActivityDashboardBinding
     lateinit var sessionManager: SessionManager
     private lateinit var drawerLayout: DrawerLayout
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sessionManager = SessionManager(this@Dashboard)
 
-        apiCallDashboardCount()
+
+
+
+        Log.e("Group",sessionManager.group.toString())
+
+
+        if (sessionManager.group=="Nurse"){
+            binding.includedrawar1.Doctor.visibility=View.GONE
+            apiCallDashboardCount()
+        }
+        if (sessionManager.group=="Doctor"){
+            binding.includedrawar1.newAppointmentlayout.visibility=View.GONE
+            binding.includedrawar1.consultationRequestlayout.visibility=View.GONE
+             binding.includedrawar1.Doctor.visibility=View.GONE
+            binding.includedrawar1.PreventiveScreening.visibility=View.GONE
+            binding.includedrawar1.RefferalsAFU.visibility=View.GONE
+
+         }
+
+        if (sessionManager.group=="Receptionist"){
+             //binding.includedrawar1.newAppointmentlayout.visibility=View.GONE
+
+         }
+
         binding.drawerClick.setOnClickListener {
             binding.drawerlayout1.openDrawer(GravityCompat.START)
             binding.includedrawar1.tvDashboard.setOnClickListener {
@@ -144,6 +169,28 @@ class Dashboard : AppCompatActivity() {
                     binding.includedrawar1.reportArrowPS.setImageResource(R.drawable.baseline_remove_24)
                 }
             }
+
+            binding.includedrawar1.layoutStudent.setOnClickListener {
+                if (binding.includedrawar1.StudentLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.StudentLayout.visibility = View.GONE
+                      binding.includedrawar1.reportArrowStudent.setImageResource(R.drawable.baseline_add_24)
+                } else {
+                    binding.includedrawar1.StudentLayout.visibility = View.VISIBLE
+                     binding.includedrawar1.StudentLayout.setBackgroundColor(resources.getColor(R.color.main_color))
+                    binding.includedrawar1.reportArrowStudent.setImageResource(R.drawable.baseline_remove_24)
+                }
+            }
+
+            binding.includedrawar1.Doctor.setOnClickListener {
+                if (binding.includedrawar1.LabDoctor.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabDoctor.visibility = View.GONE
+                      binding.includedrawar1.DoctorArrowPS.setImageResource(R.drawable.baseline_add_24)
+                } else {
+                    binding.includedrawar1.LabDoctor.visibility = View.VISIBLE
+                     binding.includedrawar1.LabDoctor.setBackgroundColor(resources.getColor(R.color.main_color))
+                    binding.includedrawar1.DoctorArrowPS.setImageResource(R.drawable.baseline_remove_24)
+                }
+            }
             binding.includedrawar1.ClinicalManagement.setOnClickListener {
                 if (binding.includedrawar1.ClinicalMLayout.visibility == View.VISIBLE) {
                     binding.includedrawar1.ClinicalMLayout.visibility = View.GONE
@@ -180,6 +227,16 @@ class Dashboard : AppCompatActivity() {
                     binding.includedrawar1.reportArrowLabR.setImageResource(R.drawable.baseline_remove_24)
                 }
             }
+            binding.includedrawar1.LabTest.setOnClickListener {
+                if (binding.includedrawar1.LabTestsLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabTestsLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowLabT.setImageResource(R.drawable.baseline_add_24)
+                } else {
+                    binding.includedrawar1.LabTestsLayout.visibility = View.VISIBLE
+                    binding.includedrawar1.LabTestsLayout.setBackgroundColor(resources.getColor(R.color.main_color))
+                    binding.includedrawar1.reportArrowLabT.setImageResource(R.drawable.baseline_remove_24)
+                }
+            }
             if (binding.includedrawar1.PreventiveSLayout.visibility == View.VISIBLE) {
                 binding.includedrawar1.PreventiveSLayout.visibility = View.GONE
                 binding.includedrawar1.reportArrowPS.setImageResource(R.drawable.baseline_add_24)
@@ -199,6 +256,22 @@ class Dashboard : AppCompatActivity() {
                 binding.includedrawar1.reportArrowLabR.setImageResource(R.drawable.baseline_add_24)
             }
 
+            if (binding.includedrawar1.LabDoctor.visibility == View.VISIBLE) {
+                binding.includedrawar1.LabDoctor.visibility = View.GONE
+                binding.includedrawar1.DoctorArrowPS.setImageResource(R.drawable.baseline_add_24)
+            }
+
+            if (binding.includedrawar1.StudentLayout.visibility == View.VISIBLE) {
+                binding.includedrawar1.StudentLayout.visibility = View.GONE
+                binding.includedrawar1.reportArrowStudent.setImageResource(R.drawable.baseline_add_24)
+            }
+
+            if (binding.includedrawar1.LabTest.visibility == View.VISIBLE) {
+                binding.includedrawar1.LabTest.visibility = View.GONE
+                binding.includedrawar1.reportArrowLabT.setImageResource(R.drawable.baseline_add_24)
+            }
+
+
         }
         drawerLayout = binding.drawerlayout1
 
@@ -207,7 +280,9 @@ class Dashboard : AppCompatActivity() {
     private fun logOut() {
 
         AppProgressBar.showLoaderDialog(this@Dashboard)
-        ApiClient.apiService.logOut(sessionManager.ionId.toString()).enqueue(object :
+        ApiClient.apiService.logOut(sessionManager.ionId.toString(),
+                sessionManager.group.toString(),
+        ).enqueue(object :
             Callback<ModelLogin> {
             @SuppressLint("LogNotTimber")
             override fun onResponse(
@@ -259,7 +334,8 @@ class Dashboard : AppCompatActivity() {
         ApiClient.apiService.getDashboard(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
-        ).enqueue(object :
+            sessionManager.group.toString(),
+            ).enqueue(object :
             Callback<ModelDashboard> {
             @SuppressLint("LogNotTimber")
             override fun onResponse(

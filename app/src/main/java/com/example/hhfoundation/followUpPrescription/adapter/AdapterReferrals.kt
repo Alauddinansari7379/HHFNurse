@@ -1,6 +1,8 @@
 package com.example.hhfoundation.followUpPrescription.adapter
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,9 +10,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hhfoundation.R
-import com.example.hhfoundation.followUpPrescription.model.Prescriptiondetail
+import com.example.hhfoundation.labReport.model.Prescriptiondetail
 
-class AdapterReferrals(val context: Context, val list: List<Prescriptiondetail>) :
+class AdapterReferrals(val context: Context, val list: List<Prescriptiondetail>, val info:Information) :
     RecyclerView.Adapter<AdapterReferrals.MyViewHolder>() {
 
 
@@ -26,7 +28,7 @@ class AdapterReferrals(val context: Context, val list: List<Prescriptiondetail>)
         //  holder.SrNo.text= "${position+1}"
         //  holder.refrencecode.text= list[position].referenceCode
         holder.idRef.text = list[position].patientid
-        holder.dateRef.text = list[position].date
+        holder.dateRef.text = list[position].follow_date
         holder.patientNameRef.text = list[position].patientname
         holder.hospitalNameRef.text = list[position].refer_hospital
         holder.doctorNameRef.text = list[position].doctrname
@@ -39,6 +41,11 @@ class AdapterReferrals(val context: Context, val list: List<Prescriptiondetail>)
 //            .into(holder.imageViewPL)
 
         holder.btnInfoRef.setOnClickListener {
+            //info.info(list[position].pid)
+
+            val httpIntent = Intent(Intent.ACTION_VIEW)
+            httpIntent.data = Uri.parse("https://schoolhms.thedemostore.in/auth/prespdf?id=${list[position].pid}")
+            context.startActivity(httpIntent)
 //            val intent = Intent(context as Activity, StudentDetailsOne::class.java)
 //            studentId=list[position].id
 //             context.startActivity(intent)
@@ -64,5 +71,9 @@ class AdapterReferrals(val context: Context, val list: List<Prescriptiondetail>)
         val statusRef: TextView = itemView.findViewById(R.id.statusRef)
         val btnInfoRef: Button = itemView.findViewById(R.id.btnInfoRef)
 
+    }
+
+    interface Information{
+        fun info(id:String)
     }
 }

@@ -601,7 +601,7 @@
                     android:layout_height="35dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/corner_liner"
-                    android:hint="TMRS ASIFNAGAR Girls2"
+                    android:text="TMRS ASIFNAGAR Girls2"
                     android:inputType="text"
                     android:lines="1"
                     android:padding="5dp"
@@ -633,7 +633,7 @@
                     android:layout_height="35dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/corner_liner"
-                    android:hint="testasifnagar@gmail.com"
+                    android:text="testasifnagar@yopl.com"
                     android:inputType="textEmailAddress"
                     android:lines="1"
                     android:padding="5dp"
@@ -665,7 +665,7 @@
                     android:layout_height="35dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/corner_liner"
-                    android:hint="Asif nagar Malakpet"
+                    android:text="Asif nagar Malakpet"
                     android:inputType="text"
                     android:lines="1"
                     android:padding="5dp"
@@ -697,7 +697,7 @@
                     android:layout_height="35dp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/corner_liner"
-                    android:hint="1234567890"
+                    android:text="9999999999"
                     android:inputType="number"
                     android:lines="1"
                     android:maxLength="12"
@@ -761,7 +761,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/main_color"
-                android:text="Register">
+                android:text="Submit">
 
             </com.google.android.material.button.MaterialButton>
 

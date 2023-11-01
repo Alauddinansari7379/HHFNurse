@@ -12,13 +12,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hhfoundation.R
 import com.example.hhfoundation.medicalHistory.activity.ViewMedicalHis
-import com.example.hhfoundation.medicalHistory.model.Medical
-import com.example.hhfoundation.registration.model.Patient
-import com.example.hhfoundation.studenDetails.StudentDetails
-import com.example.hhfoundation.studenDetails.StudentDetailsOne
+import com.example.hhfoundation.medicalHistory.model.Medicalhistory
 import com.squareup.picasso.Picasso
 
-class AdapterMedicalHis(val context: Context, val list: List<Medical>) :
+class AdapterMedicalHis(val context: Context, val list: List<Medicalhistory>) :
     RecyclerView.Adapter<AdapterMedicalHis.MyViewHolder>() {
 
 
@@ -36,15 +33,15 @@ class AdapterMedicalHis(val context: Context, val list: List<Medical>) :
         holder.schoolIdML.text = list[position].hospital_id
         holder.studentIdML.text = list[position].patient_id
         holder.studentNameML.text = list[position].patient_name
-        holder.genderML.text = list[position].relation
-        holder.dobML.text = list[position].date
-        holder.bloodGML.text = list[position].begaasds
+        holder.genderML.text = list[position].sex
+        holder.dobML.text = list[position].birthdate
+        holder.bloodGML.text = list[position].bloodgroup
 
 
-//        Picasso.get().load("https://schoolhms.thedemostore.in/" + list[position].img_url)
-//            .placeholder(R.drawable.placeholder_n)
-//            .error(R.drawable.error_placeholder)
-//            .into(holder.imageViewPL)
+        Picasso.get().load("https://schoolhms.thedemostore.in/" + list[position].img_url)
+            .placeholder(R.drawable.placeholder_n)
+            .error(R.drawable.error_placeholder)
+            .into(holder.imageViewML)
 
         holder.btnCaseML.setOnClickListener {
             val intent = Intent(context as Activity, ViewMedicalHis::class.java)
@@ -69,5 +66,6 @@ class AdapterMedicalHis(val context: Context, val list: List<Medical>) :
         val dobML: TextView = itemView.findViewById(R.id.dobML)
         val bloodGML: TextView = itemView.findViewById(R.id.bloodGML)
         val btnCaseML: Button = itemView.findViewById(R.id.btnCaseML)
+        val imageViewML: ImageView = itemView.findViewById(R.id.imageViewML)
     }
 }

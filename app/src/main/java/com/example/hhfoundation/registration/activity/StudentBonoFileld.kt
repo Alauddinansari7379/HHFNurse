@@ -56,7 +56,10 @@ class StudentBonoFileld : AppCompatActivity() {
         AppProgressBar.showLoaderDialog(this@StudentBonoFileld)
 
 
-        ApiClient.apiService.patientList(sessionManager.ionId.toString(),sessionManager.idToken.toString())
+        ApiClient.apiService.patientList(sessionManager.ionId.toString(),
+            sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
+        )
             .enqueue(object : Callback<ModelPatientList> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(

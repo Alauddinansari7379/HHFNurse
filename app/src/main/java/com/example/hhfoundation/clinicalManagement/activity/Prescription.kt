@@ -36,7 +36,7 @@ class Prescription : AppCompatActivity() {
             try {
                 edtSearch.addTextChangedListener { str ->
                     setRecyclerViewAdapter(mainData.filter {
-                        it.doctrname!!.contains(str.toString(), ignoreCase = true)
+                        it.patientname!!.contains(str.toString(), ignoreCase = true)
                     } as ArrayList<Prescriptiondetail>)
                 }
             } catch (e: Exception) {
@@ -54,7 +54,9 @@ class Prescription : AppCompatActivity() {
         ApiClient.apiService.prescriptionlist(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
-        )
+            sessionManager.group.toString(),
+
+            )
             .enqueue(object : Callback<ModelPrescription> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(

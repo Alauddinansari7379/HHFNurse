@@ -3,6 +3,7 @@ package com.example.hhfoundation.profile
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.databinding.ActivityProfileBinding
@@ -24,11 +25,20 @@ class Profile : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        sessionManager= SessionManager(this@Profile)
+
         binding.imgBack.setOnClickListener {
             onBackPressed()
         }
 
-        sessionManager= SessionManager(this@Profile)
+        if (sessionManager.group=="Doctor"){
+            binding.layoutDoctor.visibility=View.VISIBLE
+        }
+
+        if (sessionManager.group=="Nurse"){
+            binding.layoutNurse.visibility=View.VISIBLE
+        }
+
         apiCallGetProfile()
     }
 
@@ -37,7 +47,10 @@ class Profile : AppCompatActivity() {
         AppProgressBar.showLoaderDialog(this@Profile)
 
 
-        ApiClient.apiService.getProfile(sessionManager.ionId.toString(),sessionManager.idToken.toString())
+        ApiClient.apiService.getProfile(sessionManager.ionId.toString(),
+            sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
+        )
             .enqueue(object : Callback<ModelProfile> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
@@ -65,6 +78,9 @@ class Profile : AppCompatActivity() {
                             binding.tvSchool.text=response.body()!!.nurse.school
                             binding.tvStrength.text=response.body()!!.nurse.school
                             binding.tvPrincipal.text=response.body()!!.nurse.principal
+                            binding.tvDepartment.text=response.body()!!.nurse.department
+                            binding.tvRegNo.text=response.body()!!.nurse.reg_no
+                            binding.tvProfile.text=response.body()!!.nurse.profile
                              AppProgressBar.hideLoaderDialog()
 
 

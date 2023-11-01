@@ -202,7 +202,7 @@
                              android:textSize="12sp"
                             android:paddingStart="@dimen/_5sdp"
                             android:paddingEnd="@dimen/_5sdp"
-                            android:text="View Report"
+                            android:text="Info"
                             android:textAllCaps="false"
                             android:textColor="@color/white">
 

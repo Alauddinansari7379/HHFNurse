@@ -13,7 +13,7 @@ data class Patient(
     val education: String,
     val email: String,
     val f_name: String,
-    val hospital_id: String,
+     val hospital_id: String,
     val how_added: Any,
     val id: String,
     val img_url: String,

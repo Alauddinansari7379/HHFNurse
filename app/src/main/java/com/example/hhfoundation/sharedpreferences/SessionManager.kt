@@ -18,6 +18,7 @@ class SessionManager(context: Context?) {
         private const val FCM_TOKEN="fcm_token"
         private const val GENDER="gender"
         private const val USERID="userId"
+        private const val GROUP="group"
         private const val HOSPITAL_ID="HOSPITALID"
         private const val ID_TOKEN="ID_TOKEN"
         private const val ION_ID="ION_ID"
@@ -57,6 +58,12 @@ class SessionManager(context: Context?) {
         get() = prefs.getString(USERID, "")
         set(userId) {
             prefs.edit().putString(USERID, userId).apply()
+        }
+
+    var group: String?
+        get() = prefs.getString(GROUP, "")
+        set(group) {
+            prefs.edit().putString(GROUP, group).apply()
         }
 
     var hospitalId: String?

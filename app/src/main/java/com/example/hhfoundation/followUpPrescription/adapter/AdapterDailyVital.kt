@@ -4,14 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hhfoundation.R
-import com.example.hhfoundation.followUpPrescription.model.Prescriptiondetail
-import com.example.hhfoundation.followUpPrescription.model.Vitald
+import com.example.hhfoundation.followUpPrescription.model.Vitalddetail
 
-class AdapterDailyVital(val context: Context, val list: List<Vitald>) :
+class AdapterDailyVital(val context: Context, val list: List<Vitalddetail>) :
     RecyclerView.Adapter<AdapterDailyVital.MyViewHolder>() {
 
 
@@ -33,6 +31,7 @@ class AdapterDailyVital(val context: Context, val list: List<Vitald>) :
         holder.sugarV.text = list[position].sugar
         holder.bloodPressureV.text = list[position].bp
         holder.dateV.text = list[position].date
+        holder.patientV.text = list[position].patientname
 
 //
 //        Picasso.get().load("https://schoolhms.thedemostore.in/" + list[position].img_url)

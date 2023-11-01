@@ -8,8 +8,8 @@ import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.databinding.ActivityAllMedicalHistoryBinding
 import com.example.hhfoundation.medicalHistory.adapter.AdapterMedicalHis
-import com.example.hhfoundation.medicalHistory.model.Medical
-import com.example.hhfoundation.medicalHistory.model.ModelMedical
+import com.example.hhfoundation.medicalHistory.model.Medicalhistory
+import com.example.hhfoundation.medicalHistory.model.ModelMedicalHis
 import com.example.hhfoundation.retrofit.ApiClient
 import com.example.hhfoundation.sharedpreferences.SessionManager
 import retrofit2.Call
@@ -19,14 +19,14 @@ import java.util.ArrayList
 
 class AllMedicalHistory : AppCompatActivity() {
     private lateinit var binding: ActivityAllMedicalHistoryBinding
-    private lateinit var mainData: ArrayList<Medical>
+    private lateinit var mainData: ArrayList<Medicalhistory>
     private lateinit var sessionManager: SessionManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAllMedicalHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sessionManager=SessionManager(this@AllMedicalHistory)
+        sessionManager = SessionManager(this@AllMedicalHistory)
 //        binding.btnView.setOnClickListener {
 //            startActivity(Intent(this@AllMedicalHistory, MedicalHIstory::class.java))
 //        }
@@ -43,8 +43,8 @@ class AllMedicalHistory : AppCompatActivity() {
 
         binding.edtSearch.addTextChangedListener { str ->
             setRecyclerViewAdapter(mainData.filter {
-                it.patient_name.contains(str.toString(), ignoreCase = true)
-            } as ArrayList<Medical>)
+                it.name.contains(str.toString(), ignoreCase = true)
+            } as ArrayList<Medicalhistory>)
         }
 
     }
@@ -54,32 +54,38 @@ class AllMedicalHistory : AppCompatActivity() {
         AppProgressBar.showLoaderDialog(this@AllMedicalHistory)
 
 
-        ApiClient.apiService.getmedical(sessionManager.ionId.toString(),sessionManager.idToken.toString())
-            .enqueue(object : Callback<ModelMedical> {
+        ApiClient.apiService.getmedical(
+            sessionManager.ionId.toString(),
+            sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
+        )
+            .enqueue(object : Callback<ModelMedicalHis> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
-                    call: Call<ModelMedical>, response: Response<ModelMedical>
+                    call: Call<ModelMedicalHis>, response: Response<ModelMedicalHis>
                 ) {
                     try {
                         if (response.code() == 200) {
-                            mainData = response.body()!!.medical
+                            mainData = response.body()!!.medicalhistory
                         }
                         if (response.code() == 500) {
                             myToast(this@AllMedicalHistory, "Server Error")
                             AppProgressBar.hideLoaderDialog()
 
-                        } else if (response.body()!!.medical.isEmpty()) {
+                        } else if (response.body()!!.medicalhistory.isEmpty()) {
                             myToast(this@AllMedicalHistory, "No Data Found")
                             AppProgressBar.hideLoaderDialog()
-
+//
                         } else {
+
+
                             setRecyclerViewAdapter(mainData)
                             AppProgressBar.hideLoaderDialog()
 
 
                         }
                     } catch (e: Exception) {
-                        myToast(this@AllMedicalHistory, "Something went wrong")
+                        myToast(this@AllMedicalHistory, "Exception")
                         e.printStackTrace()
                         AppProgressBar.hideLoaderDialog()
 
@@ -87,7 +93,7 @@ class AllMedicalHistory : AppCompatActivity() {
                 }
 
 
-                override fun onFailure(call: Call<ModelMedical>, t: Throwable) {
+                override fun onFailure(call: Call<ModelMedicalHis>, t: Throwable) {
                     myToast(this@AllMedicalHistory, "Something went wrong")
                     AppProgressBar.hideLoaderDialog()
 
@@ -96,7 +102,7 @@ class AllMedicalHistory : AppCompatActivity() {
             })
     }
 
-    private fun setRecyclerViewAdapter(data: ArrayList<Medical>) {
+    private fun setRecyclerViewAdapter(data: ArrayList<Medicalhistory>) {
         binding.recyclerView.apply {
             adapter = AdapterMedicalHis(this@AllMedicalHistory, data)
             AppProgressBar.hideLoaderDialog()

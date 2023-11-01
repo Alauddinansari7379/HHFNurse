@@ -63,255 +63,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Blood Pressure"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/edtBloodPressure"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:hint="80 mmhh"
-                        android:inputType="text"
-                        android:lines="1"
-                        android:padding="5dp"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="P/R"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/edtPR"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:hint="55 BMP"
-                        android:inputType="text"
-                        android:lines="1"
-                        android:padding="5dp"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Temperature"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/edtTepm"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:hint="100 F"
-                        android:inputType="text"
-                        android:lines="1"
-                        android:padding="5dp"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Saturation (SPO2)"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/edtSaturation"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:hint="43 %"
-                        android:inputType="text"
-                        android:lines="1"
-                        android:padding="5dp"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Random Blood Sugar"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/edtRandomBloodS"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:hint="140 mg/dl"
-                        android:inputType="text"
-                        android:lines="1"
-                        android:padding="5dp"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Present complains"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/edtPresentCom"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:hint="Normal Condition"
-                        android:inputType="text"
-                        android:lines="1"
-                        android:padding="5dp"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Sick Date"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvSickDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:drawableEnd="@drawable/baseline_calendar_today_24"
-                        android:hint="08/24/2023"
-                        android:padding="10dp"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Take to PHC/Hospital/Locally treated ?"
-                        android:textSize="12sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp">
 
                     <RadioGroup
                         android:layout_width="match_parent"
@@ -322,20 +78,20 @@
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/radioNoPHC"
+                            android:id="@+id/radioFollowing"
                             android:layout_width="wrap_content"
                             android:layout_height="20dp"
-                            android:text="No"
+                            android:text="Following the Treatment"
                             android:textSize="10sp"
                             android:textStyle="bold">
 
                         </RadioButton>
 
                         <RadioButton
-                            android:id="@+id/radioYesPHC"
+                            android:id="@+id/radioNotFollowing"
                             android:layout_width="wrap_content"
                             android:layout_height="20dp"
-                            android:text="Yes"
+                            android:text="Not Following the Treatment"
                             android:textSize="10sp"
                             android:textStyle="bold">
 
@@ -345,7 +101,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/imageView"
+                    android:id="@+id/layoutNotTreated"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
@@ -354,354 +110,477 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Prescription Image One">
+                            android:text="Reason"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
-                        <androidx.appcompat.widget.LinearLayoutCompat
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:orientation="horizontal">
+                            android:layout_marginStart="10dp"
+                            android:orientation="vertical">
 
 
-                            <TextView
-                                android:layout_width="@dimen/_80sdp"
+                            <LinearLayout
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:layout_marginBottom="@dimen/_2sdp"
-                                android:background="@drawable/light_white_10sdp"
-                                android:elevation="1dp"
-                                android:padding="@dimen/_6sdp"
-                                android:text="Choose file"
-                                android:textAlignment="center"
-                                android:textColor="#9F757C7C"
-                                android:textSize="12dp"
-                                app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
-                                app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+                                android:layout_marginTop="3dp"
+                                android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="@dimen/_15sdp"
-                                android:gravity="center"
-                                android:text="No file chosen"
-                                android:textColor="#9F757C7C"
-                                android:textSize="15dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
-                                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
-                                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/corner_liner">
 
+                                    <Spinner
+                                        android:id="@+id/spinnerReason"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp">
+
+                                    </Spinner>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Prescription Image Two">
+                            android:text="Note"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
-                        <androidx.appcompat.widget.LinearLayoutCompat
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/noteReason"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:orientation="horizontal">
+                            android:layout_height="35dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:hint="note"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:padding="5dp"
+                            android:textSize="12sp">
 
-
-                            <TextView
-                                android:layout_width="@dimen/_80sdp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:layout_marginBottom="@dimen/_2sdp"
-                                android:background="@drawable/light_white_10sdp"
-                                android:elevation="1dp"
-                                android:padding="@dimen/_6sdp"
-                                android:text="Choose file"
-                                android:textAlignment="center"
-                                android:textColor="#9F757C7C"
-                                android:textSize="12dp"
-                                app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
-                                app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="@dimen/_15sdp"
-                                android:gravity="center"
-                                android:text="No file chosen"
-                                android:textColor="#9F757C7C"
-                                android:textSize="15dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
-                                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
-                                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
+                        </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Prescription Image Three">
-
-                        </androidx.appcompat.widget.AppCompatTextView>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:orientation="horizontal">
-
-
-                            <TextView
-                                android:layout_width="@dimen/_80sdp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:layout_marginBottom="@dimen/_2sdp"
-                                android:background="@drawable/light_white_10sdp"
-                                android:elevation="1dp"
-                                android:padding="@dimen/_6sdp"
-                                android:text="Choose file"
-                                android:textAlignment="center"
-                                android:textColor="#9F757C7C"
-                                android:textSize="12dp"
-                                app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
-                                app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="@dimen/_15sdp"
-                                android:gravity="center"
-                                android:text="No file chosen"
-                                android:textColor="#9F757C7C"
-                                android:textSize="15dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
-                                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
-                                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Prescription Image Four">
-
-                        </androidx.appcompat.widget.AppCompatTextView>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:orientation="horizontal">
-
-
-                            <TextView
-                                android:layout_width="@dimen/_80sdp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:layout_marginBottom="@dimen/_2sdp"
-                                android:background="@drawable/light_white_10sdp"
-                                android:elevation="1dp"
-                                android:padding="@dimen/_6sdp"
-                                android:text="Choose file"
-                                android:textAlignment="center"
-                                android:textColor="#9F757C7C"
-                                android:textSize="12dp"
-                                app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
-                                app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="@dimen/_15sdp"
-                                android:gravity="center"
-                                android:text="No file chosen"
-                                android:textColor="#9F757C7C"
-                                android:textSize="15dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
-                                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
-                                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Prescription Image Five">
-
-                        </androidx.appcompat.widget.AppCompatTextView>
-
-                        <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_10sdp"
-                            android:orientation="horizontal">
-
-
-                            <TextView
-                                android:layout_width="@dimen/_80sdp"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/_2sdp"
-                                android:layout_marginBottom="@dimen/_2sdp"
-                                android:background="@drawable/light_white_10sdp"
-                                android:elevation="1dp"
-                                android:padding="@dimen/_6sdp"
-                                android:text="Choose file"
-                                android:textAlignment="center"
-                                android:textColor="#9F757C7C"
-                                android:textSize="12dp"
-                                app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
-                                app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginStart="@dimen/_15sdp"
-                                android:gravity="center"
-                                android:text="No file chosen"
-                                android:textColor="#9F757C7C"
-                                android:textSize="15dp"
-                                app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
-                                app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
-                                app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
-                        </androidx.appcompat.widget.LinearLayoutCompat>
-
-                    </LinearLayout>
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Remark"
-                        android:textSize="14sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/edtRemark"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:hint=""
-                        android:inputType="text"
-                        android:lines="1"
-                        android:padding="5dp"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layoutTrea"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-                    <androidx.appcompat.widget.AppCompatTextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Medical History Fill Up or Not?"
-                        android:textSize="12sp"
-                        android:textStyle="bold">
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
 
-                    </androidx.appcompat.widget.AppCompatTextView>
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Student"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
 
-                    <RadioGroup
-                        android:id="@+id/radioGroupPHC"
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                             android:id="@+id/tvStudent"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:hint="student"
+                            android:inputType="text"
+                            android:padding="5dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="1"
-                        android:gravity="start"
-                        android:orientation="horizontal">
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
 
-                        <RadioButton
-                            android:id="@+id/radioNoMH"
-                            android:layout_width="wrap_content"
-                            android:layout_height="20dp"
-                            android:text="No"
-                            android:textSize="10sp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Date"
+                            android:textSize="14sp"
                             android:textStyle="bold">
 
-                        </RadioButton>
+                        </androidx.appcompat.widget.AppCompatTextView>
 
-                        <RadioButton
-                            android:id="@+id/radioYesMH"
-                            android:layout_width="wrap_content"
-                            android:layout_height="20dp"
-                            android:text="Yes"
-                            android:textSize="10sp"
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:hint="date"
+                            android:inputType="text"
+                            android:padding="5dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Time"
+                            android:textSize="14sp"
                             android:textStyle="bold">
 
-                        </RadioButton>
-                    </RadioGroup>
+                        </androidx.appcompat.widget.AppCompatTextView>
 
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvTime"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:drawableEnd="@drawable/baseline_access_time_24"
+                            android:hint="07:09 AM"
+                            android:inputType="text"
+                            android:padding="7dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Status"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_5sdp">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_weight="1"
+                                android:gravity="start"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/radioUnstable"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:text="Unstable"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+
+                                <RadioButton
+                                    android:id="@+id/radioStable"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:text="Stable"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+
+                                <RadioButton
+                                    android:id="@+id/radioCured"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:text="Cured"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+                            </RadioGroup>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutPatientR"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:visibility="gone"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Patient Required Doctor"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_5sdp">
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_weight="1"
+                                android:gravity="start"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/radioYesPR"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:text="Yes"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+
+                                <RadioButton
+                                    android:id="@+id/radioNoPR"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20dp"
+                                    android:text="No"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+                            </RadioGroup>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Blood Pressure"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/edtBloodPressure"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:hint="80 mmhh"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:padding="5dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="P/R"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/edtPR"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:hint="55 BMP"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:padding="5dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Temperature"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/edtTepm"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:hint="100 F"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:padding="5dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Saturation (SPO2)"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/edtSaturation"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:hint="43 %"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:padding="5dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Random Blood Sugar"
+                            android:textSize="14sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/edtRandomBloodS"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:hint="140 mg/dl"
+                            android:inputType="text"
+                            android:lines="1"
+                            android:padding="5dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
                 </LinearLayout>
-
-
             </LinearLayout>
 
             <LinearLayout

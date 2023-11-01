@@ -8,11 +8,8 @@ import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.databinding.ActivityDailyVitalUpdateBinding
 import com.example.hhfoundation.followUpPrescription.adapter.AdapterDailyVital
-import com.example.hhfoundation.followUpPrescription.model.ModelVital
-import com.example.hhfoundation.followUpPrescription.model.Vitald
-import com.example.hhfoundation.labReport.adapter.AdapterLabReport
-import com.example.hhfoundation.labReport.model.Labreport
-import com.example.hhfoundation.labReport.model.ModelLabReport
+import com.example.hhfoundation.followUpPrescription.model.ModelVitalList
+import com.example.hhfoundation.followUpPrescription.model.Vitalddetail
 import com.example.hhfoundation.retrofit.ApiClient
 import com.example.hhfoundation.sharedpreferences.SessionManager
 import retrofit2.Call
@@ -22,7 +19,7 @@ import retrofit2.Response
 class DailyVitalUpdate : AppCompatActivity() {
     private lateinit var binding:ActivityDailyVitalUpdateBinding
     lateinit var sessionManager: SessionManager
-    private lateinit var mainData: ArrayList<Vitald>
+    private lateinit var mainData: ArrayList<Vitalddetail>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,16 +34,16 @@ class DailyVitalUpdate : AppCompatActivity() {
                 onBackPressed()
             }
 
-//            try {
-//                edtSearch.addTextChangedListener { str ->
-//                    setRecyclerViewAdapter(mainData.filter {
-//                        it.user_id!!.contains(str.toString(), ignoreCase = true)
-//                    } as ArrayList<Vitald>)
-//                }
-//            } catch (e: Exception) {
-//                e.printStackTrace()
-//
-//            }
+            try {
+                edtSearch.addTextChangedListener { str ->
+                    setRecyclerViewAdapter(mainData.filter {
+                        it.patientname!!.contains(str.toString(), ignoreCase = true)
+                    } as ArrayList<Vitalddetail>)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+
+            }
         }
     }
 
@@ -58,29 +55,28 @@ class DailyVitalUpdate : AppCompatActivity() {
         ApiClient.apiService.vitaldetail(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
-        )
-            .enqueue(object : Callback<ModelVital> {
+            sessionManager.group.toString(),
+            )
+            .enqueue(object : Callback<ModelVitalList> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
-                    call: Call<ModelVital>, response: Response<ModelVital>
+                    call: Call<ModelVitalList>, response: Response<ModelVitalList>
                 ) {
                     try {
                         if (response.code() == 200) {
-                            mainData = response.body()!!.vitald
+                            mainData = response.body()!!.vitalddetails
                         }
                         if (response.code() == 500) {
                             myToast(this@DailyVitalUpdate, "Server Error")
                             AppProgressBar.hideLoaderDialog()
 
-                        } else if (response.body()!!.vitald.isEmpty()) {
+                        } else if (response.body()!!.vitalddetails.isEmpty()) {
                             myToast(this@DailyVitalUpdate, "No Data Found")
                             AppProgressBar.hideLoaderDialog()
 
                         } else {
                             setRecyclerViewAdapter(mainData)
                             AppProgressBar.hideLoaderDialog()
-
-
                         }
                     } catch (e: Exception) {
                         myToast(this@DailyVitalUpdate, "Something went wrong")
@@ -89,9 +85,7 @@ class DailyVitalUpdate : AppCompatActivity() {
 
                     }
                 }
-
-
-                override fun onFailure(call: Call<ModelVital>, t: Throwable) {
+                override fun onFailure(call: Call<ModelVitalList>, t: Throwable) {
                     myToast(this@DailyVitalUpdate, t.message.toString())
                     AppProgressBar.hideLoaderDialog()
 
@@ -100,7 +94,7 @@ class DailyVitalUpdate : AppCompatActivity() {
             })
     }
 
-    private fun setRecyclerViewAdapter(data: ArrayList<Vitald>) {
+    private fun setRecyclerViewAdapter(data: ArrayList<Vitalddetail>) {
         binding.recyclerView.apply {
             adapter = AdapterDailyVital(this@DailyVitalUpdate, data)
             AppProgressBar.hideLoaderDialog()

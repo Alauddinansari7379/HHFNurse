@@ -97,6 +97,10 @@ dependencies {
 
     // Image Picker From Camera
     implementation 'com.github.dhaval2404:imagepicker:2.1'
+    
+    //Multiselection Spinner
+         implementation 'com.github.AnuraganuPunalur:Multi-Selection-Spinner-Android:1.0'
+
 
 
 }

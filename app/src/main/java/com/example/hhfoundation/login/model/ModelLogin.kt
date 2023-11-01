@@ -5,6 +5,7 @@ data class ModelLogin(
     val expiresIn: Int,
     val hospital_id: String,
     val idToken: String,
+    val group: String,
     val ion_id: String,
     val message: String,
     val user_id: String
