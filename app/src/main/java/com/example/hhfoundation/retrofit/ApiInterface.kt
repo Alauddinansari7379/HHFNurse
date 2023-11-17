@@ -8,6 +8,8 @@ import com.example.hhfoundation.addPrescription.model.ModelSubCatList
 import com.example.hhfoundation.clinicalManagement.model.ModelAppointList
 import com.example.hhfoundation.clinicalManagement.model.ModelNewAppoint
 import com.example.hhfoundation.dasboard.model.ModelDashboard
+import com.example.hhfoundation.doctor.model.ModelDoctorList
+import com.example.hhfoundation.doctor.model.ModelTretment
 import com.example.hhfoundation.followUpPrescription.model.ModelFollowUp
 import com.example.hhfoundation.followUpPrescription.model.ModelReferralsFollow
 import com.example.hhfoundation.followUpPrescription.model.ModelRefrreals
@@ -34,7 +36,7 @@ interface ApiInterface {
     fun login(
         @Query("email") email: String,
         @Query("password") password: String,
-     ): Call<ModelLogin>
+    ): Call<ModelLogin>
 
     @GET("logoutapp")
     fun logOut(
@@ -58,6 +60,23 @@ interface ApiInterface {
         @Query("group") group: String,
         @Query("patient_id") patient_id: String
     ): Call<ModelMedLIst>
+
+    @Multipart
+    @POST("adddoctor")
+    fun adddoctor(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("name") name: String,
+        @Query("password") password: String,
+        @Query("email") email: String,
+        @Query("address") address: String,
+        @Query("phone") phone: String,
+        @Query("department") department: String,
+        @Query("reg_no") reg_no: String,
+        @Query("profile") profile: String,
+        @Part img_url: MultipartBody.Part,
+        ): Call<ModelNewAppoint>
 
     @Multipart
     @POST("AddPatient")
@@ -88,7 +107,7 @@ interface ApiInterface {
         @Query("aadharnumber") aadharnumber: String,
         @Query("district") district: String,
         @Query("persing") persing: String,
-         @Part img_url: MultipartBody.Part,
+        @Part img_url: MultipartBody.Part,
     ): Call<ModelRegister>
 
     //  @Multipart
@@ -132,6 +151,9 @@ interface ApiInterface {
 //        @Part img_url5: MultipartBody.Part? = null,
     ): Call<ModelNewAppoint>
 
+
+
+
     @GET("AddPatientmedical")
     fun addPatientMedical(
         @Query("nurse_id") nurse_id: String,
@@ -142,6 +164,7 @@ interface ApiInterface {
         @Query("title") title: String,
         @Query("description") description: String,
         @Query("heartinaa") heartinaa: String,
+        @Query("heartinoth") heartinoth: String,
         @Query("phis") phis: String,
         @Query("phissda") phissda: String,
         @Query("phissef") phissef: String,
@@ -157,6 +180,7 @@ interface ApiInterface {
         @Query("medhos") medhos: String,
         @Query("heartin") heartin: String,
         @Query("hyperthyroidin") hyperthyroidin: String,
+        @Query("hypothyroidin") hypothyroidin: String,
         @Query("anemoio") anemoio: String,
         @Query("bitooo") bitooo: String,
         @Query("rickss") rickss: String,
@@ -194,21 +218,37 @@ interface ApiInterface {
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelPatientList>
+    ): Call<ModelPatientList>
 
     @GET("getmedical")
     fun getmedical(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelMedicalHis>
+    ): Call<ModelMedicalHis>
+
+    @GET("doctorlist")
+    fun doctorlist(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+    ): Call<ModelDoctorList>
+
+    @GET("treatmentReport")
+    fun treatmentReport(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("date_to") date_to: String,
+        @Query("date_from") date_from: String,
+    ): Call<ModelTretment>
 
     @GET("prescriptionlist")
     fun prescriptionlist(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelPrescription>
+    ): Call<ModelPrescription>
 
     @GET("previousappoitments")
     fun previousappoitments(
@@ -223,56 +263,65 @@ interface ApiInterface {
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelAppointList>
+    ): Call<ModelAppointList>
 
     @GET("getProfile")
     fun getProfile(
         @Query("nurse_id") id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelProfile>
+    ): Call<ModelProfile>
 
     @GET("followplist")
     fun followUpList(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelFollowUp>
+    ): Call<ModelFollowUp>
 
     @GET("getreferpres")
     fun getReferrals(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelRefrreals>
+    ): Call<ModelRefrreals>
 
     @GET("referfollow")
     fun getReferralsFollow(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelReferralsFollow>
+    ): Call<ModelReferralsFollow>
 
     @GET("attachlabreport")
     fun attachlabreport(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelLabReport>
+    ): Call<ModelLabReport>
 
     @GET("adviselabdetails")
     fun adviseLabDetails(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelLabInv>
+    ): Call<ModelLabInv>
 
     @GET("vitaldetail")
     fun vitaldetail(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
-        ): Call<ModelVitalList>
+    ): Call<ModelVitalList>
+
+    @GET("updatestausdoctor")
+    fun updatestausdoctor(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("appoitment_id") appoitment_id: String,
+        @Query("status") status: String,
+    ): Call<ModelUpload>
 
     @GET("appoitmentinfo")
     fun appoitmentinfo(
@@ -318,7 +367,7 @@ interface ApiInterface {
         @Query("reportname") reportname: String,
         @Query("desc") desc: String,
         @Part img_url: MultipartBody.Part?,
-        ): Call<ModelUpload>
+    ): Call<ModelUpload>
 
     @GET("addPrescr")
     fun addPrescr(
@@ -370,10 +419,78 @@ interface ApiInterface {
         @Query("allergic_med") allergic_med: String,
         @Query("other_allergic") other_allergic: String,
         @Query("other_allergicin") other_allergicin: String,
-        @Query("dcategory") dcategory: String,
+        @Query("dcategory[]") dcategory: List<String>,
+        @Query("addtime") addtime: String,
 
-        @Query("mainsubc[]") mainsubc:  List<String>,
-        @Query("dcategorylab[]") dcategorylab:  List<String>,
+        @Query("mainsubc[]") mainsubc: List<String>,
+        @Query("dcategorylab[]") dcategorylab: List<String>,
+        @Query("med_id[]") med_id: List<String>,
+        @Query("medicine[]") medicine: List<String>,
+        @Query("brand") brand: String,
+        @Query("frequency[]") frequency: List<String>,
+        @Query("days[]") days: List<String>,
+        @Query("instruction[]") instruction: List<String>,
+        @Query("dosage[]") dosage: List<String>,
+
+        ): Call<ModelUpload>
+
+
+    @GET("editPrescr")
+    fun editPrescr(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("patient") patient: String,
+        @Query("doctor") doctor: String,
+        @Query("presc_id") presc_id: String,
+        @Query("pid") pid: String,
+        @Query("id") id: String,
+        @Query("mypid") mypid: String,
+        @Query("birthdate") birthdate: String,
+        @Query("date") date: String,
+        @Query("age") age: String,
+        @Query("blood_group") blood_group: String,
+        @Query("sex") sex: String,
+        @Query("dist") dist: String,
+        @Query("schl") schl: String,
+        @Query("email") email: String,
+        @Query("address") address: String,
+        @Query("f_name") f_name: String,
+        @Query("m_name") m_name: String,
+        @Query("education") education: String,
+        @Query("schl_email") schl_email: String,
+        @Query("schl_addr") schl_addr: String,
+        @Query("schl_dist") schl_dist: String,
+        @Query("phistiry") phistiry: String,
+        @Query("strts") strts: String,
+        @Query("follow_date") follow_date: String,
+        @Query("refer_hospital") refer_hospital: String,
+        @Query("health_issue") health_issue: String,
+        @Query("department_name") department_name: String,
+        @Query("symptom") symptom: String,
+        @Query("ltype") ltype: String,
+        @Query("fdiagno") fdiagno: String,
+        @Query("category") category: String,
+        @Query("admin") admin: String,
+        @Query("hidden_total_rows") hidden_total_rows: String,
+        @Query("note") note: String,
+        @Query("submit") submit: String,
+        @Query("hypertension") hypertension: String,
+        @Query("hypertensionin") hypertensionin: String,
+        @Query("diabetes") diabetes: String,
+        @Query("diabetescx") diabetescx: String,
+        @Query("hypothyroid") hypothyroid: String,
+        @Query("hypothyroidin") hypothyroidin: String,
+        @Query("heart") heart: String,
+        @Query("heartin") heartin: String,
+        @Query("allergic_med") allergic_med: String,
+        @Query("other_allergic") other_allergic: String,
+        @Query("other_allergicin") other_allergicin: String,
+        @Query("dcategory[]") dcategory: List<String>,
+        @Query("addtime") addtime: String,
+
+        @Query("mainsubc[]") mainsubc: List<String>,
+        @Query("dcategorylab[]") dcategorylab: List<String>,
         @Query("med_id[]") med_id: List<String>,
         @Query("medicine[]") medicine: List<String>,
         @Query("brand") brand: String,
@@ -454,12 +571,12 @@ interface ApiInterface {
 
     @GET("gemain")
     fun gemainCategory(
-        @Query("doctor_id") doctor_id:String
+        @Query("doctor_id") doctor_id: String
     ): Call<ModelMainCatList>
 
     @GET("getsubCat")
     fun getsubCat(
-        @Query("id") id:String
+        @Query("id") id: String
     ): Call<ModelSubCatList>
 
     @GET("getlab")

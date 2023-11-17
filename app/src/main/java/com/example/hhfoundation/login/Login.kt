@@ -39,7 +39,7 @@ class Login : AppCompatActivity() {
                     return@setOnClickListener
                 }
                 if (edtPassword.text!!.isEmpty()) {
-                    edtPassword.error = "Enter Username"
+                    edtPassword.error = "Enter Password"
                     edtPassword.requestFocus()
                     return@setOnClickListener
                 }
@@ -60,7 +60,7 @@ class Login : AppCompatActivity() {
             binding.edtPassword.text.toString().trim(),
          ).enqueue(object :
             Callback<ModelLogin> {
-            @SuppressLint("LogNotTimber")
+            @SuppressLint("LogNotTimber", "LongLogTag")
             override fun onResponse(
                 call: Call<ModelLogin>,
                 response: Response<ModelLogin>
@@ -74,12 +74,14 @@ class Login : AppCompatActivity() {
                         sessionManager.isLogin = true
                         sessionManager.userId = response.body()!!.user_id
                         sessionManager.group = response.body()!!.group
+                        sessionManager.usertype = response.body()!!.user_type
                         sessionManager.hospitalId = response.body()!!.hospital_id
                         sessionManager.ionId = response.body()!!.ion_id
                         sessionManager.idToken = response.body()!!.idToken
 
                         Log.e("sessionManager.idToken",sessionManager.idToken.toString())
                         Log.e("sessionManager.ionID",sessionManager.ionId.toString())
+                      //  Log.e("response.body()!!.user_type",response.body()!!.user_type)
 
                         myToast(this@Login, response.body()!!.message)
                         val intent = Intent(applicationContext, Dashboard::class.java)

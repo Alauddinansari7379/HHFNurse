@@ -7,6 +7,7 @@ data class ModelLogin(
     val idToken: String,
     val group: String,
     val ion_id: String,
+    val user_type: String,
     val message: String,
     val user_id: String
 )

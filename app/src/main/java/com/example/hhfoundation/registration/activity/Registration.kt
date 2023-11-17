@@ -392,8 +392,9 @@ class Registration : AppCompatActivity(), UploadRequestBody.UploadCallback {
                 newDate[year, monthOfYear] = dayOfMonth
                 DateFormat.getDateInstance().format(newDate.time)
                 // val Date = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(newDate.time)
-                dOB = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(newDate.time)
-                binding.tvDOB.text = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(newDate.time)
+                dOB = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(newDate.time)
+
+                 binding.tvDOB.text = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(newDate.time)
                 val selectedDate =
                     SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(newDate.time)
 
@@ -472,7 +473,7 @@ class Registration : AppCompatActivity(), UploadRequestBody.UploadCallback {
 
                     } else if(response.body()!!.message=="successful") {
                         myToast(this@Registration, "${response.body()!!.message}")
-                        onBackPressed()
+                        startActivity(Intent(this@Registration,StudentBonoFileld::class.java))
                         AppProgressBar.hideLoaderDialog()
                     } else{
                         myToast(this@Registration, "${response.body()!!.message}")

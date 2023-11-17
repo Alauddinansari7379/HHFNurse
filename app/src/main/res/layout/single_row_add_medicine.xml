@@ -29,12 +29,13 @@
             >
 
         </androidx.viewpager.widget.ViewPager>
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/tvMedicinetiming"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_weight="1"
+            android:background="@null"
             android:text="Timing"
             android:textColor="@color/_324754"
             android:textSize="11sp" />
@@ -45,11 +46,30 @@
             >
 
         </androidx.viewpager.widget.ViewPager>
-        <androidx.appcompat.widget.AppCompatTextView
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/tvBrand"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="Brand"
+            android:textColor="@color/_324754"
+            android:textSize="11sp" />
+        <androidx.viewpager.widget.ViewPager
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            >
+
+        </androidx.viewpager.widget.ViewPager>
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/Frequency"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:background="@null"
             android:layout_weight="1"
             android:text="Frequency"
             android:textColor="@color/_324754"
@@ -61,12 +81,13 @@
             >
 
         </androidx.viewpager.widget.ViewPager>
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/tvDuration"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_weight="1"
+            android:background="@null"
             android:text="Duration"
             android:textColor="@color/_324754"
             android:textSize="11sp" />
@@ -78,20 +99,37 @@
 
         </androidx.viewpager.widget.ViewPager>
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/tvInstraction"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_weight="1"
+            android:background="@null"
             android:text="Duration"
             android:textColor="@color/_324754"
             android:textSize="11sp" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgRemove"
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+              android:background="?actionBarItemBackground"
+            android:src="@drawable/remove"
+            >
+
+
+        </androidx.appcompat.widget.AppCompatImageView>
 
     </LinearLayout>
 
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/_1sdp"
+        android:background="#D1CFCF"
+        >
 
-
+    </androidx.viewpager.widget.ViewPager>
 
 </LinearLayout>

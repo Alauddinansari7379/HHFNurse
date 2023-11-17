@@ -33,6 +33,8 @@ data class PrescriptionList(
     val patient: String,
     val pr: String,
     val ranbl: String,
+    val added: String,
+    val pcreatetme: String?,
     val refer: String,
     val registration_time: String,
     val remarks: String,

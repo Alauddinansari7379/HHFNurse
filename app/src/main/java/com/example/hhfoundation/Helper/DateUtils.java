@@ -33,23 +33,23 @@ public class DateUtils {
     public static final String CONVERSATION_HEADER_DATE_FORMAT = "dd MMMM yyyy";
     public static final String CHAT_DISPLAY_DATE_FORMAT = "hh:mm a";
     public static final String SERVER_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-    public static final String appDateFormat="yyyy-MM-dd";
-    public static final String appDateFormat2="dd-MMM-yy";
-    public static final String appDateFormatTo="dd-MM-yyyy";
-    public static final String appDateTimeFormat="yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
+    public static final String appDateFormat = "yyyy-MM-dd";
+    public static final String appDateFormat2 = "dd-MMM-yy";
+    public static final String appDateFormatTo = "dd-MM-yyyy";
+    public static final String appDateTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSZ";
 //2022-08-12T14:28:12.000000Z
 
-    public static final String dateFormat1="MMM dd,yyyy | hh:mm a";
-    public static final String dateFormat3="MMM dd,yyyy";
-    public static final String dateFormat4 ="dd MMM yyyy";
-    public static final String dateFormat2="dd MMM";
+    public static final String dateFormat1 = "MMM dd,yyyy | hh:mm a";
+    public static final String dateFormat3 = "MMM dd,yyyy";
+    public static final String dateFormat4 = "dd MMM yyyy";
+    public static final String dateFormat2 = "dd MMM";
     public static final String appTimeFormat = "hh:mm aa";
     public static final String simpleTime = "hh:mm:ss";
     public static final String timeFormat1 = "HH:mm:ss.SSSSSS";
-    public static final String timeFormat2="HH:mm:ss";
-    public static final String weekdateFormat="dd MMMM";
-    public static final String monthdateFormat="MMMM,yyyy";
-    public static final String monthYear="MMM yyyy";
+    public static final String timeFormat2 = "HH:mm:ss";
+    public static final String weekdateFormat = "dd MMMM";
+    public static final String monthdateFormat = "MMMM,yyyy";
+    public static final String monthYear = "MMM yyyy";
     public static long secondsInMilli = 1000;
     public static long minutesInMilli = secondsInMilli * 60;
     public static long hoursInMilli = minutesInMilli * 60;
@@ -67,7 +67,6 @@ public class DateUtils {
         Date date = new Date(milliSeconds);
         return formatter.format(date.getTime());
     }
-
 
 
     public static Date getDateFromStringDate(String dateToConvert, String dateFormat) {
@@ -99,7 +98,7 @@ public class DateUtils {
 //    }
 
 
-    public static SimpleDateFormat getdateFormat(String format){
+    public static SimpleDateFormat getdateFormat(String format) {
         return new SimpleDateFormat(format);
     }
 
@@ -180,7 +179,6 @@ public class DateUtils {
     }
 
 
-
     public static String convertDateFormat(Date dateToConvert, String toDateFormat) {
         SimpleDateFormat outputFormat = new SimpleDateFormat(toDateFormat, Locale.getDefault());
         return outputFormat.format(dateToConvert);
@@ -225,58 +223,56 @@ public class DateUtils {
     }
 
 
+    public static String getAgeFromDOB(String input_date) {
+
+        try {
 
 
-    public static String getAgeFromDOB(String input_date){
+            Calendar c = Calendar.getInstance();
+            c.setTime(getDateFromStringDate(input_date, "yyyy-MM-dd"));
+            int day = c.get(Calendar.DAY_OF_WEEK);
+            int month = c.get(Calendar.MONTH);
+            int year = c.get(Calendar.YEAR);
+            Log.e("dob", "" + day + "-" + month + "-" + year);
+            Calendar dob = Calendar.getInstance();
 
-        Calendar c = Calendar.getInstance();
-        c.setTime(getDateFromStringDate(input_date,"yyyy-MM-dd"));
-        int day = c.get(Calendar.DAY_OF_WEEK);
-        int month=c.get(Calendar.MONTH);
-        int year=c.get(Calendar.YEAR);
-        Log.e("dob",""+day+"-"+month+"-"+year);
-        Calendar dob = Calendar.getInstance();
+            Calendar today = Calendar.getInstance();
 
-        Calendar today = Calendar.getInstance();
+            dob.set(year, month, day);
 
-        dob.set(year, month, day);
+            today.set(today.get(Calendar.YEAR), today.get(Calendar.MONTH) + 1,
+                    today.get(Calendar.DATE));
 
-        today.set(today.get(Calendar.YEAR), today.get(Calendar.MONTH) + 1,
-                today.get(Calendar.DATE));
+            int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+            Integer ageInt = new Integer(age);
 
-        int age = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+            String ageS = ageInt.toString();
+            return ageS + " Yrs";
 
-        if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
-
-            age--;
-
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
         }
 
-        Integer ageInt = new Integer(age);
-
-        String ageS = ageInt.toString();
-
-        return ageS+" Yrs";
+        return input_date;
     }
 
-    public static String getCurrentDateCompare(String startTime){
+    public static String getCurrentDateCompare(String startTime) {
         String getTimeDif = "";
-        try
-        {
+        try {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date past = format.parse(startTime);
             Date now = new Date();
-            long seconds= TimeUnit.MILLISECONDS.toSeconds(now.getTime() - past.getTime());
-            long minutes= TimeUnit.MILLISECONDS.toMinutes(now.getTime() - past.getTime());
-            long hours= TimeUnit.MILLISECONDS.toHours(now.getTime() - past.getTime());
-            long days= TimeUnit.MILLISECONDS.toDays(now.getTime() - past.getTime());
+            long seconds = TimeUnit.MILLISECONDS.toSeconds(now.getTime() - past.getTime());
+            long minutes = TimeUnit.MILLISECONDS.toMinutes(now.getTime() - past.getTime());
+            long hours = TimeUnit.MILLISECONDS.toHours(now.getTime() - past.getTime());
+            long days = TimeUnit.MILLISECONDS.toDays(now.getTime() - past.getTime());
 
-            if(minutes<60) {
+            if (minutes < 60) {
                 getTimeDif = String.valueOf(minutes);
-            } else if(hours<24) {
-                getTimeDif = String.valueOf(hours)+":"+minutes;
+            } else if (hours < 24) {
+                getTimeDif = String.valueOf(hours) + ":" + minutes;
             } else {
-                getTimeDif = String.valueOf(days)+":"+hours+":"+minutes;
+                getTimeDif = String.valueOf(days) + ":" + hours + ":" + minutes;
             }
 
         } catch (Exception e) {
@@ -310,13 +306,12 @@ public class DateUtils {
     }
 
 
-
     public static boolean isToday(String date_time, String dateFormat) {
         DateFormat formatter = new SimpleDateFormat(dateFormat, Locale.getDefault());
         Date date = null;
         try {
             date = (Date) formatter.parse(date_time);
-           // System.out.println("Today is " + date.getTime());
+            // System.out.println("Today is " + date.getTime());
             return android.text.format.DateUtils.isToday(date.getTime());
         } catch (ParseException e) {
             e.printStackTrace();
@@ -324,22 +319,20 @@ public class DateUtils {
         return false;
     }
 
-    public static String getPrettyDate(String date_time,String inputFormat,String outputFormat){
-        if(isYesterday(date_time,inputFormat)){
+    public static String getPrettyDate(String date_time, String inputFormat, String outputFormat) {
+        if (isYesterday(date_time, inputFormat)) {
             return "Yesterday";
-        }
-        else if(isToday(date_time,inputFormat)){
-           return  "Today";
-        }
-        else if(isTomorrow(date_time,inputFormat)){
+        } else if (isToday(date_time, inputFormat)) {
+            return "Today";
+        } else if (isTomorrow(date_time, inputFormat)) {
             return "Tomorrow";
         }
-        return getFormattedTime(date_time,inputFormat,outputFormat);
+        return getFormattedTime(date_time, inputFormat, outputFormat);
     }
 
     public static boolean areSameDate(String d1, String d2, String dateFormat) {
         try {
-            Date date1 =getDateFromStringDate(d1, dateFormat);
+            Date date1 = getDateFromStringDate(d1, dateFormat);
             Date date2 = getDateFromStringDate(d2, dateFormat);
 
             /*return date1.getDate() == date2.getDate() &&
@@ -456,11 +449,11 @@ public class DateUtils {
         }
     }
 
-    public static int getTotalDaysOfMonth(String date){
+    public static int getTotalDaysOfMonth(String date) {
         Calendar calendar = Calendar.getInstance();
-        Date date1=getDateFromStringDate("1"+date,"ddMMMM,yyyy");
+        Date date1 = getDateFromStringDate("1" + date, "ddMMMM,yyyy");
         calendar.setTime(date1);
-        Log.e("days",calendar.getActualMaximum(Calendar.DATE)+"");
+        Log.e("days", calendar.getActualMaximum(Calendar.DATE) + "");
         return calendar.getActualMaximum(Calendar.DATE);
     }
 
@@ -481,12 +474,12 @@ public class DateUtils {
                 max = end;
             }
             return !(date.before(min) || date.after(max));
-        }catch (Exception e){
+        } catch (Exception e) {
             return true;
         }
     }
 
-    public static String getLastMonthDateFromCurDate(String dateFormat){
+    public static String getLastMonthDateFromCurDate(String dateFormat) {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, -1);
         Date date = calendar.getTime();
@@ -494,7 +487,7 @@ public class DateUtils {
         return format.format(date);
     }
 
-    public static String getNextMonthDateFromCurDate(String dateFormat){
+    public static String getNextMonthDateFromCurDate(String dateFormat) {
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, +1);
         Date date = calendar.getTime();
@@ -511,7 +504,7 @@ public class DateUtils {
     }
 
 
-    public static String getCurrentDay(){
+    public static String getCurrentDay() {
         SimpleDateFormat sdf = new SimpleDateFormat("EEE");
         Date d = new Date();
         String dayOfTheWeek = sdf.format(d);
@@ -519,15 +512,14 @@ public class DateUtils {
     }
 
 
-
-    public static boolean isDateInRange(final Date min, final Date max, final Date date){
+    public static boolean isDateInRange(final Date min, final Date max, final Date date) {
         //return !(date.before(min) || date.after(max));
-       // return date.after(min) && date.before(max);
-       //return min.compareTo(date) * max.compareTo(date) >= 0;
+        // return date.after(min) && date.before(max);
+        //return min.compareTo(date) * max.compareTo(date) >= 0;
         return date.compareTo(min) >= 0 && date.compareTo(max) <= 0;
     }
 
-    public static String getTimeWithAddMinute(int minuteForAdd, String givenTime){
+    public static String getTimeWithAddMinute(int minuteForAdd, String givenTime) {
         SimpleDateFormat df = new SimpleDateFormat(SERVER_DATE_FORMAT);
         Date d = null;
         try {
@@ -542,11 +534,11 @@ public class DateUtils {
         return df.format(cal.getTime());
     }
 
-    public static String convertUtcToLocalTime(String dateStr, String dateFormat){
+    public static String convertUtcToLocalTime(String dateStr, String dateFormat) {
         SimpleDateFormat df = new SimpleDateFormat(dateFormat, Locale.ENGLISH);
         df.setTimeZone(TimeZone.getTimeZone("UTC"));
         Date date = null;
-        String formattedDate="";
+        String formattedDate = "";
         try {
             date = df.parse(dateStr);
             df.setTimeZone(TimeZone.getDefault());
@@ -554,17 +546,17 @@ public class DateUtils {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        Log.e("LocalTime",formattedDate);
+        Log.e("LocalTime", formattedDate);
         return formattedDate;
     }
 
-    public static String convertLocalTimeToUtc(String dateStr, String dateFormat){
+    public static String convertLocalTimeToUtc(String dateStr, String dateFormat) {
         String stringDate = "";
-        Date date=getDateFromStringDate(dateStr,dateFormat);
+        Date date = getDateFromStringDate(dateStr, dateFormat);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat, Locale.US);
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         stringDate = simpleDateFormat.format(date);
-        Log.e("UTCTime",stringDate);
+        Log.e("UTCTime", stringDate);
         return stringDate;
 
     }
@@ -580,15 +572,15 @@ public class DateUtils {
             e.printStackTrace();
         }
         DateFormat f2 = new SimpleDateFormat("HH:mm");
-        String x = f2.format(d)+":00"; // "23:00"
+        String x = f2.format(d) + ":00"; // "23:00"
 
         return x;
     }
 
     public static String convertTo12Hour(String Time) {
 
-        if(Time.length()==5){
-            Time=Time+":00";
+        if (Time.length() == 5) {
+            Time = Time + ":00";
         }
         DateFormat f1 = new SimpleDateFormat("hh:mm:ss"); //11:00 pm
         Date d = null;
@@ -613,7 +605,7 @@ public class DateUtils {
         }
     }
 
-    public static String addMinToTime(String myTime,int minsToAdd){
+    public static String addMinToTime(String myTime, int minsToAdd) {
         SimpleDateFormat df = new SimpleDateFormat("mm");
         Date d = null;
         try {
@@ -636,43 +628,43 @@ public class DateUtils {
 //            return ""+(hour<10 ? "0" + hour : hour);
 //        }
 //        else {
-            return (hour<10 ? "0" + hour : hour)+ ":" + (minute < 10 ? "0" + minute : minute);
-       // }
+        return (hour < 10 ? "0" + hour : hour) + ":" + (minute < 10 ? "0" + minute : minute);
+        // }
     }
 
-    public  static String getTimeStamp(){
+    public static String getTimeStamp() {
         return String.valueOf(System.currentTimeMillis());
     }
 
-    public static String getTimeStamp2(String datetxt){
+    public static String getTimeStamp2(String datetxt) {
 
         DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = null;
         try {
-            date = (Date)formatter.parse(datetxt);
+            date = (Date) formatter.parse(datetxt);
             return String.valueOf(date.getTime());
         } catch (ParseException e) {
             e.printStackTrace();
         }
-       return getTimeStamp();
+        return getTimeStamp();
     }
 
 
-    public static String getFormattedTime(String dateTxt,String inputFormat,String outputFormat){
+    public static String getFormattedTime(String dateTxt, String inputFormat, String outputFormat) {
         SimpleDateFormat sdf = new SimpleDateFormat(outputFormat, Locale.ENGLISH);
-        return sdf.format(getDateFromStringDate(dateTxt,inputFormat));
+        return sdf.format(getDateFromStringDate(dateTxt, inputFormat));
 
     }
 
-    public static String formatLogDate(String dateTxt){
+    public static String formatLogDate(String dateTxt) {
         SimpleDateFormat sdf = new SimpleDateFormat(dateFormat2, Locale.ENGLISH);
-        return sdf.format(getDateFromStringDate(dateTxt,SERVER_DATE_FORMAT));
+        return sdf.format(getDateFromStringDate(dateTxt, SERVER_DATE_FORMAT));
     }
 
-    public static String getFormattedTime3(String dateTxt){
+    public static String getFormattedTime3(String dateTxt) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.ENGLISH);
         //  Log.e("date", "formatted string: "+sdf.format(DateUtils.getDateFromStringDate("2021-03-21T15:40:10+05:30","yyyy-MM-dd'T'HH:mm:ssZZZZZ")));
-        return sdf.format(getDateFromStringDate(dateTxt,appTimeFormat));
+        return sdf.format(getDateFromStringDate(dateTxt, appTimeFormat));
 
     }
 
@@ -695,7 +687,7 @@ public class DateUtils {
                 getCurrentHour().matches(reg)) {
             boolean valid = false;
             //Start Time
-            Log.e("ctime",getCurrentHour());
+            Log.e("ctime", getCurrentHour());
             //all times are from java.util.Date
             Date inTime = new SimpleDateFormat("HH:mm:ss").parse(initialTime);
             Calendar calendar1 = Calendar.getInstance();
@@ -730,12 +722,13 @@ public class DateUtils {
     }
 
 
-    public static String getCurrentHour(){
+    public static String getCurrentHour() {
         Calendar calendar = Calendar.getInstance();
         int hourOfDay = calendar.get(Calendar.HOUR_OF_DAY);
         String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
-        return  currentTime;
+        return currentTime;
     }
+
     public static Calendar parseDateString(String date) {
         SimpleDateFormat BIRTHDAY_FORMAT_PARSER = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -743,7 +736,8 @@ public class DateUtils {
         BIRTHDAY_FORMAT_PARSER.setLenient(false);
         try {
             calendar.setTime(BIRTHDAY_FORMAT_PARSER.parse(date));
-        } catch (ParseException e) {}
+        } catch (ParseException e) {
+        }
         return calendar;
     }
 
@@ -769,43 +763,35 @@ public class DateUtils {
     }
 
 
-    public static String getDateWeekendMonth(Calendar calendar,int type,int from){
-        if(type==0){
-            if(from==0){
+    public static String getDateWeekendMonth(Calendar calendar, int type, int from) {
+        if (type == 0) {
+            if (from == 0) {
                 calendar.add(Calendar.DATE, 1);
                 return getdateFormat(appDateFormat).format(calendar.getTime());
-            }
-            else if(from==1){
+            } else if (from == 1) {
                 calendar.add(Calendar.DATE, -1);
                 return getdateFormat(appDateFormat).format(calendar.getTime());
-            }
-            else if(from==2){
+            } else if (from == 2) {
 
                 return getdateFormat(appDateFormat).format(calendar.getTime());
             }
-        }
-        else if(type==1){
-            if(from==0){
+        } else if (type == 1) {
+            if (from == 0) {
                 return getNextWeek(calendar);
-            }
-            else if(from==1){
+            } else if (from == 1) {
                 return getLastWeek(calendar);
-            }
-            else if(from==2){
+            } else if (from == 2) {
                 return getCurrentWeek(calendar);
 
             }
-        }
-        else if(type==2){
-            if(from==0){
+        } else if (type == 2) {
+            if (from == 0) {
                 calendar.add(Calendar.MONTH, 1);
                 return getdateFormat("MMMM,yyyy").format(calendar.getTime());
-            }
-            else if(from==1){
+            } else if (from == 1) {
                 calendar.add(Calendar.MONTH, -1);
                 return getdateFormat("MMMM,yyyy").format(calendar.getTime());
-            }
-            else if(from==2){
+            } else if (from == 2) {
                 return getdateFormat("MMMM,yyyy").format(calendar.getTime());
             }
 
@@ -815,17 +801,17 @@ public class DateUtils {
     }
 
 
-    public static String getLastThreeMonth(Calendar calendarStart, Calendar calendarEnd,int from){
-        String month1="",month2="";
-         if(from==1){
-            month1=getdateFormat(appDateFormat).format(calendarStart.getTime());//aug
-            month2=getdateFormat(appDateFormat).format(calendarEnd.getTime());//oct
+    public static String getLastThreeMonth(Calendar calendarStart, Calendar calendarEnd, int from) {
+        String month1 = "", month2 = "";
+        if (from == 1) {
+            month1 = getdateFormat(appDateFormat).format(calendarStart.getTime());//aug
+            month2 = getdateFormat(appDateFormat).format(calendarEnd.getTime());//oct
         } else {
-            month2=getdateFormat(appDateFormat).format(calendarEnd.getTime());//oct
-            month1=getdateFormat(appDateFormat).format(calendarStart.getTime());//aug
+            month2 = getdateFormat(appDateFormat).format(calendarEnd.getTime());//oct
+            month1 = getdateFormat(appDateFormat).format(calendarStart.getTime());//aug
         }
-        Log.e("Ved : ", calendarStart.getTime()+"/"+calendarEnd.getTime());
-        return month1+"/"+month2;
+        Log.e("Ved : ", calendarStart.getTime() + "/" + calendarEnd.getTime());
+        return month1 + "/" + month2;
     }
 
     public static String getLastWeek(Calendar mCalendar) {
@@ -864,7 +850,7 @@ public class DateUtils {
         Date mDateSunday = mCalendar.getTime();
 
         //Get format date
-        String strDateFormat =appDateFormat;
+        String strDateFormat = appDateFormat;
         SimpleDateFormat sdf = new SimpleDateFormat(strDateFormat);
 
         String MONDAY = sdf.format(mDateMonday);
@@ -903,8 +889,6 @@ public class DateUtils {
     }
 
 
-
-
     public static void showTimePicker(TextView textView, Context context) {
         final Calendar myCalendar = Calendar.getInstance();
         int hour = myCalendar.get(Calendar.HOUR_OF_DAY);
@@ -918,7 +902,7 @@ public class DateUtils {
                     myCalendar.set(Calendar.MINUTE, minute);
                     Date date = null;
                     try {
-                        date = DateUtils.getdateFormat("HH:mm").parse(hourOfDay + ":" + minute );
+                        date = DateUtils.getdateFormat("HH:mm").parse(hourOfDay + ":" + minute);
                     } catch (ParseException e) {
 
                         e.printStackTrace();
@@ -935,7 +919,7 @@ public class DateUtils {
     }
 
 
-    public static LiveData<String> showDatePicker(TextView textView, Context context){
+    public static LiveData<String> showDatePicker(TextView textView, Context context) {
         final MutableLiveData<String> data = new MutableLiveData<>();
         int mYear, mMonth, mDay;
         final Calendar c = Calendar.getInstance();
@@ -943,24 +927,23 @@ public class DateUtils {
         mMonth = c.get(Calendar.MONTH);
         mDay = c.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(context, android.R.style.Theme_Holo_Light_Dialog,new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(context, android.R.style.Theme_Holo_Light_Dialog, new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(year, monthOfYear, dayOfMonth);
-                textView.setText(getPrettyDate(getdateFormat(appDateFormat).format(calendar.getTime()),appDateFormat,appDateFormat));
+                textView.setText(getPrettyDate(getdateFormat(appDateFormat).format(calendar.getTime()), appDateFormat, appDateFormat));
 
                 data.setValue(getdateFormat(appDateFormat).format(calendar.getTime()));
             }
         }, mYear, mMonth, mDay);
 
-       // if(getDateFromStringDate(getCurrentDate()+" 11:59:00",SERVER_DATE_FORMAT).after(getDateFromStringDate(getCurrentDate(SERVER_DATE_FORMAT),SERVER_DATE_FORMAT)))
+        // if(getDateFromStringDate(getCurrentDate()+" 11:59:00",SERVER_DATE_FORMAT).after(getDateFromStringDate(getCurrentDate(SERVER_DATE_FORMAT),SERVER_DATE_FORMAT)))
 
-            datePickerDialog.getDatePicker().setMinDate(Objects.requireNonNull(getPreviousDate()).getTime());
+        datePickerDialog.getDatePicker().setMinDate(Objects.requireNonNull(getPreviousDate()).getTime());
 //        else
 //            datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis()-1000);
-
 
 
         datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
@@ -971,11 +954,10 @@ public class DateUtils {
     }
 
 
-
-    public static String getTimeDuration(String timeFrom,String timeTo){
+    public static String getTimeDuration(String timeFrom, String timeTo) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
 
-        Date date1=null,date2 = null;
+        Date date1 = null, date2 = null;
         try {
             date1 = simpleDateFormat.parse(convertTo24Hour(timeFrom));
             date2 = simpleDateFormat.parse(convertTo24Hour(timeTo));
@@ -985,8 +967,7 @@ public class DateUtils {
 
 
         long difference = date2.getTime() - date1.getTime();
-        if(difference<0)
-        {
+        if (difference < 0) {
             Date dateMax = null;
             Date dateMin = null;
             try {
@@ -996,71 +977,70 @@ public class DateUtils {
                 e.printStackTrace();
             }
 
-            difference=(dateMax.getTime() -date1.getTime() )+(date2.getTime()-dateMin.getTime());
+            difference = (dateMax.getTime() - date1.getTime()) + (date2.getTime() - dateMin.getTime());
         }
-        int days = (int) (difference / (1000*60*60*24));
-        int hours = (int) ((difference - (1000*60*60*24*days)) / (1000*60*60));
-        int min = (int) (difference - (1000*60*60*24*days) - (1000*60*60*hours)) / (1000*60);
-        int sec = (int) (difference - (1000*60*60*24*days) - (1000*60*60*hours) - (1000*60*min)) / (1000);
-       // Log.e("log_tag","Hours: "+hours+", Mins: "+min+", Secs: "+sec);
-        if(min>0){
-            int secTotals=(hours*60*60)+(min*60);
+        int days = (int) (difference / (1000 * 60 * 60 * 24));
+        int hours = (int) ((difference - (1000 * 60 * 60 * 24 * days)) / (1000 * 60 * 60));
+        int min = (int) (difference - (1000 * 60 * 60 * 24 * days) - (1000 * 60 * 60 * hours)) / (1000 * 60);
+        int sec = (int) (difference - (1000 * 60 * 60 * 24 * days) - (1000 * 60 * 60 * hours) - (1000 * 60 * min)) / (1000);
+        // Log.e("log_tag","Hours: "+hours+", Mins: "+min+", Secs: "+sec);
+        if (min > 0) {
+            int secTotals = (hours * 60 * 60) + (min * 60);
             return String.valueOf(secTotals);
-           // return (hours<10?"0"+hours:hours)+":"+(min<10?"0"+min:min);
-        }
-        else {
-            return ""+(hours*60*60);
+            // return (hours<10?"0"+hours:hours)+":"+(min<10?"0"+min:min);
+        } else {
+            return "" + (hours * 60 * 60);
             //return (hours<10?"0"+hours:hours)+":00";
         }
 
     }
 
-    public static String getTimeOfDay(){
+    public static String getTimeOfDay() {
         Calendar c = Calendar.getInstance();
         int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
 
         String time = "";
 
-        if(timeOfDay >= 0 && timeOfDay < 12){
+        if (timeOfDay >= 0 && timeOfDay < 12) {
             time = "Good Morning, ";
-        }else if(timeOfDay >= 12 && timeOfDay < 16){
+        } else if (timeOfDay >= 12 && timeOfDay < 16) {
             time = "Good Afternoon, ";
-        }else if(timeOfDay >= 16 && timeOfDay < 21){
+        } else if (timeOfDay >= 16 && timeOfDay < 21) {
             time = "Good Evening, ";
-        }else if(timeOfDay >= 21 && timeOfDay < 24){
+        } else if (timeOfDay >= 21 && timeOfDay < 24) {
             time = "Good Night, ";
         }
         return time;
     }
 
     public static String getDayFromDate(String dateTxt) {
-        return getDate(parseDate(dateTxt,new SimpleDateFormat(appDateFormat,Locale.getDefault())),"EEEE").toLowerCase();
+        return getDate(parseDate(dateTxt, new SimpleDateFormat(appDateFormat, Locale.getDefault())), "EEEE").toLowerCase();
     }
 
 
-    public static String dateFormatForTab1(String dateTxt){
-       return getFormattedTime(dateTxt, appDateFormat, "dd MMMM");
+    public static String dateFormatForTab1(String dateTxt) {
+        return getFormattedTime(dateTxt, appDateFormat, "dd MMMM");
     }
 
-    public static String[] dateFormatForTab2(String dateTxt){
-        String [] split=dateTxt.split("/");
+    public static String[] dateFormatForTab2(String dateTxt) {
+        String[] split = dateTxt.split("/");
         return split;
     }
 
 
     @SuppressLint("SuspiciousIndentation")
-    public static String monthStartEndDate(String dateTxt, int type){
-        String [] split=dateTxt.split(",");
-        int month=getMonthNumber(split[0]);
-        int year= Integer.parseInt(split[1]);
+    public static String monthStartEndDate(String dateTxt, int type) {
+        String[] split = dateTxt.split(",");
+        int month = getMonthNumber(split[0]);
+        int year = Integer.parseInt(split[1]);
         Calendar c = Calendar.getInstance();
         int day = 1;
         c.set(year, month, day);
         int numOfDaysInMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
-        if(type==0)
-        return getdateFormat(appDateFormat).format(c.getTime());
+        if (type == 0)
+            return getdateFormat(appDateFormat).format(c.getTime());
         else
-        c.add(Calendar.DAY_OF_MONTH, numOfDaysInMonth-1);
+            c.add(Calendar.DAY_OF_MONTH, numOfDaysInMonth - 1);
         return getdateFormat(appDateFormat).format(c.getTime());
     }
 
@@ -1073,7 +1053,7 @@ public class DateUtils {
             calendar.setTime(myDate);
             calendar.add(Calendar.DAY_OF_YEAR, -1);
             Date previousDate = calendar.getTime();
-           return dateFormat.format(previousDate);
+            return dateFormat.format(previousDate);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -1116,7 +1096,7 @@ public class DateUtils {
 
 
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(getDateFromStringDate(datetxt,dateFormat1));
+        calendar.setTime(getDateFromStringDate(datetxt, dateFormat1));
 
         calendar.add(Calendar.MONTH, 1);
         calendar.set(Calendar.DAY_OF_MONTH, 1);
@@ -1125,33 +1105,31 @@ public class DateUtils {
         Date lastDayOfMonth = calendar.getTime();
 
         DateFormat sdf = new SimpleDateFormat(dateFormat1);
-        System.out.println("Today            : " + sdf.format(getDateFromStringDate(datetxt,dateFormat1)));
+        System.out.println("Today            : " + sdf.format(getDateFromStringDate(datetxt, dateFormat1)));
         System.out.println("Last Day of Month: " + sdf.format(lastDayOfMonth));
         return sdf.format(lastDayOfMonth);
 
     }
 
-    public static String convertSecIntoHourMin(String sec){
-        if(TextUtils.isEmpty(sec)){
+    public static String convertSecIntoHourMin(String sec) {
+        if (TextUtils.isEmpty(sec)) {
             return "0h";
         }
 
-        int seconds= Math.round(Integer.parseInt(sec));
+        int seconds = Math.round(Integer.parseInt(sec));
         int hours = seconds / 3600;
         int minutes = (seconds % 3600) / 60;
-        if(hours==0 && minutes>0){
-            return String.valueOf(minutes+"m");
-        }
-        else if(hours!=0 && minutes>0){
-            return String.valueOf(hours+"h "+minutes+"m");
-        }
-        else {
-            return String.valueOf(hours+"h");
+        if (hours == 0 && minutes > 0) {
+            return String.valueOf(minutes + "m");
+        } else if (hours != 0 && minutes > 0) {
+            return String.valueOf(hours + "h " + minutes + "m");
+        } else {
+            return String.valueOf(hours + "h");
         }
 
     }
 
-    public static String getLastPreviousDate(int days){
+    public static String getLastPreviousDate(int days) {
         DateFormat format = new SimpleDateFormat(DateUtils.appDateFormat, Locale.US);
         DateFormat monthFormat = new SimpleDateFormat("MM-yyyy", Locale.US);
         Calendar cal = Calendar.getInstance();
@@ -1169,22 +1147,22 @@ public class DateUtils {
     }
 
 
-    public static boolean isFutureDate(String selectedDate){
+    public static boolean isFutureDate(String selectedDate) {
         Calendar cal = Calendar.getInstance();
         DateFormat format = new SimpleDateFormat(SERVER_DATE_FORMAT, Locale.US);
-        Date date1=null,date2=null;
+        Date date1 = null, date2 = null;
         try {
-             date1=format.parse(getCurrentDate(SERVER_DATE_FORMAT));
-             date2=format.parse(selectedDate);
-             return date1.before(date2);
+            date1 = format.parse(getCurrentDate(SERVER_DATE_FORMAT));
+            date2 = format.parse(selectedDate);
+            return date1.before(date2);
         } catch (ParseException e) {
             e.printStackTrace();
         }
         return false;
     }
 
-    public static String getCurrentMonthFirstLastDate(){
-        String dates="";
+    public static String getCurrentMonthFirstLastDate() {
+        String dates = "";
         DateFormat format = new SimpleDateFormat(appDateFormat, Locale.US);
         Calendar c = Calendar.getInstance();
         int year = c.get(Calendar.YEAR);
@@ -1192,19 +1170,18 @@ public class DateUtils {
         int day = 1;
         c.set(year, month, day);
         int numOfDaysInMonth = c.getActualMaximum(Calendar.DAY_OF_MONTH);
-        dates=format.format(c.getTime());
+        dates = format.format(c.getTime());
         System.out.println("First Day of month: " + c.getTime());
-        c.add(Calendar.DAY_OF_MONTH, numOfDaysInMonth-1);
-        dates=dates+"/"+format.format(c.getTime());
+        c.add(Calendar.DAY_OF_MONTH, numOfDaysInMonth - 1);
+        dates = dates + "/" + format.format(c.getTime());
         System.out.println("Last Day of month: " + c.getTime());
 
         return dates;
     }
 
-    public static String parseTimeFromStartTime(String startTime,String timeFormat){
+    public static String parseTimeFromStartTime(String startTime, String timeFormat) {
         String getTimeDif = "";
-        try
-        {
+        try {
             SimpleDateFormat format = new SimpleDateFormat(timeFormat);
             Date past = format.parse(startTime);
             Date now = new Date();
@@ -1214,35 +1191,34 @@ public class DateUtils {
             Calendar endCalendar = new GregorianCalendar();
             endCalendar.setTime(now);
 
-            long seconds= TimeUnit.MILLISECONDS.toSeconds(now.getTime() - past.getTime());
-            long minutes=TimeUnit.MILLISECONDS.toMinutes(now.getTime() - past.getTime());
-            long hours=TimeUnit.MILLISECONDS.toHours(now.getTime() - past.getTime());
-            long days=TimeUnit.MILLISECONDS.toDays(now.getTime() - past.getTime());
+            long seconds = TimeUnit.MILLISECONDS.toSeconds(now.getTime() - past.getTime());
+            long minutes = TimeUnit.MILLISECONDS.toMinutes(now.getTime() - past.getTime());
+            long hours = TimeUnit.MILLISECONDS.toHours(now.getTime() - past.getTime());
+            long days = TimeUnit.MILLISECONDS.toDays(now.getTime() - past.getTime());
 
             int diffYear = endCalendar.get(Calendar.YEAR) - startCalendar.get(Calendar.YEAR);
             int diffMonth = diffYear * 12 + endCalendar.get(Calendar.MONTH) - startCalendar.get(Calendar.MONTH);
 
-            if(seconds<60) {
-                System.out.println(seconds+" seconds ago");
+            if (seconds < 60) {
+                System.out.println(seconds + " seconds ago");
                 getTimeDif = "Just Now";
-            } else if(minutes<60) {
-                System.out.println(minutes+" minutes ago");
-                getTimeDif = minutes+" minutes ago";
-            } else if(hours<24) {
-                System.out.println(hours+" hours ago");
-                getTimeDif = hours+" hours ago";
-            } else if(days<=31) {
-                System.out.println(days+" days ago");
-                getTimeDif = days+" days ago";
-            } else if(diffMonth<=12){
-                System.out.println(diffMonth+" months ago");
-                getTimeDif = diffMonth+" months ago";
+            } else if (minutes < 60) {
+                System.out.println(minutes + " minutes ago");
+                getTimeDif = minutes + " minutes ago";
+            } else if (hours < 24) {
+                System.out.println(hours + " hours ago");
+                getTimeDif = hours + " hours ago";
+            } else if (days <= 31) {
+                System.out.println(days + " days ago");
+                getTimeDif = days + " days ago";
+            } else if (diffMonth <= 12) {
+                System.out.println(diffMonth + " months ago");
+                getTimeDif = diffMonth + " months ago";
             } else {
-                System.out.println(diffYear+" year ago");
-                getTimeDif = diffYear+" year ago";
+                System.out.println(diffYear + " year ago");
+                getTimeDif = diffYear + " year ago";
             }
-        }
-        catch (Exception j){
+        } catch (Exception j) {
             j.printStackTrace();
         }
         return getTimeDif;

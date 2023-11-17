@@ -12,8 +12,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.R
-import com.example.hhfoundation.clinicalManagement.activity.PreviousAppointment
-import com.example.hhfoundation.clinicalManagement.activity.NewAppointment
+import com.example.hhfoundation.clinicalManagement.activity.*
 import com.example.hhfoundation.dasboard.model.ModelDashboard
 import com.example.hhfoundation.databinding.ActivityDashboardBinding
 import com.example.hhfoundation.followUpPrescription.FollowUpPrescription
@@ -23,8 +22,8 @@ import com.example.hhfoundation.login.Login
 import com.example.hhfoundation.login.model.ModelLogin
 import com.example.hhfoundation.medicalHistory.activity.AllMedicalHistory
 import com.example.hhfoundation.labReport.activity.LabReport
-import com.example.hhfoundation.clinicalManagement.activity.Prescription
-import com.example.hhfoundation.clinicalManagement.activity.TodayAppointment
+import com.example.hhfoundation.doctor.activity.ListOfDoctor
+import com.example.hhfoundation.doctor.activity.TreatmentHistory
 import com.example.hhfoundation.followUpPrescription.DailyVitalUpdate
 import com.example.hhfoundation.labReport.activity.LabInvestigations
 import com.example.hhfoundation.profile.Profile
@@ -54,14 +53,28 @@ class Dashboard : AppCompatActivity() {
 
         if (sessionManager.group=="Nurse"){
             binding.includedrawar1.Doctor.visibility=View.GONE
+            binding.includedrawar1.consultationRequestlayout.visibility=View.GONE
             apiCallDashboardCount()
         }
+
+        if (sessionManager.usertype=="2"){
+            binding.includedrawar1.Doctor.visibility=View.GONE
+            binding.includedrawar1.PreventiveScreening.visibility=View.GONE
+            binding.includedrawar1.ClinicalManagement.visibility=View.GONE
+            binding.includedrawar1.LabReports.visibility=View.GONE
+            binding.includedrawar1.LabTest.visibility=View.GONE
+            binding.includedrawar1.layoutFollowUp.visibility=View.GONE
+            binding.includedrawar1.layoutReferralDischarge.visibility=View.GONE
+            binding.includedrawar1.layoutReferralDoc.visibility=View.GONE
+            binding.includedrawar1.layoutDaliVital.visibility=View.GONE
+         }
         if (sessionManager.group=="Doctor"){
             binding.includedrawar1.newAppointmentlayout.visibility=View.GONE
             binding.includedrawar1.consultationRequestlayout.visibility=View.GONE
              binding.includedrawar1.Doctor.visibility=View.GONE
             binding.includedrawar1.PreventiveScreening.visibility=View.GONE
             binding.includedrawar1.RefferalsAFU.visibility=View.GONE
+            binding.includedrawar1.RefferalsAFULayout.visibility=View.GONE
 
          }
 
@@ -77,6 +90,16 @@ class Dashboard : AppCompatActivity() {
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
 
+            binding.includedrawar1.layoutTreatment.setOnClickListener {
+                startActivity(Intent(this, TreatmentHistory::class.java))
+                drawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            binding.includedrawar1.layoutListOfDoctor.setOnClickListener {
+                startActivity(Intent(this, ListOfDoctor::class.java))
+                drawerLayout.closeDrawer(GravityCompat.START)
+            }
+
             binding.includedrawar1.bonafideLayout.setOnClickListener {
                 startActivity(Intent(this, StudentBonoFileld::class.java))
                 drawerLayout.closeDrawer(GravityCompat.START)
@@ -89,6 +112,11 @@ class Dashboard : AppCompatActivity() {
 
             binding.includedrawar1.newAppointmentlayout.setOnClickListener {
                 startActivity(Intent(this, NewAppointment::class.java))
+                drawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            binding.includedrawar1.consultationRequestlayout.setOnClickListener {
+                startActivity(Intent(this, ConsaltationRequest::class.java))
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
 
@@ -168,6 +196,32 @@ class Dashboard : AppCompatActivity() {
                     binding.includedrawar1.PreventiveSLayout.setBackgroundColor(resources.getColor(R.color.main_color))
                     binding.includedrawar1.reportArrowPS.setImageResource(R.drawable.baseline_remove_24)
                 }
+
+                if (binding.includedrawar1.StudentLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.StudentLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowStudent.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabDoctor.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabDoctor.visibility = View.GONE
+                    binding.includedrawar1.DoctorArrowPS.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.ClinicalMLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.ClinicalMLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowCM.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.RefferalsAFULayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.RefferalsAFULayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowRAFU.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabReportsLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabReportsLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowLabR.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabTestsLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabTestsLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowLabT.setImageResource(R.drawable.baseline_add_24)
+                }
+
             }
 
             binding.includedrawar1.layoutStudent.setOnClickListener {
@@ -200,6 +254,36 @@ class Dashboard : AppCompatActivity() {
                     binding.includedrawar1.ClinicalMLayout.setBackgroundColor(resources.getColor(R.color.main_color))
                     binding.includedrawar1.reportArrowCM.setImageResource(R.drawable.baseline_remove_24)
                 }
+                if (binding.includedrawar1.PreventiveSLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.PreventiveSLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowPS.setImageResource(R.drawable.baseline_add_24)
+                }
+
+                if (binding.includedrawar1.StudentLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.StudentLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowStudent.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabDoctor.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabDoctor.visibility = View.GONE
+                    binding.includedrawar1.DoctorArrowPS.setImageResource(R.drawable.baseline_add_24)
+                }
+
+                if (binding.includedrawar1.RefferalsAFULayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.RefferalsAFULayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowRAFU.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabReportsLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabReportsLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowLabR.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabTestsLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabTestsLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowLabT.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.PreventiveSLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.PreventiveSLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowPS.setImageResource(R.drawable.baseline_add_24)
+                }
             }
 
             binding.includedrawar1.RefferalsAFU.setOnClickListener {
@@ -215,6 +299,32 @@ class Dashboard : AppCompatActivity() {
                     )
                     binding.includedrawar1.reportArrowRAFU.setImageResource(R.drawable.baseline_remove_24)
                 }
+
+                if (binding.includedrawar1.StudentLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.StudentLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowStudent.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabDoctor.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabDoctor.visibility = View.GONE
+                    binding.includedrawar1.DoctorArrowPS.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.ClinicalMLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.ClinicalMLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowCM.setImageResource(R.drawable.baseline_add_24)
+                }
+
+                if (binding.includedrawar1.LabReportsLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabReportsLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowLabR.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabTestsLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabTestsLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowLabT.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.PreventiveSLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.PreventiveSLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowPS.setImageResource(R.drawable.baseline_add_24)
+                }
             }
 
             binding.includedrawar1.LabReports.setOnClickListener {
@@ -226,6 +336,32 @@ class Dashboard : AppCompatActivity() {
                     binding.includedrawar1.LabReportsLayout.setBackgroundColor(resources.getColor(R.color.main_color))
                     binding.includedrawar1.reportArrowLabR.setImageResource(R.drawable.baseline_remove_24)
                 }
+
+                if (binding.includedrawar1.StudentLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.StudentLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowStudent.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabDoctor.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabDoctor.visibility = View.GONE
+                    binding.includedrawar1.DoctorArrowPS.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.ClinicalMLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.ClinicalMLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowCM.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.RefferalsAFULayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.RefferalsAFULayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowRAFU.setImageResource(R.drawable.baseline_add_24)
+                }
+
+                if (binding.includedrawar1.LabTestsLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabTestsLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowLabT.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.PreventiveSLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.PreventiveSLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowPS.setImageResource(R.drawable.baseline_add_24)
+                }
             }
             binding.includedrawar1.LabTest.setOnClickListener {
                 if (binding.includedrawar1.LabTestsLayout.visibility == View.VISIBLE) {
@@ -235,6 +371,32 @@ class Dashboard : AppCompatActivity() {
                     binding.includedrawar1.LabTestsLayout.visibility = View.VISIBLE
                     binding.includedrawar1.LabTestsLayout.setBackgroundColor(resources.getColor(R.color.main_color))
                     binding.includedrawar1.reportArrowLabT.setImageResource(R.drawable.baseline_remove_24)
+                }
+
+                if (binding.includedrawar1.StudentLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.StudentLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowStudent.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabDoctor.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabDoctor.visibility = View.GONE
+                    binding.includedrawar1.DoctorArrowPS.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.ClinicalMLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.ClinicalMLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowCM.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.RefferalsAFULayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.RefferalsAFULayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowRAFU.setImageResource(R.drawable.baseline_add_24)
+                }
+                if (binding.includedrawar1.LabReportsLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.LabReportsLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowLabR.setImageResource(R.drawable.baseline_add_24)
+                }
+
+                if (binding.includedrawar1.PreventiveSLayout.visibility == View.VISIBLE) {
+                    binding.includedrawar1.PreventiveSLayout.visibility = View.GONE
+                    binding.includedrawar1.reportArrowPS.setImageResource(R.drawable.baseline_add_24)
                 }
             }
             if (binding.includedrawar1.PreventiveSLayout.visibility == View.VISIBLE) {

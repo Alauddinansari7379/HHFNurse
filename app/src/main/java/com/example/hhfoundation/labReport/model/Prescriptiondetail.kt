@@ -13,6 +13,7 @@ data class Prescriptiondetail(
     val follow_school: String,
     val gender: String,
     val follow: String,
+    val added: String,
     val follow_reason: String,
     val labinves: Any,
     val note: String,

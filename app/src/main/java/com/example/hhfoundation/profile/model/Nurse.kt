@@ -37,6 +37,7 @@ data class Nurse(
     val remember_code: Any,
     val salt: Any,
     val school: String,
+    val u_type: String,
     val strength: String,
     val username: String,
     val x: Any,

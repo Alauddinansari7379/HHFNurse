@@ -47,8 +47,9 @@ class AdapterPatientList(val context: Context, val list: List<Patient>) :
 
         holder.btnAdMedicALHPL.setOnClickListener {
             val intent = Intent(context as Activity, StudentDetailsOne::class.java)
-            studentId=list[position].id
-             context.startActivity(intent)
+            intent.putExtra("birthdate",list[position].birthdate)
+            studentId = list[position].id
+            context.startActivity(intent)
         }
 
     }
@@ -59,7 +60,7 @@ class AdapterPatientList(val context: Context, val list: List<Patient>) :
     }
 
     companion object {
-    var studentId=""
+        var studentId = ""
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

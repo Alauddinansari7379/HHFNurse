@@ -223,7 +223,7 @@
                                 android:drawableTint="@color/white"
                                 android:padding="5dp"
                                 android:textSize="12sp"
-                                android:text="View Case"
+                                android:text="Case"
                                 android:textAllCaps="false"
                                 android:textColor="@color/white">
 

@@ -34,8 +34,7 @@ class AdapterReferralsFollow(val context: Context, private val list: ModelReferr
         holder.departmentREF.text = list.prescriptions[position].p_depart
         holder.patientNameRef.text = list.patients[position].name
         holder.hospitalNameREF.text = list.prescriptions[position].p_hosp
-        holder.patientNameRef.text = list.patients[position].id
-        holder.exteriorDateREF.text = list.doctors[position].name
+         holder.exteriorDateREF.text = list.doctors[position].name
         //        holder.patientNameRef.text = list[position].patientname
 //        holder.hospitalNameRef.text = list[position].refer_hospital
 //        holder.doctorNameRef.text = list[position].doctrname

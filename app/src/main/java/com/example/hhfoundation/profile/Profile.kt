@@ -25,18 +25,18 @@ class Profile : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sessionManager= SessionManager(this@Profile)
+        sessionManager = SessionManager(this@Profile)
 
         binding.imgBack.setOnClickListener {
             onBackPressed()
         }
 
-        if (sessionManager.group=="Doctor"){
-            binding.layoutDoctor.visibility=View.VISIBLE
+        if (sessionManager.group == "Doctor") {
+            binding.layoutDoctor.visibility = View.VISIBLE
         }
 
-        if (sessionManager.group=="Nurse"){
-            binding.layoutNurse.visibility=View.VISIBLE
+        if (sessionManager.group == "Nurse") {
+            binding.layoutNurse.visibility = View.VISIBLE
         }
 
         apiCallGetProfile()
@@ -47,7 +47,8 @@ class Profile : AppCompatActivity() {
         AppProgressBar.showLoaderDialog(this@Profile)
 
 
-        ApiClient.apiService.getProfile(sessionManager.ionId.toString(),
+        ApiClient.apiService.getProfile(
+            sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
             sessionManager.group.toString(),
         )
@@ -69,19 +70,34 @@ class Profile : AppCompatActivity() {
                             AppProgressBar.hideLoaderDialog()
 
                         } else {
-                            binding.tvid.text=response.body()!!.nurse.id
-                            binding.tvname.text=response.body()!!.nurse.name
-                            binding.tvEmail.text=response.body()!!.nurse.email
-                            binding.tvAddress.text=response.body()!!.nurse.address
-                            binding.tvPhone.text=response.body()!!.nurse.phone
-                            binding.tvHospitalId.text=response.body()!!.nurse.hospital_id
-                            binding.tvSchool.text=response.body()!!.nurse.school
-                            binding.tvStrength.text=response.body()!!.nurse.school
-                            binding.tvPrincipal.text=response.body()!!.nurse.principal
-                            binding.tvDepartment.text=response.body()!!.nurse.department
-                            binding.tvRegNo.text=response.body()!!.nurse.reg_no
-                            binding.tvProfile.text=response.body()!!.nurse.profile
-                             AppProgressBar.hideLoaderDialog()
+                            binding.tvid.text = response.body()!!.nurse.id
+                            binding.tvname.text = response.body()!!.nurse.name
+                            binding.tvEmail.text = response.body()!!.nurse.email
+                            binding.tvAddress.text = response.body()!!.nurse.address
+                            binding.tvPhone.text = response.body()!!.nurse.phone
+                            binding.tvHospitalId.text = response.body()!!.nurse.hospital_id
+                            binding.tvSchool.text = response.body()!!.nurse.school
+                            binding.tvStrength.text = response.body()!!.nurse.school
+                            binding.tvPrincipal.text = response.body()!!.nurse.principal
+                            binding.tvDepartment.text = response.body()!!.nurse.department
+                            binding.tvRegNo.text = response.body()!!.nurse.reg_no
+                            binding.tvProfile.text = response.body()!!.nurse.profile
+
+
+
+                            if (sessionManager.group == "Receptionist") {
+                                binding.tvnameSp.text = response.body()!!.nurse.name
+                                binding.tvEmailSp.text = response.body()!!.nurse.email
+                                binding.tvAddressSP.text = response.body()!!.nurse.address
+                                binding.tvPhoneSp.text = response.body()!!.nurse.phone
+                                binding.tvCouncelorTypeSP.text = response.body()!!.nurse.u_type
+                                binding.CouncelorSchool.text = response.body()!!.nurse.school
+                                binding.layoutReceptionist.visibility = View.VISIBLE
+                                binding.layoutDefalut.visibility = View.GONE
+                            }
+
+
+                            AppProgressBar.hideLoaderDialog()
 
 
                         }

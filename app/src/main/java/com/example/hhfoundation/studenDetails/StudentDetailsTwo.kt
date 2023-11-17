@@ -30,30 +30,31 @@ class StudentDetailsTwo : AppCompatActivity() {
         sessionManager = SessionManager(this@StudentDetailsTwo)
         Log.e("AdapterPatientList.studentId", AdapterPatientList.studentId)
         binding.btnOk.setOnClickListener {
-            StudentDetailsOne.VisionImpairment = binding.VisionImpairment.text.toString().trim()
-            StudentDetailsOne.HearingImpairment = binding.HearingImpairment.text.toString().trim()
-            StudentDetailsOne.motorImpairment = binding.motorImpairment.text.toString().trim()
-            StudentDetailsOne.MotorDelay = binding.MotorDelay.text.toString().trim()
-            StudentDetailsOne.LanguageDelay = binding.LanguageDelay.text.toString().trim()
-            StudentDetailsOne.Autism = binding.Autism.text.toString().trim()
-            StudentDetailsOne.LearningDisorder = binding.LearningDisorder.text.toString().trim()
-            StudentDetailsOne.hyperactivityDisorder =
-                binding.hyperactivityDisorder.text.toString().trim()
-            StudentDetailsOne.Occurringinyourbody =
-                binding.occurringinyourbody.text.toString().trim()
-            StudentDetailsOne.Smokingordrinking = binding.smokingordrinking.text.toString().trim()
-            StudentDetailsOne.Depressedmost = binding.depressedMost.text.toString().trim()
-            StudentDetailsOne.MenstrualCycleStarted =
-                binding.MenstrualCycleStarted.text.toString().trim()
-            StudentDetailsOne.PeriodsEverymonths = binding.PeriodsEverymonths.text.toString().trim()
+//            StudentDetailsOne.VisionImpairment = binding.VisionImpairment.text.toString().trim()
+//            StudentDetailsOne.HearingImpairment = binding.HearingImpairment.text.toString().trim()
+//            StudentDetailsOne.motorImpairment = binding.motorImpairment.text.toString().trim()
+//            StudentDetailsOne.MotorDelay = binding.MotorDelay.text.toString().trim()
+//            StudentDetailsOne.LanguageDelay = binding.LanguageDelay.text.toString().trim()
+//            StudentDetailsOne.Autism = binding.Autism.text.toString().trim()
+//            StudentDetailsOne.LearningDisorder = binding.LearningDisorder.text.toString().trim()
+//            StudentDetailsOne.hyperactivityDisorder =
+//                binding.hyperactivityDisorder.text.toString().trim()
+//            StudentDetailsOne.Occurringinyourbody =
+//                binding.occurringinyourbody.text.toString().trim()
+//            StudentDetailsOne.Smokingordrinking = binding.smokingordrinking.text.toString().trim()
+//            StudentDetailsOne.Depressedmost = binding.depressedMost.text.toString().trim()
+//            StudentDetailsOne.MenstrualCycleStarted =
+//                binding.MenstrualCycleStarted.text.toString().trim()
+//            StudentDetailsOne.PeriodsEverymonths = binding.PeriodsEverymonths.text.toString().trim()
 
-            apiCallAddMedicalHistory()
+        //    apiCallAddMedicalHistory()
         }
         binding.imgBack.setOnClickListener {
             onBackPressed()
         }
     }
 
+/*
     private fun apiCallAddMedicalHistory() {
         AppProgressBar.showLoaderDialog(this@StudentDetailsTwo)
 
@@ -149,5 +150,6 @@ class StudentDetailsTwo : AppCompatActivity() {
 
         })
     }
+*/
 
 }

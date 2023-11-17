@@ -10,6 +10,7 @@ import com.example.hhfoundation.databinding.ActivityAllMedicalHistoryBinding
 import com.example.hhfoundation.medicalHistory.adapter.AdapterMedicalHis
 import com.example.hhfoundation.medicalHistory.model.Medicalhistory
 import com.example.hhfoundation.medicalHistory.model.ModelMedicalHis
+import com.example.hhfoundation.registration.model.Patient
 import com.example.hhfoundation.retrofit.ApiClient
 import com.example.hhfoundation.sharedpreferences.SessionManager
 import retrofit2.Call
@@ -27,6 +28,8 @@ class AllMedicalHistory : AppCompatActivity() {
         setContentView(binding.root)
 
         sessionManager = SessionManager(this@AllMedicalHistory)
+        mainData=ArrayList<Medicalhistory>()
+
 //        binding.btnView.setOnClickListener {
 //            startActivity(Intent(this@AllMedicalHistory, MedicalHIstory::class.java))
 //        }

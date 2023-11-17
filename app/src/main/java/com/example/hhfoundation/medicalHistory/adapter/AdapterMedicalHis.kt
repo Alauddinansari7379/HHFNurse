@@ -46,6 +46,7 @@ class AdapterMedicalHis(val context: Context, val list: List<Medicalhistory>) :
         holder.btnCaseML.setOnClickListener {
             val intent = Intent(context as Activity, ViewMedicalHis::class.java)
                 .putExtra("patient_id",list[position].patient_id)
+                .putExtra("birthdate",list[position].birthdate)
             context.startActivity(intent)
         }
 

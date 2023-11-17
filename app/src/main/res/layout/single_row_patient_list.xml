@@ -39,7 +39,7 @@
                     android:id="@+id/schoolIdPL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="476"
+                    android:text="NA"
                     android:textSize="12sp"
                     android:textColor="@color/black"
                     android:textStyle="bold">
@@ -117,7 +117,7 @@
                                 android:id="@+id/distPL"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Adilabad"
+                                android:text="NA"
                                 android:textSize="12sp"
                                 android:textColor="@color/black"
                                 android:textStyle="bold">
@@ -171,7 +171,7 @@
                                 android:id="@+id/studentNamePL"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Shaik Asif Khan"
+                                android:text="NA"
                                 android:textColor="@color/black"
                                 android:textStyle="bold">
 
@@ -199,7 +199,7 @@
                                     android:id="@+id/genderPL"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Male"
+                                    android:text="NA"
                                     android:textSize="11sp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
@@ -224,7 +224,7 @@
                                     android:id="@+id/dobPL"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="01-06-2010"
+                                    android:text="NA"
                                     android:textSize="11sp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
@@ -249,7 +249,7 @@
                                     android:id="@+id/bloodGPl"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="A+"
+                                    android:text="NA"
                                     android:textSize="11sp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">

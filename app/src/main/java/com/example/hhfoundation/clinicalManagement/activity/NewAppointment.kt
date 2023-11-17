@@ -19,10 +19,8 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import com.example.hhfoundation.Helper.AppProgressBar
+import com.example.hhfoundation.Helper.*
 import com.example.hhfoundation.Helper.ImageUploadClass.UploadRequestBody
-import com.example.hhfoundation.Helper.currentDate
-import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.clinicalManagement.model.ModelNewAppoint
 import com.example.hhfoundation.databinding.ActivityNewAppointmentBinding
 import com.example.hhfoundation.registration.model.ModelPatientList
@@ -478,7 +476,32 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
                                             binding.edtAdminssionNumber.setText(admissionNumber)
                                             className = patientList!![i].education
                                             gendar = patientList!![i].sex
-                                            age = patientList!![i].age
+
+                                            val dob = patientList!![i].birthdate
+
+                                            if (dob != null) {
+                                                try {
+                                                    var fDOb=""
+                                                    fDOb = if (dob.contains("-",ignoreCase = true)){
+                                                        changeDateFormat5(dob)
+                                                    } else{
+                                                        changeDateFormat6(dob)
+                                                    }
+                                                    //dd/MM/yyyy
+                                                    Log.e("after", dob.toString())
+
+                                                    age = DateUtils.getAgeFromDOB(fDOb)
+                                                    Log.e("dob", dob.toString())
+                                                    Log.e("Age", age)
+                                                    binding.edtAge.setText(age)
+
+//                if (age.toInt() < 6) {
+//                    // binding.btnNext.text = "Submit"
+//                }
+                                                } catch (e: Exception) {
+                                                    e.printStackTrace()
+                                                }
+                                            }
                                             phone = patientList!![i].phone
                                             email = patientList!![i].email
                                             binding.edtClass.setText(className)

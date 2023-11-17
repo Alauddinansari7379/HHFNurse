@@ -14,9 +14,11 @@ import com.example.hhfoundation.labReport.activity.UploadReport
 import com.example.hhfoundation.labReport.activity.ViewLabReport
 import com.example.hhfoundation.labReport.model.Labadvidetail
 import com.example.hhfoundation.labReport.model.Labreport
+import com.example.hhfoundation.sharedpreferences.SessionManager
 
 class AdapterLabInv(val context: Context, val list: List<Labadvidetail>) :
     RecyclerView.Adapter<AdapterLabInv.MyViewHolder>() {
+    lateinit var sessionManager: SessionManager
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -28,6 +30,7 @@ class AdapterLabInv(val context: Context, val list: List<Labadvidetail>) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        sessionManager = SessionManager(context)
 
         //  holder.SrNo.text= "${position+1}"
         //  holder.refrencecode.text= list[position].referenceCode
@@ -38,6 +41,11 @@ class AdapterLabInv(val context: Context, val list: List<Labadvidetail>) :
         holder.statusLABINV.text = list[position].status
         holder.reportNameLABINV.text = list[position].rname
        // holder.doctorPre.text = list[position].doctrname
+
+        if (sessionManager.group=="Receptionist"){
+
+            holder.btnUploadLABINV.visibility=View.GONE
+        }
 
 //
 //        Picasso.get().load("https://schoolhms.thedemostore.in/" + list[position].img_url)

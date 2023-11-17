@@ -3,8 +3,8 @@ package com.example.hhfoundation.medicalHistory.activity
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.hhfoundation.Helper.AppProgressBar
-import com.example.hhfoundation.Helper.myToast
+import android.util.Log
+import com.example.hhfoundation.Helper.*
 import com.example.hhfoundation.databinding.ActivityViewMedicalHisBinding
 import com.example.hhfoundation.medicalHistory.model.Medicalhistory
 import com.example.hhfoundation.medicalHistory.model.ModelMedLIst
@@ -18,12 +18,42 @@ class ViewMedicalHis : AppCompatActivity() {
     private lateinit var binding: ActivityViewMedicalHisBinding
     lateinit var sessionManager: SessionManager
     private var patientId = ""
+    private var age = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityViewMedicalHisBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sessionManager = SessionManager(this@ViewMedicalHis)
+
         patientId = intent.getStringExtra("patient_id").toString()
+        val dob = intent.getStringExtra("birthdate")
+        Log.e("Before", dob.toString())
+
+
+        if (dob != null) {
+            try {
+            var fDOb=""
+            fDOb = if (dob.contains("-",ignoreCase = true)){
+                changeDateFormat5(dob)
+            } else{
+                changeDateFormat6(dob)
+            }
+           //dd/MM/yyyy
+             Log.e("after", dob.toString())
+
+                age = DateUtils.getAgeFromDOB(fDOb)
+                Log.e("dob", dob.toString())
+                Log.e("Age", age)
+                binding.AgeinYears.text=age
+                binding.DateOfScreening.text= currentDate
+
+//                if (age.toInt() < 6) {
+//                    // binding.btnNext.text = "Submit"
+//                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
         binding.btnOk.setOnClickListener {
             onBackPressed()
         }
@@ -36,13 +66,11 @@ class ViewMedicalHis : AppCompatActivity() {
     }
 
     private fun apiCallViewMedicalInfo() {
-
         AppProgressBar.showLoaderDialog(this@ViewMedicalHis)
         ApiClient.apiService.viewMedicalInfo(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
             sessionManager.group.toString(),
-
             patientId
         ).enqueue(object :
             Callback<ModelMedLIst> {
@@ -81,6 +109,15 @@ class ViewMedicalHis : AppCompatActivity() {
                             binding.Goitre.text = r.goitrdd
                             binding.skinss.text = r.skinss
                             binding.ottyss.text = r.ottyss
+                            binding.occurringinyourbody.text = r.difdsds
+                            binding.smokingordrinking.text = r.drnksd
+                            binding.depressedMost.text = r.trds
+                            binding.MenstrualCycleStarted.text = r.cyclesd
+                            binding.PeriodsEverymonths.text = r.periodsdas
+                            binding.painds.text = r.painds
+                            binding.areads.text = r.areasds
+                            binding.feelds.text = r.feelsd
+                            binding.binond.text = r.bhhiiosds
                             binding.heartdisease.text = r.heartss
                             binding.Respiratory.text = r.breathasa
                             binding.DentalConditions.text = r.dental

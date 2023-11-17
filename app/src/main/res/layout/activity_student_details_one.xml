@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:gravity="start"
-            android:text="Student Details"
+            android:text="Add Medical History"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -48,6 +48,167 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:id="@+id/DeficienciesCard"
+                    android:layout_width="@dimen/_55sdp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/main_color"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Deficiencies"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+
+                </LinearLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                </androidx.viewpager.widget.ViewPager>
+
+                <LinearLayout
+                    android:id="@+id/ChildhoodCard"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/sky_color">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Childhood\n Diseases"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+
+                </LinearLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                </androidx.viewpager.widget.ViewPager>
+
+                <LinearLayout
+                    android:id="@+id/DevelopmentalCard"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/sky_color">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Developmental \n delays and\n Disabilities"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+
+                </LinearLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                </androidx.viewpager.widget.ViewPager>
+
+                <LinearLayout
+                    android:id="@+id/AdolescentCard"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/sky_color">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Adolescent \n Specific \n Questionnarire"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+
+                </LinearLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/white">
+
+                </androidx.viewpager.widget.ViewPager>
+
+                <LinearLayout
+                    android:id="@+id/KnowCard"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#dc5833">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Know \n Case of"
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -64,110 +225,21 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/layoutDefcinencies"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
                     android:layout_marginEnd="20dp"
                     android:orientation="vertical">
+
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Anemia especially Severe anemia"
-                        android:textSize="12sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/anemmla"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:inputType="text"
-                        android:padding="10dp"
-                        android:hint="Information About It"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Vitamin A deficiency (Bitot spot)"
-                        android:textSize="12sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/bitotSpot"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:inputType="text"
-                        android:padding="10dp"
-                        android:hint="Information About It"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Vitamin D Deficiency, (Rickets)"
-                        android:textSize="12sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/Rickets"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:inputType="text"
-                        android:padding="10dp"
-                        android:hint="Information About It"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Severe Acute Malnutrition"
-                        android:textSize="12sp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Deficiencies"
+                        android:textSize="16sp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -175,57 +247,326 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
                         android:orientation="horizontal">
 
-
-                        <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/Malnutrition"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginTop="3dp"
-                            android:background="@drawable/corner_liner"
-                            android:inputType="text"
-                            android:padding="10dp"
-                            android:hint="Information About It"
-                            android:textSize="12sp">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        </androidx.appcompat.widget.AppCompatEditText>
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Anemia especially Severe anemia"
+                                android:textSize="11sp"
+                                android:textStyle="bold">
 
-                     </LinearLayout>
+                            </androidx.appcompat.widget.AppCompatTextView>
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/anemmlaNo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+
+                                <RadioButton
+                                    android:id="@+id/anemmlaYes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+                            </RadioGroup>
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/anemmla"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/corner_liner"
+                                android:hint="Information About It"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:textSize="12sp"
+                                android:visibility="gone">
+
+                            </androidx.appcompat.widget.AppCompatEditText>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Vitamin A deficiency (Bitot spot)"
+                                android:textSize="11sp"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/bitotSpotNo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+
+                                <RadioButton
+                                    android:id="@+id/bitotSpotYes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+                            </RadioGroup>
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/bitotSpot"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/corner_liner"
+                                android:hint="Information About It"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:textSize="12sp"
+                                android:visibility="gone">
+
+                            </androidx.appcompat.widget.AppCompatEditText>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Vitamin D Deficiency, (Rickets)"
+                                android:textSize="11sp"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/RicketsNo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+
+                                <RadioButton
+                                    android:id="@+id/RicketsYes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+                            </RadioGroup>
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/Rickets"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/corner_liner"
+                                android:hint="Information About It"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:textSize="12sp"
+                                android:visibility="gone">
+
+                            </androidx.appcompat.widget.AppCompatEditText>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Severe Acute Malnutrition"
+                                android:textSize="11sp"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/MalnutritionNo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+
+                                <RadioButton
+                                    android:id="@+id/MalnutritionYes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+                            </RadioGroup>
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/Malnutrition"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/corner_liner"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:padding="10dp"
+                                android:hint="Information About It"
+                                android:textSize="12sp"
+                                android:visibility="gone">
+
+                            </androidx.appcompat.widget.AppCompatEditText>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Goitre"
+                                android:textSize="11sp"
+                                android:textStyle="bold">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
+
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_25sdp"
+                                android:orientation="horizontal">
+
+                                <RadioButton
+                                    android:id="@+id/GoitreNo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="No"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+
+                                <RadioButton
+                                    android:id="@+id/GoitreYes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Yes"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold">
+
+                                </RadioButton>
+                            </RadioGroup>
+
+                            <androidx.appcompat.widget.AppCompatEditText
+                                android:id="@+id/Goitre"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/corner_liner"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:hint="Information About It"
+                                android:padding="10dp"
+                                android:textSize="12sp"
+                                android:visibility="gone">
+
+                            </androidx.appcompat.widget.AppCompatEditText>
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layoutChildhood"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:visibility="gone"
                     android:orientation="vertical">
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Goitre"
-                        android:textSize="12sp"
-                        android:textStyle="bold">
 
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatEditText
-                        android:id="@+id/Goitre"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:inputType="text"
-                        android:padding="10dp"
-                        android:hint="Information About It"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatEditText>
-                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -237,7 +578,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Patient Bonafide Information"
+                        android:text="Childhood Diseases"
                         android:textSize="16sp"
                         android:textStyle="bold">
 
@@ -262,6 +603,32 @@
 
                     </androidx.appcompat.widget.AppCompatTextView>
 
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_25sdp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/skinssNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/skinssYes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+                    </RadioGroup>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -270,19 +637,21 @@
 
 
                         <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/Eczema"
+                            android:id="@+id/skinss"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:layout_marginTop="3dp"
                             android:background="@drawable/corner_liner"
+                            android:hint="Information About It"
                             android:inputType="text"
                             android:padding="10dp"
-                            android:hint="Information About It"
-                            android:textSize="12sp">
+                            android:textSize="12sp"
+                            android:visibility="gone">
 
                         </androidx.appcompat.widget.AppCompatEditText>
 
-                     </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -303,6 +672,32 @@
 
                     </androidx.appcompat.widget.AppCompatTextView>
 
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_25sdp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/ottyssNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/ottyssYes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+                    </RadioGroup>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -311,19 +706,21 @@
 
 
                         <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/OtitisMedia"
+                            android:id="@+id/ottyss"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:layout_marginTop="3dp"
                             android:background="@drawable/corner_liner"
+                            android:hint="Information About It"
                             android:inputType="text"
                             android:padding="10dp"
-                            android:hint="Information About It"
-                            android:textSize="12sp">
+                            android:textSize="12sp"
+                            android:visibility="gone">
 
                         </androidx.appcompat.widget.AppCompatEditText>
 
-                     </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -344,18 +741,46 @@
 
                     </androidx.appcompat.widget.AppCompatTextView>
 
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_25sdp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/heartdiseaseNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/heartdiseaseYes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+                    </RadioGroup>
+
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/heartdisease"
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
                         android:layout_marginTop="3dp"
                         android:background="@drawable/corner_liner"
+                        android:hint="Information About It"
                         android:inputType="text"
                         android:padding="10dp"
-                        android:hint="Information About It"
-                        android:textSize="12sp">
+                        android:textSize="12sp"
+                        android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -375,6 +800,32 @@
 
                     </androidx.appcompat.widget.AppCompatTextView>
 
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_25sdp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/RespiratoryNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/RespiratoryYes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+                    </RadioGroup>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -387,14 +838,16 @@
                             android:layout_height="35dp"
                             android:layout_marginTop="3dp"
                             android:background="@drawable/corner_liner"
+                            android:hint="Information About It"
                             android:inputType="text"
                             android:padding="10dp"
-                            android:hint="Information About It"
-                            android:textSize="12sp">
+                            android:textSize="12sp"
+                            android:visibility="gone">
 
                         </androidx.appcompat.widget.AppCompatEditText>
 
-                     </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -415,6 +868,32 @@
 
                     </androidx.appcompat.widget.AppCompatTextView>
 
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_25sdp"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/DentalConditionsNo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/DentalConditionsYes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </RadioButton>
+                    </RadioGroup>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -427,63 +906,1799 @@
                             android:layout_height="35dp"
                             android:layout_marginTop="3dp"
                             android:background="@drawable/corner_liner"
+                            android:hint="Information About It"
                             android:inputType="text"
                             android:padding="10dp"
-                            android:hint="Information About It"
-                            android:textSize="12sp">
+                            android:textSize="12sp"
+                            android:visibility="gone">
 
                         </androidx.appcompat.widget.AppCompatEditText>
 
-                     </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Any history of epileptic Episodes"
+                            android:textSize="12sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/EpisodesNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/EpisodesYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/Episodes"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:hint="Information About It"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
 
+
             <LinearLayout
+                android:id="@+id/layoutDisabilities"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
                 android:layout_marginEnd="20dp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Any history of epileptic Episodes"
-                    android:textSize="12sp"
+                    android:text="Developmental delays and Disabilities"
+                    android:textSize="16sp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/Episodes"
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="3dp"
-                    android:background="@drawable/corner_liner"
-                    android:inputType="text"
-                    android:padding="10dp"
-                    android:hint="Information About It"
-                    android:textSize="12sp">
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-                </androidx.appcompat.widget.AppCompatEditText>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Vision Impairment"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/visionsNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/visionsYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/visions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hearing Impairment"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/hearrssNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/hearrssYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/hearrss"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:hint="Information About It"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nero-motor Impairment"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/nerosdssNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/nerosdssYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/nerosdss"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Motor delay"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/motrsdsNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/motrsdsYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/motrsds"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:hint="Information About It"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Cognitive delay"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/cogsaNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/cogsaYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/cogsa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Language delay"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/lagsaNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/lagsaYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/lagsa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Behavior disorder (Autism)"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/begaasdsNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/begaasdsYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/begaasds"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Learning disorder"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/learnsdsNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/learnsdsYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/learnsds"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Attention deficit hyperactivity disorder"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/disorsdNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/disorsdYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/disorsd"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutAdolescentSpecific"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Adolescent Specific Questionnaire"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Difficult to handle things resulted from changes occurring in your body?"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/occurringinyourbodyNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/occurringinyourbodyYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/occurringinyourbody"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:hint="Information About It"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="When your friends pressurize you to smoke or drink with them? Do you smoking or drinking or say NO?"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/smokingordrinkingNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/smokingordrinkingYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/smokingordrinking"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Do you feel unduly tired early in the morning or you feel depressed most of the time?"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/depressedMostNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/depressedMostYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/depressedMost"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="In case of females-Have your menstrual cycles started yet?"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/MenstrualCycleStartedNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/MenstrualCycleStartedYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/MenstrualCycleStarted"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Do you have your periods every month (i.e.,28 ± 7 days)?"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/PeriodsEverymonthsNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/PeriodsEverymonthsYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/PeriodsEverymonths"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Do you experience any pain or burning sensation while urinating?"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/paindsNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/paindsYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/painds"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Do you have any discharge/ foul smelling discharge from the genitor-urinary area?"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/areadsNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/areadsYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/areads"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Do you feel extreme pain during menstruation so much so that it stops you from doing routine activities/ attend schools?"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/feeldsNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/feeldsYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/feelds"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Any Behavioral Changes"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/binondNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/binondYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/binond"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutknowCaseOf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:visibility="gone"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Known Case of"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hypertension"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/hyperthyroidinNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/hyperthyroidinYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/hyperthyroidin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Diabetes Mellitus"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/diabetescxNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/diabetescxYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/diabetescx"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:hint="Information About It"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Hypothyroid"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/hypothyroidinNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/hypothyroidinYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/hypothyroidin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:padding="10dp"
+                            android:hint="Information About It"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Allergie"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/allergieNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/allergieYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/allergie"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Past History"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/past"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:hint="Information About It"
+                            android:inputType="textMultiLine"
+                            android:padding="10dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ongoing History"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/ongoing"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_marginTop="3dp"
+                            android:hint="Information About It"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="textMultiLine"
+                            android:padding="10dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Surgical History"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/surgical"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Heart Disease"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/heartinNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/heartinYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/heartin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Any allergic to medicine"
+                            android:textSize="11sp"
+                            android:textStyle="bold">
+
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <RadioGroup
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_25sdp"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/almedcineNo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="No"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+
+                            <RadioButton
+                                android:id="@+id/almedcineYes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Yes"
+                                android:textSize="12sp"
+                                android:textStyle="bold">
+
+                            </RadioButton>
+                        </RadioGroup>
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/almedcine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:background="@drawable/corner_liner"
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
+                            android:hint="Information About It"
+                            android:padding="10dp"
+                            android:textSize="12sp"
+                            android:visibility="gone">
+
+                        </androidx.appcompat.widget.AppCompatEditText>
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:gravity="center"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnNext"
+                    android:id="@+id/btnSubmit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
-                    android:text="Next"
+                    android:text="Submit"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="14sp"

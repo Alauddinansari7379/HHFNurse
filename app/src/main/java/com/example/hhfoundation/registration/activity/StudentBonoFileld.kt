@@ -31,11 +31,15 @@ class StudentBonoFileld : AppCompatActivity() {
         binding= ActivityStudentBonoFileldBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sessionManager= SessionManager(this@StudentBonoFileld)
+        mainData=ArrayList<Patient>()
         with(binding){
             imgBack.setOnClickListener {
                 onBackPressed()
             }
 
+            if (sessionManager.group=="Receptionist"){
+                btnAddNew.visibility=View.GONE
+            }
             btnAddNew.setOnClickListener {
                 startActivity(Intent(this@StudentBonoFileld,Registration::class.java))
             }
@@ -46,7 +50,7 @@ class StudentBonoFileld : AppCompatActivity() {
         apiCallPatientList()
         binding.edtSearch.addTextChangedListener { str ->
             setRecyclerViewAdapter(mainData.filter {
-                it.name!!.contains(str.toString(), ignoreCase = true)
+                it.id!!.contains(str.toString(), ignoreCase = true)
             } as ArrayList<Patient>)
         }
 

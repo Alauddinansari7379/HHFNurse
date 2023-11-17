@@ -26,6 +26,20 @@
                  android:text="Medicine Name"
                 android:textColor="@color/_324754"
                 android:textSize="11sp" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgRemove"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:padding="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                 android:background="?actionBarItemBackground"
+                android:src="@drawable/remove"
+                >
+
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
 
         </LinearLayout>
 

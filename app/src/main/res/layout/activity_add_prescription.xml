@@ -233,7 +233,8 @@
                             android:layout_weight="1"
                             android:text="Date Of Birth"
                             android:textSize="12sp"
-                            android:textStyle="bold">
+                            android:textStyle="bold"
+                            android:visibility="gone">
 
                         </androidx.appcompat.widget.AppCompatTextView>
                     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -268,7 +269,8 @@
                             android:background="@drawable/corner_liner"
                             android:inputType="number"
                             android:padding="10dp"
-                            android:textSize="12sp">
+                            android:textSize="12sp"
+                            android:visibility="gone">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
@@ -400,7 +402,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvSchoolDis"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:background="@drawable/corner_liner"
                         android:padding="8dp"
@@ -411,201 +413,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Follow-Up &amp; Referral Advice"
-                        android:textSize="12sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radioFollowUp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Follow Up"
-                            android:textSize="12sp"
-                            android:textStyle="bold">
-
-                        </RadioButton>
-
-                        <RadioButton
-                            android:id="@+id/radioReferralA"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Referral Advice"
-                            android:textSize="12sp"
-                            android:textStyle="bold">
-
-                        </RadioButton>
-
-                        <RadioButton
-                            android:id="@+id/radioNone"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="None"
-                            android:textSize="12sp"
-                            android:textStyle="bold">
-
-                        </RadioButton>
-                    </RadioGroup>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layoutFollowUp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginEnd="20dp"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Referred hospital"
-                            android:textSize="12sp"
-                            android:textStyle="bold">
-
-                        </androidx.appcompat.widget.AppCompatTextView>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:orientation="horizontal">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/corner_liner">
-
-                                <Spinner
-                                    android:id="@+id/spinnerReferralHos"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="35dp"
-                                    android:gravity="start"
-                                    android:padding="@dimen/_5sdp">
-
-                                </Spinner>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/edtTypeHealthIssue"
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginTop="3dp"
-                            android:background="@drawable/corner_liner"
-                            android:hint="Type Health Issue"
-                            android:imeOptions="actionNext"
-                            android:inputType="text"
-                            android:lines="1"
-                            android:padding="5dp"
-                            android:textSize="12sp">
-
-                        </androidx.appcompat.widget.AppCompatEditText>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
-                        android:orientation="vertical">
-
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Department Name"
-                            android:textSize="12sp"
-                            android:textStyle="bold">
-
-                        </androidx.appcompat.widget.AppCompatTextView>
-
-                        <androidx.appcompat.widget.AppCompatEditText
-                            android:id="@+id/edtTypeDepartment"
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginTop="3dp"
-                            android:background="@drawable/corner_liner"
-                            android:hint="Type Department Name"
-                            android:imeOptions="actionNext"
-                            android:inputType="text"
-                            android:lines="1"
-                            android:padding="5dp"
-                            android:textSize="12sp">
-
-                        </androidx.appcompat.widget.AppCompatEditText>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layoutFollowUpDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
-                    android:orientation="vertical"
-                    android:visibility="gone">
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Follow Date"
-                        android:textSize="12sp"
-                        android:textStyle="bold">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tvFollowDate"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
-                        android:background="@drawable/corner_liner"
-                        android:hint="DD/MM/YYYY"
-                        android:inputType="number"
-                        android:lines="1"
-                        android:maxLength="12"
-                        android:padding="10dp"
-                        android:textSize="12sp">
-
-                    </androidx.appcompat.widget.AppCompatTextView>
-                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -653,16 +460,71 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical"
                         android:background="@drawable/corner_liner">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/spinnerDiagnosticsCategory"
+                            android:layout_width="match_parent"
+                            android:text="Select Main Category"
+                              android:gravity="center_vertical"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:drawablePadding="@dimen/_15sdp"
+                            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                            android:layout_height="35dp">
 
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+<!--
                         <Spinner
                             android:id="@+id/spinnerDiagnosticsCategory"
                             android:layout_width="match_parent"
                             android:layout_height="35dp">
 
                         </Spinner>
+-->
 
                     </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llayoutMainCat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/top_curve_heading"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="@dimen/_130sdp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:text="Diagnostics Category"
+                            android:textColor="@color/white"
+                            android:textSize="11sp" />
+
+
+                    </LinearLayout>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvrecyclerMainCat"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/llayout3" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -686,26 +548,110 @@
 
 
                 <LinearLayout
+                    android:id="@+id/layoutSpinnerGynae"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:orientation="horizontal">
+                     android:orientation="horizontal"
+                   >
 
                     <LinearLayout
                         android:id="@+id/layoutDigSubCat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/corner_liner">
-
-                        <Spinner
+                        android:background="@drawable/corner_liner"
+                        android:orientation="vertical">
+                        <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/spinnerDiagnosticsSubCategory"
                             android:layout_width="match_parent"
+                            android:text="Select Sub Category"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:gravity="center_vertical"
+                             android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
                             android:layout_height="35dp">
 
-                        </Spinner>
+                        </androidx.appcompat.widget.AppCompatTextView>
+<!--
+                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                            android:id="@+id/spinnerDiagnosticsSubCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_gravity="start"
+                            android:background="@drawable/corner_liner"
+                            android:outlineProvider="none"
+                            app:smsp_floatingLabelColor="#FF5252"
+                             app:smsp_hintColor="@color/black"
+                            app:smsp_isSearchable="true"
+                            app:smsp_hintSize="@dimen/_10sdp"
+                            android:autofillHints="true"
+                            app:smsp_showDropdownHint="true"
+                            app:smsp_hint="Select Gynae &amp; Obstetrics Sub Category"
+                            app:smsp_itemColor="@color/main_color"
+                            app:smsp_itemListColor="#7C4DFF"
+                            app:smsp_itemListHintBackgroundColor="#808080"
+                            app:smsp_itemListHintColor="#FFFFFF"
+                            app:smsp_multilineError="true"
+                            app:smsp_selectedItemListColor="#FF5252"
+                            app:smsp_underlineColor="@color/white" />
+-->
+
+                        <!--
+                                                <pl.utkala.searchablespinner.SearchableSpinner
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="35dp"
+                                                    android:autofillHints="sdsd"
+                                                    app:closeText="Close"
+                                                    app:dialogTitle="" />
+                        -->
 
                     </LinearLayout>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutSpinnerGeneral"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/layoutDigSubCatGen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/corner_liner">
+                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                            android:id="@+id/spinnerDiagnosticsSubCategoryGen"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_45sdp"
+                            android:layout_gravity="start"
+                            android:background="@drawable/corner_liner"
+                            android:outlineProvider="none"
+                            app:smsp_floatingLabelColor="#FF5252"
+                            app:smsp_hintColor="@color/black"
+                            app:smsp_isSearchable="true"
+                            app:smsp_hintSize="@dimen/_10sdp"
+                            android:autofillHints="true"
+                            app:smsp_showDropdownHint="true"
+                            app:smsp_hint="Select General Medicine Sub Category"
+                            app:smsp_itemColor="@color/main_color"
+                            app:smsp_itemListColor="#7C4DFF"
+                            app:smsp_itemListHintBackgroundColor="#808080"
+                            app:smsp_itemListHintColor="#FFFFFF"
+                            app:smsp_multilineError="true"
+                            app:smsp_selectedItemListColor="#FF5252"
+                            app:smsp_underlineColor="@color/white" />
+<!--
+                        <Spinner
+                            android:id="@+id/spinnerDiagnosticsSubCategoryGen"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp">
+
+                        </Spinner>-->
+
+                    </LinearLayout>
+                </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/llayoutSubCat"
                     android:layout_width="match_parent"
@@ -730,7 +676,7 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="Sub Category Name"
-                            android:textColor="@color/_324754"
+                            android:textColor="@color/white"
                             android:textSize="11sp" />
 
 
@@ -742,7 +688,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="90dp"
                         android:layout_weight="1"
-                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/llayout3" />
                 </LinearLayout>
@@ -826,6 +772,7 @@
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -837,79 +784,116 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/corner_liner">
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/spinnerLAb"
+                            android:layout_width="match_parent"
+                            android:text="Select Lab Test"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:drawablePadding="@dimen/_15sdp"
+                            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                            android:layout_height="35dp">
 
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+                        <!--
+                                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                                    android:id="@+id/spinnerLAb"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/_45sdp"
+                                                    android:layout_gravity="start"
+                                                    android:background="@drawable/corner_liner"
+                                                    android:outlineProvider="none"
+                                                    app:smsp_floatingLabelColor="#FF5252"
+                                                    app:smsp_hintColor="@color/black"
+                                                    app:smsp_isSearchable="true"
+                                                    app:smsp_hintSize="@dimen/_10sdp"
+                                                    android:autofillHints="true"
+                                                    app:smsp_showDropdownHint="true"
+                                                    app:smsp_hint="Select Test Name"
+                                                    app:smsp_itemColor="@color/main_color"
+                                                    app:smsp_itemListColor="#7C4DFF"
+                                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                                    app:smsp_itemListHintColor="#FFFFFF"
+                                                    app:smsp_multilineError="true"
+                                                    app:smsp_selectedItemListColor="#FF5252"
+                                                    app:smsp_underlineColor="@color/white" />
+                        -->
+
+<!--
                         <Spinner
                             android:id="@+id/spinnerLAb"
                             android:layout_width="match_parent"
                             android:layout_height="35dp">
 
                         </Spinner>
+-->
 
                     </LinearLayout>
                 </LinearLayout>
 
-<!--
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal">
+                <!--
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:orientation="horizontal">
 
 
-                    <AutoCompleteTextView
-                        android:id="@+id/edtLab"
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_weight="1"
-                        android:layout_marginEnd="@dimen/_5sdp"
-                        android:background="@drawable/corner_liner"
-                        android:imeOptions="actionDone"
-                        android:inputType="textMultiLine"
-                        android:padding="10dp"
-                        android:textSize="12sp">
+                                    <AutoCompleteTextView
+                                        android:id="@+id/edtLab"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:layout_marginTop="3dp"
+                                        android:layout_weight="1"
+                                        android:layout_marginEnd="@dimen/_5sdp"
+                                        android:background="@drawable/corner_liner"
+                                        android:imeOptions="actionDone"
+                                        android:inputType="textMultiLine"
+                                        android:padding="10dp"
+                                        android:textSize="12sp">
 
-                    </AutoCompleteTextView>
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnAddLAb"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                         android:text="Add"
-                        android:background="@drawable/corner"
-                        android:textAllCaps="false"
-                        android:textColor="@color/white"
-                        android:textSize="11sp"
-                        app:backgroundTint="@color/main_color">
+                                    </AutoCompleteTextView>
+                                    <androidx.appcompat.widget.AppCompatButton
+                                        android:id="@+id/btnAddLAb"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="30dp"
+                                         android:text="Add"
+                                        android:background="@drawable/corner"
+                                        android:textAllCaps="false"
+                                        android:textColor="@color/white"
+                                        android:textSize="11sp"
+                                        app:backgroundTint="@color/main_color">
 
-                    </androidx.appcompat.widget.AppCompatButton>
+                                    </androidx.appcompat.widget.AppCompatButton>
 
 
-                </LinearLayout>
--->
+                                </LinearLayout>
+                -->
 
-<!--
-                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal">
+                <!--
+                                 <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:background="@drawable/corner_liner"
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="35dp"
+                                        android:background="@drawable/corner_liner"
 
-                        >
+                                        >
 
-                        <com.anurag.multiselectionspinner.MultiSpinner
-                            android:id="@+id/spinnerMultiSpinnerLabTest"
-                            android:layout_width="match_parent"
-                            android:layout_margin="5dp"
-                            android:hint="Select Medicine"
-                            android:layout_height="25dp"/>
-                    </LinearLayout>
-                </LinearLayout>
--->
+                                        <com.anurag.multiselectionspinner.MultiSpinner
+                                            android:id="@+id/spinnerMultiSpinnerLabTest"
+                                            android:layout_width="match_parent"
+                                            android:layout_margin="5dp"
+                                            android:hint="Select Medicine"
+                                            android:layout_height="25dp"/>
+                                    </LinearLayout>
+                                </LinearLayout>
+                -->
 
                 <LinearLayout
                     android:id="@+id/llayoutLab"
@@ -935,7 +919,7 @@
                             android:layout_weight="1"
                             android:gravity="center_vertical"
                             android:text="Lab Test Name"
-                            android:textColor="@color/_324754"
+                            android:textColor="@color/white"
                             android:textSize="11sp" />
 
 
@@ -954,6 +938,203 @@
                 </LinearLayout>
 
 
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Follow-Up &amp; Referral Advice"
+                    android:textSize="12sp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioFollowUp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Follow Up"
+                        android:textSize="12sp"
+                        android:textStyle="bold">
+
+                    </RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/radioReferralA"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Referral Advice"
+                        android:textSize="12sp"
+                        android:textStyle="bold">
+
+                    </RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/radioNone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="None"
+                        android:textSize="12sp"
+                        android:textStyle="bold">
+
+                    </RadioButton>
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutFollowUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Referred hospital"
+                        android:textSize="12sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/corner_liner">
+
+                            <Spinner
+                                android:id="@+id/spinnerReferralHos"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:gravity="start"
+                                android:padding="@dimen/_5sdp">
+
+                            </Spinner>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtTypeHealthIssue"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/corner_liner"
+                        android:hint="Type Health Issue"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:padding="5dp"
+                        android:textSize="12sp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Department Name"
+                        android:textSize="12sp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtTypeDepartment"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/corner_liner"
+                        android:hint="Type Department Name"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:padding="5dp"
+                        android:textSize="12sp">
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layoutFollowUpDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Follow Date"
+                    android:textSize="12sp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvFollowDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/corner_liner"
+                    android:hint="DD/MM/YYYY"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLength="12"
+                    android:padding="10dp"
+                    android:textSize="12sp">
+
+                </androidx.appcompat.widget.AppCompatTextView>
             </LinearLayout>
 
             <LinearLayout
@@ -992,11 +1173,11 @@
 
                 </androidx.appcompat.widget.AppCompatTextView>
 
-                 <LinearLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                     android:orientation="horizontal">
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1004,13 +1185,26 @@
                         android:background="@drawable/corner_liner"
 
                         >
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/spinnerMultiSpinner"
+                            android:layout_width="match_parent"
+                            android:text="Select Medicine"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:drawablePadding="@dimen/_15sdp"
+                            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                            android:layout_height="35dp">
 
+                        </androidx.appcompat.widget.AppCompatTextView>
+
+<!--
                         <com.anurag.multiselectionspinner.MultiSpinner
                             android:id="@+id/spinnerMultiSpinner"
                             android:layout_width="match_parent"
+                            android:layout_height="25dp"
                             android:layout_margin="5dp"
-                            android:hint="Select Medicine"
-                            android:layout_height="25dp"/>
+                            android:hint="Select Medicine" />
+-->
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1034,9 +1228,9 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:text="Medicine Name"
-                            android:textColor="@color/_324754"
-                            android:textSize="11sp" />
+                            android:text="Formula"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_7sdp" />
 
                         <androidx.viewpager.widget.ViewPager
                             android:layout_width="1dp"
@@ -1051,8 +1245,24 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="Dosage"
-                            android:textColor="@color/_324754"
-                            android:textSize="11sp" />
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_7sdp" />
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black">
+
+                        </androidx.viewpager.widget.ViewPager>
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="Brand"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_7sdp" />
 
                         <androidx.viewpager.widget.ViewPager
                             android:layout_width="1dp"
@@ -1067,8 +1277,8 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="Frequency"
-                            android:textColor="@color/_324754"
-                            android:textSize="11sp" />
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_7sdp" />
 
                         <androidx.viewpager.widget.ViewPager
                             android:layout_width="1dp"
@@ -1083,8 +1293,8 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:text="Days"
-                            android:textColor="@color/_324754"
-                            android:textSize="11sp" />
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_7sdp" />
 
                         <androidx.viewpager.widget.ViewPager
                             android:layout_width="1dp"
@@ -1097,11 +1307,20 @@
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:gravity="center"
+                             android:gravity="center"
                             android:text="Instruction"
-                            android:textColor="@color/_324754"
-                            android:textSize="11sp" />
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/_7sdp" />
 
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgRemove"
+                            android:layout_width="@dimen/_18sdp"
+                            android:layout_height="@dimen/_18sdp"
+                            android:background="?actionBarItemBackground"
+                             >
+
+
+                        </androidx.appcompat.widget.AppCompatImageView>
 
                     </LinearLayout>
 
@@ -1230,16 +1449,17 @@
                         android:id="@+id/edtHypertension"
                         android:layout_width="match_parent"
                         android:layout_height="35dp"
-                        android:visibility="gone"
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="12sp"
+                        android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1288,13 +1508,14 @@
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
-                        android:visibility="gone"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="12sp"
+                        android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1343,13 +1564,14 @@
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
-                        android:visibility="gone"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="12sp"
+                        android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1399,12 +1621,13 @@
                         android:hint="Information About It"
                         android:inputType="text"
                         android:padding="10dp"
-                        android:visibility="gone"
-                        android:textSize="12sp">
+                        android:textSize="12sp"
+                        android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1453,13 +1676,14 @@
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
-                        android:visibility="gone"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="12sp"
+                        android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1508,13 +1732,14 @@
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
-                        android:visibility="gone"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="12sp"
+                        android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1563,9 +1788,9 @@
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
-                        android:visibility="gone"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="12sp"
+                        android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
 

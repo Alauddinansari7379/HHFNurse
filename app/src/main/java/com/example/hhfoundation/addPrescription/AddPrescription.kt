@@ -7,19 +7,21 @@ import android.content.ContentValues
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.anurag.multiselectionspinner.MultiSelectionSpinnerDialog
 import com.anurag.multiselectionspinner.MultiSpinner
-import com.example.hhfoundation.Helper.AppProgressBar
-import com.example.hhfoundation.Helper.myToast
+import com.devstune.searchablemultiselectspinner.SearchableItem
+import com.devstune.searchablemultiselectspinner.SearchableMultiSelectSpinner
+import com.devstune.searchablemultiselectspinner.SelectionCompleteListener
+import com.example.hhfoundation.Helper.*
 import com.example.hhfoundation.R
-import com.example.hhfoundation.addPrescription.AutoComplete.AutoSuggestMedicineAdapter
 import com.example.hhfoundation.addPrescription.adapter.AdapterLabDetails
+import com.example.hhfoundation.addPrescription.adapter.AdapterMainCat
 import com.example.hhfoundation.addPrescription.adapter.AdapterMedicineDetails
 import com.example.hhfoundation.addPrescription.adapter.AdapterSubCat
 import com.example.hhfoundation.addPrescription.model.*
@@ -35,14 +37,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.nio.file.Files.find
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
-class AddPrescription : AppCompatActivity(),
-    MultiSelectionSpinnerDialog.OnMultiSpinnerSelectionListener {
-    private lateinit var binding: ActivityAddPrescriptionBinding
+class AddPrescription : AppCompatActivity(){
+   // MultiSelectionSpinnerDialog.OnMultiSpinnerSelectionListener {
+     private lateinit var binding: ActivityAddPrescriptionBinding
     lateinit var sessionManager: SessionManager
     var mydilaog: Dialog? = null
     private var followDate = ""
@@ -65,19 +67,21 @@ class AddPrescription : AppCompatActivity(),
     var appotype = ""
     var t = "0"
     var Lab = "0"
-    var medicineClick = ""
-    var labClick = ""
+    var age = ""
+    var edit = ""
     private var medicineListNew = ModelMedicineList()
     private var labTestList = ModelLabList()
     private var mainCatList = ModelMainCatList()
     private val medicineList = ArrayList<ModelMedicineDetails>()
     private val labListNew = ArrayList<ModelLabDetails>()
-    private val mainSucCat = ArrayList<ModelLabSubCat>()
+    private val sucCategory = ArrayList<ModelLabSubCat>()
+    private val mainCategory = ArrayList<ModelMainCat>()
     var referralHosList = ArrayList<ModelSpinner>()
     var diagSubCatList = ModelSubCatList()
-    var langList: ArrayList<Int> = ArrayList()
-    var testListNew1 = ArrayList<String>()
-   // var mainSucCat = arrayListOf("")
+    var diagSubCatListGen = ModelSubCatList()
+
+
+    // var mainSucCat = arrayListOf("")
     private val contentList: MutableList<String> = ArrayList()
     private val contentListLab: MutableList<String> = ArrayList()
 
@@ -97,6 +101,7 @@ class AddPrescription : AppCompatActivity(),
         //Setting Multi Selection Spinner with out image.
 
 
+
         date = intent.getStringExtra("date").toString()
         patientName = intent.getStringExtra("patientname").toString()
         doctorName = intent.getStringExtra("doctorname").toString()
@@ -111,7 +116,37 @@ class AddPrescription : AppCompatActivity(),
         hospital_id = intent.getStringExtra("hospital_id").toString()
         appotype = intent.getStringExtra("appotype").toString()
 
+        val dob = intent.getStringExtra("birthdate").toString()
+        edit = intent.getStringExtra("edit").toString()
+        Log.e("Before", dob.toString())
 
+        if (edit == "1") {
+            binding.appCompatTextView2.text = "Edit Prescription"
+        }
+
+        if (dob != null) {
+            try {
+                var fDOb = ""
+                fDOb = if (dob.contains("-", ignoreCase = true)) {
+                    changeDateFormat5(dob)
+                } else {
+                    changeDateFormat6(dob)
+                }
+                //dd/MM/yyyy
+                Log.e("after", dob.toString())
+
+                age = DateUtils.getAgeFromDOB(fDOb)
+                Log.e("dob", dob.toString())
+                Log.e("Age", age)
+                binding.tvAge.text = age
+
+//                if (age.toInt() < 6) {
+//                    // binding.btnNext.text = "Submit"
+//                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
 
 
         apiCallMedicineNameNew()
@@ -334,13 +369,18 @@ class AddPrescription : AppCompatActivity(),
 
 
             btnSubmit.setOnClickListener {
-                apiCallAddPrescription()
+                if (edit == "1") {
+                    apiCallEditPrescription()
+                } else {
+                    apiCallAddPrescription()
+                }
             }
         }
     }
 
     private fun setRecyclerDataMedicine(
         medicineName: String,
+        brand: String,
         dosage: String,
         frequency: String,
         days: String,
@@ -350,6 +390,7 @@ class AddPrescription : AppCompatActivity(),
         if (!medicineList.contains(
                 ModelMedicineDetails(
                     medicineName,
+                    brand,
                     dosage,
                     frequency,
                     days,
@@ -360,6 +401,7 @@ class AddPrescription : AppCompatActivity(),
             medicineList.add(
                 ModelMedicineDetails(
                     medicineName,
+                    brand,
                     dosage,
                     frequency,
                     days,
@@ -375,16 +417,46 @@ class AddPrescription : AppCompatActivity(),
     private fun setRecyclerDataLab(
         medicineName: String,
     ) {
-        labListNew.add(ModelLabDetails(medicineName))
-        binding.rvrecyclerViewLab.adapter = AdapterLabDetails(this, labListNew)
-
+        if (!labListNew.contains(
+                ModelLabDetails(
+                    medicineName
+                )
+            )
+        ) {
+            labListNew.add(ModelLabDetails(medicineName))
+            binding.rvrecyclerViewLab.adapter = AdapterLabDetails(this, labListNew)
+        }
     }
+
     private fun setRecyclerDataSub(
         subCat: String,
     ) {
-        mainSucCat.add(ModelLabSubCat(subCat))
-        binding.rvrecyclerViewSucCat.adapter = AdapterSubCat(this, mainSucCat)
+        if (!sucCategory.contains(
+                ModelLabSubCat(
+                    subCat
+                )
+            )
+        ) {
+            sucCategory.add(ModelLabSubCat(subCat))
+            binding.rvrecyclerViewSucCat.adapter = AdapterSubCat(this, sucCategory)
 
+        }
+    }
+
+    private fun setRecyclerDataMainCat(
+        subCat: String,
+        id: String,
+    ) {
+        if (!mainCategory.contains(
+                ModelMainCat(
+                    subCat,id
+                )
+            )
+        ) {
+            mainCategory.add(ModelMainCat(subCat,id))
+            binding.rvrecyclerMainCat.adapter = AdapterMainCat(this, mainCategory)
+
+        }
     }
 
     private fun apiCallMedicineNameNew() {
@@ -402,7 +474,8 @@ class AddPrescription : AppCompatActivity(),
                 val responseBody = response.body()!!
 
                 try {
-                    val multiSpinner: MultiSpinner = findViewById(R.id.spinnerMultiSpinner)
+                  //  val multiSpinner: MultiSpinner = findViewById(R.id.spinnerMultiSpinner)
+                    var itemsNew: MutableList<SearchableItem> = ArrayList()
 
                     medicineListNew = response.body()!!;
                     if (medicineListNew != null) {
@@ -412,9 +485,36 @@ class AddPrescription : AppCompatActivity(),
 
                         for (i in medicineListNew.result!!.indices) {
                             items[i] = medicineListNew.result!![i].name
-                            contentList.add(medicineListNew.result!![i].name.toString())
+                            //contentList.add(medicineListNew.result!![i].name.toString())
+                            itemsNew.add(SearchableItem(medicineListNew.result!![i].name.toString(), i.toString()))
+
                         }
-//                        val adapter: ArrayAdapter<String?> =
+                        binding.spinnerMultiSpinner.setOnClickListener {
+                            SearchableMultiSelectSpinner.show(this@AddPrescription, "Select Items","Done", itemsNew, object :
+                                SelectionCompleteListener {
+                                override fun onCompleteSelection(selectedItems: ArrayList<SearchableItem>) {
+                                    Log.e("data", selectedItems.toString())
+                                    for (i in selectedItems) {
+                                        setRecyclerDataMedicine(
+                                            i.text,
+                                            "brand",
+                                            "100mg",
+                                            "1+0+1",
+                                            "7 days",
+                                            "After Food",
+                                        )
+                                        binding.llayout3.visibility = View.VISIBLE
+
+                                        Log.e("chosenItems",i.text)
+                                    }
+
+
+
+                                }
+
+                            })
+                        }
+/*//                        val adapter: ArrayAdapter<String?> =
 //                            ArrayAdapter(this@ProfileSetting, android.R.layout.simple_list_item_1, items)
 //                        binding.spinnerSpecialist.adapter = adapter
 //                        progressDialog!!.dismiss()
@@ -440,7 +540,7 @@ class AddPrescription : AppCompatActivity(),
 //
 //                        binding.edtMedicine.setAdapter(autoSuggestAdapter)
 //
-//                        binding.edtMedicine.threshold = 1
+//                        binding.edtMedicine.threshold = 1*/
 
 
                     }
@@ -458,6 +558,7 @@ class AddPrescription : AppCompatActivity(),
         })
     }
 
+/*
     override fun OnMultiSpinnerItemSelected(chosenItems: MutableList<String>?) {
         for (i in chosenItems!!.indices) {
 //
@@ -466,20 +567,21 @@ class AddPrescription : AppCompatActivity(),
 //                setRecyclerDataLab(chosenItems[i])
 //                binding.llayoutLab.visibility = View.VISIBLE
 //            }
-                 medicineClick=""
-                setRecyclerDataMedicine(
-                    chosenItems[i],
-                    "100mg",
-                    "1+0+1",
-                    "7 days",
-                    "After Food",
-                )
-                binding.llayout3.visibility = View.VISIBLE
+            setRecyclerDataMedicine(
+                chosenItems[i],
+                "brand",
+                "100mg",
+                "1+0+1",
+                "7 days",
+                "After Food",
+            )
+            binding.llayout3.visibility = View.VISIBLE
 
 
             Log.e("chosenItems", chosenItems[i])
         }
     }
+*/
 
 
     private fun apiCallLabTest() {
@@ -492,7 +594,8 @@ class AddPrescription : AppCompatActivity(),
                     call: Call<ModelLabList>, response: Response<ModelLabList>
                 ) {
                     try {
-                      //  val multiSpinner: MultiSpinner = findViewById(R.id.spinnerMultiSpinnerLabTest)
+                        //  val multiSpinner: MultiSpinner = findViewById(R.id.spinnerMultiSpinnerLabTest)
+                        var itemsNew: MutableList<SearchableItem> = ArrayList()
 
                         labTestList = response.body()!!;
                         if (labTestList != null) {
@@ -502,7 +605,26 @@ class AddPrescription : AppCompatActivity(),
 
                             for (i in labTestList.result!!.indices) {
                                 items[i] = labTestList.result!![i].category
-                               // contentListLab.add(labTestList.result!![i].category.toString())
+                                itemsNew.add(SearchableItem(labTestList.result!![i].category.toString(), i.toString()))
+                                // contentListLab.add(labTestList.result!![i].category.toString())
+                            }
+
+                            binding.spinnerLAb.setOnClickListener {
+                                SearchableMultiSelectSpinner.show(this@AddPrescription, "Select Items","Done", itemsNew, object :
+                                    SelectionCompleteListener {
+                                    override fun onCompleteSelection(selectedItems: ArrayList<SearchableItem>) {
+                                        Log.e("data", selectedItems.toString())
+                                        for (i in selectedItems) {
+                                              setRecyclerDataLab(i.text)
+                                             binding.llayoutLab.visibility = View.VISIBLE
+                                            Log.e("chosenItems",i.text)
+                                        }
+
+
+
+                                    }
+
+                                })
                             }
 
 /*//                            multiSpinner.setAdapterWithOutImage(
@@ -525,7 +647,37 @@ class AddPrescription : AppCompatActivity(),
                             binding.edtLab.setAdapter(autoSuggestAdapter)
                             binding.edtLab.threshold = 1
 //                            )*/
-                            val adapter: ArrayAdapter<String?> =
+
+
+
+  /*                          val selectedItem = -1
+
+                            var adapter: ArrayAdapter<String?> =
+                                object : ArrayAdapter<String?>(this@AddPrescription, android.R.layout.simple_list_item_1, items) {
+                                    override fun getDropDownView(
+                                        position: Int,
+                                        convertView: View?,
+                                        parent: ViewGroup
+                                    ): View? {
+                                        var v: View? = null
+                                        v = super.getDropDownView(position, null, parent)
+                                        // If this is the selected item position
+//
+//                                        if(position== binding.spinnerLAb.selectedItem){
+//                                            v.setBackgroundColor(ContextCompat.getColor(this@AddPrescription,R.color.main_color));
+//                                        } else {
+//                                            v.setBackgroundColor(ContextCompat.getColor(this@AddPrescription,R.color.gray_text_color));
+//                                        }
+//                                        if (position == selectedItem) {
+//                                            v.setBackgroundColor(Color.BLUE)
+//                                        } else {
+//                                            // for other views
+//                                            v.setBackgroundColor(Color.WHITE)
+//                                        }
+                                        return v
+                                    }
+                                }*/
+/*                            val adapter: ArrayAdapter<String?> =
                                 ArrayAdapter(
                                     this@AddPrescription,
                                     android.R.layout.simple_list_item_1,
@@ -542,22 +694,24 @@ class AddPrescription : AppCompatActivity(),
                                         l: Long
                                     ) {
 
-                                         if (Lab== "1") {
-                                             setRecyclerDataLab(labTestList.result!![i].category.toString())
+//                                        if(i== binding.spinnerLAb.selectedItem){
+//                                            view!!.setBackgroundColor(ContextCompat.getColor(this@AddPrescription,R.color.main_color));
+//                                        } else {
+//                                            view!!.setBackgroundColor(ContextCompat.getColor(this@AddPrescription,R.color.gray_text_color));
+//                                        }
+                                        if (Lab == "1") {
+                                            setRecyclerDataLab(labTestList.result!![i].category.toString())
                                             // myToast(this@AddPrescription, "Added")
-                                             binding.llayoutLab.visibility=View.VISIBLE
+                                            binding.llayoutLab.visibility = View.VISIBLE
                                         }
                                         Lab = "1"
-                                        Log.e(ContentValues.TAG, "mainSucCat: $mainSucCat")
+                                        Log.e(ContentValues.TAG, "mainSucCat: $sucCategory")
                                     }
 
                                     override fun onNothingSelected(adapterView: AdapterView<*>?) {
 
                                     }
-                                }
-
-
-
+                                }*/
 
 
                         }
@@ -591,11 +745,35 @@ class AddPrescription : AppCompatActivity(),
 
                             //spinner code start
                             val items = arrayOfNulls<String>(mainCatList.result!!.size)
+                            var itemsNew: MutableList<SearchableItem> = ArrayList()
 
                             for (i in mainCatList.result!!.indices) {
                                 items[i] = mainCatList.result!![i].departmentname
+                                itemsNew.add(SearchableItem(mainCatList.result!![i].departmentname.toString(), mainCatList.result!![i].departid.toString()))
+
                             }
-                            val adapter: ArrayAdapter<String?> =
+
+                            binding.spinnerDiagnosticsCategory.setOnClickListener {
+                                SearchableMultiSelectSpinner.show(this@AddPrescription, "Select Items","Done", itemsNew, object :
+                                    SelectionCompleteListener {
+                                    override fun onCompleteSelection(selectedItems: ArrayList<SearchableItem>) {
+                                        Log.e("data", selectedItems.toString())
+                                        for (i in selectedItems) {
+                                            binding.spinnerDiagnosticsCategory.text=i.text
+                                            binding.llayoutMainCat.visibility = View.VISIBLE
+                                            apiCallDigSubCat(i.code)
+                                            setRecyclerDataMainCat(i.text,i.code)
+
+                                            Log.e("chosenItems",i.text)
+                                        }
+
+
+
+                                    }
+
+                                })
+                            }
+/*                            val adapter: ArrayAdapter<String?> =
                                 ArrayAdapter(
                                     this@AddPrescription,
                                     android.R.layout.simple_list_item_1,
@@ -614,15 +792,25 @@ class AddPrescription : AppCompatActivity(),
 
                                         val departmentName = mainCatList.result!![i].departmentname
                                         val departid = mainCatList.result!![i].departid
-
                                         apiCallDigSubCat(departid.toString())
+
+
+//                                        if (mainCatList.result!![i].departmentname == "Gynae & Obstetrics") {
+//                                            binding.layoutSpinnerGynae.visibility = View.VISIBLE
+//                                            binding.layoutSpinnerGeneral.visibility = View.GONE
+//                                        }
+//                                        if (mainCatList.result!![i].departmentname == "General Medicine") {
+//                                            binding.layoutSpinnerGynae.visibility = View.GONE
+//                                            binding.layoutSpinnerGeneral.visibility = View.VISIBLE
+//                                        }
+
                                         Log.e(ContentValues.TAG, "departmentName: $departmentName")
                                     }
 
                                     override fun onNothingSelected(adapterView: AdapterView<*>?) {
 
                                     }
-                                }
+                                }*/
 
 
                         }
@@ -641,10 +829,10 @@ class AddPrescription : AppCompatActivity(),
             })
     }
 
-    private fun apiCallDigSubCat(id: String) {
+    private fun apiCallDigSubCat(departid: String) {
 
 
-        ApiClient.apiService.getsubCat(id)
+        ApiClient.apiService.getsubCat(departid)
             .enqueue(object : Callback<ModelSubCatList> {
                 @SuppressLint("LogNotTimber")
                 override fun onResponse(
@@ -656,18 +844,70 @@ class AddPrescription : AppCompatActivity(),
 
                             //spinner code start
                             val items = arrayOfNulls<String>(diagSubCatList.result!!.size)
+                            var itemsNew: MutableList<SearchableItem> = ArrayList()
+
+                            //  var listData: MutableList<ModelSubCatList> = itemsNew as MutableList<ModelSubCatList>
 
                             for (i in diagSubCatList.result!!.indices) {
                                 items[i] = diagSubCatList.result!![i].name
+                                 itemsNew.add(SearchableItem(diagSubCatList.result!![i].name.toString(), "$i"))
+
                             }
-                            val adapter: ArrayAdapter<String?> =
+/*                            val selectedItem = -1
+
+                            var adapter: ArrayAdapter<String?> =
+                                object : ArrayAdapter<String?>(this@AddPrescription, android.R.layout.simple_list_item_1, items) {
+                                    override fun getDropDownView(
+                                        position: Int,
+                                        convertView: View?,
+                                        parent: ViewGroup
+                                    ): View? {
+                                        var v: View? = null
+                                        v = super.getDropDownView(position, null, parent)
+                                        // If this is the selected item position
+
+                                        if(position== selectedItem){
+                                            v.setBackgroundColor(ContextCompat.getColor(this@AddPrescription,R.color.main_color));
+                                        } else {
+                                            v.setBackgroundColor(ContextCompat.getColor(this@AddPrescription,R.color.gray_text_color));
+                                        }
+                                        if (position == selectedItem) {
+                                            v.setBackgroundColor(Color.BLUE)
+                                        } else {
+                                            // for other views
+                                            v.setBackgroundColor(Color.WHITE)
+                                        }
+                                        return v
+                                    }
+                                }*/
+                        /*    val adapter: ArrayAdapter<String?> =
                                 ArrayAdapter(
                                     this@AddPrescription,
                                     android.R.layout.simple_list_item_1,
                                     items
-                                )
-                            binding.spinnerDiagnosticsSubCategory.adapter = adapter
+                                )*/
 
+                            binding.spinnerDiagnosticsSubCategory.setOnClickListener {
+                                SearchableMultiSelectSpinner.show(this@AddPrescription, "Select Items","Done", itemsNew, object :
+                                    SelectionCompleteListener {
+                                    override fun onCompleteSelection(selectedItems: ArrayList<SearchableItem>) {
+                                        Log.e("data", selectedItems.toString())
+                                        for (i in selectedItems) {
+                                             setRecyclerDataSub(i.text)
+                                            binding.llayoutSubCat.visibility = View.VISIBLE
+
+                                            Log.e("chosenItems",i.text)
+                                        }
+
+
+
+                                    }
+
+                                })
+                            }
+
+/*
+                            binding.spinnerDiagnosticsSubCategory.adapter = adapter
                             binding.spinnerDiagnosticsSubCategory.onItemSelectedListener =
                                 object : AdapterView.OnItemSelectedListener {
                                     override fun onItemSelected(
@@ -677,13 +917,95 @@ class AddPrescription : AppCompatActivity(),
                                         l: Long
                                     ) {
 
+
                                         val name = diagSubCatList.result!![i].name
                                         if (t == "1") {
                                             setRecyclerDataSub(diagSubCatList.result!![i].name.toString())
                                             // myToast(this@AddPrescription, "Added")
-                                            binding.llayoutSubCat.visibility=View.VISIBLE
+                                            binding.llayoutSubCat.visibility = View.VISIBLE
                                         }
                                         t = "1"
+                                        Log.e(ContentValues.TAG, "mainSucCat: $mainSucCat")
+                                    }
+
+                                    override fun onNothingSelected(adapterView: AdapterView<*>?) {
+
+                                    }
+                                }*/
+
+
+                        }
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        myToast(this@AddPrescription, "Something went wrong")
+
+                    }
+                }
+
+                override fun onFailure(call: Call<ModelSubCatList>, t: Throwable) {
+                    myToast(this@AddPrescription, "Something went wrong")
+
+                }
+
+            })
+    }
+
+  //  val spinner = Spinner(this@AddPrescription)
+
+
+//
+//    val adapter = object: ArrayAdapter<MutableSet?>(this@AddPrescription, android.R.layout.simple_spinner_item, diagSubCatListGen) {
+//        override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
+//            return super.getDropDownView(position, convertView, parent).also { view ->
+//                if(position ==  binding.spinnerDiagnosticsSubCategory.selectedItemPosition)
+//                    view.setBackgroundColor(Color.rgb(204, 255, 255))
+//            }
+//        }
+//    }
+/*
+    private fun apiCallDigSubCatGen() {
+
+        ApiClient.apiService.getsubCat("68")
+            .enqueue(object : Callback<ModelSubCatList> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelSubCatList>, response: Response<ModelSubCatList>
+                ) {
+                    try {
+                        diagSubCatListGen = response.body()!!;
+                        if (diagSubCatListGen != null) {
+
+                            //spinner code start
+                            val items = arrayOfNulls<String>(diagSubCatListGen.result!!.size)
+
+                            for (i in diagSubCatListGen.result!!.indices) {
+                                items[i] = diagSubCatListGen.result!![i].name
+                            }
+                            val adapter: ArrayAdapter<String?> =
+                                ArrayAdapter(
+                                    this@AddPrescription,
+                                    android.R.layout.simple_list_item_1,
+                                    items
+                                )
+
+                            binding.spinnerDiagnosticsSubCategoryGen.adapter = adapter
+                            binding.spinnerDiagnosticsSubCategoryGen.onItemSelectedListener =
+                                object : AdapterView.OnItemSelectedListener {
+                                    @SuppressLint("SuspiciousIndentation")
+                                    override fun onItemSelected(
+                                        adapterView: AdapterView<*>?,
+                                        view: View?,
+                                        i: Int,
+                                        l: Long
+                                    ) {
+
+                                        val name = diagSubCatListGen.result!![i].name
+                                      //  if (t == "1") {
+                                            setRecyclerDataSub(diagSubCatListGen.result!![i].name.toString())
+                                            // myToast(this@AddPrescription, "Added")
+                                            binding.llayoutSubCat.visibility = View.VISIBLE
+                                       // }
+                                      //  t = "1"
                                         Log.e(ContentValues.TAG, "mainSucCat: $mainSucCat")
                                     }
 
@@ -708,6 +1030,9 @@ class AddPrescription : AppCompatActivity(),
 
             })
     }
+*/
+
+
 
     private fun apiCallAddPrescription() {
         AppProgressBar.showLoaderDialog(this)
@@ -720,10 +1045,10 @@ class AddPrescription : AppCompatActivity(),
         var anyAllergic = ""
         var otherAllergic = ""
 
-        if (binding.edtHypertension.text!!.isNotEmpty()) {
-            hypertension = binding.edtHypertension.text.toString().trim()
+        hypertension = if (binding.edtHypertension.text!!.isNotEmpty()) {
+            binding.edtHypertension.text.toString().trim()
         } else {
-            hypertension = "No"
+            "No"
         }
 
         if (binding.edtDiabetesMellitus.text!!.isNotEmpty()) {
@@ -768,10 +1093,15 @@ class AddPrescription : AppCompatActivity(),
         var days = arrayListOf("")
         var instraction = arrayListOf("")
         var doasge = arrayListOf("")
-        var mainCatList = arrayListOf("")
+        var subCatList = arrayListOf("")
+        var mainCategoryNew = arrayListOf("")
 
-        for (i in mainSucCat){
-            mainCatList.add(i.subCatName)
+
+        for (i in mainCategory) {
+            mainCategoryNew.add(i.id)
+        }
+        for (i in sucCategory) {
+            subCatList.add(i.subCatName)
         }
 
         for (i in medicineList) {
@@ -795,11 +1125,15 @@ class AddPrescription : AppCompatActivity(),
         Log.e("days", days.toString())
         Log.e("instraction", instraction.toString())
         Log.e("doasge", doasge.toString())
+
+        val currentTime = SimpleDateFormat("dd-MM-yyyy HH:m:ss", Locale.getDefault()).format(Date())
+
+        val a = "_"
         ApiClient.apiService.addPrescr(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
             sessionManager.group.toString(),
-            studenrId,
+            "$studenrId$a$id",
             doctorId,
             "",
             id,
@@ -844,8 +1178,206 @@ class AddPrescription : AppCompatActivity(),
             anyAllergic,
             "",
             otherAllergic,
+            mainCategoryNew,
+            currentTime,
+            subCatList,
+            labTest,
+            medicine,
+            medicine,
             "",
-            mainCatList,
+            fraquency,
+            days,
+            instraction,
+            doasge,
+
+            ).enqueue(object : Callback<ModelUpload> {
+            @SuppressLint("LogNotTimber")
+            override fun onResponse(
+                call: Call<ModelUpload>, response: Response<ModelUpload>
+            ) {
+                try {
+                    if (response.code() == 500) {
+                        myToast(this@AddPrescription, "Server Error")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else if (response.code() == 404) {
+                        myToast(this@AddPrescription, "Something went wrong")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else if (response.code() == 200) {
+                        myToast(this@AddPrescription, "prescription Added")
+                        startActivity(Intent(this@AddPrescription, PreviousAppointment::class.java))
+                        AppProgressBar.hideLoaderDialog()
+                    } else {
+                        myToast(this@AddPrescription, "${response.body()!!.message}")
+                        AppProgressBar.hideLoaderDialog()
+                    }
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    myToast(this@AddPrescription, "Something went wrong")
+                    AppProgressBar.hideLoaderDialog()
+                }
+            }
+
+            override fun onFailure(call: Call<ModelUpload>, t: Throwable) {
+                myToast(this@AddPrescription, "Something went wrong")
+                AppProgressBar.hideLoaderDialog()
+
+            }
+
+        })
+        //}
+    }
+
+    private fun apiCallEditPrescription() {
+        AppProgressBar.showLoaderDialog(this)
+
+        var hypertension = ""
+        var diabetesMellitus = ""
+        var hypothyroid = ""
+        var hyperthyroid = ""
+        var heartDisease = ""
+        var anyAllergic = ""
+        var otherAllergic = ""
+
+        hypertension = if (binding.edtHypertension.text!!.isNotEmpty()) {
+            binding.edtHypertension.text.toString().trim()
+        } else {
+            "No"
+        }
+
+        if (binding.edtDiabetesMellitus.text!!.isNotEmpty()) {
+            diabetesMellitus = binding.edtDiabetesMellitus.text.toString().trim()
+        } else {
+            diabetesMellitus = "No"
+        }
+        if (binding.edtHypothyroid.text!!.isNotEmpty()) {
+            hypothyroid = binding.edtHypothyroid.text.toString().trim()
+        } else {
+            hypothyroid = "No"
+        }
+
+        if (binding.edtHyperthyroid.text!!.isNotEmpty()) {
+            hyperthyroid = binding.edtHyperthyroid.text.toString().trim()
+        } else {
+            hyperthyroid = "No"
+        }
+
+        if (binding.edtHeartDisease.text!!.isNotEmpty()) {
+            heartDisease = binding.edtHeartDisease.text.toString().trim()
+        } else {
+            heartDisease = "No"
+        }
+
+        if (binding.edtAnyAllergic.text!!.isNotEmpty()) {
+            anyAllergic = binding.edtAnyAllergic.text.toString().trim()
+        } else {
+            anyAllergic = "No"
+        }
+
+        if (binding.edtOtherAllergic.text!!.isNotEmpty()) {
+            otherAllergic = binding.edtOtherAllergic.text.toString().trim()
+        } else {
+            otherAllergic = "No"
+        }
+
+
+        var medicine = arrayListOf("")
+        var labTest = arrayListOf("")
+        var fraquency = arrayListOf("")
+        var days = arrayListOf("")
+        var instraction = arrayListOf("")
+        var doasge = arrayListOf("")
+        var subCatList = arrayListOf("")
+        var mainCategoryNew = arrayListOf("")
+
+
+        for (i in mainCategory) {
+            mainCategoryNew.add(i.id)
+        }
+        for (i in sucCategory) {
+            subCatList.add(i.subCatName)
+        }
+
+        for (i in medicineList) {
+            medicine.add(i.medicineName)
+        }
+
+        for (i in labListNew) {
+            labTest.add(i.testName)
+        }
+
+        for (i in medicineList) {
+            fraquency.add(i.frequency)
+            days.add(i.days)
+            instraction.add(i.instraction)
+            doasge.add(i.dosage)
+        }
+
+        Log.e("medicine", medicine.toString())
+        Log.e("labTest", labTest.toString())
+        Log.e("fraquency", fraquency.toString())
+        Log.e("days", days.toString())
+        Log.e("instraction", instraction.toString())
+        Log.e("doasge", doasge.toString())
+
+        val currentTime = SimpleDateFormat("dd-MM-yyyy HH:m:ss", Locale.getDefault()).format(Date())
+
+        val a = "_"
+        ApiClient.apiService.editPrescr(
+            sessionManager.ionId.toString(),
+            sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
+            "$studenrId$a$id",
+            doctorId,
+            id,
+            "",
+            id,
+            "",
+            birthdate,
+            date,
+            "",
+            bloodgroup,
+            sex,
+            "Adilabad",
+            schl,
+            "",
+            schl_addr,
+            patientName,
+            "",
+            "",
+            "",
+            schl_addr,
+            "",
+            "",
+            strts,
+            followDate,
+            referralHos,
+            binding.edtTypeHealthIssue.text.toString(),
+            binding.edtTypeDepartment.text.toString(),
+            "",
+            "Provisional",
+            "",
+            "",
+            "admin",
+            "",
+            binding.edtNote.text.toString(),
+            "",
+            "",
+            hypertension,
+            "",
+            diabetesMellitus,
+            hypothyroid,
+            hyperthyroid,
+            "",
+            heartDisease,
+            anyAllergic,
+            "",
+            otherAllergic,
+            mainCategoryNew,
+            currentTime,
+            subCatList,
             labTest,
             medicine,
             medicine,

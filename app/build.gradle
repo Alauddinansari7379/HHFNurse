@@ -8,7 +8,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.hhfoundation"
+        applicationId "com.amtech.hhfoundation"
         minSdk 22
         targetSdk 33
         versionCode 1
@@ -19,13 +19,15 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
+            multiDexKeepProguard = file('multidex-config.pro')
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-    buildFeatures{
-        viewBinding=true
+    buildFeatures {
+        viewBinding = true
     }
 
     compileOptions {
@@ -97,9 +99,12 @@ dependencies {
 
     // Image Picker From Camera
     implementation 'com.github.dhaval2404:imagepicker:2.1'
-    
+
     //Multiselection Spinner
-         implementation 'com.github.AnuraganuPunalur:Multi-Selection-Spinner-Android:1.0'
+    implementation 'com.github.AnuraganuPunalur:Multi-Selection-Spinner-Android:1.0'
+    implementation 'com.github.telichada:SearchableMultiSelectSpinner:2.0'
+
+    implementation "androidx.startup:startup-runtime:1.0.0"
 
 
 

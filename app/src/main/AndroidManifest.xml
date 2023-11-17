@@ -15,6 +15,18 @@
         android:theme="@style/Theme.HHFoundation"
         tools:targetApi="31">
         <activity
+            android:name=".clinicalManagement.activity.ConsaltationRequest"
+            android:exported="false" />
+        <activity
+            android:name=".doctor.activity.TreatmentHistory"
+            android:exported="false" />
+        <activity
+            android:name=".doctor.activity.ListOfDoctor"
+            android:exported="false" />
+        <activity
+            android:name=".doctor.activity.AddDoctor"
+            android:exported="false" />
+        <activity
             android:name=".addPrescription.AddPrescription"
             android:exported="false" />
         <activity
@@ -86,6 +98,13 @@
         <activity
             android:name=".dasboard.Dashboard"
             android:exported="false" />
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:ignore="MissingClass"
+            tools:node="remove" />
+
         <activity
             android:name=".login.Login"
             android:exported="false" />
