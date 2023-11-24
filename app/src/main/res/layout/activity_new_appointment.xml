@@ -609,6 +609,7 @@
 
 
                             <TextView
+                                android:id="@+id/choseFile1"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -625,6 +626,7 @@
                                 app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
 
                             <TextView
+                                android:id="@+id/NoFileChosen1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -662,6 +664,7 @@
 
 
                             <TextView
+                                android:id="@+id/choseFile2"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -678,6 +681,7 @@
                                 app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
 
                             <TextView
+                                android:id="@+id/NoFileChosen2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -715,6 +719,7 @@
 
 
                             <TextView
+                                android:id="@+id/choseFile3"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -731,6 +736,7 @@
                                 app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
 
                             <TextView
+                                android:id="@+id/NoFileChosen3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -768,6 +774,7 @@
 
 
                             <TextView
+                                android:id="@+id/choseFile4"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -784,6 +791,7 @@
                                 app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
 
                             <TextView
+                                android:id="@+id/NoFileChosen4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -821,6 +829,7 @@
 
 
                             <TextView
+                                android:id="@+id/choseFile5"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
@@ -837,6 +846,7 @@
                                 app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
 
                             <TextView
+                                android:id="@+id/NoFileChosen5"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"

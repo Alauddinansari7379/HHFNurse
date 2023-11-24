@@ -66,6 +66,7 @@
                     android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardMedicalHis"
                          android:layout_width="match_parent"
                         android:layout_height="130dp"
                         android:layout_margin="5dp"
@@ -290,6 +291,7 @@
                     android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardTreated"
                          android:layout_width="match_parent"
                         android:layout_height="130dp"
                         android:layout_margin="5dp"
@@ -361,6 +363,7 @@
 
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardPendingAppointmnet"
                         android:layout_width="match_parent"
                         android:layout_height="130dp"
                         android:layout_margin="5dp"
@@ -806,6 +809,7 @@
 
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardRefrrel"
                         android:layout_width="match_parent"
                         android:layout_height="130dp"
                         android:layout_margin="5dp"
@@ -877,6 +881,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cardFollowUp"
                         android:layout_width="match_parent"
                         android:layout_height="130dp"
                         android:layout_margin="5dp"

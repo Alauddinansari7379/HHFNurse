@@ -12,6 +12,7 @@ import com.example.hhfoundation.Helper.convertTo12Hour
 import com.example.hhfoundation.Helper.currentDate
 import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.R
+import com.example.hhfoundation.dasboard.Dashboard
 import com.example.hhfoundation.databinding.ActivityAddVitalBinding
 import com.example.hhfoundation.followUpPrescription.model.ModelFollowUp
 import com.example.hhfoundation.registration.model.ModelRegister
@@ -58,11 +59,15 @@ class AddVital : AppCompatActivity() {
             imgBack.setOnClickListener {
                 onBackPressed()
             }
-            tvStudent.text = studentName
-            tvDate.text = time.subSequence(0,10)
-            tvTime.text = convertTo12Hour( time.substring(10))
-
-
+            try {
+                if (time.isNotEmpty()) {
+                    tvStudent.text = studentName
+                    tvDate.text = time.subSequence(0, 10)
+                    tvTime.text = convertTo12Hour(time.substring(10))
+                }
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
             edtPR.setOnFocusChangeListener { view, b ->
                 bloodPressure = edtBloodPressure.text.toString().trim()
                 if (edtBloodPressure.text!!.contains("mmhh")) {
@@ -290,7 +295,7 @@ class AddVital : AppCompatActivity() {
 
                         } else {
                             myToast(this@AddVital, response.body()!!.message)
-                            startActivity(Intent(this@AddVital,FollowUpPrescription::class.java))
+                            startActivity(Intent(this@AddVital,Dashboard::class.java))
                              AppProgressBar.hideLoaderDialog()
 
 

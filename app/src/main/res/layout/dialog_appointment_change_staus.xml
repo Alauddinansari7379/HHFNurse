@@ -146,14 +146,14 @@
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Department"
+                            android:text="Appointment Status"
                             android:textSize="14sp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
                         <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/DepartmentDilSC"
+                            android:id="@+id/AppointmentStatusC"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:layout_marginTop="3dp"
@@ -499,6 +499,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
+                            android:orientation="vertical"
                             android:background="@drawable/corner_liner">
 
                             <Spinner
@@ -507,6 +508,19 @@
                                 android:layout_height="35dp">
 
                             </Spinner>
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/DoctorName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:minHeight="35dp"
+                                android:visibility="gone"
+                                 android:background="@drawable/corner_liner"
+                                android:inputType="text"
+                                android:lines="1"
+                                android:padding="5dp"
+                                android:textSize="12sp">
+
+                            </androidx.appcompat.widget.AppCompatTextView>
 
                         </LinearLayout>
 
@@ -517,7 +531,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="10dp"
-                        android:layout_weight="1"
+                        android:layout_weight="1.5"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView

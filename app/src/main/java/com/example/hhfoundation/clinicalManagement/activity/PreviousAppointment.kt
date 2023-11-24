@@ -1,8 +1,11 @@
 package com.example.hhfoundation.clinicalManagement.activity
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.ContentValues
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -29,22 +32,25 @@ import com.example.hhfoundation.sharedpreferences.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DateFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
-class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Information {
+class PreviousAppointment : AppCompatActivity(), AdapterAppointmentList.Information {
     private lateinit var binding: ActivityAppointmentBinding
     lateinit var sessionManager: SessionManager
     var dialog: Dialog? = null
     private lateinit var mainData: ArrayList<PrescriptionList>
     var status = ""
+    var date = ""
+    var doctorId = ""
     var statusChange = ""
+    private val mydilaog: Dialog? = null
     var doctorList = ArrayList<Doctor>()
     var statuesList = ArrayList<ModelSpinner>()
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,21 +58,30 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
         binding = ActivityAppointmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sessionManager = SessionManager(this@PreviousAppointment)
-        mainData= ArrayList<PrescriptionList>()
+        mainData = ArrayList<PrescriptionList>()
 
         binding.imgBack.setOnClickListener {
             onBackPressed()
         }
 
         statuesList.add(ModelSpinner("Pending Confirmation", "1"))
-        statuesList.add(ModelSpinner("Confirmed", "2"))
-        statuesList.add(ModelSpinner("Treated", "3"))
-
-        if (sessionManager.group=="Doctor"){
-            binding.layWomen.visibility=View.GONE
+        if (sessionManager.group != "Doctor") {
+            statuesList.add(ModelSpinner("Confirmed", "2"))
         }
-        apiCallDoctorList()
-        apiCallAppointmentList("")
+        if (sessionManager.group!="Receptionist") {
+            statuesList.add(ModelSpinner("Treated", "3"))
+        }
+        Log.e("gruop",sessionManager.group.toString())
+        if (sessionManager.group!="Doctor"){
+            apiCallDoctorList()
+        }
+        if (sessionManager.group == "Doctor") {
+            binding.layWomen.visibility = View.GONE
+        }
+        if (sessionManager.group!="Doctor"){
+            apiCallDoctorList()
+        }
+         apiCallAppointmentList("")
 
         try {
             binding.edtSearch.addTextChangedListener { str ->
@@ -184,13 +199,14 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
 
                 override fun onFailure(call: Call<ModelAppointList>, t: Throwable) {
                     myToast(this@PreviousAppointment, t.message.toString())
-                   // apiCallAppointmentList(status)
+                    // apiCallAppointmentList(status)
                     AppProgressBar.hideLoaderDialog()
 
                 }
 
             })
     }
+
     private fun apiCallChangeStatus(appoinId: String) {
 
         AppProgressBar.showLoaderDialog(this@PreviousAppointment)
@@ -202,6 +218,8 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
             sessionManager.group.toString(),
             appoinId,
             statusChange,
+            doctorId,
+            date
         )
             .enqueue(object : Callback<ModelUpload> {
                 @SuppressLint("LogNotTimber")
@@ -220,10 +238,10 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
 
                         } else {
                             myToast(this@PreviousAppointment, response.body()!!.message)
-                            if (sessionManager.group=="Receptionist"){
+                            if (sessionManager.group == "Receptionist") {
                                 apiCallAppointmentList("Pending Confirmation")
 
-                            }else{
+                            } else {
                                 apiCallAppointmentList("Confirmed")
                             }
 
@@ -239,7 +257,7 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
 
                 override fun onFailure(call: Call<ModelUpload>, t: Throwable) {
                     myToast(this@PreviousAppointment, t.message.toString())
-                     AppProgressBar.hideLoaderDialog()
+                    AppProgressBar.hideLoaderDialog()
 
                 }
 
@@ -248,16 +266,16 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
 
     private fun setRecyclerViewAdapter(data: ArrayList<PrescriptionList>) {
         binding.recyclerView.apply {
-            adapter = AdapterAppointmentList(this@PreviousAppointment, data,this@PreviousAppointment)
+            adapter =
+                AdapterAppointmentList(this@PreviousAppointment, data, this@PreviousAppointment)
             AppProgressBar.hideLoaderDialog()
 
         }
     }
 
 
-
     override fun info(id: String) {
-       // popupUpload(id)
+        // popupUpload(id)
         apiCallAppointmentInfo(id)
 
     }
@@ -287,38 +305,47 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
                             myToast(this@PreviousAppointment, "Server Error")
                             AppProgressBar.hideLoaderDialog()
 
-                        } else if (response.body()!!.nurse_id.isEmpty()) {
-                            myToast(this@PreviousAppointment, "No Data Found")
+                        } else if (response.code() == 405) {
+                            myToast(this@PreviousAppointment, "Something went wrong")
                             AppProgressBar.hideLoaderDialog()
 
                         } else {
-                            val view = layoutInflater.inflate(R.layout.dialog_appointment_info, null)
+                            val view =
+                                layoutInflater.inflate(R.layout.dialog_appointment_info, null)
                             dialog = Dialog(this@PreviousAppointment)
-                            var appointmentTypeDil = view!!.findViewById<TextView>(R.id.AppointmentTypeDil)
+                            var appointmentTypeDil =
+                                view!!.findViewById<TextView>(R.id.AppointmentTypeDil)
                             val studentDil = view!!.findViewById<TextView>(R.id.StudentDil)
-                            val departmentDil = view!!.findViewById<TextView>(R.id.DepartmentDil)
-                            val bloodPressureDil = view!!.findViewById<TextView>(R.id.BloodPressureDil)
+                          //  val departmentDil = view!!.findViewById<TextView>(R.id.DepartmentDil)
+                            val dateApp = view!!.findViewById<TextView>(R.id.dateApp)
+                            val appointmentStatus = view!!.findViewById<TextView>(R.id.AppointmentStatus)
+                            val bloodPressureDil =
+                                view!!.findViewById<TextView>(R.id.BloodPressureDil)
                             val pRDil = view!!.findViewById<TextView>(R.id.PRDil)
-                            val temperatureDilil = view!!.findViewById<TextView>(R.id.TemperatureDil)
+                            val temperatureDilil =
+                                view!!.findViewById<TextView>(R.id.TemperatureDil)
                             val sPO2Dil = view!!.findViewById<TextView>(R.id.SPO2Dil)
-                            val randomBloodSugarDil = view!!.findViewById<TextView>(R.id.RandomBloodSugarDil)
-                            val presentComplainsDil = view!!.findViewById<TextView>(R.id.PresentComplainsDil)
+                            val randomBloodSugarDil =
+                                view!!.findViewById<TextView>(R.id.RandomBloodSugarDil)
+                            val presentComplainsDil =
+                                view!!.findViewById<TextView>(R.id.PresentComplainsDil)
                             val sickDateDil = view!!.findViewById<TextView>(R.id.SickDateDil)
                             val remarksDil = view!!.findViewById<TextView>(R.id.RemarksDil)
                             val imgClose = view!!.findViewById<ImageView>(R.id.imgCloseDil)
 
-                            appointmentTypeDil.text=response.body()!!.appotype
-                            studentDil.text=response.body()!!.patient
-                          //  departmentDil.text=response.body()!!.d
-                            bloodPressureDil.text=response.body()!!.bp
-                            pRDil.text=response.body()!!.pr
-                            temperatureDilil.text=response.body()!!.temp
-                            sPO2Dil.text=response.body()!!.satur
-                            randomBloodSugarDil.text=response.body()!!.ranbl
-                            presentComplainsDil.text=response.body()!!.complain
-                            sickDateDil.text=response.body()!!.sdate
-                            remarksDil.text=response.body()!!.remarks
-
+                            appointmentTypeDil.text = response.body()!!.appotype
+                            studentDil.text = response.body()!!.patient
+                            //  departmentDil.text=response.body()!!.d
+                            bloodPressureDil.text = response.body()!!.bp
+                            pRDil.text = response.body()!!.pr
+                            temperatureDilil.text = response.body()!!.temp
+                            sPO2Dil.text = response.body()!!.satur
+                            randomBloodSugarDil.text = response.body()!!.ranbl
+                            presentComplainsDil.text = response.body()!!.complain
+                            sickDateDil.text = response.body()!!.sdate
+                            remarksDil.text = response.body()!!.remarks
+                            appointmentStatus.text=response.body()!!.status
+                            dateApp.text=response.body()!!.date
 
                             dialog = Dialog(this@PreviousAppointment)
                             if (view.parent != null) {
@@ -333,7 +360,7 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
                                 dialog?.dismiss()
                             }
 
-                             AppProgressBar.hideLoaderDialog()
+                            AppProgressBar.hideLoaderDialog()
 
 
                         }
@@ -348,12 +375,13 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
 
                 override fun onFailure(call: Call<ModelNewAppoint>, t: Throwable) {
                     myToast(this@PreviousAppointment, t.message.toString())
-                     AppProgressBar.hideLoaderDialog()
+                    AppProgressBar.hideLoaderDialog()
 
                 }
 
             })
     }
+
     private fun apiCallDoctorList() {
 
         AppProgressBar.showLoaderDialog(this@PreviousAppointment)
@@ -444,7 +472,7 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
                             myToast(this@PreviousAppointment, "Server Error")
                             AppProgressBar.hideLoaderDialog()
 
-                        } else if (response.body()!!.nurse_id.isEmpty()) {
+                        } else if (response.code() == 404) {
                             myToast(this@PreviousAppointment, "No Data Found")
                             AppProgressBar.hideLoaderDialog()
 
@@ -457,7 +485,9 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
                             var appointmentTypeDil =
                                 view!!.findViewById<TextView>(R.id.AppointmentTypeDilSC)
                             val studentDil = view!!.findViewById<TextView>(R.id.StudentDilSC)
-                            val departmentDil = view!!.findViewById<TextView>(R.id.DepartmentDilSC)
+                           // val departmentDil = view!!.findViewById<TextView>(R.id.DepartmentDilSC)
+                            val appointmentStatusC = view!!.findViewById<TextView>(R.id.AppointmentStatusC)
+
                             val bloodPressureDil =
                                 view!!.findViewById<TextView>(R.id.BloodPressureDilSC)
                             val pRDil = view!!.findViewById<TextView>(R.id.PRDilSC)
@@ -471,17 +501,48 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
                             val sickDateDil = view!!.findViewById<TextView>(R.id.SickDateDilSC)
                             val remarksDil = view!!.findViewById<TextView>(R.id.RemarksDilSC)
                             val patientIdSC = view!!.findViewById<TextView>(R.id.PatientIdSC)
-                           // val doctorSC = view!!.findViewById<TextView>(R.id.DoctorSC)
+                            // val doctorSC = view!!.findViewById<TextView>(R.id.DoctorSC)
                             val dateSC = view!!.findViewById<TextView>(R.id.DateSC)
                             val spinnerDoctor = view!!.findViewById<Spinner>(R.id.spinnerDoctorSC)
+                            val doctorName = view!!.findViewById<TextView>(R.id.DoctorName)
 
                             val appointmentStatusSC =
                                 view!!.findViewById<Spinner>(R.id.AppointmentStatusSC)
 
 
+                            if(sessionManager.group=="Doctor"){
+                                doctorName.visibility=View.VISIBLE
+                                spinnerDoctor.visibility=View.GONE
+                                doctorName.text=sessionManager.ionId.toString()
+                            }
+
+                            mydilaog?.setCanceledOnTouchOutside(false)
+                            mydilaog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                            val newCalendar = Calendar.getInstance()
+                            val datePicker = DatePickerDialog(
+                                this@PreviousAppointment,
+                                { _, year, monthOfYear, dayOfMonth ->
+                                    val newDate = Calendar.getInstance()
+                                    newDate[year, monthOfYear] = dayOfMonth
+                                    DateFormat.getDateInstance().format(newDate.time)
+                                    // val Date = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(newDate.time)
+                                    date =
+                                        SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(newDate.time)
+                                    dateSC.text =
+                                        SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(newDate.time)
 
 
+                                    Log.e(ContentValues.TAG, "expiredDate:>>$date")
+                                },
+                                newCalendar[Calendar.YEAR],
+                                newCalendar[Calendar.MONTH],
+                                newCalendar[Calendar.DAY_OF_MONTH]
+                            )
+                            datePicker.datePicker.minDate = System.currentTimeMillis() - 1000;
 
+                            dateSC.setOnClickListener {
+                                datePicker.show()
+                            }
                             appointmentStatusSC.adapter = ArrayAdapter<ModelSpinner>(
                                 this@PreviousAppointment,
                                 android.R.layout.simple_list_item_1,
@@ -534,7 +595,7 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
                                         l: Long
                                     ) {
                                         if (doctorList.size > 0) {
-                                           val doctorId = doctorList[i].id
+                                            doctorId = doctorList[i].id
                                         }
                                     }
 
@@ -546,21 +607,22 @@ class PreviousAppointment : AppCompatActivity(),AdapterAppointmentList.Informati
                             val imgClose = view!!.findViewById<ImageView>(R.id.imgCloseDilSC)
                             val btnInfoAppSC = view!!.findViewById<Button>(R.id.btnInfoAppSC)
 
-                            appointmentTypeDil.text=response.body()!!.appotype
-                            studentDil.text=response.body()!!.patient
+                            appointmentTypeDil.text = response.body()!!.appotype
+                            studentDil.text = response.body()!!.patient
                             //  departmentDil.text=response.body()!!.d
-                            bloodPressureDil.text=response.body()!!.bp
-                            pRDil.text=response.body()!!.pr
-                            temperatureDilil.text=response.body()!!.temp
-                            sPO2Dil.text=response.body()!!.satur
-                            randomBloodSugarDil.text=response.body()!!.ranbl
-                            presentComplainsDil.text=response.body()!!.complain
-                            sickDateDil.text=response.body()!!.sdate
-                            remarksDil.text=response.body()!!.remarks
+                            bloodPressureDil.text = response.body()!!.bp
+                            pRDil.text = response.body()!!.pr
+                            temperatureDilil.text = response.body()!!.temp
+                            sPO2Dil.text = response.body()!!.satur
+                            randomBloodSugarDil.text = response.body()!!.ranbl
+                            presentComplainsDil.text = response.body()!!.complain
+                            sickDateDil.text = response.body()!!.sdate
+                            remarksDil.text = response.body()!!.remarks
 
-                            patientIdSC.text=id
-                          //  doctorSC.text=response.body()!!.doctor
-                            dateSC.text=response.body()!!.date
+                            patientIdSC.text = id
+                            //  doctorSC.text=response.body()!!.doctor
+                            dateSC.text = response.body()!!.date
+                            appointmentStatusC.text=response.body()!!.status
 
 
                             dialog = Dialog(this@PreviousAppointment)

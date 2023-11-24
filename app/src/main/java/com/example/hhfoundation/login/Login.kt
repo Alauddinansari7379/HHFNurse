@@ -70,7 +70,7 @@ class Login : AppCompatActivity() {
                         myToast(this@Login, "Server Error")
                     } else if (response.code() == 404) {
                         myToast(this@Login, "Something went wrong")
-                    } else if (response.body()!!.message == "successful") {
+                    } else if (response.body()!!.message.contentEquals("successful")) {
                         sessionManager.isLogin = true
                         sessionManager.userId = response.body()!!.user_id
                         sessionManager.group = response.body()!!.group
@@ -81,8 +81,10 @@ class Login : AppCompatActivity() {
 
                         Log.e("sessionManager.idToken",sessionManager.idToken.toString())
                         Log.e("sessionManager.ionID",sessionManager.ionId.toString())
-                      //  Log.e("response.body()!!.user_type",response.body()!!.user_type)
-
+                        Log.e("sessionManager.group",sessionManager.group.toString())
+                        if (sessionManager.group=="Receptionist") {
+                            Log.e("response.body()!!.user_type", response.body()!!.user_type)
+                        }
                         myToast(this@Login, response.body()!!.message)
                         val intent = Intent(applicationContext, Dashboard::class.java)
                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -95,7 +97,7 @@ class Login : AppCompatActivity() {
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()
-                    myToast(this@Login, "Something went wrong")
+                    myToast(this@Login, "Try Again")
                     AppProgressBar.hideLoaderDialog()
 
                 }

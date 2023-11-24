@@ -114,7 +114,7 @@ class AdapterAppointmentList(
             holder.typeApp.text = list[position].appotype
             holder.studentNameApp.text = list[position].patientname
             holder.dateApp.text = list[position].date
-            holder.doctorNameApp.text = list[position].doctorname
+            holder.doctorNameApp.text = list[position].doctor
             holder.remarkApp.text = list[position].remarks
 
             when (list[position].status) {

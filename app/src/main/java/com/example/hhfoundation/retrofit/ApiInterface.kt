@@ -76,7 +76,7 @@ interface ApiInterface {
         @Query("reg_no") reg_no: String,
         @Query("profile") profile: String,
         @Part img_url: MultipartBody.Part,
-        ): Call<ModelNewAppoint>
+    ): Call<ModelNewAppoint>
 
     @Multipart
     @POST("AddPatient")
@@ -110,9 +110,49 @@ interface ApiInterface {
         @Part img_url: MultipartBody.Part,
     ): Call<ModelRegister>
 
-    //  @Multipart
-    @GET("addAppoitment")
+    @Multipart
+    @POST("addAppoitment")
     fun addAppointment(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("appotype") appotype: String,
+        @Query("patient") patient: String,
+        @Query("sdate") sdate: String,
+        @Query("ranbl") ranbl: String,
+        @Query("satur") satur: String,
+        @Query("issuewiith") issuewiith: String,
+        @Query("medhos") medhos: String,
+        @Query("doctor") doctor: String,
+        @Query("time_slot") time_slot: String,
+        @Query("status") status: String,
+        @Query("dsname") dsname: String,
+        @Query("tostrgt") tostrgt: String,
+        @Query("howmany") howmany: String,
+        @Query("sendho") sendho: String,
+        @Query("remarks") remarks: String,
+        @Query("request") request: String,
+        @Query("p_name") p_name: String,
+        @Query("p_email") p_email: String,
+        @Query("p_phone") p_phone: String,
+        @Query("p_age") p_age: String,
+        @Query("p_gender") p_gender: String,
+        @Query("vital") vital: String,
+        @Query("pr") pr: String,
+        @Query("bp") bp: String,
+        @Query("temp") temp: String,
+        @Query("complain") complain: String,
+        @Query("hosp") hosp: String,
+        @Query("medicine") medicine: String,
+        @Part img_url1: MultipartBody.Part? = null,
+        @Part img_url2: MultipartBody.Part? = null,
+        @Part img_url3: MultipartBody.Part? = null,
+        @Part img_url4: MultipartBody.Part? = null,
+        @Part img_url5: MultipartBody.Part? = null,
+    ): Call<ModelNewAppoint>
+
+    @POST("addAppoitment")
+    fun addAppointmentNew(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
         @Query("group") group: String,
@@ -150,8 +190,6 @@ interface ApiInterface {
 //        @Part img_url4: MultipartBody.Part? = null,
 //        @Part img_url5: MultipartBody.Part? = null,
     ): Call<ModelNewAppoint>
-
-
 
 
     @GET("AddPatientmedical")
@@ -321,6 +359,8 @@ interface ApiInterface {
         @Query("group") group: String,
         @Query("appoitment_id") appoitment_id: String,
         @Query("status") status: String,
+        @Query("doctor_id") doctor_id: String,
+        @Query("date") date: String,
     ): Call<ModelUpload>
 
     @GET("appoitmentinfo")
@@ -582,7 +622,122 @@ interface ApiInterface {
     @GET("getlab")
     fun labTestName(
     ): Call<ModelLabList>
-//
+
+    @Multipart
+    @POST("addLama")
+    fun addLama(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("presc_id") presc_id: String,
+        @Query("lama_date") lama_date: String,
+        @Part lama_docs: MultipartBody.Part?
+    ): Call<ModelUpload>
+
+    @Multipart
+    @POST("addExpireDetails")
+    fun addExpireDetails(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("presc_id") presc_id: String,
+        @Query("exp_date") exp_date: String,
+        @Query("cause") cause: String,
+        @Part death_certi: MultipartBody.Part?
+    ): Call<ModelUpload>
+
+    @Multipart
+    @POST("addNewdoc")
+    fun uploadDetails(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("p_id") p_id: String,
+        @Query("p_date") p_date: String,
+        @Query("p_hosp") p_hosp: String,
+        @Query("p_depart") p_depart: String,
+        @Query("p_hissue") p_hissue: String,
+        @Query("appointment_id") appointment_id: String,
+        @Query("cdate") cdate: String,
+        @Query("pnote") pnote: String,
+        @Query("rnote") rnote: String,
+        @Part img_url1: MultipartBody.Part?
+    ): Call<ModelUpload>
+
+    @Multipart
+    @POST("addConfirmation")
+    fun addConfirmation(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("presc_id") presc_id: String,
+        @Query("patient_reach") patient_reach: String,
+        @Query("reason") reason: String,
+        @Query("ref_status") ref_status: String,
+        @Query("FollowUps") FollowUps: String,
+        @Query("appotype") appotype: String,
+        @Query("Review_date") Review_date: String,
+        @Part file: MultipartBody.Part?
+    ): Call<ModelUpload>
+
+    @Multipart
+    @POST("addNewdis")
+    fun addNewdis(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("p_id") p_id: String,
+        @Query("p_date") p_date: String,
+        @Query("p_hosp") p_hosp: String,
+        @Query("p_depart") p_depart: String,
+        @Query("p_hissue") p_hissue: String,
+        @Query("appointment_id") appointment_id: String,
+        @Query("cdate") cdate: String,
+        @Query("disnote") disnote: String,
+        @Query("hypothyroid") hypothyroid: String,
+        @Query("doctorname") doctorname: String,
+        @Query("referfollowd") referfollowd: String,
+        @Query("review_date") review_date: String,
+        @Part img_url16: MultipartBody.Part?,
+        @Part img_url17: MultipartBody.Part?
+    ): Call<ModelUpload>
+
+     @POST("addNewdis")
+    fun addNewdisNew(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("p_id") p_id: String,
+        @Query("p_date") p_date: String,
+        @Query("p_hosp") p_hosp: String,
+        @Query("p_depart") p_depart: String,
+        @Query("p_hissue") p_hissue: String,
+        @Query("appointment_id") appointment_id: String,
+        @Query("cdate") cdate: String,
+        @Query("disnote") disnote: String,
+        @Query("hypothyroid") hypothyroid: String,
+        @Query("doctorname") doctorname: String,
+        @Query("referfollowd") referfollowd: String,
+        @Query("review_date") review_date: String,
+
+    ): Call<ModelUpload>
+
+     @POST("addConfirmation")
+    fun addConfirmationNew(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+        @Query("presc_id") presc_id: String,
+        @Query("patient_reach") patient_reach: String,
+        @Query("reason") reason: String,
+        @Query("ref_status") ref_status: String,
+        @Query("FollowUps") FollowUps: String,
+        @Query("appotype") appotype: String,
+        @Query("Review_date") Review_date: String,
+     ): Call<ModelUpload>
+
+
+//        @Part img_url: MultipartBody.Part?,
 //    @POST("getProfile")
 //     fun getProfile(@Body dataModal: DataModal?): Call<ModelProfile>
 

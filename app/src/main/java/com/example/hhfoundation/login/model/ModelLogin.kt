@@ -1,6 +1,9 @@
 package com.example.hhfoundation.login.model
 
+import com.google.gson.annotations.Expose
+
 data class ModelLogin(
+    @Expose
     val error: Any,
     val expiresIn: Int,
     val hospital_id: String,

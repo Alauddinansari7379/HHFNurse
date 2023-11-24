@@ -146,14 +146,14 @@
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Department"
+                            android:text="Appointment Status"
                             android:textSize="14sp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
                         <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/DepartmentDil"
+                            android:id="@+id/AppointmentStatus"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:layout_marginTop="3dp"
@@ -452,16 +452,19 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                              android:textSize="14sp"
+                            android:text="Date"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
                         <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/dateApp"
                             android:layout_width="match_parent"
                             android:layout_height="35dp"
                             android:layout_marginTop="3dp"
                              android:inputType="text"
                             android:lines="1"
+                            android:background="@drawable/corner_liner"
                             android:padding="5dp"
                             android:textSize="12sp">
 

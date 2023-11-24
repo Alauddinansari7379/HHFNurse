@@ -22,6 +22,7 @@ import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.ImageUploadClass.UploadRequestBody
 import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.R
+import com.example.hhfoundation.dasboard.Dashboard
 import com.example.hhfoundation.databinding.ActivityRegistrationBinding
 import com.example.hhfoundation.registration.model.ModelRegister
 import com.example.hhfoundation.registration.model.ModelSpinner
@@ -471,13 +472,19 @@ class Registration : AppCompatActivity(), UploadRequestBody.UploadCallback {
                         myToast(this@Registration, "Something went wrong")
                         AppProgressBar.hideLoaderDialog()
 
-                    } else if(response.body()!!.message=="successful") {
+                    }  else if(response.body()!!.message.contentEquals("This Email Address Is Already Registered")){
                         myToast(this@Registration, "${response.body()!!.message}")
-                        startActivity(Intent(this@Registration,StudentBonoFileld::class.java))
+                       // startActivity(Intent(this@Registration,StudentBonoFileld::class.java))
                         AppProgressBar.hideLoaderDialog()
-                    } else{
+                    }
+                    else if(response.body()!!.message.contentEquals("successful")){
                         myToast(this@Registration, "${response.body()!!.message}")
+                        startActivity(Intent(this@Registration,Dashboard::class.java))
                         AppProgressBar.hideLoaderDialog()
+                    }
+                    else{
+                        myToast(this@Registration, "${response.body()!!.message}")
+                         AppProgressBar.hideLoaderDialog()
                     }
 
                 } catch (e: Exception) {
@@ -488,8 +495,8 @@ class Registration : AppCompatActivity(), UploadRequestBody.UploadCallback {
             }
 
             override fun onFailure(call: Call<ModelRegister>, t: Throwable) {
-                apiCallRegistration()
-                //  myToast(this@ProfileActivity, "Something went wrong")
+               // apiCallRegistration()
+                  myToast(this@Registration, "Something went wrong")
                 AppProgressBar.hideLoaderDialog()
 
             }

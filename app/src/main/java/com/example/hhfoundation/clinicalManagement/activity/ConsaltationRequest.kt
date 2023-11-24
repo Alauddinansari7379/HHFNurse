@@ -1,9 +1,14 @@
 package com.example.hhfoundation.clinicalManagement.activity
 
 import android.annotation.SuppressLint
+import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.ContentValues
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
@@ -24,6 +29,10 @@ import com.example.hhfoundation.sharedpreferences.SessionManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Information {
     private lateinit var binding:ActivityConsaltationRequestBinding
@@ -31,6 +40,9 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
      var dialog: Dialog? = null
     private lateinit var mainData: ArrayList<PrescriptionList>
     var status = ""
+    var doctorId = ""
+    var date = ""
+    private val mydilaog: Dialog? = null
     var statusChange = ""
     var doctorList = ArrayList<Doctor>()
     var statuesList = ArrayList<ModelSpinner>()
@@ -41,9 +53,11 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
         sessionManager= SessionManager(this@ConsaltationRequest)
         apiCallAppointmentList("Pending Confirmation")
 
-        statuesList.add(ModelSpinner("Pending Confirmation", "1"))
-        statuesList.add(ModelSpinner("Confirmed", "2"))
-        statuesList.add(ModelSpinner("Treated", "3"))
+        statuesList.add(ModelSpinner("Confirmed", "1"))
+        statuesList.add(ModelSpinner("Pending Confirmation", "2"))
+        if (sessionManager.group!="Receptionist") {
+            statuesList.add(ModelSpinner("Treated", "3"))
+        }
         apiCallDoctorList()
         binding.imgBack.setOnClickListener {
             onBackPressed()
@@ -105,14 +119,15 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
     private fun apiCallChangeStatus(appoinId: String) {
 
         AppProgressBar.showLoaderDialog(this@ConsaltationRequest)
-
-
         ApiClient.apiService.updatestausdoctor(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
             sessionManager.group.toString(),
             appoinId,
             statusChange,
+            doctorId,
+            date
+
         )
             .enqueue(object : Callback<ModelUpload> {
                 @SuppressLint("LogNotTimber")
@@ -197,8 +212,8 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
                             myToast(this@ConsaltationRequest, "Server Error")
                             AppProgressBar.hideLoaderDialog()
 
-                        } else if (response.body()!!.nurse_id.isEmpty()) {
-                            myToast(this@ConsaltationRequest, "No Data Found")
+                        } else if (response.code() == 404) {
+                            myToast(this@ConsaltationRequest, "Something went wrong")
                             AppProgressBar.hideLoaderDialog()
 
                         } else {
@@ -206,7 +221,8 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
                             dialog = Dialog(this@ConsaltationRequest)
                             var appointmentTypeDil = view!!.findViewById<TextView>(R.id.AppointmentTypeDil)
                             val studentDil = view!!.findViewById<TextView>(R.id.StudentDil)
-                            val departmentDil = view!!.findViewById<TextView>(R.id.DepartmentDil)
+                            val dateApp = view!!.findViewById<TextView>(R.id.dateApp)
+                            val appointmentStatus = view!!.findViewById<TextView>(R.id.AppointmentStatus)
                             val bloodPressureDil = view!!.findViewById<TextView>(R.id.BloodPressureDil)
                             val pRDil = view!!.findViewById<TextView>(R.id.PRDil)
                             val temperatureDilil = view!!.findViewById<TextView>(R.id.TemperatureDil)
@@ -228,6 +244,8 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
                             presentComplainsDil.text=response.body()!!.complain
                             sickDateDil.text=response.body()!!.sdate
                             remarksDil.text=response.body()!!.remarks
+                            appointmentStatus.text=response.body()!!.status
+                            dateApp.text=response.body()!!.date
 
 
                             dialog = Dialog(this@ConsaltationRequest)
@@ -356,8 +374,8 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
                             myToast(this@ConsaltationRequest, "Server Error")
                             AppProgressBar.hideLoaderDialog()
 
-                        } else if (response.body()!!.nurse_id.isEmpty()) {
-                            myToast(this@ConsaltationRequest, "No Data Found")
+                        } else if (response.code() == 404) {
+                            myToast(this@ConsaltationRequest, "Something went wrong")
                             AppProgressBar.hideLoaderDialog()
 
                         } else {
@@ -369,7 +387,8 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
                             var appointmentTypeDil =
                                 view!!.findViewById<TextView>(R.id.AppointmentTypeDilSC)
                             val studentDil = view!!.findViewById<TextView>(R.id.StudentDilSC)
-                            val departmentDil = view!!.findViewById<TextView>(R.id.DepartmentDilSC)
+                          //  val departmentDil = view!!.findViewById<TextView>(R.id.DepartmentDilSC)
+                            val appointmentStatusC = view!!.findViewById<TextView>(R.id.AppointmentStatusC)
                             val bloodPressureDil =
                                 view!!.findViewById<TextView>(R.id.BloodPressureDilSC)
                             val pRDil = view!!.findViewById<TextView>(R.id.PRDilSC)
@@ -397,6 +416,33 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
                             )
 
 
+            mydilaog?.setCanceledOnTouchOutside(false)
+            mydilaog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            val newCalendar = Calendar.getInstance()
+            val datePicker = DatePickerDialog(
+                this@ConsaltationRequest,
+                { _, year, monthOfYear, dayOfMonth ->
+                    val newDate = Calendar.getInstance()
+                    newDate[year, monthOfYear] = dayOfMonth
+                    DateFormat.getDateInstance().format(newDate.time)
+                    // val Date = SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(newDate.time)
+                    date =
+                        SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(newDate.time)
+                    dateSC.text =
+                        SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(newDate.time)
+
+
+                    Log.e(ContentValues.TAG, "expiredDate:>>$date")
+                },
+                newCalendar[Calendar.YEAR],
+                newCalendar[Calendar.MONTH],
+                newCalendar[Calendar.DAY_OF_MONTH]
+            )
+            datePicker.datePicker.minDate = System.currentTimeMillis() - 1000;
+
+            dateSC.setOnClickListener {
+                datePicker.show()
+            }
                             appointmentStatusSC.onItemSelectedListener =
                                 object : AdapterView.OnItemSelectedListener {
                                     override fun onItemSelected(
@@ -442,7 +488,7 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
                                         l: Long
                                     ) {
                                         if (doctorList.size > 0) {
-                                          val  doctorId = doctorList[i].id
+                                            doctorId = doctorList[i].id
                                         }
                                     }
 
@@ -470,6 +516,7 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
                             patientIdSC.text=id
                           //  doctorSC.text=response.body()!!.doctor
                             dateSC.text=response.body()!!.date
+                            appointmentStatusC.text=response.body()!!.status
 
 
                             dialog = Dialog(this@ConsaltationRequest)

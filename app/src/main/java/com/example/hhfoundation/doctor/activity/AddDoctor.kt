@@ -22,6 +22,7 @@ import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.R
 import com.example.hhfoundation.clinicalManagement.activity.TodayAppointment
 import com.example.hhfoundation.clinicalManagement.model.ModelNewAppoint
+import com.example.hhfoundation.dasboard.Dashboard
 import com.example.hhfoundation.databinding.ActivityAddDoctorBinding
 import com.example.hhfoundation.registration.model.ModelSpinner
 import com.example.hhfoundation.retrofit.ApiClient
@@ -163,7 +164,7 @@ class AddDoctor : AppCompatActivity(), UploadRequestBody.UploadCallback {
                     } else if (response.body()!!.message == "successful") {
                         myToast(this@AddDoctor, "${response.body()!!.message}")
                         AppProgressBar.hideLoaderDialog()
-                        startActivity(Intent(this@AddDoctor, ListOfDoctor::class.java))
+                        startActivity(Intent(this@AddDoctor, Dashboard::class.java))
 
                     } else if (response.body()!!.message == "email already registered") {
                         myToast(this@AddDoctor, "${response.body()!!.message}")

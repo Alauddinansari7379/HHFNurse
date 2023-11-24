@@ -22,15 +22,20 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.hhfoundation.Helper.*
 import com.example.hhfoundation.Helper.ImageUploadClass.UploadRequestBody
 import com.example.hhfoundation.clinicalManagement.model.ModelNewAppoint
+import com.example.hhfoundation.dasboard.Dashboard
 import com.example.hhfoundation.databinding.ActivityNewAppointmentBinding
 import com.example.hhfoundation.registration.model.ModelPatientList
 import com.example.hhfoundation.registration.model.ModelSpinner
 import com.example.hhfoundation.registration.model.Patient
 import com.example.hhfoundation.retrofit.ApiClient
 import com.example.hhfoundation.sharedpreferences.SessionManager
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -60,6 +65,7 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
     var email = ""
     var phone = ""
     var className = ""
+    var choseFile = ""
     var medicalHistory = ""
     var calssName = ""
     private lateinit var sessionManager: SessionManager
@@ -78,6 +84,27 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
 
 
         with(binding) {
+
+            choseFile1.setOnClickListener {
+                choseFile = "1"
+                openImageChooser()
+            }
+            choseFile2.setOnClickListener {
+                choseFile = "2"
+                openImageChooser()
+            }
+            choseFile3.setOnClickListener {
+                choseFile = "3"
+                openImageChooser()
+            }
+            choseFile4.setOnClickListener {
+                choseFile = "4"
+                openImageChooser()
+            }
+            choseFile5.setOnClickListener {
+                choseFile = "5"
+                openImageChooser()
+            }
             binding.btnSubmit.setOnClickListener {
                 if (radioYesMH.isChecked) {
                     medicalHistory = "Yes"
@@ -118,7 +145,13 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
                     edtRandomBloodS.requestFocus()
                     return@setOnClickListener
                 }
-                apiCallNewAppointment()
+                if (selectedImageUri==null){
+                    apiCallNewAppointmentNew()
+
+                }else{
+                    apiCallNewAppointment()
+
+                }
 
             }
             binding.imgBack.setOnClickListener {
@@ -281,17 +314,107 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
 //            return
 //        }
         AppProgressBar.showLoaderDialog(this)
+        val parcelFileDescriptor = contentResolver.openFileDescriptor(selectedImageUri!!, "r", null)
+
+        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
+        val file = File(cacheDir, contentResolver.getFileName(selectedImageUri!!))
+        val outputStream = FileOutputStream(file)
+        inputStream.copyTo(outputStream)
+        val body = UploadRequestBody(file, "image", this)
+
+        //Pending Image Uploading
+        ApiClient.apiService.addAppointment(
+            sessionManager.ionId.toString(),
+            sessionManager.idToken.toString(),
+            sessionManager.group.toString(),
+            appointmentType,
+            patientId,
+            sickDate,
+            binding.edtRandomBloodS.text.toString().trim(),
+            "",
+            "",
+            medicalHistory,
+            "",
+            "Not Selected",
+            "Pending Confirmation",
+            "",
+            "",
+            "",
+            "",
+            binding.edtRemark.text.toString().trim(),
+            currentDate,
+            studentName,
+            email,
+            phone,
+            age,
+            gendar,
+            "",
+            binding.edtPR.text.toString().trim(),
+            binding.edtBloodPressure.text.toString().trim(),
+            binding.edtTepm.text.toString().trim(),
+            binding.edtPresentCom.text.toString().trim(),
+            "",
+            "",
+            MultipartBody.Part.createFormData("img_url1", file.name, body),
+            MultipartBody.Part.createFormData("img_url2", file.name, body),
+            MultipartBody.Part.createFormData("img_url3", file.name, body),
+            MultipartBody.Part.createFormData("img_url4", file.name, body),
+            MultipartBody.Part.createFormData("img_url5", file.name, body),
+         ).enqueue(object : Callback<ModelNewAppoint> {
+            @SuppressLint("LogNotTimber")
+            override fun onResponse(
+                call: Call<ModelNewAppoint>, response: Response<ModelNewAppoint>
+            ) {
+                try {
+                    if (response.code() == 500) {
+                        myToast(this@NewAppointment, "Server Error")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else if (response.code() == 404) {
+                        myToast(this@NewAppointment, "Something went wrong")
+                        AppProgressBar.hideLoaderDialog()
+
+                    } else if (response.body()!!.message.contentEquals("successful")) {
+                        myToast(this@NewAppointment, "${response.body()!!.message}")
+                        AppProgressBar.hideLoaderDialog()
+                        startActivity(Intent(this@NewAppointment, Dashboard::class.java))
+                    } else {
+                        myToast(this@NewAppointment, "${response.body()!!.message}")
+                        AppProgressBar.hideLoaderDialog()
+                    }
+
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    myToast(this@NewAppointment, "Something went wrong")
+                    AppProgressBar.hideLoaderDialog()
+                }
+            }
+
+            override fun onFailure(call: Call<ModelNewAppoint>, t: Throwable) {
+                apiCallNewAppointment()
+                //  myToast(this@ProfileActivity, "Something went wrong")
+                AppProgressBar.hideLoaderDialog()
+
+            }
+
+        })
+    }
+    private fun apiCallNewAppointmentNew() {
+//        if (selectedImageUri == null) {
+//            myToast(this@NewAppointment, "Select an Image First")
+//            return
+//        }
+        AppProgressBar.showLoaderDialog(this)
 //        val parcelFileDescriptor = contentResolver.openFileDescriptor(selectedImageUri!!, "r", null)
 //
 //        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
-//
 //        val file = File(cacheDir, contentResolver.getFileName(selectedImageUri!!))
 //        val outputStream = FileOutputStream(file)
 //        inputStream.copyTo(outputStream)
 //        val body = UploadRequestBody(file, "image", this)
 
         //Pending Image Uploading
-        ApiClient.apiService.addAppointment(
+        ApiClient.apiService.addAppointmentNew(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
             sessionManager.group.toString(),
@@ -341,11 +464,11 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
                         myToast(this@NewAppointment, "Something went wrong")
                         AppProgressBar.hideLoaderDialog()
 
-                    } else if (response.body()!!.message == "successful") {
+                    } else if (response.body()!!.message.contentEquals("successful")) {
                         myToast(this@NewAppointment, "${response.body()!!.message}")
                         AppProgressBar.hideLoaderDialog()
-                        startActivity(Intent(this@NewAppointment,TodayAppointment::class.java))
-                     } else {
+                        startActivity(Intent(this@NewAppointment, TodayAppointment::class.java))
+                    } else {
                         myToast(this@NewAppointment, "${response.body()!!.message}")
                         AppProgressBar.hideLoaderDialog()
                     }
@@ -358,7 +481,7 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
             }
 
             override fun onFailure(call: Call<ModelNewAppoint>, t: Throwable) {
-                apiCallNewAppointment()
+                apiCallNewAppointmentNew()
                 //  myToast(this@ProfileActivity, "Something went wrong")
                 AppProgressBar.hideLoaderDialog()
 
@@ -390,8 +513,30 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
                 REQUEST_CODE_IMAGE -> {
                     selectedImageUri = data?.data
                     Log.e("data?.data", data?.data.toString())
-//                    binding!!.tvNoImage.text = "Image Selected"
-//                    binding!!.tvNoImage.setTextColor(Color.parseColor("#FF4CAF50"));
+                    when (choseFile) {
+                        "1" -> {
+                            binding!!.NoFileChosen1.setTextColor(Color.parseColor("#FF4CAF50"))
+                            binding!!.NoFileChosen1.text = "Image Selected"
+                        }
+                        "2" -> {
+                            binding!!.NoFileChosen2.setTextColor(Color.parseColor("#FF4CAF50"))
+                            binding!!.NoFileChosen2.text = "Image Selected"
+
+                        }
+                        "3" -> {
+                            binding!!.NoFileChosen3.setTextColor(Color.parseColor("#FF4CAF50"))
+                            binding!!.NoFileChosen3.text = "Image Selected"
+                        }
+                        "4" -> {
+                            binding!!.NoFileChosen4.setTextColor(Color.parseColor("#FF4CAF50"))
+                            binding!!.NoFileChosen4.text = "Image Selected"
+                        }
+                        "5" -> {
+                            binding!!.NoFileChosen5.setTextColor(Color.parseColor("#FF4CAF50"))
+                            binding!!.NoFileChosen5.text = "Image Selected"
+                        }
+                    }
+
                     //  binding.imageViewNew.visibility = View.VISIBLE
                     //   imageView?.setImageURI(selectedImageUri)
                 }
@@ -481,12 +626,13 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
 
                                             if (dob != null) {
                                                 try {
-                                                    var fDOb=""
-                                                    fDOb = if (dob.contains("-",ignoreCase = true)){
-                                                        changeDateFormat5(dob)
-                                                    } else{
-                                                        changeDateFormat6(dob)
-                                                    }
+                                                    var fDOb = ""
+                                                    fDOb =
+                                                        if (dob.contains("-", ignoreCase = true)) {
+                                                            changeDateFormat5(dob)
+                                                        } else {
+                                                            changeDateFormat6(dob)
+                                                        }
                                                     //dd/MM/yyyy
                                                     Log.e("after", dob.toString())
 
@@ -507,7 +653,7 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
                                             binding.edtClass.setText(className)
 
                                             Log.e("PAtientID", patientId)
-                                        }catch (e:Exception){
+                                        } catch (e: Exception) {
                                             e.printStackTrace()
                                         }
 

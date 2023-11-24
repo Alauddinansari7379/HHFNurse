@@ -145,7 +145,9 @@ class Referrals : AppCompatActivity(), AdapterReferrals.Information {
                             var appointmentTypeDil =
                                 view!!.findViewById<TextView>(R.id.AppointmentTypeDil)
                             val studentDil = view!!.findViewById<TextView>(R.id.StudentDil)
-                            val departmentDil = view!!.findViewById<TextView>(R.id.DepartmentDil)
+                           // val departmentDil = view!!.findViewById<TextView>(R.id.DepartmentDil)
+                            val dateApp = view!!.findViewById<TextView>(R.id.dateApp)
+                            val appointmentStatus = view!!.findViewById<TextView>(R.id.AppointmentStatus)
                             val bloodPressureDil =
                                 view!!.findViewById<TextView>(R.id.BloodPressureDil)
                             val pRDil = view!!.findViewById<TextView>(R.id.PRDil)
@@ -171,7 +173,8 @@ class Referrals : AppCompatActivity(), AdapterReferrals.Information {
                             presentComplainsDil.text = response.body()!!.complain
                             sickDateDil.text = response.body()!!.sdate
                             remarksDil.text = response.body()!!.remarks
-
+                            appointmentStatus.text=response.body()!!.status
+                            dateApp.text=response.body()!!.date
 
                             dialog = Dialog(this@Referrals)
                             if (view.parent != null) {

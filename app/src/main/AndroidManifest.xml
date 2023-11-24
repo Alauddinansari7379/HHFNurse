@@ -15,6 +15,21 @@
         android:theme="@style/Theme.HHFoundation"
         tools:targetApi="31">
         <activity
+            android:name=".followUpPrescription.DischargeDetails"
+            android:exported="false" />
+        <activity
+            android:name=".followUpPrescription.Expired"
+            android:exported="false" />
+        <activity
+            android:name=".followUpPrescription.Lama"
+            android:exported="false" />
+        <activity
+            android:name=".followUpPrescription.UploadDetails"
+            android:exported="false" />
+        <activity
+            android:name=".followUpPrescription.PatientConfirmation"
+            android:exported="false" />
+        <activity
             android:name=".clinicalManagement.activity.ConsaltationRequest"
             android:exported="false" />
         <activity

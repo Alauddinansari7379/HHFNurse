@@ -25,8 +25,7 @@ class FollowUpPrescription : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_follow_up_prescription)
-        binding = ActivityFollowUpPrescriptionBinding.inflate(layoutInflater)
+         binding = ActivityFollowUpPrescriptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         sessionManager = SessionManager(this@FollowUpPrescription)
@@ -37,12 +36,17 @@ class FollowUpPrescription : AppCompatActivity() {
                 onBackPressed()
             }
 
-            edtSearch.addTextChangedListener { str ->
-                setRecyclerViewAdapter(mainData.filter {
-                    it.patientname!!.contains(str.toString(), ignoreCase = true)
-                } as ArrayList<Prescriptiondetail>)
-            }
-        }
+//            try{
+//            edtSearch.addTextChangedListener { str ->
+//                setRecyclerViewAdapter(mainData.filter {
+//                    it.doctrname!!.contains(str.toString(), ignoreCase = true)
+//                } as ArrayList<Prescriptiondetail>)
+//            }
+//            } catch (e: Exception) {
+//                e.printStackTrace()
+//
+//            }
+       }
     }
 
     private fun apiCallFollowUpList() {

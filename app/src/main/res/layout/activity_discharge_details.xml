@@ -1,0 +1,764 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".followUpPrescription.DischargeDetails">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_gravity="center"
+        android:background="@color/main_color">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:background="?actionBarItemBackground"
+            android:padding="5dp"
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView2">
+
+        </androidx.appcompat.widget.AppCompatImageView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/appCompatTextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
+            android:text="Discharge Details"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgBack"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </androidx.appcompat.widget.AppCompatTextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Prescription Id"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPresId"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_liner"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:padding="5dp"
+                    android:textSize="@dimen/_9sdp"
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Prescription date"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/PrescDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_liner"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:padding="5dp"
+                    android:textSize="@dimen/_9sdp"
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Refer Hospital Name"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ReferHos"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_liner"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:padding="5dp"
+                    android:textSize="@dimen/_9sdp"
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Department Name"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/DepartmentName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_liner"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:padding="5dp"
+                    android:textSize="@dimen/_9sdp"
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Health Issue"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/healtissuse"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_liner"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:padding="5dp"
+                    android:textSize="@dimen/_9sdp"
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Review Date"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/reviewDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_liner"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:padding="5dp"
+                    android:textSize="@dimen/_9sdp"
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Next Review Date"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/NextreviewDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_liner"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:hint="DD/MM/YYYY"
+                    android:padding="5dp"
+                    android:textSize="@dimen/_9sdp"
+                    >
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/corner"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:backgroundTint="@color/red_btn_bg_color">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Upload Prescription's"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Prescription Image One"
+                        android:textSize="@dimen/_9sdp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/choseFile1"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:background="@drawable/light_white_10sdp"
+                            android:elevation="1dp"
+                            android:padding="@dimen/_6sdp"
+                            android:text="Upload File"
+                            android:textAlignment="center"
+                            android:textColor="#9F757C7C"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                            app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                        <TextView
+                            android:id="@+id/NoFileChosen1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:gravity="center"
+                            android:text="No file chosen"
+                            android:textColor="#9F757C7C"
+                            android:textSize="@dimen/_8sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                            app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                            app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+                    </LinearLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Prescription Image Two"
+                        android:textSize="@dimen/_9sdp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/choseFile2"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:background="@drawable/light_white_10sdp"
+                            android:elevation="1dp"
+                            android:padding="@dimen/_6sdp"
+                            android:text="Upload File"
+                            android:textAlignment="center"
+                            android:textColor="#9F757C7C"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                            app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                        <TextView
+                            android:id="@+id/NoFileChosen2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:gravity="center"
+                            android:text="No file chosen"
+                            android:textColor="#9F757C7C"
+                            android:textSize="@dimen/_8sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                            app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                            app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+                    </LinearLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/corner"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:backgroundTint="@color/red_btn_bg_color">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Upload Discharge Summary"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_9sdp">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+                </LinearLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Report Image One"
+                        android:textSize="@dimen/_9sdp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/choseFile1R"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:background="@drawable/light_white_10sdp"
+                            android:elevation="1dp"
+                            android:padding="@dimen/_6sdp"
+                            android:text="Upload File"
+                            android:textAlignment="center"
+                            android:textColor="#9F757C7C"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                            app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                        <TextView
+                            android:id="@+id/NoFileChosen1R"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:gravity="center"
+                            android:text="No file chosen"
+                            android:textColor="#9F757C7C"
+                            android:textSize="@dimen/_8sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                            app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                            app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+                    </LinearLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Report Image Two"
+                        android:textSize="@dimen/_9sdp"
+                        android:layout_gravity="center"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/choseFile2R"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:background="@drawable/light_white_10sdp"
+                            android:elevation="1dp"
+                            android:padding="@dimen/_6sdp"
+                            android:text="Upload File"
+                            android:textAlignment="center"
+                            android:textColor="#9F757C7C"
+                            android:textSize="@dimen/_9sdp"
+                            app:layout_constraintStart_toStartOf="@+id/thumbnailLb"
+                            app:layout_constraintTop_toBottomOf="@+id/thumbnailLb" />
+
+                        <TextView
+                            android:id="@+id/NoFileChosen2R"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:gravity="center"
+                            android:text="No file chosen"
+                            android:textColor="#9F757C7C"
+                            android:textSize="@dimen/_8sdp"
+                            app:layout_constraintBottom_toBottomOf="@+id/btnchoosefile"
+                            app:layout_constraintStart_toEndOf="@+id/btnchoosefile"
+                            app:layout_constraintTop_toTopOf="@+id/btnchoosefile" />
+                    </LinearLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="2"
+                        android:text="Discharge Summary"
+                        android:textSize="@dimen/_9sdp"
+                        android:textStyle="bold">
+
+                    </androidx.appcompat.widget.AppCompatTextView>
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/edtReportNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/corner_liner"
+                        android:inputType="textMultiLine"
+                        android:padding="5dp"
+                        android:textSize="@dimen/_9sdp"
+                        >
+
+                    </androidx.appcompat.widget.AppCompatEditText>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Referral Follow Up"
+                    android:textSize="12sp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioFollowNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:text="No"
+                        android:textSize="10sp"
+                        android:textStyle="bold">
+
+                    </RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/radioFollowYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="20dp"
+                        android:text="Yes"
+                        android:textSize="10sp"
+                        android:textStyle="bold">
+
+                    </RadioButton>
+                </RadioGroup>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layoutDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Referral Follow Up Date"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/dateFollow"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/corner_liner"
+                    android:hint="DD/MM/YYYY"
+                    android:inputType="text"
+                    android:lines="1"
+                    android:padding="5dp"
+                    android:textSize="@dimen/_9sdp">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layoutDoctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:text="Doctor Name"
+                    android:textSize="@dimen/_9sdp"
+                    android:textStyle="bold">
+
+                </androidx.appcompat.widget.AppCompatTextView>
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtDoctors"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_weight="1"
+                    android:hint="Exterior Doctor Name"
+                    android:background="@drawable/corner_liner"
+                    android:inputType="textMultiLine"
+                    android:padding="5dp"
+                    android:textSize="@dimen/_9sdp"
+                    >
+
+                </androidx.appcompat.widget.AppCompatEditText>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Submit"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp"
+                    app:backgroundTint="@color/button_color">
+
+                </com.google.android.material.button.MaterialButton>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

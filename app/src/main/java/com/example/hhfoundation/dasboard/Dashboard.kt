@@ -26,6 +26,7 @@ import com.example.hhfoundation.doctor.activity.ListOfDoctor
 import com.example.hhfoundation.doctor.activity.TreatmentHistory
 import com.example.hhfoundation.followUpPrescription.DailyVitalUpdate
 import com.example.hhfoundation.labReport.activity.LabInvestigations
+import com.example.hhfoundation.medicalHistory.activity.MedicalHIstory
 import com.example.hhfoundation.profile.Profile
 import com.example.hhfoundation.registration.activity.StudentBonoFileld
 import com.example.hhfoundation.retrofit.ApiClient
@@ -50,11 +51,11 @@ class Dashboard : AppCompatActivity() {
 
         Log.e("Group",sessionManager.group.toString())
 
+         apiCallDashboardCount()
 
         if (sessionManager.group=="Nurse"){
             binding.includedrawar1.Doctor.visibility=View.GONE
             binding.includedrawar1.consultationRequestlayout.visibility=View.GONE
-            apiCallDashboardCount()
         }
 
         if (sessionManager.usertype=="2"){
@@ -82,6 +83,22 @@ class Dashboard : AppCompatActivity() {
              //binding.includedrawar1.newAppointmentlayout.visibility=View.GONE
 
          }
+
+        binding.cardMedicalHis.setOnClickListener {
+            startActivity(Intent(this@Dashboard,AllMedicalHistory::class.java))
+        }
+
+        binding.cardPendingAppointmnet.setOnClickListener {
+            startActivity(Intent(this@Dashboard,TodayAppointment::class.java))
+        }
+
+        binding.cardRefrrel.setOnClickListener {
+            startActivity(Intent(this@Dashboard,Referrals::class.java))
+        }
+
+        binding.cardTreated.setOnClickListener {
+            startActivity(Intent(this@Dashboard,TodayAppointment::class.java))
+        }
 
         binding.drawerClick.setOnClickListener {
             binding.drawerlayout1.openDrawer(GravityCompat.START)
@@ -121,12 +138,12 @@ class Dashboard : AppCompatActivity() {
             }
 
             binding.includedrawar1.layoutPrevious.setOnClickListener {
-                startActivity(Intent(this, PreviousAppointment::class.java))
+                startActivity(Intent(this, TodayAppointment::class.java))
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
 
             binding.includedrawar1.todayAppointmentLayout.setOnClickListener {
-                startActivity(Intent(this, TodayAppointment::class.java))
+                startActivity(Intent(this, PreviousAppointment::class.java))
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
 
@@ -460,13 +477,12 @@ class Dashboard : AppCompatActivity() {
                         myToast(this@Dashboard, "Something went wrong")
                         AppProgressBar.hideLoaderDialog()
 
-                    } else if (response.body()!!.message == "ok") {
+                    } else if (response.body()!!.message.contentEquals("ok")) {
                         myToast(this@Dashboard, "Successfully Logout")
                         AppProgressBar.hideLoaderDialog()
                         sessionManager.logout()
                         val intent = Intent(applicationContext, Login::class.java)
-                        intent.flags =
-                            Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                         finish()
                         startActivity(intent)
                     } else {
@@ -509,7 +525,7 @@ class Dashboard : AppCompatActivity() {
                         myToast(this@Dashboard, "Server Error")
                     } else if (response.code() == 404) {
                         myToast(this@Dashboard, "Something went wrong")
-                    } else if (response.body()!!.message=="token mismatch") {
+                    } else if (response.body()!!.message.contentEquals("token mismatch")) {
                         myToast(this@Dashboard,"User Logged in other Device")
                         sessionManager.logout()
                         val intent = Intent(applicationContext, Login::class.java)
@@ -546,7 +562,7 @@ class Dashboard : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ModelDashboard>, t: Throwable) {
-                apiCallDashboardCount()
+                //apiCallDashboardCount()
                 AppProgressBar.hideLoaderDialog()
 
             }
