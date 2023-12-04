@@ -13,5 +13,5 @@ data class ModelDashboard(
     val todaysick: Int,
     val totalsick: Int,
     val treated: Int,
-    val message: String
+    val message: String?
 )

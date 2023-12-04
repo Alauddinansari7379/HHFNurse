@@ -59,88 +59,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardMedicalHis"
-                         android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#3c974e"
-                        app:cardCornerRadius="10dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                             android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center">
-
-                                <androidx.appcompat.widget.AppCompatImageView
-                                    android:layout_width="50dp"
-                                    android:layout_height="50dp"
-                                    android:background="@drawable/medical_history"
-                                    android:backgroundTint="@color/white">
-
-                                </androidx.appcompat.widget.AppCompatImageView>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:gravity="center">
-
-                                <androidx.appcompat.widget.AppCompatTextView
-                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:backgroundTint="@color/white"
-                                    android:gravity="center"
-                                    android:text="Medical History"
-                                    android:textColor="@color/white"
-                                    android:textSize="12sp"
-                                    >
-
-                                </androidx.appcompat.widget.AppCompatTextView>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:gravity="center">
-
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/medicalHis"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:backgroundTint="@color/white"
-                                    android:gravity="center"
-                                    android:layout_marginTop="5dp"
-                                    android:text="00"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp"
-                                    android:textStyle="bold">
-
-                                </androidx.appcompat.widget.AppCompatTextView>
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
+                        android:id="@+id/cardTodaysSick"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:backgroundTint="#71cc98"
                         app:cardCornerRadius="10dp">
 
@@ -208,11 +142,11 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#7ba6de"
+                        android:id="@+id/cardTotalSick"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                         android:backgroundTint="#7ba6de"
                         app:cardCornerRadius="10dp">
 
                         <LinearLayout
@@ -277,25 +211,89 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardFollowUp"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:backgroundTint="#ff6b00"
+                        app:cardCornerRadius="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:background="@drawable/follow_up"
+                                    android:backgroundTint="@color/white">
+
+                                </androidx.appcompat.widget.AppCompatImageView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:gravity="center">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/white"
+                                    android:gravity="center"
+                                    android:text="Follow Up"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    >
+
+                                </androidx.appcompat.widget.AppCompatTextView>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/followUp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/white"
+                                    android:gravity="center"
+                                    android:layout_marginTop="5dp"
+                                    android:text="00"
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold">
+
+                                </androidx.appcompat.widget.AppCompatTextView>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
                 </LinearLayout>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardTreated"
-                         android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:backgroundTint="#a8bf2e"
                         app:cardCornerRadius="10dp">
 
@@ -304,7 +302,7 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:gravity="center"
-                             android:orientation="vertical">
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -327,7 +325,7 @@
                                 android:gravity="center">
 
                                 <androidx.appcompat.widget.AppCompatTextView
-                                     android:layout_width="match_parent"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/white"
                                     android:gravity="center"
@@ -364,10 +362,9 @@
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardPendingAppointmnet"
-                        android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:backgroundTint="#bfcc80"
                         app:cardCornerRadius="10dp">
 
@@ -422,7 +419,7 @@
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/white"
                                     android:gravity="center"
-                                     android:text="00"
+                                    android:text="00"
                                     android:textColor="@color/white"
                                     android:textSize="14sp"
                                     android:textStyle="bold">
@@ -434,10 +431,10 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
+                        android:id="@+id/cardGeneralCase"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:backgroundTint="#003057"
                         app:cardCornerRadius="10dp">
 
@@ -504,23 +501,17 @@
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
-                         android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
+                        android:id="@+id/cardEmecgencyCase"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:backgroundTint="#8c734b"
                         app:cardCornerRadius="10dp">
 
@@ -529,7 +520,7 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:gravity="center"
-                             android:orientation="vertical">
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -552,7 +543,7 @@
                                 android:gravity="center">
 
                                 <androidx.appcompat.widget.AppCompatTextView
-                                     android:layout_width="match_parent"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/white"
                                     android:gravity="center"
@@ -587,10 +578,10 @@
 
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
+                        android:id="@+id/cardAdvisedLab"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:backgroundTint="#e8927c"
                         app:cardCornerRadius="10dp">
 
@@ -658,10 +649,9 @@
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:backgroundTint="#71c5e8"
                         app:cardCornerRadius="10dp">
 
@@ -716,7 +706,7 @@
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/white"
                                     android:gravity="center"
-                                     android:text="00"
+                                    android:text="00"
                                     android:textColor="@color/white"
                                     android:textSize="14sp"
                                     android:textStyle="bold">
@@ -727,23 +717,17 @@
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:gravity="center"
+                    android:layout_gravity="center"
                     android:layout_height="wrap_content">
 
                     <androidx.cardview.widget.CardView
-                         android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
+                        android:id="@+id/cardCompleteLab"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:backgroundTint="#76232f"
                         app:cardCornerRadius="10dp">
 
@@ -752,7 +736,7 @@
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
                             android:gravity="center"
-                             android:orientation="vertical">
+                            android:orientation="vertical">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -775,7 +759,7 @@
                                 android:gravity="center">
 
                                 <androidx.appcompat.widget.AppCompatTextView
-                                     android:layout_width="match_parent"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/white"
                                     android:gravity="center"
@@ -798,7 +782,7 @@
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/white"
                                     android:gravity="center"
-                                     android:text="00"
+                                    android:text="00"
                                     android:textColor="@color/white"
                                     android:textSize="14sp"
                                     android:textStyle="bold">
@@ -810,10 +794,9 @@
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardRefrrel"
-                        android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
                         android:backgroundTint="#ffae62"
                         app:cardCornerRadius="10dp">
 
@@ -879,14 +862,12 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
-
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cardFollowUp"
-                        android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:layout_margin="5dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="#ff6b00"
+                        android:id="@+id/cardMedicalHis"
+                        android:layout_width="@dimen/_90sdp"
+                        android:layout_height="@dimen/_100sdp"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:backgroundTint="#3c974e"
                         app:cardCornerRadius="10dp">
 
                         <LinearLayout
@@ -904,7 +885,7 @@
                                 <androidx.appcompat.widget.AppCompatImageView
                                     android:layout_width="50dp"
                                     android:layout_height="50dp"
-                                    android:background="@drawable/follow_up"
+                                    android:background="@drawable/medical_history"
                                     android:backgroundTint="@color/white">
 
                                 </androidx.appcompat.widget.AppCompatImageView>
@@ -921,7 +902,7 @@
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/white"
                                     android:gravity="center"
-                                    android:text="Follow Up"
+                                    android:text="Medical History"
                                     android:textColor="@color/white"
                                     android:textSize="12sp"
                                     >
@@ -935,7 +916,7 @@
                                 android:gravity="center">
 
                                 <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/followUp"
+                                    android:id="@+id/medicalHis"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/white"
@@ -951,10 +932,11 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
+
                 </LinearLayout>
 
-            </LinearLayout>
 
+            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

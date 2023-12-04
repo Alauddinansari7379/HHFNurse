@@ -85,10 +85,11 @@ class Profile : AppCompatActivity() {
                             binding.tvPhone.text = response.body()!!.nurse.phone
                             binding.tvHospitalId.text = response.body()!!.nurse.hospital_id
                             binding.tvSchool.text = response.body()!!.nurse.school
-                            binding.tvStrength.text = response.body()!!.nurse.school
+                            binding.tvStrength.text = response.body()!!.nurse.strength
                             binding.tvPrincipal.text = response.body()!!.nurse.principal
                             binding.tvDepartment.text = response.body()!!.nurse.department
                             binding.tvRegNo.text = response.body()!!.nurse.reg_no
+                            binding.tvProfile.text = response.body()!!.nurse.profile
                             binding.tvProfile.text = response.body()!!.nurse.profile
 
 

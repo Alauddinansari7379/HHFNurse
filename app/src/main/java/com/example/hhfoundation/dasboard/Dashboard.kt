@@ -42,6 +42,33 @@ class Dashboard : AppCompatActivity() {
         setContentView(binding.root)
         sessionManager = SessionManager(this@Dashboard)
 
+        if (sessionManager.group=="Nurse"){
+            binding.cardMedicalHis.visibility=View.GONE
+         }
+
+        if (sessionManager.group=="Receptionist"){
+            binding.cardMedicalHis.visibility=View.GONE
+         }
+
+        if (sessionManager.group=="Receptionist" && sessionManager.usertype=="2"){
+            binding.cardMedicalHis.visibility=View.GONE
+            binding.cardTodaysSick.visibility=View.GONE
+            binding.cardTotalSick.visibility=View.GONE
+            binding.cardTreated.visibility=View.GONE
+            binding.cardPendingAppointmnet.visibility=View.GONE
+            binding.cardGeneralCase.visibility=View.GONE
+            binding.cardEmecgencyCase.visibility=View.GONE
+            binding.cardAdvisedLab.visibility=View.GONE
+            binding.cardCompleteLab.visibility=View.GONE
+
+         }
+
+        if (sessionManager.group=="Doctor"){
+            binding.cardMedicalHis.visibility=View.GONE
+         }
+        if (sessionManager.group=="Pharmacist"){
+            binding.cardMedicalHis.visibility=View.GONE
+         }
 
 
 
@@ -53,6 +80,8 @@ class Dashboard : AppCompatActivity() {
             binding.includedrawar1.Doctor.visibility=View.GONE
             binding.includedrawar1.consultationRequestlayout.visibility=View.GONE
         }
+
+
 
         if (sessionManager.usertype=="2"){
             binding.includedrawar1.Doctor.visibility=View.GONE
@@ -540,6 +569,7 @@ class Dashboard : AppCompatActivity() {
                         myToast(this@Dashboard, "Server Error")
                     } else if (response.code() == 404) {
                         myToast(this@Dashboard, "Something went wrong")
+
                     } else if (response.body()!!.message.contentEquals("token mismatch")) {
                         myToast(this@Dashboard,"User Logged in other Device")
                         sessionManager.logout()
