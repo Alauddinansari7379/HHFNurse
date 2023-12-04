@@ -12,12 +12,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hhfoundation.R
 import com.example.hhfoundation.registration.model.Patient
+import com.example.hhfoundation.sharedpreferences.SessionManager
 import com.example.hhfoundation.studenDetails.StudentDetails
 import com.example.hhfoundation.studenDetails.StudentDetailsOne
 import com.squareup.picasso.Picasso
 
 class AdapterPatientList(val context: Context, val list: List<Patient>) :
     RecyclerView.Adapter<AdapterPatientList.MyViewHolder>() {
+    lateinit var sessionManager: SessionManager
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -28,6 +30,7 @@ class AdapterPatientList(val context: Context, val list: List<Patient>) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        sessionManager= SessionManager(context)
 
         //  holder.SrNo.text= "${position+1}"
         //  holder.refrencecode.text= list[position].referenceCode
@@ -45,6 +48,9 @@ class AdapterPatientList(val context: Context, val list: List<Patient>) :
             .error(R.drawable.error_placeholder)
             .into(holder.imageViewPL)
 
+        if (sessionManager.group=="Pharmacist"){
+            holder.btnAdMedicALHPL.visibility=View.GONE
+        }
         holder.btnAdMedicALHPL.setOnClickListener {
             val intent = Intent(context as Activity, StudentDetailsOne::class.java)
             intent.putExtra("birthdate",list[position].birthdate)

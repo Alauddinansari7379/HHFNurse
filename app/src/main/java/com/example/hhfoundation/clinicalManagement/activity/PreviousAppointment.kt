@@ -72,15 +72,14 @@ class PreviousAppointment : AppCompatActivity(), AdapterAppointmentList.Informat
             statuesList.add(ModelSpinner("Treated", "3"))
         }
         Log.e("gruop",sessionManager.group.toString())
-        if (sessionManager.group!="Doctor"){
+
+        if (sessionManager.group!="Doctor" && sessionManager.group!="Pharmacist"){
             apiCallDoctorList()
         }
         if (sessionManager.group == "Doctor") {
             binding.layWomen.visibility = View.GONE
         }
-        if (sessionManager.group!="Doctor"){
-            apiCallDoctorList()
-        }
+
          apiCallAppointmentList("")
 
         try {
@@ -266,8 +265,7 @@ class PreviousAppointment : AppCompatActivity(), AdapterAppointmentList.Informat
 
     private fun setRecyclerViewAdapter(data: ArrayList<PrescriptionList>) {
         binding.recyclerView.apply {
-            adapter =
-                AdapterAppointmentList(this@PreviousAppointment, data, this@PreviousAppointment)
+            adapter = AdapterAppointmentList(this@PreviousAppointment, data, this@PreviousAppointment)
             AppProgressBar.hideLoaderDialog()
 
         }

@@ -68,9 +68,11 @@ class TodayAppointment : AppCompatActivity(),AdapterAppointmentList.Information 
         }
         Log.e("gruop",sessionManager.group.toString())
 
-        if (sessionManager.group!="Doctor"){
+        if (sessionManager.group!="Doctor"&& sessionManager.group!="Pharmacist"){
             apiCallDoctorList()
         }
+
+
         apiCallTodayAppointmentList()
 
         try {

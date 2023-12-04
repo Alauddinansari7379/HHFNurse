@@ -11,22 +11,18 @@ import androidx.drawerlayout.widget.DrawerLayout
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.myToast
+import com.example.hhfoundation.IPCMS.activtiy.*
 import com.example.hhfoundation.R
 import com.example.hhfoundation.clinicalManagement.activity.*
 import com.example.hhfoundation.dasboard.model.ModelDashboard
 import com.example.hhfoundation.databinding.ActivityDashboardBinding
-import com.example.hhfoundation.followUpPrescription.FollowUpPrescription
-import com.example.hhfoundation.followUpPrescription.Referrals
-import com.example.hhfoundation.followUpPrescription.ReferralsFollowUps
 import com.example.hhfoundation.login.Login
 import com.example.hhfoundation.login.model.ModelLogin
 import com.example.hhfoundation.medicalHistory.activity.AllMedicalHistory
 import com.example.hhfoundation.labReport.activity.LabReport
 import com.example.hhfoundation.doctor.activity.ListOfDoctor
 import com.example.hhfoundation.doctor.activity.TreatmentHistory
-import com.example.hhfoundation.followUpPrescription.DailyVitalUpdate
 import com.example.hhfoundation.labReport.activity.LabInvestigations
-import com.example.hhfoundation.medicalHistory.activity.MedicalHIstory
 import com.example.hhfoundation.profile.Profile
 import com.example.hhfoundation.registration.activity.StudentBonoFileld
 import com.example.hhfoundation.retrofit.ApiClient
@@ -84,6 +80,12 @@ class Dashboard : AppCompatActivity() {
 
          }
 
+        if (sessionManager.group=="Pharmacist"){
+            binding.includedrawar1.Doctor.visibility=View.GONE
+            binding.includedrawar1.newAppointmentlayout.visibility=View.GONE
+            binding.includedrawar1.consultationRequestlayout.visibility=View.GONE
+        }
+
         binding.cardMedicalHis.setOnClickListener {
             startActivity(Intent(this@Dashboard,AllMedicalHistory::class.java))
         }
@@ -93,7 +95,7 @@ class Dashboard : AppCompatActivity() {
         }
 
         binding.cardRefrrel.setOnClickListener {
-            startActivity(Intent(this@Dashboard,Referrals::class.java))
+            startActivity(Intent(this@Dashboard, Referrals::class.java))
         }
 
         binding.cardTreated.setOnClickListener {
@@ -179,6 +181,19 @@ class Dashboard : AppCompatActivity() {
             binding.includedrawar1.layoutAdvisedLabIn.setOnClickListener {
                 startActivity(Intent(this, LabInvestigations::class.java))
                 drawerLayout.closeDrawer(GravityCompat.START)
+            }
+            binding.includedrawar1.layoutReferralDoc.setOnClickListener {
+                val intent = Intent(this@Dashboard, ReferralDocHis::class.java)
+                intent.putExtra("History","Doc")
+                startActivity(intent)
+                drawerLayout.closeDrawer(GravityCompat.START)
+            }
+
+            binding.includedrawar1.layoutReferralDischarge.setOnClickListener {
+                val intent = Intent(this@Dashboard, ReferralDocHis::class.java)
+                intent.putExtra("History","Dic")
+                startActivity(intent)
+                 drawerLayout.closeDrawer(GravityCompat.START)
             }
 
             binding.includedrawar1.layoutDaliVital.setOnClickListener {

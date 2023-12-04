@@ -117,6 +117,10 @@ class AdapterAppointmentList(
             holder.doctorNameApp.text = list[position].doctor
             holder.remarkApp.text = list[position].remarks
 
+            if (sessionManager.group=="Pharmacist") {
+                holder.btnChangeStatus.visibility = View.GONE
+            }
+
             when (list[position].status) {
                 "Confirmed" -> {
                     holder.statusApp.text = list[position].status

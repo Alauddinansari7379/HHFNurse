@@ -9,24 +9,23 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center"
         android:background="@color/main_color">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgBack"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:background="?actionBarItemBackground"
             android:padding="5dp"
             android:src="@drawable/baseline_arrow_back_ios_24"
             android:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView2">
 
         </androidx.appcompat.widget.AppCompatImageView>
 
@@ -39,6 +38,7 @@
             android:text="Register Student (Bonafide Info)"
             android:textColor="@color/white"
             android:textStyle="bold"
+            android:textSize="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgBack"
             app:layout_constraintTop_toTopOf="parent">
@@ -67,16 +67,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Image"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -84,15 +84,15 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="100dp"
+                            android:layout_height="@dimen/_80sdp"
                             android:layout_gravity="center"
-                            android:layout_margin="5dp"
+                            android:layout_margin="@dimen/_5sdp"
                             android:background="#efefef"
                             android:gravity="center">
 
@@ -102,7 +102,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
                                 android:text="no+image"
-                                android:textSize="12sp">
+                                android:textSize="@dimen/_10sdp">
 
                             </androidx.appcompat.widget.AppCompatTextView>
 
@@ -114,22 +114,23 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
-                    android:gravity="center">
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnSelectImage"
                         android:layout_width="wrap_content"
-                        android:layout_height="35dp"
+                        android:layout_height="@dimen/_25sdp"
                         android:layout_margin="2dp"
                         android:background="@drawable/corner_liner"
                         android:backgroundTint="@color/white"
                         android:text="Select Image"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
-                        android:textSize="10sp"
+                        android:textSize="@dimen/_8sdp"
                         app:backgroundTint="@color/white">
 
                     </com.google.android.material.button.MaterialButton>
@@ -139,16 +140,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Admission number"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -156,13 +157,13 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtAdmissionNumber"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:inputType="text"
                         android:lines="1"
                         android:padding="5dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_10sdp">
 
                     </androidx.appcompat.widget.AppCompatEditText>
                 </LinearLayout>
@@ -170,16 +171,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Aadhar number"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -187,14 +188,14 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtAadhaarNumber"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:inputType="number"
                         android:lines="1"
                         android:maxLength="12"
                         android:padding="5dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_10sdp">
 
                     </androidx.appcompat.widget.AppCompatEditText>
                 </LinearLayout>
@@ -202,16 +203,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Name Of the Student"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -219,7 +220,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -231,7 +232,8 @@
                                 android:id="@+id/spinnerStudentName"
                                 android:layout_width="@dimen/_65sdp"
                                 android:gravity="start"
-                                android:padding="@dimen/_5sdp"                                android:layout_height="35dp">
+                                 android:padding="@dimen/_5sdp"
+                                android:layout_height="@dimen/_30sdp">
 
                             </Spinner>
 
@@ -240,12 +242,12 @@
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/edtStudentName"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
+                            android:layout_height="@dimen/_30sdp"
                             android:background="@drawable/corner_liner"
                             android:inputType="text"
                             android:lines="1"
                             android:padding="5dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
@@ -255,17 +257,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Gender"
-                        android:textSize="12sp"
-
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -281,7 +282,7 @@
                             android:layout_height="wrap_content"
                             android:text="Male"
                             android:checked="true"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -291,7 +292,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Female"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -301,16 +302,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Father's Name"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -318,7 +319,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -330,7 +331,8 @@
                                 android:id="@+id/spinnerFatherName"
                                 android:layout_width="@dimen/_65sdp"
                                 android:gravity="start"
-                                android:padding="@dimen/_5sdp"                                android:layout_height="35dp">
+                                android:padding="@dimen/_5sdp"
+                                android:layout_height="@dimen/_30sdp">
 
                             </Spinner>
 
@@ -339,12 +341,12 @@
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/edtFatherName"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
+                            android:layout_height="@dimen/_30sdp"
                             android:background="@drawable/corner_liner"
                             android:inputType="text"
                             android:lines="1"
                             android:padding="5dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
@@ -354,16 +356,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Mother's Name"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -371,7 +373,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -385,7 +387,7 @@
                                 android:layout_width="@dimen/_65sdp"
                                 android:gravity="start"
                                 android:padding="@dimen/_5sdp"
-                                android:layout_height="35dp">
+                                android:layout_height="@dimen/_30sdp">
 
                             </Spinner>
 
@@ -394,12 +396,12 @@
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/edtMotherName"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
+                            android:layout_height="@dimen/_30sdp"
                             android:background="@drawable/corner_liner"
                             android:inputType="text"
                             android:lines="1"
                             android:padding="5dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
@@ -409,16 +411,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="DOB"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -426,15 +428,15 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvDOB"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="DD-MM-YYYY"
                         android:inputType="number"
                         android:lines="1"
                          android:maxLength="12"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_10sdp">
 
                     </androidx.appcompat.widget.AppCompatTextView>
                 </LinearLayout>
@@ -442,16 +444,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Blood Group"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -459,7 +461,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -470,7 +472,7 @@
                             <Spinner
                                 android:id="@+id/spinnerBloodG"
                                 android:layout_width="match_parent"
-                                android:layout_height="35dp">
+                                android:layout_height="@dimen/_30sdp">
 
                             </Spinner>
 
@@ -481,16 +483,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Section"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -498,7 +500,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -509,7 +511,7 @@
                             <Spinner
                                 android:id="@+id/spinnerSection"
                                 android:layout_width="match_parent"
-                                android:layout_height="35dp">
+                                android:layout_height="@dimen/_30sdp">
 
                             </Spinner>
 
@@ -521,16 +523,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Pursuing Class/Course"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -538,7 +540,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -549,7 +551,7 @@
                             <Spinner
                                 android:id="@+id/spinnerPursuingC"
                                 android:layout_width="match_parent"
-                                android:layout_height="35dp">
+                                android:layout_height="@dimen/_30sdp">
 
                             </Spinner>
 
@@ -563,8 +565,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:gravity="center"
-                android:layout_marginTop="20dp"
-                android:layout_height="45dp">
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_height="@dimen/_30sdp">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
@@ -572,7 +574,7 @@
                     android:gravity="center"
                     android:text="School/College Information"
                     android:textColor="@color/red"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -581,16 +583,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="School/College Name"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -598,14 +600,14 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/edtSchoolName"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="3dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:background="@drawable/corner_liner"
                     android:text="TMRS ASIFNAGAR Girls2"
                     android:inputType="text"
                     android:lines="1"
                     android:padding="5dp"
-                    android:textSize="12sp">
+                    android:textSize="@dimen/_10sdp">
 
                 </androidx.appcompat.widget.AppCompatEditText>
             </LinearLayout>
@@ -613,16 +615,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="School/College Email"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -630,14 +632,14 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="3dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:background="@drawable/corner_liner"
                     android:text="testasifnagar@yopl.com"
                     android:inputType="textEmailAddress"
                     android:lines="1"
                     android:padding="5dp"
-                    android:textSize="12sp">
+                    android:textSize="@dimen/_10sdp">
 
                 </androidx.appcompat.widget.AppCompatEditText>
             </LinearLayout>
@@ -645,16 +647,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="School/College Address"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -662,14 +664,14 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/edtCollageAddress"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/_30sdp"
                     android:layout_marginTop="3dp"
                     android:background="@drawable/corner_liner"
                     android:text="Asif nagar Malakpet"
                     android:inputType="text"
                     android:lines="1"
                     android:padding="5dp"
-                    android:textSize="12sp">
+                    android:textSize="@dimen/_10sdp">
 
                 </androidx.appcompat.widget.AppCompatEditText>
             </LinearLayout>
@@ -677,16 +679,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="School/College Mobile Number"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -694,15 +696,15 @@
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/edtMobileNumber"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="3dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:background="@drawable/corner_liner"
                     android:text="9999999999"
                     android:inputType="number"
                     android:lines="1"
                     android:maxLength="12"
                     android:padding="5dp"
-                    android:textSize="12sp">
+                    android:textSize="@dimen/_10sdp">
 
                 </androidx.appcompat.widget.AppCompatEditText>
             </LinearLayout>
@@ -710,17 +712,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="School/College District"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -728,19 +730,19 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="@dimen/_3sdp"
                     android:orientation="horizontal">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         android:layout_marginTop="3dp"
+                         android:layout_marginTop="@dimen/_3sdp"
                         android:background="@drawable/corner_liner">
 
 
                         <pl.utkala.searchablespinner.SearchableSpinner
                             android:id="@+id/spinnerSchoolDistric"
                             android:layout_width="match_parent"
-                            android:layout_height="45dp"
+                            android:layout_height="@dimen/_35sdp"
                             android:autofillHints="sdsd"
                             app:closeText="Close"
                             app:dialogTitle="Select Year of Completion" />
@@ -753,11 +755,12 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
-                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_height="wrap_content"
+                 android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_height="@dimen/_40sdp"
                  app:backgroundTint="@color/main_color"
                 android:textSize="14sp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:backgroundTint="@color/main_color"

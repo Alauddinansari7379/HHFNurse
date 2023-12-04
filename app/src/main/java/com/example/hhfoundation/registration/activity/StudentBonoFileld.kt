@@ -40,6 +40,9 @@ class StudentBonoFileld : AppCompatActivity() {
             if (sessionManager.group=="Receptionist"){
                 btnAddNew.visibility=View.GONE
             }
+            if (sessionManager.group=="Pharmacist"){
+                btnAddNew.visibility=View.GONE
+            }
             btnAddNew.setOnClickListener {
                 startActivity(Intent(this@StudentBonoFileld,Registration::class.java))
             }

@@ -58,7 +58,7 @@ data class Medicalhistory(
     val learnsds: String,
     val m_name: String,
     val motrsds: String,
-    val name: String,
+    val name: String?,
     val nerosdss: String,
     val ongoing: String,
     val ongoing_text: Any,

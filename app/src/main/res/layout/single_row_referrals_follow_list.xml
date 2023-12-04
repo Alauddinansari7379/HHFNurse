@@ -52,7 +52,7 @@
                             android:id="@+id/dateREF"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="27-09-2023"
+                            android:text=""
                             android:textStyle="bold"
                             android:textColor="@color/gray_text_color"
                             android:textSize="12sp">
@@ -81,7 +81,7 @@
                             android:id="@+id/preiDREF"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="476"
+                            android:text=""
                             android:textStyle="bold"
                             android:textColor="@color/gray_text_color"
                             android:textSize="12sp">
@@ -90,6 +90,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/layoutStaues"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
@@ -162,7 +163,7 @@
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="PATIENT NAME : "
+                                    android:text="Patient Name : "
                                     android:textColor="@color/main_color"
                                     android:textSize="12sp"
                                     android:textStyle="bold">
@@ -173,7 +174,7 @@
                                     android:id="@+id/patientNameREF"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Syed Jamaaluddin"
+                                    android:text=""
                                     android:textColor="@color/main_color"
                                     android:textSize="12sp"
                                     android:textStyle="bold">
@@ -201,7 +202,7 @@
                                     android:id="@+id/cDateREF"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="02-09-2023"
+                                    android:text=""
                                     android:textColor="@color/gray_text_color"
                                     android:textSize="12sp">
 
@@ -236,7 +237,7 @@
                                     android:id="@+id/healthIssueREF"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Vomiting And Motions"
+                                    android:text=""
                                     android:textStyle="bold"
                                     android:textColor="@color/gray_text_color"
                                     android:textSize="12sp">
@@ -271,7 +272,7 @@
                                     android:id="@+id/hospitalNameREF"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Lucky Hospital"
+                                    android:text=""
                                     android:textStyle="bold"
                                     android:textColor="@color/gray_text_color"
                                     android:textSize="12sp">
@@ -305,7 +306,7 @@
                                     android:id="@+id/departmentREF"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="General"
+                                    android:text=""
                                     android:textStyle="bold"
                                     android:textColor="@color/gray_text_color"
                                     android:textSize="12sp">
@@ -316,6 +317,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/layoutHHFD"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
@@ -340,7 +342,7 @@
                                     android:id="@+id/doctorNameREF"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Sajid Ali"
+                                    android:text=""
                                     android:textStyle="bold"
                                     android:textColor="@color/sky_color"
                                     android:textSize="12sp">
@@ -351,6 +353,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/layoutExtrD"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
@@ -374,7 +377,7 @@
                                     android:id="@+id/exteriorDateREF"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Kaleem"
+                                    android:text=""
                                     android:textStyle="bold"
                                     android:textColor="@color/sky_color"
                                     android:textSize="12sp">
@@ -385,6 +388,7 @@
 
                         </LinearLayout>
                         <LinearLayout
+                            android:id="@+id/layoutRefFD"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -411,7 +415,7 @@
                                     android:id="@+id/referralsDateREF"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="23-09-2023"
+                                    android:text=""
                                     android:textStyle="bold"
                                     android:textColor="@color/sky_color"
                                     android:textSize="12sp">

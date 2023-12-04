@@ -8,9 +8,12 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_5sdp"
         android:background="#f7f7f7"
-        android:layout_marginBottom="5dp"
+        android:elevation="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_2sdp"
         >
 
         <LinearLayout
@@ -22,14 +25,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                 android:layout_marginTop="10dp"
+                 android:layout_marginTop="@dimen/_5sdp"
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="School ID: "
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textColor="@color/main_color"
                     android:textStyle="bold">
 
@@ -39,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="00"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textColor="@color/black"
                     android:textStyle="bold">
 
@@ -59,8 +62,9 @@
                     android:orientation="horizontal">
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/imageViewML"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginBottom="@dimen/_2sdp"
                         android:src="@drawable/profile"
                         app:civ_border_color="#FF000000"/>
 
@@ -85,7 +89,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:text="Student ID : "
-                                android:textSize="12sp"
+                                android:textSize="@dimen/_10sdp"
                                 android:textColor="@color/main_color"
                                 android:textStyle="bold">
 
@@ -97,7 +101,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:text="00"
-                                android:textSize="12sp"
+                                android:textSize="@dimen/_10sdp"
                                 android:textColor="@color/main_color"
                                 android:textStyle="bold">
 
@@ -113,6 +117,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Shaik Asif Khan"
+                                android:textSize="@dimen/_10sdp"
                                 android:textColor="@color/black"
                                 android:textStyle="bold">
 
@@ -131,7 +136,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Gender : "
-                                    android:textSize="12sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
@@ -141,7 +146,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text=""
-                                    android:textSize="12sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
@@ -150,13 +155,13 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
+                                android:layout_marginStart="@dimen/_5sdp"
                                 android:orientation="horizontal">
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="DOB : "
-                                    android:textSize="12sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
@@ -166,7 +171,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="00-00-0000"
-                                    android:textSize="12sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
@@ -175,13 +180,13 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="5dp"
+                                android:layout_marginStart="@dimen/_3sdp"
                                 android:orientation="horizontal">
                                 <androidx.appcompat.widget.AppCompatTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Blood Grp : "
-                                    android:textSize="12sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
@@ -191,7 +196,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text=""
-                                    android:textSize="12sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textColor="@color/black"
                                     android:textStyle="bold">
 
@@ -205,24 +210,24 @@
                             android:layout_height="wrap_content"
                             android:gravity="end"
                             android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_marginBottom="2dp"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="@dimen/_2sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
                             android:orientation="horizontal">
 
                              <androidx.appcompat.widget.AppCompatButton
                                 android:id="@+id/btnCaseML"
                                 android:layout_width="wrap_content"
-                                android:layout_height="25dp"
+                                android:layout_height="@dimen/_20sdp"
                                 android:gravity="center"
-                                android:layout_marginTop="2dp"
-                                android:layout_marginStart="15dp"
-                                android:layout_marginBottom="3dp"
+                                android:layout_marginTop="@dimen/_2sdp"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:layout_marginBottom="@dimen/_2sdp"
                                 android:layout_gravity="center"
                                 android:background="@drawable/corner"
                                 android:backgroundTint="@color/sky_color"
                                 android:drawableTint="@color/white"
-                                android:padding="5dp"
-                                android:textSize="12sp"
+                                android:padding="@dimen/_2sdp"
+                                android:textSize="@dimen/_10sdp"
                                 android:text="Case"
                                 android:textAllCaps="false"
                                 android:textColor="@color/white">

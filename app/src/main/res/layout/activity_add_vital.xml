@@ -5,28 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".followUpPrescription.AddVital">
+    tools:context=".IPCMS.activtiy.AddVital">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center"
         android:background="@color/main_color">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgBack"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="@dimen/_10sdp"
             android:background="?actionBarItemBackground"
             android:padding="5dp"
             android:src="@drawable/baseline_arrow_back_ios_24"
             android:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView2">
 
         </androidx.appcompat.widget.AppCompatImageView>
 
@@ -34,11 +33,12 @@
             android:id="@+id/appCompatTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:gravity="start"
             android:text="Add Vital"
             android:textColor="@color/white"
             android:textStyle="bold"
+            android:textSize="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgBack"
             app:layout_constraintTop_toTopOf="parent">
@@ -71,8 +71,8 @@
 
                     <RadioGroup
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="5dp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:layout_weight="1"
                         android:gravity="start"
                         android:orientation="horizontal">
@@ -80,9 +80,9 @@
                         <RadioButton
                             android:id="@+id/radioFollowing"
                             android:layout_width="wrap_content"
-                            android:layout_height="20dp"
+                            android:layout_height="@dimen/_20sdp"
                             android:text="Following the Treatment"
-                            android:textSize="10sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -90,9 +90,9 @@
                         <RadioButton
                             android:id="@+id/radioNotFollowing"
                             android:layout_width="wrap_content"
-                            android:layout_height="20dp"
+                            android:layout_height="@dimen/_20sdp"
                             android:text="Not Following the Treatment"
-                            android:textSize="10sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -110,16 +110,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Reason"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -127,14 +127,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
+                            android:layout_marginStart="@dimen/_5sdp"
                             android:orientation="vertical">
 
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="3dp"
+                                android:layout_marginTop="@dimen/_2sdp"
                                 android:orientation="horizontal">
 
                                 <LinearLayout
@@ -145,7 +145,7 @@
                                     <Spinner
                                         android:id="@+id/spinnerReason"
                                         android:layout_width="match_parent"
-                                        android:layout_height="35dp">
+                                        android:layout_height="@dimen/_30sdp">
 
                                     </Spinner>
 
@@ -158,16 +158,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Note"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -175,15 +175,15 @@
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/noteReason"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:background="@drawable/corner_liner"
                             android:hint="note"
                             android:inputType="text"
                             android:lines="1"
                             android:padding="5dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
@@ -200,16 +200,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Student"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -217,14 +217,14 @@
                         <androidx.appcompat.widget.AppCompatTextView
                              android:id="@+id/tvStudent"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:background="@drawable/corner_liner"
                             android:hint="student"
                             android:inputType="text"
-                            android:padding="5dp"
-                            android:textSize="12sp">
+                            android:padding="@dimen/_6sdp"
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatTextView>
                     </LinearLayout>
@@ -232,16 +232,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Date"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -249,14 +249,14 @@
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvDate"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:background="@drawable/corner_liner"
                             android:hint="date"
                             android:inputType="text"
-                            android:padding="5dp"
-                            android:textSize="12sp">
+                            android:padding="@dimen/_6sdp"
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatTextView>
                     </LinearLayout>
@@ -264,16 +264,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Time"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -281,15 +281,15 @@
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvTime"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:background="@drawable/corner_liner"
                             android:drawableEnd="@drawable/baseline_access_time_24"
                             android:hint="07:09 AM"
                             android:inputType="text"
-                            android:padding="7dp"
-                            android:textSize="12sp">
+                            android:padding="@dimen/_6sdp"
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatTextView>
                     </LinearLayout>
@@ -297,16 +297,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Status"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -319,8 +319,8 @@
 
                             <RadioGroup
                                 android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:layout_marginTop="5dp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
                                 android:layout_weight="1"
                                 android:gravity="start"
                                 android:orientation="horizontal">
@@ -328,9 +328,9 @@
                                 <RadioButton
                                     android:id="@+id/radioUnstable"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="20dp"
+                                    android:layout_height="@dimen/_15sdp"
                                     android:text="Unstable"
-                                    android:textSize="10sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textStyle="bold">
 
                                 </RadioButton>
@@ -338,9 +338,9 @@
                                 <RadioButton
                                     android:id="@+id/radioStable"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="20dp"
+                                    android:layout_height="@dimen/_15sdp"
                                     android:text="Stable"
-                                    android:textSize="10sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textStyle="bold">
 
                                 </RadioButton>
@@ -348,9 +348,9 @@
                                 <RadioButton
                                     android:id="@+id/radioCured"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="20dp"
+                                    android:layout_height="@dimen/_15sdp"
                                     android:text="Cured"
-                                    android:textSize="10sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textStyle="bold">
 
                                 </RadioButton>
@@ -363,17 +363,17 @@
                         android:id="@+id/layoutPatientR"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:visibility="gone"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Patient Required Doctor"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -386,8 +386,8 @@
 
                             <RadioGroup
                                 android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:layout_marginTop="5dp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:layout_marginTop="@dimen/_2sdp"
                                 android:layout_weight="1"
                                 android:gravity="start"
                                 android:orientation="horizontal">
@@ -395,9 +395,9 @@
                                 <RadioButton
                                     android:id="@+id/radioYesPR"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="20dp"
+                                    android:layout_height="@dimen/_15sdp"
                                     android:text="Yes"
-                                    android:textSize="10sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textStyle="bold">
 
                                 </RadioButton>
@@ -405,9 +405,9 @@
                                 <RadioButton
                                     android:id="@+id/radioNoPR"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="20dp"
+                                    android:layout_height="@dimen/_15sdp"
                                     android:text="No"
-                                    android:textSize="10sp"
+                                    android:textSize="@dimen/_10sdp"
                                     android:textStyle="bold">
 
                                 </RadioButton>
@@ -419,16 +419,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Blood Pressure"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -436,15 +436,15 @@
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/edtBloodPressure"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:background="@drawable/corner_liner"
                             android:hint="80 mmhh"
                             android:inputType="text"
                             android:lines="1"
                             android:padding="5dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
@@ -452,16 +452,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="P/R"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -469,15 +469,15 @@
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/edtPR"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:background="@drawable/corner_liner"
                             android:hint="55 BMP"
                             android:inputType="text"
                             android:lines="1"
                             android:padding="5dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
@@ -485,16 +485,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Temperature"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -502,15 +502,15 @@
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/edtTepm"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:background="@drawable/corner_liner"
                             android:hint="100 F"
                             android:inputType="text"
                             android:lines="1"
                             android:padding="5dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
@@ -518,16 +518,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Saturation (SPO2)"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -535,15 +535,15 @@
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/edtSaturation"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:background="@drawable/corner_liner"
                             android:hint="43 %"
                             android:inputType="text"
                             android:lines="1"
                             android:padding="5dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
@@ -551,16 +551,16 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_15sdp"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Random Blood Sugar"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -568,15 +568,15 @@
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/edtRandomBloodS"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginStart="10dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:background="@drawable/corner_liner"
                             android:hint="140 mg/dl"
                             android:inputType="text"
                             android:lines="1"
                             android:padding="5dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
@@ -591,13 +591,13 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSubmit"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
                     android:text="Submit"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/_10sdp"
                     app:backgroundTint="@color/button_color">
 
                 </com.google.android.material.button.MaterialButton>

@@ -73,6 +73,7 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/no"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Institute No"
@@ -103,6 +104,7 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Institute Name"
@@ -133,6 +135,7 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Institute Email"
@@ -193,6 +196,7 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/mobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Institute Mobile Number"
@@ -215,6 +219,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layoutHosId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"

@@ -39,6 +39,14 @@ class Profile : AppCompatActivity() {
             binding.layoutNurse.visibility = View.VISIBLE
         }
 
+        if (sessionManager.group == "Pharmacist") {
+            binding.layoutHosId.visibility = View.GONE
+            binding.no.text="No"
+            binding.name.text="Name"
+            binding.email.text="Email"
+            binding.mobile.text="Mobile Number"
+        }
+
         apiCallGetProfile()
     }
 

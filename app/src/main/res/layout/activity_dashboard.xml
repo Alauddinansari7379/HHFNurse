@@ -17,7 +17,7 @@
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="@dimen/_45sdp"
             android:background="@color/main_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,8 +25,8 @@
 
             <androidx.constraintlayout.utils.widget.ImageFilterButton
                 android:id="@+id/drawerClick"
-                android:layout_width="35dp"
-                android:layout_height="30dp"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_25sdp"
                 android:padding="5dp"
                 android:layout_gravity="start"
                 android:src="@drawable/ic_baseline_dehaze_24"
@@ -43,7 +43,7 @@
                 android:text="Dashboard"
                 android:layout_marginStart="25dp"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="@dimen/_13sdp"
                 android:textStyle="bold" />
 
         </androidx.appcompat.widget.Toolbar>

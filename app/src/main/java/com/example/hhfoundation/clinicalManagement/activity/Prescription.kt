@@ -24,6 +24,7 @@ class Prescription : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPrescriptionBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        mainData=ArrayList<Prescriptiondetail>()
 
         sessionManager = SessionManager(this@Prescription)
 
@@ -36,7 +37,7 @@ class Prescription : AppCompatActivity() {
             try {
                 edtSearch.addTextChangedListener { str ->
                     setRecyclerViewAdapter(mainData.filter {
-                        it.patientname!!.contains(str.toString(), ignoreCase = true)
+                        it.doctrname!!.contains(str.toString(), ignoreCase = true)
                     } as ArrayList<Prescriptiondetail>)
                 }
             } catch (e: Exception) {

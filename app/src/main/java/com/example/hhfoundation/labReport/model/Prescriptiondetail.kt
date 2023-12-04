@@ -27,7 +27,7 @@ data class Prescriptiondetail(
     val discharge_count: Int,
     val lama_count: Int,
     val expired_count: Int,
-    val patientname: String?,
+    val patientname: String,
     val pid: String,
     val pulserate: Any,
     val refer_hospital: String,

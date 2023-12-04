@@ -44,10 +44,14 @@ class AllMedicalHistory : AppCompatActivity() {
         }
 
 
-        binding.edtSearch.addTextChangedListener { str ->
-            setRecyclerViewAdapter(mainData.filter {
-                it.name.contains(str.toString(), ignoreCase = true)
-            } as ArrayList<Medicalhistory>)
+        try {
+            binding.edtSearch?.addTextChangedListener { str ->
+                setRecyclerViewAdapter(mainData?.filter {
+                    it?.patient_id!!.contains(str.toString(), ignoreCase = true)
+                } as ArrayList<Medicalhistory>)
+            }
+        }catch (e:Exception){
+            e.printStackTrace()
         }
 
     }

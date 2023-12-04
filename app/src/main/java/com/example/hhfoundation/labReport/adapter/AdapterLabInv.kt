@@ -43,8 +43,11 @@ class AdapterLabInv(val context: Context, val list: List<Labadvidetail>) :
        // holder.doctorPre.text = list[position].doctrname
 
         if (sessionManager.group=="Receptionist"){
-
             holder.btnUploadLABINV.visibility=View.GONE
+        }
+
+        if (sessionManager.group=="Pharmacist") {
+            holder.btnUploadLABINV.visibility = View.GONE
         }
 
 //

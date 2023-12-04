@@ -9,6 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:elevation="@dimen/_5sdp"
         android:background="#f7f7f7"
         android:layout_marginBottom="5dp"
         >

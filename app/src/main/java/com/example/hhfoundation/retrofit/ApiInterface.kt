@@ -1,6 +1,7 @@
 package com.example.hhfoundation.retrofit
 
 
+import com.example.hhfoundation.IPCMS.model.*
 import com.example.hhfoundation.addPrescription.model.ModelLabList
 import com.example.hhfoundation.addPrescription.model.ModelMainCatList
 import com.example.hhfoundation.addPrescription.model.ModelMedicineList
@@ -10,10 +11,6 @@ import com.example.hhfoundation.clinicalManagement.model.ModelNewAppoint
 import com.example.hhfoundation.dasboard.model.ModelDashboard
 import com.example.hhfoundation.doctor.model.ModelDoctorList
 import com.example.hhfoundation.doctor.model.ModelTretment
-import com.example.hhfoundation.followUpPrescription.model.ModelFollowUp
-import com.example.hhfoundation.followUpPrescription.model.ModelReferralsFollow
-import com.example.hhfoundation.followUpPrescription.model.ModelRefrreals
-import com.example.hhfoundation.followUpPrescription.model.ModelVitalList
 import com.example.hhfoundation.labReport.model.ModelLabInv
 import com.example.hhfoundation.login.model.ModelLogin
 import com.example.hhfoundation.labReport.model.ModelLabReport
@@ -330,6 +327,20 @@ interface ApiInterface {
         @Query("idToken") idToken: String,
         @Query("group") group: String,
     ): Call<ModelReferralsFollow>
+
+    @GET("getreferdoc")
+    fun getDoctorHistory(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+    ): Call<ModelReferralsHis>
+
+    @GET("disChargehistory")
+    fun disChargehistory(
+        @Query("nurse_id") nurse_id: String,
+        @Query("idToken") idToken: String,
+        @Query("group") group: String,
+    ): Call<ModelReferralsHis>
 
     @GET("attachlabreport")
     fun attachlabreport(

@@ -9,24 +9,23 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/_40sdp"
         android:layout_gravity="center"
         android:background="@color/main_color">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgBack"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_gravity="center"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
             android:background="?actionBarItemBackground"
             android:padding="5dp"
             android:src="@drawable/baseline_arrow_back_ios_24"
             android:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@+id/appCompatTextView2">
 
         </androidx.appcompat.widget.AppCompatImageView>
 
@@ -34,10 +33,11 @@
             android:id="@+id/appCompatTextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/_5sdp"
             android:gravity="start"
             android:text="Add Prescription"
             android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgBack"
@@ -67,16 +67,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Date"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -84,15 +84,15 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvDate"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="DD/MM/YYYY"
                         android:inputType="number"
                         android:lines="1"
                         android:maxLength="12"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_11sdp">
 
                     </androidx.appcompat.widget.AppCompatTextView>
                 </LinearLayout>
@@ -100,16 +100,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Patient"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -117,13 +117,13 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvPatient"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="Patient"
                         android:inputType="number"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_10sdp">
 
                     </androidx.appcompat.widget.AppCompatTextView>
                 </LinearLayout>
@@ -132,9 +132,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
@@ -148,7 +148,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Doctor"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -158,7 +158,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Age"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -167,34 +167,34 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
 
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvDoctor"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:layout_marginEnd="@dimen/_5sdp"
                             android:layout_weight="1"
                             android:background="@drawable/corner_liner"
                             android:inputType="number"
                             android:padding="10dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvAge"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:layout_weight="1"
                             android:background="@drawable/corner_liner"
                             android:inputType="number"
                             android:padding="10dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
@@ -206,9 +206,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
@@ -222,7 +222,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Student Id"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -232,7 +232,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Date Of Birth"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold"
                             android:visibility="gone">
 
@@ -242,34 +242,33 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
 
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvStudentId"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:layout_weight="1"
                             android:background="@drawable/corner_liner"
                             android:inputType="number"
                             android:padding="10dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvDOB"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:layout_weight="1"
                             android:background="@drawable/corner_liner"
                             android:inputType="number"
                             android:padding="10dp"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:visibility="gone">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -282,9 +281,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.LinearLayoutCompat
@@ -298,7 +297,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Blood Group"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -308,7 +307,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Gender"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
@@ -317,34 +316,34 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
 
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvBloodGroup"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:layout_marginTop="3dp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
                             android:layout_marginEnd="@dimen/_5sdp"
                             android:layout_weight="1"
                             android:background="@drawable/corner_liner"
                             android:inputType="number"
                             android:padding="10dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/tvGender"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
+                            android:layout_height="@dimen/_30sdp"
                             android:layout_marginTop="3dp"
                             android:layout_weight="1"
                             android:background="@drawable/corner_liner"
                             android:inputType="number"
                             android:padding="10dp"
-                            android:textSize="12sp">
+                            android:textSize="@dimen/_10sdp">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
@@ -356,16 +355,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="School"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -373,11 +372,11 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/tvSchoolName"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:padding="8dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_10sdp">
 
                     </androidx.appcompat.widget.AppCompatTextView>
                 </LinearLayout>
@@ -385,16 +384,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="School District"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -403,10 +402,10 @@
                         android:id="@+id/tvSchoolDis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:padding="8dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_10sdp">
 
                     </androidx.appcompat.widget.AppCompatTextView>
 
@@ -418,16 +417,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Diagnostics"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/_12sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -437,16 +436,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Diagnostics Category"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -454,37 +453,39 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:background="@drawable/corner_liner">
+                        android:background="@drawable/corner_liner"
+                        android:orientation="vertical">
+
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/spinnerDiagnosticsCategory"
                             android:layout_width="match_parent"
-                            android:text="Select Main Category"
-                              android:gravity="center_vertical"
-                            android:paddingStart="@dimen/_10sdp"
-                            android:drawablePadding="@dimen/_15sdp"
+                            android:layout_height="@dimen/_30sdp"
                             android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
-                            android:layout_height="35dp">
+                            android:drawablePadding="@dimen/_15sdp"
+                            android:gravity="center_vertical"
+                            android:paddingStart="@dimen/_10sdp"
+                            android:text="Select Main Category">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
-<!--
-                        <Spinner
-                            android:id="@+id/spinnerDiagnosticsCategory"
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp">
+                        <!--
+                                                <Spinner
+                                                    android:id="@+id/spinnerDiagnosticsCategory"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="35dp">
 
-                        </Spinner>
--->
+                                                </Spinner>
+                        -->
 
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:id="@+id/llayoutMainCat"
                     android:layout_width="match_parent"
@@ -494,9 +495,9 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="@dimen/_25sdp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/top_curve_heading"
                         android:gravity="center"
                         android:orientation="horizontal">
@@ -510,7 +511,7 @@
                             android:gravity="center_vertical"
                             android:text="Diagnostics Category"
                             android:textColor="@color/white"
-                            android:textSize="11sp" />
+                            android:textSize="@dimen/_10sdp" />
 
 
                     </LinearLayout>
@@ -519,7 +520,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvrecyclerMainCat"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/_35sdp"
                         android:layout_weight="1"
                         android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -532,16 +533,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Diagnostics Sub Category"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -551,9 +552,8 @@
                     android:id="@+id/layoutSpinnerGynae"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                     android:orientation="horizontal"
-                   >
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:id="@+id/layoutDigSubCat"
@@ -561,39 +561,40 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/corner_liner"
                         android:orientation="vertical">
+
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/spinnerDiagnosticsSubCategory"
                             android:layout_width="match_parent"
-                            android:text="Select Sub Category"
-                            android:paddingStart="@dimen/_10sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
                             android:gravity="center_vertical"
-                             android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
-                            android:layout_height="35dp">
+                            android:paddingStart="@dimen/_10sdp"
+                            android:text="Select Sub Category">
 
                         </androidx.appcompat.widget.AppCompatTextView>
-<!--
-                        <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
-                            android:id="@+id/spinnerDiagnosticsSubCategory"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_45sdp"
-                            android:layout_gravity="start"
-                            android:background="@drawable/corner_liner"
-                            android:outlineProvider="none"
-                            app:smsp_floatingLabelColor="#FF5252"
-                             app:smsp_hintColor="@color/black"
-                            app:smsp_isSearchable="true"
-                            app:smsp_hintSize="@dimen/_10sdp"
-                            android:autofillHints="true"
-                            app:smsp_showDropdownHint="true"
-                            app:smsp_hint="Select Gynae &amp; Obstetrics Sub Category"
-                            app:smsp_itemColor="@color/main_color"
-                            app:smsp_itemListColor="#7C4DFF"
-                            app:smsp_itemListHintBackgroundColor="#808080"
-                            app:smsp_itemListHintColor="#FFFFFF"
-                            app:smsp_multilineError="true"
-                            app:smsp_selectedItemListColor="#FF5252"
-                            app:smsp_underlineColor="@color/white" />
--->
+                        <!--
+                                                <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
+                                                    android:id="@+id/spinnerDiagnosticsSubCategory"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="@dimen/_45sdp"
+                                                    android:layout_gravity="start"
+                                                    android:background="@drawable/corner_liner"
+                                                    android:outlineProvider="none"
+                                                    app:smsp_floatingLabelColor="#FF5252"
+                                                     app:smsp_hintColor="@color/black"
+                                                    app:smsp_isSearchable="true"
+                                                    app:smsp_hintSize="@dimen/_10sdp"
+                                                    android:autofillHints="true"
+                                                    app:smsp_showDropdownHint="true"
+                                                    app:smsp_hint="Select Gynae &amp; Obstetrics Sub Category"
+                                                    app:smsp_itemColor="@color/main_color"
+                                                    app:smsp_itemListColor="#7C4DFF"
+                                                    app:smsp_itemListHintBackgroundColor="#808080"
+                                                    app:smsp_itemListHintColor="#FFFFFF"
+                                                    app:smsp_multilineError="true"
+                                                    app:smsp_selectedItemListColor="#FF5252"
+                                                    app:smsp_underlineColor="@color/white" />
+                        -->
 
                         <!--
                                                 <pl.utkala.searchablespinner.SearchableSpinner
@@ -611,7 +612,7 @@
                     android:id="@+id/layoutSpinnerGeneral"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:orientation="horizontal"
                     android:visibility="gone">
 
@@ -620,34 +621,35 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/corner_liner">
+
                         <com.chivorn.smartmaterialspinner.SmartMaterialSpinner
                             android:id="@+id/spinnerDiagnosticsSubCategoryGen"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_45sdp"
                             android:layout_gravity="start"
+                            android:autofillHints="true"
                             android:background="@drawable/corner_liner"
                             android:outlineProvider="none"
                             app:smsp_floatingLabelColor="#FF5252"
-                            app:smsp_hintColor="@color/black"
-                            app:smsp_isSearchable="true"
-                            app:smsp_hintSize="@dimen/_10sdp"
-                            android:autofillHints="true"
-                            app:smsp_showDropdownHint="true"
                             app:smsp_hint="Select General Medicine Sub Category"
+                            app:smsp_hintColor="@color/black"
+                            app:smsp_hintSize="@dimen/_10sdp"
+                            app:smsp_isSearchable="true"
                             app:smsp_itemColor="@color/main_color"
                             app:smsp_itemListColor="#7C4DFF"
                             app:smsp_itemListHintBackgroundColor="#808080"
                             app:smsp_itemListHintColor="#FFFFFF"
                             app:smsp_multilineError="true"
                             app:smsp_selectedItemListColor="#FF5252"
+                            app:smsp_showDropdownHint="true"
                             app:smsp_underlineColor="@color/white" />
-<!--
-                        <Spinner
-                            android:id="@+id/spinnerDiagnosticsSubCategoryGen"
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp">
+                        <!--
+                                                <Spinner
+                                                    android:id="@+id/spinnerDiagnosticsSubCategoryGen"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="35dp">
 
-                        </Spinner>-->
+                                                </Spinner>-->
 
                     </LinearLayout>
                 </LinearLayout>
@@ -661,9 +663,9 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="@dimen/_25sdp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/top_curve_heading"
                         android:gravity="center"
                         android:orientation="horizontal">
@@ -677,7 +679,7 @@
                             android:gravity="center_vertical"
                             android:text="Sub Category Name"
                             android:textColor="@color/white"
-                            android:textSize="11sp" />
+                            android:textSize="@dimen/_10sdp" />
 
 
                     </LinearLayout>
@@ -686,7 +688,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvrecyclerViewSucCat"
                         android:layout_width="match_parent"
-                        android:layout_height="90dp"
+                        android:layout_height="@dimen/_70sdp"
                         android:layout_weight="1"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -698,16 +700,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Doctors note / Diagnosis Text Box"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -715,20 +717,20 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:orientation="horizontal">
 
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtDoctorsNote"
                         android:layout_width="match_parent"
-                        android:layout_height="65dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:gravity="start"
                         android:inputType="textMultiLine"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_10sdp">
 
                     </androidx.appcompat.widget.AppCompatEditText>
 
@@ -740,16 +742,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lab Investigation"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/_12sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -759,16 +761,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lab Investigation Main Category"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -776,7 +778,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -784,15 +786,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/corner_liner">
+
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/spinnerLAb"
                             android:layout_width="match_parent"
-                            android:text="Select Lab Test"
+                            android:layout_height="@dimen/_30sdp"
+                            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                            android:drawablePadding="@dimen/_15sdp"
                             android:gravity="center_vertical"
                             android:paddingStart="@dimen/_10sdp"
-                            android:drawablePadding="@dimen/_15sdp"
-                            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
-                            android:layout_height="35dp">
+                            android:text="Select Lab Test">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
@@ -820,14 +823,14 @@
                                                     app:smsp_underlineColor="@color/white" />
                         -->
 
-<!--
-                        <Spinner
-                            android:id="@+id/spinnerLAb"
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp">
+                        <!--
+                                                <Spinner
+                                                    android:id="@+id/spinnerLAb"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="35dp">
 
-                        </Spinner>
--->
+                                                </Spinner>
+                        -->
 
                     </LinearLayout>
                 </LinearLayout>
@@ -904,9 +907,9 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
+                        android:layout_height="@dimen/_25sdp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/top_curve_heading"
                         android:gravity="center"
                         android:orientation="horizontal">
@@ -920,7 +923,7 @@
                             android:gravity="center_vertical"
                             android:text="Lab Test Name"
                             android:textColor="@color/white"
-                            android:textSize="11sp" />
+                            android:textSize="@dimen/_10sdp" />
 
 
                     </LinearLayout>
@@ -929,7 +932,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvrecyclerViewLab"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="@dimen/_35sdp"
                         android:layout_weight="1"
                         android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -944,16 +947,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Follow-Up &amp; Referral Advice"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -968,7 +971,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Follow Up"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </RadioButton>
@@ -978,7 +981,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Referral Advice"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </RadioButton>
@@ -988,7 +991,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="None"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </RadioButton>
@@ -1005,16 +1008,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Referred hospital"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -1022,7 +1025,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:orientation="horizontal">
 
                         <LinearLayout
@@ -1033,7 +1036,7 @@
                             <Spinner
                                 android:id="@+id/spinnerReferralHos"
                                 android:layout_width="match_parent"
-                                android:layout_height="35dp"
+                                android:layout_height="@dimen/_30sdp"
                                 android:gravity="start"
                                 android:padding="@dimen/_5sdp">
 
@@ -1048,22 +1051,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtTypeHealthIssue"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="Type Health Issue"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:lines="1"
                         android:padding="5dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_10sdp">
 
                     </androidx.appcompat.widget.AppCompatEditText>
                 </LinearLayout>
@@ -1071,16 +1074,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Department Name"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -1088,15 +1091,15 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtTypeDepartment"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="Type Department Name"
                         android:imeOptions="actionNext"
                         android:inputType="text"
                         android:lines="1"
                         android:padding="5dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_10sdp">
 
                     </androidx.appcompat.widget.AppCompatEditText>
                 </LinearLayout>
@@ -1106,9 +1109,9 @@
                 android:id="@+id/layoutFollowUpDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical"
                 android:visibility="gone">
 
@@ -1116,7 +1119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Follow Date"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -1124,15 +1127,15 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvFollowDate"
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
-                    android:layout_marginTop="3dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:background="@drawable/corner_liner"
                     android:hint="DD/MM/YYYY"
                     android:inputType="number"
                     android:lines="1"
                     android:maxLength="12"
                     android:padding="10dp"
-                    android:textSize="12sp">
+                    android:textSize="@dimen/_10sdp">
 
                 </androidx.appcompat.widget.AppCompatTextView>
             </LinearLayout>
@@ -1140,16 +1143,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Medication and Usage Type"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/_12sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -1159,16 +1162,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Medicine"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -1176,35 +1179,36 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/corner_liner"
 
                         >
+
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/spinnerMultiSpinner"
                             android:layout_width="match_parent"
-                            android:text="Select Medicine"
+                            android:layout_height="@dimen/_30sdp"
+                            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
+                            android:drawablePadding="@dimen/_15sdp"
                             android:gravity="center_vertical"
                             android:paddingStart="@dimen/_10sdp"
-                            android:drawablePadding="@dimen/_15sdp"
-                            android:drawableEnd="@drawable/baseline_arrow_drop_down_24"
-                            android:layout_height="35dp">
+                            android:text="Select Medicine">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
-<!--
-                        <com.anurag.multiselectionspinner.MultiSpinner
-                            android:id="@+id/spinnerMultiSpinner"
-                            android:layout_width="match_parent"
-                            android:layout_height="25dp"
-                            android:layout_margin="5dp"
-                            android:hint="Select Medicine" />
--->
+                        <!--
+                                                <com.anurag.multiselectionspinner.MultiSpinner
+                                                    android:id="@+id/spinnerMultiSpinner"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="25dp"
+                                                    android:layout_margin="5dp"
+                                                    android:hint="Select Medicine" />
+                        -->
                     </LinearLayout>
                 </LinearLayout>
 
@@ -1217,8 +1221,8 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
                         android:background="@drawable/top_curve_heading"
                         android:orientation="horizontal">
 
@@ -1307,7 +1311,7 @@
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                             android:gravity="center"
+                            android:gravity="center"
                             android:text="Instruction"
                             android:textColor="@color/white"
                             android:textSize="@dimen/_7sdp" />
@@ -1316,8 +1320,7 @@
                             android:id="@+id/imgRemove"
                             android:layout_width="@dimen/_18sdp"
                             android:layout_height="@dimen/_18sdp"
-                            android:background="?actionBarItemBackground"
-                             >
+                            android:background="?actionBarItemBackground">
 
 
                         </androidx.appcompat.widget.AppCompatImageView>
@@ -1328,7 +1331,7 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rvrecyclerView"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="@dimen/_100sdp"
                         android:layout_weight="1"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -1340,16 +1343,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Note"
-                    android:textSize="12sp"
+                    android:textSize="@dimen/_10sdp"
                     android:textStyle="bold">
 
                 </androidx.appcompat.widget.AppCompatTextView>
@@ -1357,20 +1360,20 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:orientation="horizontal">
 
 
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtNote"
                         android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_height="@dimen/_50sdp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:background="@drawable/corner_liner"
                         android:imeOptions="actionDone"
                         android:inputType="textMultiLine"
                         android:padding="10dp"
-                        android:textSize="12sp">
+                        android:textSize="@dimen/_10sdp">
 
                     </androidx.appcompat.widget.AppCompatEditText>
 
@@ -1382,23 +1385,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Known of case"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_12sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -1408,13 +1411,14 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Hypertension"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -1429,7 +1433,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="No"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1439,7 +1443,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yes"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1448,12 +1452,12 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtHypertension"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
                         android:padding="10dp"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
@@ -1470,7 +1474,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Diabetes Mellitus"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -1485,7 +1489,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="No"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1495,7 +1499,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yes"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1504,12 +1508,12 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtDiabetesMellitus"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
                         android:padding="10dp"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
@@ -1526,7 +1530,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Hypothyroid"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -1541,7 +1545,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="No"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1551,7 +1555,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yes"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1560,12 +1564,12 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtHypothyroid"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
                         android:padding="10dp"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
@@ -1582,7 +1586,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Hyperthyroid"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -1597,7 +1601,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="No"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1607,7 +1611,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yes"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1616,12 +1620,12 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtHyperthyroid"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
                         android:padding="10dp"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
@@ -1638,7 +1642,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Heart Disease"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -1653,7 +1657,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="No"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1663,7 +1667,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yes"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1672,12 +1676,12 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtHeartDisease"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
                         android:padding="10dp"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
@@ -1694,7 +1698,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Any allergic to medicine"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -1709,7 +1713,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="No"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1719,7 +1723,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yes"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1728,12 +1732,12 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtAnyAllergic"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
                         android:padding="10dp"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
@@ -1750,7 +1754,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Other allergic"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:textStyle="bold">
 
                     </androidx.appcompat.widget.AppCompatTextView>
@@ -1765,7 +1769,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="No"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1775,7 +1779,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Yes"
-                            android:textSize="12sp"
+                            android:textSize="@dimen/_10sdp"
                             android:textStyle="bold">
 
                         </RadioButton>
@@ -1784,12 +1788,12 @@
                     <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/edtOtherAllergic"
                         android:layout_width="match_parent"
-                        android:layout_height="35dp"
+                        android:layout_height="@dimen/_30sdp"
                         android:background="@drawable/corner_liner"
                         android:hint="Information About It"
                         android:inputType="text"
                         android:padding="10dp"
-                        android:textSize="12sp"
+                        android:textSize="@dimen/_10sdp"
                         android:visibility="gone">
 
                     </androidx.appcompat.widget.AppCompatEditText>
@@ -1800,14 +1804,14 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSubmit"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
                 android:backgroundTint="@color/main_color"
                 android:text="Submit"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="@dimen/_10sdp"
                 app:backgroundTint="@color/main_color">
 
             </com.google.android.material.button.MaterialButton>
