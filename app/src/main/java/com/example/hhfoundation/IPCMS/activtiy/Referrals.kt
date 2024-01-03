@@ -3,6 +3,7 @@ package com.example.hhfoundation.IPCMS.activtiy
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
@@ -15,6 +16,7 @@ import com.example.hhfoundation.clinicalManagement.model.ModelNewAppoint
 import com.example.hhfoundation.databinding.ActivityReferralsBinding
 import com.example.hhfoundation.IPCMS.adapter.AdapterReferrals
 import com.example.hhfoundation.IPCMS.model.ModelRefrreals
+import com.example.hhfoundation.labReport.model.ModelUpload
 import com.example.hhfoundation.labReport.model.Prescriptiondetail
 import com.example.hhfoundation.retrofit.ApiClient
 import com.example.hhfoundation.sharedpreferences.SessionManager
@@ -27,6 +29,9 @@ class Referrals : AppCompatActivity(), AdapterReferrals.Information {
     private lateinit var mainData: ArrayList<Prescriptiondetail>
     lateinit var sessionManager: SessionManager
     var dialog: Dialog? = null
+    var countaddF=0
+    var countRF=0
+    var count=0
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -43,7 +48,7 @@ class Referrals : AppCompatActivity(), AdapterReferrals.Information {
 
             edtSearch.addTextChangedListener { str ->
                 setRecyclerViewAdapter(mainData.filter {
-                    it.doctrname!!.contains(str.toString(), ignoreCase = true)
+                    it.patientname != null && it.patientname!!.contains(str.toString(), ignoreCase = true)
                 } as ArrayList<Prescriptiondetail>)
             }
         }
@@ -203,11 +208,115 @@ class Referrals : AppCompatActivity(), AdapterReferrals.Information {
 
 
                 override fun onFailure(call: Call<ModelNewAppoint>, t: Throwable) {
-                    myToast(this@Referrals, t.message.toString())
-                    AppProgressBar.hideLoaderDialog()
+                    count++
+                    if (count <= 2) {
+                        Log.e("count", count.toString())
+                        apiCallAppointmentInfo(id)
+                    } else {
+                        myToast(this@Referrals, "Something went wrong")
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
 
                 }
 
             })
+    }
+    override fun addFav(pid: String) {
+        AppProgressBar.showLoaderDialog(this@Referrals)
+        ApiClient.apiService.addFav(
+            pid,
+        )
+            .enqueue(object : Callback<ModelUpload> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelUpload>, response: Response<ModelUpload>
+                ) {
+                    try {
+                        if (response.code() == 500) {
+                            myToast(this@Referrals, "Server Error")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.code() == 404) {
+                            myToast(this@Referrals, "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else {
+                            myToast(this@Referrals, response.body()!!.message)
+                            AppProgressBar.hideLoaderDialog()
+                            apiCallReferralsList()
+                        }
+                    } catch (e: Exception) {
+                        myToast(this@Referrals, "Something went wrong")
+                        e.printStackTrace()
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+                }
+
+
+                override fun onFailure(call: Call<ModelUpload>, t: Throwable) {
+                    countaddF++
+                    if (countaddF <= 2) {
+                        Log.e("count", countaddF.toString())
+                        addFav(pid)
+                    } else {
+                        myToast(this@Referrals, "Something went wrong")
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+
+                }
+
+            })    }
+
+    override fun removeFav(pid: String) {
+        AppProgressBar.showLoaderDialog(this@Referrals)
+        ApiClient.apiService.removeFav(
+            pid,
+        )
+            .enqueue(object : Callback<ModelUpload> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelUpload>, response: Response<ModelUpload>
+                ) {
+                    try {
+                        if (response.code() == 500) {
+                            myToast(this@Referrals, "Server Error")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.code() == 404) {
+                            myToast(this@Referrals, "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else {
+                            myToast(this@Referrals, response.body()!!.message)
+                            AppProgressBar.hideLoaderDialog()
+                            apiCallReferralsList()
+                        }
+                    } catch (e: Exception) {
+                        myToast(this@Referrals, "Something went wrong")
+                        e.printStackTrace()
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+                }
+
+
+                override fun onFailure(call: Call<ModelUpload>, t: Throwable) {
+                    countRF++
+                    if (countRF <= 2) {
+                        Log.e("count", countRF.toString())
+                        addFav(pid)
+                    } else {
+                        myToast(this@Referrals, "Something went wrong")
+                        AppProgressBar.hideLoaderDialog()
+
+                    }
+
+                }
+
+            })
+
     }
 }

@@ -12,6 +12,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.widget.addTextChangedListener
 import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.R
@@ -61,6 +62,16 @@ class ConsaltationRequest : AppCompatActivity(),AdapterAppointmentList.Informati
         apiCallDoctorList()
         binding.imgBack.setOnClickListener {
             onBackPressed()
+        }
+        try {
+            binding.edtSearch.addTextChangedListener { str ->
+                setRecyclerViewAdapter(mainData.filter {
+                    it.patientname != null && it.patientname!!.contains(str.toString(), ignoreCase = true)
+                } as ArrayList<PrescriptionList>)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+
         }
 
     }

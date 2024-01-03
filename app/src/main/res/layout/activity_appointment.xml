@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".clinicalManagement.activity.PreviousAppointment">
+    tools:context=".clinicalManagement.activity.TodaysAppointment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

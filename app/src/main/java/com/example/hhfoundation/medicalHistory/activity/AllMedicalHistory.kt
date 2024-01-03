@@ -47,7 +47,7 @@ class AllMedicalHistory : AppCompatActivity() {
         try {
             binding.edtSearch?.addTextChangedListener { str ->
                 setRecyclerViewAdapter(mainData?.filter {
-                    it?.patient_id!!.contains(str.toString(), ignoreCase = true)
+                    it.name != null && it.name!!.contains(str.toString(), ignoreCase = true)
                 } as ArrayList<Medicalhistory>)
             }
         }catch (e:Exception){

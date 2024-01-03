@@ -92,6 +92,10 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
                 if (fileChosser == "2") {
                     uploadImageGallery()
                 }
+
+                if (fileChosser == "3") {
+                    uploadImageGallery()
+                }
             }
 
         }
@@ -121,6 +125,7 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
         dialog = Dialog(this@UploadReport)
         val layoutSnapshot = view!!.findViewById<LinearLayout>(R.id.layoutSnapshot)
         val layoutGallery = view!!.findViewById<LinearLayout>(R.id.layoutGallery)
+        val layoutPDF= view!!.findViewById<LinearLayout>(R.id.layoutPDF)
         val imgClose = view!!.findViewById<ImageView>(R.id.imgClose)
 
         //      val minute = view!!.findViewById<TextView>(R.id.imgClose)
@@ -147,8 +152,13 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
 
         layoutGallery.setOnClickListener {
             fileChosser = "2"
-
             openImageChooser()
+
+        }
+
+        layoutPDF.setOnClickListener {
+            fileChosser = "3"
+            openImageChooserPDF()
 
         }
 
@@ -358,6 +368,22 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
         }
     }
 
+    private fun openImageChooserPDF() {
+        Intent(Intent.ACTION_PICK).also {
+//            it.type = "image/*"
+//            (MediaStore.ACTION_IMAGE_CAPTURE)
+//            val mimeTypes = arrayOf("image/jpeg", "image/png")
+//            it.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
+//            startActivityForResult(it, REQUEST_CODE_IMAGE)
+//
+        val pdfIntent = Intent(Intent.ACTION_GET_CONTENT)
+        pdfIntent.type = "application/pdf"
+        pdfIntent.addCategory(Intent.CATEGORY_OPENABLE)
+        startActivityForResult(pdfIntent, REQUEST_CODE_IMAGE)
+
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
@@ -371,6 +397,11 @@ class UploadReport : AppCompatActivity(), UploadRequestBody.UploadCallback {
                     dialog?.dismiss()
                     binding.ImageView.visibility = View.VISIBLE
                     binding.ImageView?.setImageURI(selectedImageUri)
+                    if (fileChosser=="3"){
+                        binding.tvNoImage.visibility = View.VISIBLE
+                        binding!!.tvNoImage.setTextColor(Color.parseColor("#FF4CAF50"))
+                        binding.tvNoImage.text= "PDF Selected"
+                    }
                 }
             }
         }

@@ -13,8 +13,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import com.anurag.multiselectionspinner.MultiSelectionSpinnerDialog
-import com.anurag.multiselectionspinner.MultiSpinner
 import com.devstune.searchablemultiselectspinner.SearchableItem
 import com.devstune.searchablemultiselectspinner.SearchableMultiSelectSpinner
 import com.devstune.searchablemultiselectspinner.SelectionCompleteListener
@@ -25,7 +23,7 @@ import com.example.hhfoundation.addPrescription.adapter.AdapterMainCat
 import com.example.hhfoundation.addPrescription.adapter.AdapterMedicineDetails
 import com.example.hhfoundation.addPrescription.adapter.AdapterSubCat
 import com.example.hhfoundation.addPrescription.model.*
-import com.example.hhfoundation.clinicalManagement.activity.PreviousAppointment
+import com.example.hhfoundation.clinicalManagement.activity.TodaysAppointment
 import com.example.hhfoundation.databinding.ActivityAddPrescriptionBinding
 import com.example.hhfoundation.labReport.model.ModelUpload
 import com.example.hhfoundation.registration.model.ModelSpinner
@@ -1206,7 +1204,7 @@ class AddPrescription : AppCompatActivity(){
 
                     } else if (response.code() == 200) {
                         myToast(this@AddPrescription, "prescription Added")
-                        startActivity(Intent(this@AddPrescription, PreviousAppointment::class.java))
+                        startActivity(Intent(this@AddPrescription, TodaysAppointment::class.java))
                         AppProgressBar.hideLoaderDialog()
                     } else {
                         myToast(this@AddPrescription, "${response.body()!!.message}")
@@ -1403,7 +1401,7 @@ class AddPrescription : AppCompatActivity(){
 
                     } else if (response.code() == 200) {
                         myToast(this@AddPrescription, "prescription Added")
-                        startActivity(Intent(this@AddPrescription, PreviousAppointment::class.java))
+                        startActivity(Intent(this@AddPrescription, TodaysAppointment::class.java))
                         AppProgressBar.hideLoaderDialog()
                     } else {
                         myToast(this@AddPrescription, "${response.body()!!.message}")

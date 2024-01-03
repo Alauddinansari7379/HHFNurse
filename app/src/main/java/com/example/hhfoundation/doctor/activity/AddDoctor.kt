@@ -17,10 +17,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.ImageUploadClass.UploadRequestBody
-import com.example.hhfoundation.Helper.currentDate
 import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.R
-import com.example.hhfoundation.clinicalManagement.activity.TodayAppointment
 import com.example.hhfoundation.clinicalManagement.model.ModelNewAppoint
 import com.example.hhfoundation.dasboard.Dashboard
 import com.example.hhfoundation.databinding.ActivityAddDoctorBinding

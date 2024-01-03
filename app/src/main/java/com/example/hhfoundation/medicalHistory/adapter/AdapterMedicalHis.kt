@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.hhfoundation.R
 import com.example.hhfoundation.medicalHistory.activity.ViewMedicalHis
 import com.example.hhfoundation.medicalHistory.model.Medicalhistory
@@ -28,26 +29,39 @@ class AdapterMedicalHis(val context: Context, val list: List<Medicalhistory>) :
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
-        //  holder.SrNo.text= "${position+1}"
-        //  holder.refrencecode.text= list[position].referenceCode
-        holder.schoolIdML.text = list[position].hospital_id
-        holder.studentIdML.text = list[position].patient_id
-        holder.studentNameML.text = list[position].patient_name
-        holder.genderML.text = list[position].sex
-        holder.dobML.text = list[position].birthdate
-        holder.bloodGML.text = list[position].bloodgroup
+        try {
 
+            //  holder.SrNo.text= "${position+1}"
+            //  holder.refrencecode.text= list[position].referenceCode
+            holder.schoolIdML.text = list[position].hospital_id
+            holder.studentIdML.text = list[position].patient_id
+            holder.studentNameML.text = list[position].patient_name
+            holder.genderML.text = list[position].sex
+            holder.dobML.text = list[position].birthdate
+            holder.bloodGML.text = list[position].bloodgroup
 
-        Picasso.get().load("https://schoolhms.thedemostore.in/" + list[position].img_url)
-            .placeholder(R.drawable.placeholder_n)
-            .error(R.drawable.error_placeholder)
-            .into(holder.imageViewML)
+            // if (list[position].img_url!=null) {
+            Glide
+                .with(context)
+                .load("https://schoolhms.thedemostore.in/" + list[position].img_url)
+                .error(R.drawable.error_placeholder)
+                .placeholder(R.drawable.placeholder_n)
+                .into(holder.imageViewML)
+            // }
 
-        holder.btnCaseML.setOnClickListener {
-            val intent = Intent(context as Activity, ViewMedicalHis::class.java)
-                .putExtra("patient_id",list[position].patient_id)
-                .putExtra("birthdate",list[position].birthdate)
-            context.startActivity(intent)
+//        Picasso.get().load("https://schoolhms.thedemostore.in/" + list[position].img_url)
+//            .placeholder(R.drawable.placeholder_n)
+//            .error(R.drawable.error_placeholder)
+//            .into(holder.imageViewML)
+
+            holder.btnCaseML.setOnClickListener {
+                val intent = Intent(context as Activity, ViewMedicalHis::class.java)
+                    .putExtra("patient_id", list[position].patient_id)
+                    .putExtra("birthdate", list[position].birthdate)
+                context.startActivity(intent)
+            }
+        }catch (e:Exception){
+            e.printStackTrace()
         }
 
     }

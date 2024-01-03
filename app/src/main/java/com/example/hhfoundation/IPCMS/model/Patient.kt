@@ -1,7 +1,6 @@
 package com.example.hhfoundation.IPCMS.model
 
 data class Patient(
-
     val aadharnumber: String,
     val add_date: String,
     val address: String,

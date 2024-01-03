@@ -274,16 +274,16 @@ class PatientConfirmation : AppCompatActivity(), UploadRequestBody.UploadCallbac
 
     private fun openImageChooser() {
         Intent(Intent.ACTION_PICK).also {
-            it.type = "image/*"
-            (MediaStore.ACTION_IMAGE_CAPTURE)
-            val mimeTypes = arrayOf("image/jpeg", "image/png")
-            it.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
-            startActivityForResult(it, REQUEST_CODE_IMAGE)
+//            it.type = "image/*"
+//            (MediaStore.ACTION_IMAGE_CAPTURE)
+//            val mimeTypes = arrayOf("image/jpeg", "image/png")
+//            it.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
+//            startActivityForResult(it, REQUEST_CODE_IMAGE)
 //
-//        val pdfIntent = Intent(Intent.ACTION_GET_CONTENT)
-//        pdfIntent.type = "application/pdf"
-//        pdfIntent.addCategory(Intent.CATEGORY_OPENABLE)
-//        startActivityForResult(pdfIntent, REQUEST_CODE_IMAGE)
+        val pdfIntent = Intent(Intent.ACTION_GET_CONTENT)
+        pdfIntent.type = "application/pdf"
+        pdfIntent.addCategory(Intent.CATEGORY_OPENABLE)
+        startActivityForResult(pdfIntent, REQUEST_CODE_IMAGE)
 
         }
     }

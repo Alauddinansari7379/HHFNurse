@@ -37,7 +37,7 @@ class DailyVitalUpdate : AppCompatActivity() {
             try {
                 edtSearch.addTextChangedListener { str ->
                     setRecyclerViewAdapter(mainData.filter {
-                        it.id!!.contains(str.toString(), ignoreCase = true)
+                        it.patientname != null && it.patientname!!.contains(str.toString(), ignoreCase = true)
                     } as ArrayList<Vitalddetail>)
                 }
             } catch (e: Exception) {

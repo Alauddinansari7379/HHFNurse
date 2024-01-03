@@ -105,7 +105,7 @@ class ViewMedicalHis : AppCompatActivity() {
                             binding.anemmla.text = r.anemoio
                             binding.bitotSpot.text = r.bitooo
                             binding.Rickets.text = r.rickss
-                            binding.Malnutrition.text = r.motrsds
+                            binding.Malnutrition.text = r.acutess
                             binding.Goitre.text = r.goitrdd
                             binding.skinss.text = r.skinss
                             binding.ottyss.text = r.ottyss

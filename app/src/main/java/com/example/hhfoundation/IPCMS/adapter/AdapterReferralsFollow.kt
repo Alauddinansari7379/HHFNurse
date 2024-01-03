@@ -11,8 +11,6 @@ import com.example.hhfoundation.IPCMS.model.ModelReferralsFollow
 
 class AdapterReferralsFollow(val context: Context, private val list: ModelReferralsFollow,) :
     RecyclerView.Adapter<AdapterReferralsFollow.MyViewHolder>() {
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         return MyViewHolder(

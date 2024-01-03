@@ -119,16 +119,16 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="3dp"
-                         android:background="@drawable/corner_liner">
+                        android:background="@drawable/corner_liner">
 
 
-                            <pl.utkala.searchablespinner.SearchableSpinner
-                                android:id="@+id/spinnerStudent"
-                                android:layout_width="match_parent"
-                                android:layout_height="45dp"
-                                android:autofillHints="sdsd"
-                                app:closeText="Close"
-                                app:dialogTitle="Select Year of Completion" />
+                        <pl.utkala.searchablespinner.SearchableSpinner
+                            android:id="@+id/spinnerStudent"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:autofillHints="sdsd"
+                            app:closeText="Close"
+                            app:dialogTitle="Select Student" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -201,13 +201,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                         android:orientation="vertical">
+                        android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
@@ -232,29 +233,30 @@
 
                         </androidx.appcompat.widget.AppCompatEditText>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
-                        android:layout_weight="1"
                         android:layout_marginEnd="20dp"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Age"
-                             android:textSize="14sp"
+                            android:textSize="14sp"
                             android:textStyle="bold">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
                         <androidx.appcompat.widget.AppCompatEditText
                             android:id="@+id/edtAge"
-                             android:layout_width="match_parent"
+                            android:layout_width="match_parent"
                             android:layout_height="35dp"
-                             android:layout_marginTop="3dp"
+                            android:layout_marginTop="3dp"
                             android:background="@drawable/corner_liner"
                             android:inputType="text"
                             android:lines="1"
@@ -584,8 +586,8 @@
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -597,7 +599,7 @@
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Prescription Image One">
+                            android:text="You can select up to 5 Prescription Images">
 
                         </androidx.appcompat.widget.AppCompatTextView>
 
@@ -647,7 +649,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
@@ -702,7 +705,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
@@ -757,7 +761,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
@@ -812,7 +817,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_20sdp"
                         android:layout_marginTop="@dimen/_10sdp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:layout_width="match_parent"
@@ -861,6 +867,56 @@
                         </androidx.appcompat.widget.LinearLayoutCompat>
 
                     </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layoutImages"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img1"
+                        android:layout_width="50dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="@dimen/_2sdp">
+
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img2"
+                        android:layout_width="50dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="@dimen/_2sdp">
+
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img3"
+                        android:layout_width="50dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="@dimen/_2sdp">
+
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img4"
+                        android:layout_width="50dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="@dimen/_2sdp">
+
+                    </androidx.appcompat.widget.AppCompatImageView>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/img5"
+                        android:layout_width="50dp"
+                        android:layout_height="70dp"
+                        android:layout_margin="@dimen/_2sdp">
+
+                    </androidx.appcompat.widget.AppCompatImageView>
                 </LinearLayout>
 
 
@@ -928,7 +984,7 @@
                             android:id="@+id/radioNoMH"
                             android:layout_width="wrap_content"
                             android:layout_height="20dp"
-                             android:text="No"
+                            android:text="No"
                             android:textSize="10sp"
                             android:textStyle="bold">
 

@@ -53,7 +53,7 @@ class StudentBonoFileld : AppCompatActivity() {
         apiCallPatientList()
         binding.edtSearch.addTextChangedListener { str ->
             setRecyclerViewAdapter(mainData.filter {
-                it.id!!.contains(str.toString(), ignoreCase = true)
+                it.name != null && it.name!!.contains(str.toString(), ignoreCase = true)
             } as ArrayList<Patient>)
         }
 

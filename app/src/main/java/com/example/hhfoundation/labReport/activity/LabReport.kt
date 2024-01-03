@@ -35,7 +35,7 @@ class LabReport : AppCompatActivity() {
             try {
                 edtSearch.addTextChangedListener { str ->
                     setRecyclerViewAdapter(mainData.filter {
-                        it.name!!.contains(str.toString(), ignoreCase = true)
+                        it.name != null && it.name!!.contains(str.toString(), ignoreCase = true)
                     } as ArrayList<Labreport>)
                 }
             } catch (e: Exception) {

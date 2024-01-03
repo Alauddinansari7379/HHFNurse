@@ -528,10 +528,10 @@ class Registration : AppCompatActivity(), UploadRequestBody.UploadCallback {
                 REQUEST_CODE_IMAGE -> {
                     selectedImageUri = data?.data
                     Log.e("data?.data", data?.data.toString())
-                    binding!!.tvNoImage.text = "Image Selected"
-                    binding!!.tvNoImage.setTextColor(Color.parseColor("#FF4CAF50"));
+//                    binding!!.tvNoImage.text = "Image Selected"
+//                    binding!!.tvNoImage.setTextColor(Color.parseColor("#FF4CAF50"));
                     //  binding.imageViewNew.visibility = View.VISIBLE
-                    //   imageView?.setImageURI(selectedImageUri)
+                    binding.Image?.setImageURI(selectedImageUri)
                 }
             }
         }

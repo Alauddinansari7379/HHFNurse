@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.widget.addTextChangedListener
 import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.IPCMS.adapter.AdapterReferralDocHIs
@@ -14,6 +15,7 @@ import com.example.hhfoundation.clinicalManagement.adapter.AdapterAppointmentLis
 import com.example.hhfoundation.clinicalManagement.model.ModelAppointList
 import com.example.hhfoundation.clinicalManagement.model.PrescriptionList
 import com.example.hhfoundation.databinding.ActivityReferralDocHisBinding
+import com.example.hhfoundation.labReport.model.Prescriptiondetail
 import com.example.hhfoundation.retrofit.ApiClient
 import com.example.hhfoundation.sharedpreferences.SessionManager
 import retrofit2.Call
@@ -26,7 +28,6 @@ class ReferralDocHis : AppCompatActivity() {
         ActivityReferralDocHisBinding.inflate(layoutInflater)
     }
     private lateinit var mainData: ArrayList<Prescription>
-
     lateinit var sessionManager: SessionManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +49,12 @@ class ReferralDocHis : AppCompatActivity() {
             imgBack.setOnClickListener {
                 onBackPressed()
             }
+            edtSearch.addTextChangedListener { str ->
+                setRecyclerViewAdapter(mainData.filter {
+                    it.p_hosp != null && it.p_hosp!!.contains(str.toString(), ignoreCase = true)
+                } as ArrayList<Prescription>)
+            }
+
         }
 
     }

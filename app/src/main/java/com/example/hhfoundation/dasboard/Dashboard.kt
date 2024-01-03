@@ -120,7 +120,7 @@ class Dashboard : AppCompatActivity() {
         }
 
         binding.cardPendingAppointmnet.setOnClickListener {
-            startActivity(Intent(this@Dashboard,TodayAppointment::class.java))
+            startActivity(Intent(this@Dashboard,PreviousAppointment::class.java))
         }
 
         binding.cardRefrrel.setOnClickListener {
@@ -128,7 +128,15 @@ class Dashboard : AppCompatActivity() {
         }
 
         binding.cardTreated.setOnClickListener {
-            startActivity(Intent(this@Dashboard,TodayAppointment::class.java))
+            startActivity(Intent(this@Dashboard,PreviousAppointment::class.java))
+        }
+
+        binding.cardPenLab.setOnClickListener {
+            startActivity(Intent(this@Dashboard,LabReport::class.java))
+        }
+        
+        binding.cardCompleteLab.setOnClickListener {
+            startActivity(Intent(this@Dashboard,LabInvestigations::class.java))
         }
 
         binding.drawerClick.setOnClickListener {
@@ -169,12 +177,12 @@ class Dashboard : AppCompatActivity() {
             }
 
             binding.includedrawar1.layoutPrevious.setOnClickListener {
-                startActivity(Intent(this, TodayAppointment::class.java))
+                startActivity(Intent(this, PreviousAppointment::class.java))
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
 
             binding.includedrawar1.todayAppointmentLayout.setOnClickListener {
-                startActivity(Intent(this, PreviousAppointment::class.java))
+                startActivity(Intent(this, TodaysAppointment::class.java))
                 drawerLayout.closeDrawer(GravityCompat.START)
             }
 

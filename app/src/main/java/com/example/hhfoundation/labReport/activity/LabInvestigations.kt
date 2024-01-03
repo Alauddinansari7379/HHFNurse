@@ -39,7 +39,7 @@ class LabInvestigations : AppCompatActivity() {
             try {
                 edtSearch.addTextChangedListener { str ->
                     setRecyclerViewAdapter(mainData.filter {
-                        it.patient!!.contains(str.toString(), ignoreCase = true)
+                        it.patient != null && it.patient!!.contains(str.toString(), ignoreCase = true)
                     } as ArrayList<Labadvidetail>)
                 }
             } catch (e: Exception) {

@@ -39,7 +39,7 @@ class TreatmentHistory : AppCompatActivity() {
 
         binding.edtSearch.addTextChangedListener { str ->
             setRecyclerViewAdapter(mainData.filter {
-                it.doctor_name.contains(str.toString(), ignoreCase = true)
+                it.doctor_name != null && it.doctor_name!!.contains(str.toString(), ignoreCase = true)
             } as ArrayList<Appointment>)
         }
 

@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.hhfoundation.R
 import com.example.hhfoundation.registration.model.Patient
 import com.example.hhfoundation.sharedpreferences.SessionManager
@@ -30,32 +31,44 @@ class AdapterPatientList(val context: Context, val list: List<Patient>) :
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        sessionManager= SessionManager(context)
 
-        //  holder.SrNo.text= "${position+1}"
-        //  holder.refrencecode.text= list[position].referenceCode
-        holder.schoolIdPL.text = list[position].hospital_id
-        holder.schoolNamePL.text = list[position].schl
-        holder.distPL.text = list[position].schl_dist
-        holder.studentIdPL.text = list[position].id
-        holder.studentNamePL.text = list[position].name
-        holder.genderPL.text = list[position].sex
-        holder.dobPL.text = list[position].birthdate
-        holder.bloodGPl.text = list[position].bloodgroup
+        try {
+            sessionManager = SessionManager(context)
 
-        Picasso.get().load("https://schoolhms.thedemostore.in/" + list[position].img_url)
-            .placeholder(R.drawable.placeholder_n)
-            .error(R.drawable.error_placeholder)
-            .into(holder.imageViewPL)
+            //  holder.SrNo.text= "${position+1}"
+            //  holder.refrencecode.text= list[position].referenceCode
+            holder.schoolIdPL.text = list[position].hospital_id
+            holder.schoolNamePL.text = list[position].schl
+            holder.distPL.text = list[position].schl_dist
+            holder.studentIdPL.text = list[position].id
+            holder.studentNamePL.text = list[position].name
+            holder.genderPL.text = list[position].sex
+            holder.dobPL.text = list[position].birthdate
+            holder.bloodGPl.text = list[position].bloodgroup
 
-        if (sessionManager.group=="Pharmacist"){
-            holder.btnAdMedicALHPL.visibility=View.GONE
-        }
-        holder.btnAdMedicALHPL.setOnClickListener {
-            val intent = Intent(context as Activity, StudentDetailsOne::class.java)
-            intent.putExtra("birthdate",list[position].birthdate)
-            studentId = list[position].id
-            context.startActivity(intent)
+            Glide
+                .with(context)
+                .load("https://schoolhms.thedemostore.in/" + list[position].img_url)
+                .error(R.drawable.error_placeholder)
+                .placeholder(R.drawable.placeholder_n)
+                .into(holder.imageViewPL)
+
+//        Picasso.get().load("https://schoolhms.thedemostore.in/" + list[position].img_url)
+//            .placeholder(R.drawable.placeholder_n)
+//            .error(R.drawable.error_placeholder)
+//            .into(holder.imageViewPL)
+
+            if (sessionManager.group == "Pharmacist") {
+                holder.btnAdMedicALHPL.visibility = View.GONE
+            }
+            holder.btnAdMedicALHPL.setOnClickListener {
+                val intent = Intent(context as Activity, StudentDetailsOne::class.java)
+                intent.putExtra("birthdate", list[position].birthdate)
+                studentId = list[position].id
+                context.startActivity(intent)
+            }
+        }catch (e:Exception){
+            e.printStackTrace()
         }
 
     }

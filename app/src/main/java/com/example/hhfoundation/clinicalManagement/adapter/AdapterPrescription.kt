@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.hhfoundation.IPCMS.adapter.AdapterFollowUp
 import com.example.hhfoundation.R
 import com.example.hhfoundation.addPrescription.AddPrescription
 import com.example.hhfoundation.labReport.activity.ViewLabReport
@@ -18,7 +20,11 @@ import com.example.hhfoundation.labReport.model.Prescriptiondetail
 import com.example.hhfoundation.sharedpreferences.SessionManager
 
 
-class AdapterPrescription(val context: Context, val list: List<Prescriptiondetail>) :
+class AdapterPrescription(
+    val context: Context,
+    val list: List<Prescriptiondetail>,
+    val favourite: Favourite
+) :
     RecyclerView.Adapter<AdapterPrescription.MyViewHolder>() {
     lateinit var sessionManager: SessionManager
 
@@ -38,7 +44,9 @@ class AdapterPrescription(val context: Context, val list: List<Prescriptiondetai
         //  holder.refrencecode.text= list[position].referenceCode
         holder.preId.text = list[position].pid
         holder.date.text = list[position].follow_date
+
         holder.patientName.text = list[position].patientname
+
         holder.patientIdPre.text = list[position].patientid
         holder.doctorPre.text = list[position].doctrname
 
@@ -47,8 +55,22 @@ class AdapterPrescription(val context: Context, val list: List<Prescriptiondetai
 //            .placeholder(R.drawable.placeholder_n)
 //            .error(R.drawable.error_placeholder)
 //            .into(holder.imageViewPL)
+        if (list[position].favourite.toString() != "null") {
+            holder.imHeartRed.visibility = View.VISIBLE
+            holder.imHeart.visibility = View.GONE
+        }
+
+        if (list[position].favourite.toString() == "null") {
+            holder.imHeart.visibility = View.VISIBLE
+            holder.imHeartRed.visibility = View.GONE
+        }
+
         if (sessionManager.group == "Doctor") {
             holder.btnEditPre.visibility = View.VISIBLE
+        }
+        if (sessionManager.group != "Doctor") {
+            holder.imHeart.visibility = View.GONE
+            holder.imHeartRed.visibility = View.GONE
         }
 
         holder.btnEditPre.setOnClickListener {
@@ -76,8 +98,16 @@ class AdapterPrescription(val context: Context, val list: List<Prescriptiondetai
 //            context.startActivity(intent)
 
             val httpIntent = Intent(Intent.ACTION_VIEW)
-            httpIntent.data = Uri.parse("https://schoolhms.thedemostore.in/auth/prespdf?id=${list[position].pid}")
+            httpIntent.data =
+                Uri.parse("https://schoolhms.thedemostore.in/auth/prespdf?id=${list[position].pid}")
             context.startActivity(httpIntent)
+        }
+        holder.imHeart.setOnClickListener {
+            favourite.addFav(list[position].pid)
+        }
+
+        holder.imHeartRed.setOnClickListener {
+            favourite.removeFav(list[position].pid)
         }
 
     }
@@ -88,7 +118,6 @@ class AdapterPrescription(val context: Context, val list: List<Prescriptiondetai
     }
 
 
-
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val preId: TextView = itemView.findViewById(R.id.preIdPre)
         val date: TextView = itemView.findViewById(R.id.datePre)
@@ -97,6 +126,13 @@ class AdapterPrescription(val context: Context, val list: List<Prescriptiondetai
         val doctorPre: TextView = itemView.findViewById(R.id.doctorPre)
         val btnViewPre: Button = itemView.findViewById(R.id.btnViewPre)
         val btnEditPre: Button = itemView.findViewById(R.id.btnEditPre)
+        val imHeart: ImageView = itemView.findViewById(R.id.imHeart)
+        val imHeartRed: ImageView = itemView.findViewById(R.id.imHeartRed)
+
+    }
+    interface Favourite {
+        fun addFav(pid: String)
+        fun removeFav(pid: String)
 
     }
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".clinicalManagement.activity.TodayAppointment">
+    tools:context=".clinicalManagement.activity.PreviousAppointment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="8dp"
         android:layout_marginRight="10dp">
 
@@ -72,7 +72,8 @@
 
         </EditText>
 
-    </LinearLayout>
+
+     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

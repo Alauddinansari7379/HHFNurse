@@ -5,6 +5,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Handler
+ import android.util.Log
  import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
  import com.example.hhfoundation.databinding.ActivityViewLabReportBinding
@@ -33,6 +34,8 @@ class ViewLabReport : AppCompatActivity() {
         prescription = intent.getStringExtra("prescription").toString()
         pid = intent.getStringExtra("pid").toString()
 
+        Log.e("repoedata",reportData)
+
 
         if (prescription=="1") {
 //            binding.web.loadUrl("https://schoolhms.thedemostore.in/auth/prespdf?id=$pid")
@@ -52,9 +55,20 @@ class ViewLabReport : AppCompatActivity() {
                 )
             )
         }
-        else {
+        else if (reportData.contains("pdf")){
+            startActivity(
+                // Use 'launchPdfFromPath' if you want to use assets file (enable "fromAssets" flag) / internal directory
+                com.rajat.pdfviewer.PdfViewerActivity.launchPdfFromUrl(           //PdfViewerActivity.Companion.launchPdfFromUrl(..   :: incase of JAVA
+                    this@ViewLabReport,
+                    "https://schoolhms.thedemostore.in/$reportData",                                // PDF URL in String format
+                    "Report",                        // PDF Name/Title in String format
+                    "pdf directory to save",                  // If nothing specific, Put "" it will save to Downloads
+                    enableDownload = false                    // This param is true by defualt.
+                )
+            )
+        }else{
             val url = "https://schoolhms.thedemostore.in/$reportData"
-             FetchImage(url).start()
+            FetchImage(url).start()
         }
     }
 

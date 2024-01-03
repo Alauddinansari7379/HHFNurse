@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hhfoundation.R
@@ -113,6 +114,20 @@ class AdapterReferrals(
 //            holder.confirm.visibility = View.GONE
 //        }
 
+        if (list[position].favourite.toString() != "null") {
+            holder.imHeartRed.visibility = View.VISIBLE
+            holder.imHeart.visibility = View.GONE
+        }
+
+        if (list[position].favourite.toString() == "null") {
+            holder.imHeart.visibility = View.VISIBLE
+            holder.imHeartRed.visibility = View.GONE
+        }
+        if (sessionManager.group!="Receptionist"){
+            holder.imHeart.visibility = View.GONE
+            holder.imHeartRed.visibility = View.GONE
+        }
+
         holder.addVitals.setOnClickListener {
             val intent = Intent(context as Activity, AddVital::class.java)
                 .putExtra("pid", list[position].pid)
@@ -190,6 +205,13 @@ class AdapterReferrals(
 //            studentId=list[position].id
 //             context.startActivity(intent)
         }
+        holder.imHeart.setOnClickListener {
+            info.addFav(list[position].pid)
+        }
+
+        holder.imHeartRed.setOnClickListener {
+            info.removeFav(list[position].pid)
+        }
 
     }
 
@@ -213,10 +235,14 @@ class AdapterReferrals(
         val confirm: Button = itemView.findViewById(R.id.Confirm)
         val lAMA: Button = itemView.findViewById(R.id.LAMA)
         val addExpired: Button = itemView.findViewById(R.id.AddExpired)
+        val imHeart: ImageView = itemView.findViewById(R.id.imHeart)
+        val imHeartRed: ImageView = itemView.findViewById(R.id.imHeartRed)
 
     }
 
     interface Information {
         fun info(id: String)
+        fun addFav(pid: String)
+        fun removeFav(pid: String)
     }
 }

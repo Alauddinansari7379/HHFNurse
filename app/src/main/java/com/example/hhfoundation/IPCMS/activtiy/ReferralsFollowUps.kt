@@ -3,6 +3,7 @@ package com.example.hhfoundation.IPCMS.activtiy
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.widget.addTextChangedListener
 import com.example.hhfoundation.Helper.AppProgressBar
 import com.example.hhfoundation.Helper.myToast
 import com.example.hhfoundation.databinding.ActivityReferralsFollowUpsBinding
@@ -98,11 +99,11 @@ class ReferralsFollowUps : AppCompatActivity() {
         })
     }
 
-//    private fun setRecyclerViewAdapter(data:ArrayList<PrescriptionX>) {
-//        binding.recyclerView.apply {
-//            adapter = AdapterReferralsFollow(this@ReferralsFollowUps,data)
-//            AppProgressBar.hideLoaderDialog()
-//
-//        }
- //   }
+    private fun setRecyclerViewAdapter(data: ArrayList<PrescriptionX>) {
+        binding.recyclerView.apply {
+            adapter = AdapterReferralsFollow(this@ReferralsFollowUps,data as ModelReferralsFollow)
+            AppProgressBar.hideLoaderDialog()
+
+        }
+    }
 }

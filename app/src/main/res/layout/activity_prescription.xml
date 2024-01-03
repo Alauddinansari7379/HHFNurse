@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@drawable/corner"
-            android:hint="Search By Doctor Name"
+            android:hint="Search By Patient Name"
             android:inputType="text"
             android:padding="10dp"
             android:imeOptions="actionDone"

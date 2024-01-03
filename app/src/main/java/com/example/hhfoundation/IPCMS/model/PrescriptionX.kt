@@ -17,5 +17,7 @@ data class PrescriptionX(
     val p_id: String,
     val referfollowd: String,
     val review_date: Any,
-    val status: String
+    val status: String,
+     val patient: ArrayList<Patient>,
+     val doctor: ArrayList<Doctor>,
 )

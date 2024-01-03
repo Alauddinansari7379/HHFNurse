@@ -141,13 +141,14 @@ interface ApiInterface {
         @Query("complain") complain: String,
         @Query("hosp") hosp: String,
         @Query("medicine") medicine: String,
-        @Part img_url1: MultipartBody.Part? = null,
-        @Part img_url2: MultipartBody.Part? = null,
-        @Part img_url3: MultipartBody.Part? = null,
-        @Part img_url4: MultipartBody.Part? = null,
-        @Part img_url5: MultipartBody.Part? = null,
+//        @Part img_url1: MultipartBody.Part?,
+//        @Part img_url2: MultipartBody.Part?,
+//        @Part img_url3: MultipartBody.Part?,
+//        @Part img_url4: MultipartBody.Part?,
+//        @Part img_url5: MultipartBody.Part?,
     ): Call<ModelNewAppoint>
 
+    @Multipart
     @POST("addAppoitment")
     fun addAppointmentNew(
         @Query("nurse_id") nurse_id: String,
@@ -181,11 +182,11 @@ interface ApiInterface {
         @Query("complain") complain: String,
         @Query("hosp") hosp: String,
         @Query("medicine") medicine: String,
-//        @Part img_url: MultipartBody.Part? = null,
-//        @Part img_url2: MultipartBody.Part? = null,
-//        @Part img_url3: MultipartBody.Part? = null,
-//        @Part img_url4: MultipartBody.Part? = null,
-//        @Part img_url5: MultipartBody.Part? = null,
+        @Part img_url: MultipartBody.Part? = null,
+        @Part img_url2: MultipartBody.Part? = null,
+        @Part img_url3: MultipartBody.Part? = null,
+        @Part img_url4: MultipartBody.Part? = null,
+        @Part img_url5: MultipartBody.Part? = null,
     ): Call<ModelNewAppoint>
 
 
@@ -713,7 +714,7 @@ interface ApiInterface {
         @Part img_url17: MultipartBody.Part?
     ): Call<ModelUpload>
 
-     @POST("addNewdis")
+    @POST("addNewdis")
     fun addNewdisNew(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
@@ -731,9 +732,9 @@ interface ApiInterface {
         @Query("referfollowd") referfollowd: String,
         @Query("review_date") review_date: String,
 
-    ): Call<ModelUpload>
+        ): Call<ModelUpload>
 
-     @POST("addConfirmation")
+    @POST("addConfirmation")
     fun addConfirmationNew(
         @Query("nurse_id") nurse_id: String,
         @Query("idToken") idToken: String,
@@ -745,8 +746,17 @@ interface ApiInterface {
         @Query("FollowUps") FollowUps: String,
         @Query("appotype") appotype: String,
         @Query("Review_date") Review_date: String,
-     ): Call<ModelUpload>
+    ): Call<ModelUpload>
 
+    @POST("AddFavpresc")
+    fun addFav(
+        @Query("pid") nurse_id: String,
+    ): Call<ModelUpload>
+
+    @POST("RemovFavpresc")
+    fun removeFav(
+        @Query("pid") nurse_id: String,
+    ): Call<ModelUpload>
 
 //        @Part img_url: MultipartBody.Part?,
 //    @POST("getProfile")

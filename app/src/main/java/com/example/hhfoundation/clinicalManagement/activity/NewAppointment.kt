@@ -12,7 +12,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.provider.OpenableColumns
 import android.util.Log
 import android.view.View
@@ -29,7 +28,10 @@ import com.example.hhfoundation.registration.model.ModelSpinner
 import com.example.hhfoundation.registration.model.Patient
 import com.example.hhfoundation.retrofit.ApiClient
 import com.example.hhfoundation.sharedpreferences.SessionManager
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.create
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,7 +41,6 @@ import java.io.FileOutputStream
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
 
 class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
@@ -70,7 +71,15 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
     var calssName = ""
     private lateinit var sessionManager: SessionManager
     private var selectedImageUri: Uri? = null
+
+    private var parts1: MultipartBody.Part? = null
+    private var parts2: MultipartBody.Part? = null
+    private var parts3: MultipartBody.Part? = null
+    private var parts4: MultipartBody.Part? = null
+    private var parts5: MultipartBody.Part? = null
+
     // var degreeList = ModelPatientList()
+    var imageList = kotlin.collections.ArrayList<Uri>()
 
 
     private lateinit var binding: ActivityNewAppointmentBinding
@@ -79,8 +88,11 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
         binding = ActivityNewAppointmentBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         sessionManager = SessionManager(this@NewAppointment)
         apiCallPatientSpinner()
+
+        sickDate = currentDate
 
 
         with(binding) {
@@ -88,23 +100,39 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
             choseFile1.setOnClickListener {
                 choseFile = "1"
                 openImageChooser()
+
+
+//                val intent = Intent(this@NewAppointment, AlbumSelectActivity::class.java)
+////set limit on number of images that can be selected, default is 10
+////set limit on number of images that can be selected, default is 10
+//                intent.putExtra(Constants.INTENT_EXTRA_LIMIT, 5)
+//                startActivityForResult(intent, Constants.REQUEST_CODE)
+//                MultiImagePicker.with(this@NewAppointment) // `this` refers to activity or fragment
+//                    .setSelectionLimit(10)  // The number of max image selection you want from user at a time, MAX is 30
+//                    .open()
             }
-            choseFile2.setOnClickListener {
-                choseFile = "2"
-                openImageChooser()
-            }
-            choseFile3.setOnClickListener {
-                choseFile = "3"
-                openImageChooser()
-            }
-            choseFile4.setOnClickListener {
-                choseFile = "4"
-                openImageChooser()
-            }
-            choseFile5.setOnClickListener {
-                choseFile = "5"
-                openImageChooser()
-            }
+            // This will open image selection activity to select images
+
+            /*      choseFile1.setOnClickListener {
+                      choseFile = "1"
+                      openImageChooser()
+                  }
+                  choseFile2.setOnClickListener {
+                      choseFile = "2"
+                      openImageChooser()
+                  }
+                  choseFile3.setOnClickListener {
+                      choseFile = "3"
+                      openImageChooser()
+                  }
+                  choseFile4.setOnClickListener {
+                      choseFile = "4"
+                      openImageChooser()
+                  }
+                  choseFile5.setOnClickListener {
+                      choseFile = "5"
+                      openImageChooser()
+                  }*/
             binding.btnSubmit.setOnClickListener {
                 if (radioYesMH.isChecked) {
                     medicalHistory = "Yes"
@@ -145,10 +173,10 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
                     edtRandomBloodS.requestFocus()
                     return@setOnClickListener
                 }
-                if (selectedImageUri==null){
+                if (selectedImageUri == null) {
                     apiCallNewAppointmentNew()
 
-                }else{
+                } else {
                     apiCallNewAppointment()
 
                 }
@@ -314,13 +342,28 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
 //            return
 //        }
         AppProgressBar.showLoaderDialog(this)
-        val parcelFileDescriptor = contentResolver.openFileDescriptor(selectedImageUri!!, "r", null)
 
-        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
-        val file = File(cacheDir, contentResolver.getFileName(selectedImageUri!!))
-        val outputStream = FileOutputStream(file)
-        inputStream.copyTo(outputStream)
-        val body = UploadRequestBody(file, "image", this)
+        val parts: MutableList<MultipartBody.Part> = ArrayList()
+
+        for ((index, imageUri) in imageList.withIndex()) {
+            val file = File(imageUri.path)
+
+            // Convert Uri to File
+            val requestFile: RequestBody = create("image/*".toMediaTypeOrNull(), file)
+
+            // Create MultipartBody.Part using file request body
+            val body: MultipartBody.Part =
+                MultipartBody.Part.createFormData("img_url$index", file.name, requestFile)
+
+            parts.add(body)
+        }
+        Log.e("part", parts.toString())
+//        val parcelFileDescriptor = contentResolver.openFileDescriptor(selectedImageUri!!, "r", null)
+//        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
+//        val file = File(cacheDir, contentResolver.getFileName(selectedImageUri!!))
+//        val outputStream = FileOutputStream(file)
+//        inputStream.copyTo(outputStream)
+//        val body = UploadRequestBody(file, "image", this)
 
         //Pending Image Uploading
         ApiClient.apiService.addAppointment(
@@ -331,7 +374,7 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
             patientId,
             sickDate,
             binding.edtRandomBloodS.text.toString().trim(),
-            "",
+            binding.edtSaturation.text.toString().trim(),
             "",
             medicalHistory,
             "",
@@ -355,12 +398,12 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
             binding.edtPresentCom.text.toString().trim(),
             "",
             "",
-            MultipartBody.Part.createFormData("img_url1", file.name, body),
-            MultipartBody.Part.createFormData("img_url2", file.name, body),
-            MultipartBody.Part.createFormData("img_url3", file.name, body),
-            MultipartBody.Part.createFormData("img_url4", file.name, body),
-            MultipartBody.Part.createFormData("img_url5", file.name, body),
-         ).enqueue(object : Callback<ModelNewAppoint> {
+
+//            MultipartBody.Part.createFormData("img_url2", file.name, body),
+//            MultipartBody.Part.createFormData("img_url3", file.name, body),
+//            MultipartBody.Part.createFormData("img_url4", file.name, body),
+//            MultipartBody.Part.createFormData("img_url5", file.name, body),
+        ).enqueue(object : Callback<ModelNewAppoint> {
             @SuppressLint("LogNotTimber")
             override fun onResponse(
                 call: Call<ModelNewAppoint>, response: Response<ModelNewAppoint>
@@ -399,14 +442,80 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
 
         })
     }
+
     private fun apiCallNewAppointmentNew() {
 //        if (selectedImageUri == null) {
 //            myToast(this@NewAppointment, "Select an Image First")
 //            return
 //        }
         AppProgressBar.showLoaderDialog(this)
+        val parts: MutableList<MultipartBody.Part> = ArrayList()
+
+
+        Log.e("imageList", imageList.toString())
+
+        for ((index, imageUri) in imageList.withIndex()) {
+            //val file = File(imageUri.path)
+            val parcelFileDescriptor = contentResolver.openFileDescriptor(imageUri!!, "r", null)
+            val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
+            val file = File(cacheDir, contentResolver.getFileName(imageUri!!))
+            val outputStream = FileOutputStream(file)
+            inputStream.copyTo(outputStream)
+            //val body = UploadRequestBody(file, "image", this)
+            // Convert Uri to File
+            val requestFile: RequestBody = create("image/*".toMediaTypeOrNull(), file)
+
+            // Create MultipartBody.Part using file request body
+
+
+            when (index) {
+                0 -> {
+                    parts1 = MultipartBody.Part.createFormData("img_url", file.name, requestFile)
+                    // parts.add(body)
+                    Log.e("part0", parts.toString())
+
+                }
+                1 -> {
+                    parts2 = MultipartBody.Part.createFormData("img_url2", file.name, requestFile)
+
+//                    val body: MultipartBody.Part =
+//                        MultipartBody.Part.createFormData("img_url2", file.name, requestFile)
+//                    parts.add(body)
+//                    Log.e("part1", parts.toString())
+                }
+                2 -> {
+                    parts3 = MultipartBody.Part.createFormData("img_url3", file.name, requestFile)
+//                    val body: MultipartBody.Part =
+//                        MultipartBody.Part.createFormData("img_url3", file.name, requestFile)
+//                    parts.add(body)
+//                    Log.e("part2", parts.toString())
+                }
+                3 -> {
+                    parts4 = MultipartBody.Part.createFormData("img_url4", file.name, requestFile)
+//                    val body: MultipartBody.Part =
+//                        MultipartBody.Part.createFormData("img_url4", file.name, requestFile)
+//                    parts.add(body)
+//                    Log.e("part3", parts.toString())
+                }
+                4 -> {
+                    parts5 = MultipartBody.Part.createFormData("img_url5", file.name, requestFile)
+//                    val body: MultipartBody.Part =
+//                        MultipartBody.Part.createFormData("img_url5", file.name, requestFile)
+//                    parts.add(body)
+//                    Log.e("part4", parts.toString())
+                }
+                else -> {
+
+                }
+
+
+            }
+
+
+        }
+        Log.e("partALL", parts.toString())
+
 //        val parcelFileDescriptor = contentResolver.openFileDescriptor(selectedImageUri!!, "r", null)
-//
 //        val inputStream = FileInputStream(parcelFileDescriptor!!.fileDescriptor)
 //        val file = File(cacheDir, contentResolver.getFileName(selectedImageUri!!))
 //        val outputStream = FileOutputStream(file)
@@ -414,6 +523,8 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
 //        val body = UploadRequestBody(file, "image", this)
 
         //Pending Image Uploading
+
+
         ApiClient.apiService.addAppointmentNew(
             sessionManager.ionId.toString(),
             sessionManager.idToken.toString(),
@@ -422,7 +533,7 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
             patientId,
             sickDate,
             binding.edtRandomBloodS.text.toString().trim(),
-            "",
+            binding.edtSaturation.text.toString().trim(),
             "",
             medicalHistory,
             "",
@@ -446,95 +557,175 @@ class NewAppointment : AppCompatActivity(), UploadRequestBody.UploadCallback {
             binding.edtPresentCom.text.toString().trim(),
             "",
             "",
-//            MultipartBody.Part.createFormData("img_url", file.name, body),
-//            MultipartBody.Part.createFormData("img_url", file.name, body),
-//            MultipartBody.Part.createFormData("img_url", file.name, body),
-//            MultipartBody.Part.createFormData("img_url", file.name, body),
-        ).enqueue(object : Callback<ModelNewAppoint> {
-            @SuppressLint("LogNotTimber")
-            override fun onResponse(
-                call: Call<ModelNewAppoint>, response: Response<ModelNewAppoint>
-            ) {
-                try {
-                    if (response.code() == 500) {
-                        myToast(this@NewAppointment, "Server Error")
-                        AppProgressBar.hideLoaderDialog()
+            parts1,
+            parts2,
+            parts3,
+            parts4,
+            parts5,
 
-                    } else if (response.code() == 404) {
+//            MultipartBody.Part.createFormData("img_url", file.name, body),
+//            MultipartBody.Part.createFormData("img_url", file.name, body),
+//            MultipartBody.Part.createFormData("img_url", file.name, body),
+//            MultipartBody.Part.createFormData("img_url", file.name, body),
+
+        ).enqueue(
+            object : Callback<ModelNewAppoint> {
+                @SuppressLint("LogNotTimber")
+                override fun onResponse(
+                    call: Call<ModelNewAppoint>, response: Response<ModelNewAppoint>
+                ) {
+                    try {
+                        if (response.code() == 500) {
+                            myToast(this@NewAppointment, "Server Error")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.code() == 404) {
+                            myToast(this@NewAppointment, "Something went wrong")
+                            AppProgressBar.hideLoaderDialog()
+
+                        } else if (response.body()!!.message.contentEquals("successful")) {
+                            myToast(this@NewAppointment, "${response.body()!!.message}")
+                            AppProgressBar.hideLoaderDialog()
+                            startActivity(
+                                Intent(
+                                    this@NewAppointment,
+                                    PreviousAppointment::class.java
+                                )
+                            )
+                        } else {
+                            myToast(this@NewAppointment, "${response.body()!!.message}")
+                            AppProgressBar.hideLoaderDialog()
+                        }
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                         myToast(this@NewAppointment, "Something went wrong")
-                        AppProgressBar.hideLoaderDialog()
-
-                    } else if (response.body()!!.message.contentEquals("successful")) {
-                        myToast(this@NewAppointment, "${response.body()!!.message}")
-                        AppProgressBar.hideLoaderDialog()
-                        startActivity(Intent(this@NewAppointment, TodayAppointment::class.java))
-                    } else {
-                        myToast(this@NewAppointment, "${response.body()!!.message}")
                         AppProgressBar.hideLoaderDialog()
                     }
 
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    myToast(this@NewAppointment, "Something went wrong")
-                    AppProgressBar.hideLoaderDialog()
                 }
-            }
 
-            override fun onFailure(call: Call<ModelNewAppoint>, t: Throwable) {
-                apiCallNewAppointmentNew()
-                //  myToast(this@ProfileActivity, "Something went wrong")
-                AppProgressBar.hideLoaderDialog()
+                override fun onFailure(call: Call<ModelNewAppoint>, t: Throwable) {
+                    //  apiCallNewAppointmentNew()
+                    myToast(this@NewAppointment, t.message.toString())
+                    AppProgressBar.hideLoaderDialog()
 
-            }
+                }
 
-        })
+            })
+
     }
 
     private fun openImageChooser() {
-        Intent(Intent.ACTION_PICK).also {
-            it.type = "image/*"
-            (MediaStore.ACTION_IMAGE_CAPTURE)
-            val mimeTypes = arrayOf("image/jpeg", "image/png")
-            it.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes)
-            startActivityForResult(it, REQUEST_CODE_IMAGE)
+
+        var intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+        intent.addCategory(Intent.CATEGORY_OPENABLE)
+        intent.type = "image/*"
+        startActivityForResult(intent, REQUEST_CODE_IMAGE);
+
+//        Intent(Intent.ACTION_PICK).also {
+//            it.type = "image/*"
+//            (MediaStore.ACTION_IMAGE_CAPTURE)
+//            val mimeTypes = arrayOf("image/jpeg", "image/png")
+//            it.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, mimeTypes)
+//            startActivityForResult(it, REQUEST_CODE_IMAGE)
 //
 //        val pdfIntent = Intent(Intent.ACTION_GET_CONTENT)
 //        pdfIntent.type = "application/pdf"
 //        pdfIntent.addCategory(Intent.CATEGORY_OPENABLE)
 //        startActivityForResult(pdfIntent, REQUEST_CODE_IMAGE)
 
-        }
+        //   }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
+
                 REQUEST_CODE_IMAGE -> {
                     selectedImageUri = data?.data
                     Log.e("data?.data", data?.data.toString())
+                    // if multiple images are selected
+                    if (data?.clipData != null) {
+                        selectedImageUri = data?.data
+                        var count = data.clipData?.itemCount
+
+                        for (i in 0 until count!!) {
+                            var imageUri: Uri = data.clipData?.getItemAt(i)!!.uri
+                            imageList.add(imageUri)
+                            Log.e("Mul?.data", imageList.toString())
+                            binding.layoutImages.visibility = View.VISIBLE
+
+                        }
+                        for ((index, value) in imageList.withIndex()) {
+                             when (index) {
+                                0 -> {
+                                    binding.img1.setImageURI(value)
+                                }
+                                1 -> {
+                                    binding.img2.setImageURI(value)
+                                }
+                                2 -> {
+                                    binding.img3.setImageURI(value)
+                                }
+                                3 -> {
+                                    binding.img4.setImageURI(value)
+                                }
+                                4 -> {
+                                    binding.img5.setImageURI(value)
+                                }
+                            }
+                        }
+
+                        //     iv_image.setImageURI(imageUri) Here you can assign your Image URI to the ImageViews
+
+                    } else if (data?.data != null) {
+                        selectedImageUri = data?.data
+                        // if single image is selected
+                        binding.layoutImages.visibility = View.VISIBLE
+                        binding.img1.setImageURI(selectedImageUri)
+                        var imageUri: Uri = data.data!!
+                        Log.e("Sing?.data", imageUri.toString())
+
+                        //   iv_image.setImageURI(imageUri) Here you can assign the picked image uri to your imageview
+
+                    }
+
+
                     when (choseFile) {
                         "1" -> {
                             binding!!.NoFileChosen1.setTextColor(Color.parseColor("#FF4CAF50"))
                             binding!!.NoFileChosen1.text = "Image Selected"
-                        }
-                        "2" -> {
-                            binding!!.NoFileChosen2.setTextColor(Color.parseColor("#FF4CAF50"))
-                            binding!!.NoFileChosen2.text = "Image Selected"
+                            if (imageList.size > 5) myToast(
+                                this@NewAppointment,
+                                "You can select only 5 images"
+                            )
+                            binding.layoutImages.visibility = View.VISIBLE
+                            for (i in imageList) {
+                                binding.img1.setImageURI(i)
+
+                            }
 
                         }
-                        "3" -> {
-                            binding!!.NoFileChosen3.setTextColor(Color.parseColor("#FF4CAF50"))
-                            binding!!.NoFileChosen3.text = "Image Selected"
-                        }
-                        "4" -> {
-                            binding!!.NoFileChosen4.setTextColor(Color.parseColor("#FF4CAF50"))
-                            binding!!.NoFileChosen4.text = "Image Selected"
-                        }
-                        "5" -> {
-                            binding!!.NoFileChosen5.setTextColor(Color.parseColor("#FF4CAF50"))
-                            binding!!.NoFileChosen5.text = "Image Selected"
-                        }
+//                        "2" -> {
+//                            binding!!.NoFileChosen2.setTextColor(Color.parseColor("#FF4CAF50"))
+//                            binding!!.NoFileChosen2.text = "Image Selected"
+//
+//                        }
+//                        "3" -> {
+//                            binding!!.NoFileChosen3.setTextColor(Color.parseColor("#FF4CAF50"))
+//                            binding!!.NoFileChosen3.text = "Image Selected"
+//                        }
+//                        "4" -> {
+//                            binding!!.NoFileChosen4.setTextColor(Color.parseColor("#FF4CAF50"))
+//                            binding!!.NoFileChosen4.text = "Image Selected"
+//                        }
+//                        "5" -> {
+//                            binding!!.NoFileChosen5.setTextColor(Color.parseColor("#FF4CAF50"))
+//                            binding!!.NoFileChosen5.text = "Image Selected"
+//                        }
                     }
 
                     //  binding.imageViewNew.visibility = View.VISIBLE
